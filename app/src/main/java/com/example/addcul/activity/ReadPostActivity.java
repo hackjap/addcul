@@ -49,6 +49,9 @@ public class ReadPostActivity extends AppCompatActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
 
 
+
+
+
         util = new Util(this);
         postList = new ArrayList<>();
         mainAdapter = new MainAdapter(ReadPostActivity.this,postList);
@@ -64,6 +67,8 @@ public class ReadPostActivity extends AppCompatActivity {
         Log.e("어뎁터","어뎁터");
 
     }
+
+
     protected void onResume() {
         super.onResume();
         postUpdate();
@@ -97,6 +102,7 @@ public class ReadPostActivity extends AppCompatActivity {
         public void onModify(int position) {
             myStartActivity(WritePostActivity.class, postList.get(position));
         }
+
     };
 
     View.OnClickListener onClickListener = new View.OnClickListener() {

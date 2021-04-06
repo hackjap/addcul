@@ -1,4 +1,4 @@
-package com.example.addcul;
+package com.example.addcul.activity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,9 +8,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.addcul.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class PasswordResetActivity extends AppCompatActivity {
 
@@ -23,8 +25,11 @@ public class PasswordResetActivity extends AppCompatActivity {
         setContentView(R.layout.activity_password_reset);
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
-
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         findViewById(R.id.sendButton).setOnClickListener(onClickListener);
+
+
+
 
     }
 

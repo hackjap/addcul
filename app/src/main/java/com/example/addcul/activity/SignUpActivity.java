@@ -39,7 +39,6 @@ public class SignUpActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         findViewById(R.id.btn_sign).setOnClickListener(onClickListener);
-        findViewById(R.id.btn_goto_login).setOnClickListener(onClickListener);
         loaderLayout = findViewById(R.id.loaderLayout);
 
 
@@ -61,9 +60,7 @@ public class SignUpActivity extends AppCompatActivity {
                     case R.id.btn_sign:
                         signUp();
                         break;
-                    case R.id.btn_goto_login:
-                        myStartActivity(LoginActivity.class);
-                        break;
+
             }
         }
     };

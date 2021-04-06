@@ -30,6 +30,9 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
     private ArrayList<MemberInfo> uDataset;
     private Activity activity;
     private OnPostListener onPostListener;
+    //private String googleNickname;
+    private Object context;
+
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         View view;
@@ -81,39 +84,50 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
-        Log.e("텍스트뷰 : ", "크리에이트");
+        Log.e("텍스트뷰 : ", "바인드뷰홀더");
         View view = viewHolder.view;
         TextView NameTextView = view.findViewById(R.id.tv_chat_name); // 채팅작성자
         TextView TextTextView = view.findViewById(R.id.tv_chat_text);   // 채팅내용
         TextView createdTextView = view.findViewById(R.id.tv_chat_created);   // 채팅날짜
 
 
+       // context= this.activity;
+
+       // Intent intent = ((Activity)context).getIntent();
+      //  googleNickname = intent.getStringExtra("nickname");
+
+
+
+
+
+
+
+
+        //Log.e("udata : ", uDataset.get(0).getUid());
+//        Log.e("mdata : ", uDataset.get(position).getUid());
+
         //String userID = uDataset.get(position).getUid();
 
         String userID="";
-        String chatID ="";
-
-
-
+        String chatID;
 
 
         for (int i = 0; i < uDataset.size();i++) {
-            chatID =  mDataset.get(position).getPublisher();
+            chatID = mDataset.get(position).getPublisher();
             userID = uDataset.get(i).getUid();
             Log.e("chatID :  ",position+" : " +mDataset.get(position).getPublisher());
             Log.e("userID :  ",i+" : " + uDataset.get(i).getUid());
-            if (chatID.equals(userID)) {
+            if ( chatID.equals(userID)) {
                 userID = uDataset.get(i).getName();
                 break;
             } else {
-                userID = "익명";
+                userID = "장성필";
             }
 
         }
 
 
-        Log.e("최종 userID :  ", userID);
-
+       // Log.e("최종 userID :  ", userID);
         NameTextView.setText(userID);
         TextTextView.setText(mDataset.get(position).getText());
         createdTextView.setText(new SimpleDateFormat("yyyy-MM-dd kk:mm:ss", Locale.getDefault()).format(mDataset.get(position).getCreated()));
@@ -156,6 +170,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
     private void startToast(String msg) {
         Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show();
     }
+
 
 }
 

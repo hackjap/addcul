@@ -1,44 +1,76 @@
 package com.example.addcul.activity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
 import com.example.addcul.R;
+import com.example.addcul.Util;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.util.Util;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
     private static final String TAG = "MainActivity";
     FirebaseUser firebaseUser;
-    ImageView myInfoImage;
-    TextView myInfoText;
-    private Util util;
-    @SuppressLint("RestrictedApi")
+    ImageView myInfoProfile;  // 이미지 뷰
+    TextView myInfoText;    // 닉네임 text
+    private com.example.addcul.Util util;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        myInfoImage = findViewById(R.id.img_my_info);
-        myInfoText = findViewById(R.id.tv_my_info);
+        myInfoProfile = findViewById(R.id.img_my_info);   // 프로필
+        myInfoText = findViewById(R.id.tv_my_info);     // 닉네임
 
-        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser(); // 파이어베이스 유저 초기화
+
+        util = new Util(this);
 
         if(firebaseUser == null) { // 로그인 상태가 아닐때
-            myInfoImage.setImageResource(R.drawable.ic_lock_open_black_24dp);
+            myInfoProfile.setImageResource(R.drawable.ic_lock_open_black_24dp);
             myInfoText.setText("로그인");
-        }else{  // 로그인 상태일때
-            myInfoImage.setImageResource(R.drawable.img_bar_myinfo);
-            myInfoText.setText("내정보");
-        }
 
+        }else{  // 로그인 상태일때
+
+            Intent intent = getIntent();
+            String nickName = intent.getStringExtra("nickName");    // loginActivity로 부터 닉네임 전달받음
+            String photoUrl = intent.getStringExtra("photoUrl");    //loginActivity로 부터 프로필 전달받음
+
+            if(nickName != null & photoUrl != null) {   // 구글 로그인
+                myInfoText.setText(nickName);   // 닉네임 텍스트뷰에 세팅
+                Glide.with(this).load(photoUrl).into(myInfoProfile); // 프로필 URL을 이미지 뷰에 세팅
+
+            }
+            else{
+
+                myInfoProfile.setImageResource(R.drawable.img_bar_myinfo);
+                myInfoText.setText("내정보");
+                // 이미지 크키 설정
+                ViewGroup.LayoutParams params = myInfoProfile.getLayoutParams();
+                params.width = 100;
+                params.height =100;
+                myInfoProfile.setLayoutParams(params);
+
+            }
+            // myInfoProfile.setImageResource(R.drawable.ic_lock_open_black_24dp);
+
+
+
+
+        }
 
         /*
          *  중간메뉴 (SOS,언어교환,한국문화,문제해결)
@@ -56,12 +88,13 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.img_problem).setOnClickListener(onClickListener);
         findViewById(R.id.tv_problem).setOnClickListener(onClickListener);
 
-
         // 하단메뉴
-        findViewById(R.id.img_my_info).setOnClickListener(onClickListener);
+        findViewById(R.id.img_home).setOnClickListener(onClickListener);
         findViewById(R.id.img_post).setOnClickListener(onClickListener);
         findViewById(R.id.img_search).setOnClickListener(onClickListener);
-
+            // 로그인
+        findViewById(R.id.img_my_info).setOnClickListener(onClickListener);
+        findViewById(R.id.tv_my_info).setOnClickListener(onClickListener);
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener(){
@@ -105,12 +138,21 @@ public class MainActivity extends AppCompatActivity {
             /*
              * 하단메뉴
              */
-                case R.id.img_search:
+                case R.id.img_home:{
                     FirebaseAuth.getInstance().signOut();
                     startActivity(MainActivity.class);
+                    util.showToast("로그아웃 ");
+                }
+
+                case R.id.img_search:
+                   // FirebaseAuth.getInstance().signOut();
+                  //  startActivity(MainActivity.class);
                 case R.id.img_post:
                     startActivity(ReadChatActivity.class);
                     break;
+                // 로그인
+                case R.id.tv_my_info:
+                    startActivity(LoginActivity.class);
                 case R.id.img_my_info:
                     startActivity(LoginActivity.class);
                     break;
@@ -121,5 +163,10 @@ public class MainActivity extends AppCompatActivity {
     private void startActivity(Class c){
         Intent intent = new Intent(this,c);
         startActivity(intent);
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
     }
 }

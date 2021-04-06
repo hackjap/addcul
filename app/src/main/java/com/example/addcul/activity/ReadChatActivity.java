@@ -8,7 +8,6 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,10 +25,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -57,35 +53,46 @@ public class ReadChatActivity extends BasicActivity {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
-        util = new Util(this);
-        chatList = new ArrayList<>();
-        memberInfos = new ArrayList<>();
-        chatAdapter = new ChatAdapter(ReadChatActivity.this, chatList,memberInfos);
-        ((ChatAdapter) chatAdapter).setOnPostListener(onChatListener);
+        if(firebaseUser == null){
+            myStartActivity(LoginActivity.class);
+        }
+        else {
 
-        loaderLayout = findViewById(R.id.loaderLayout);
-        RecyclerView recyclerView = findViewById(R.id.recyclerView_chat);
-        findViewById(R.id.btn_chat_send).setOnClickListener(onClickListener);
+            util = new Util(this);
+            chatList = new ArrayList<>();
+            memberInfos = new ArrayList<>();
+            chatAdapter = new ChatAdapter(ReadChatActivity.this, chatList, memberInfos);
+            ((ChatAdapter) chatAdapter).setOnPostListener(onChatListener);
 
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(ReadChatActivity.this));
-        recyclerView.setAdapter(chatAdapter);
-        Log.e("어뎁터", "어뎁터");
+            loaderLayout = findViewById(R.id.loaderLayout);
+            RecyclerView recyclerView = findViewById(R.id.recyclerView_chat);
+            findViewById(R.id.btn_chat_send).setOnClickListener(onClickListener);
+            findViewById(R.id.btn_refresh).setOnClickListener(onClickListener);
 
-        realtime();
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new LinearLayoutManager(ReadChatActivity.this));
+            recyclerView.setAdapter(chatAdapter);
+            Log.e("어뎁터", "어뎁터");
+
+
+            // 멤버 데이터 불러오기
+            getName();
+
+
+        }
     }
 
     protected void onResume() {
         super.onResume();
-       // realtime();
         chatUpdate();
+
     }
 
     OnPostListener onChatListener = new OnPostListener() {
         @Override
         public void onDelete(int position) {
             final String id = chatList.get(position).getId();
-            firebaseFirestore.collection("chats").document()
+            firebaseFirestore.collection("chats").document(id)
                     .delete()
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
@@ -101,7 +108,7 @@ public class ReadChatActivity extends BasicActivity {
                             util.showToast("게시글을 삭제하지 못하였습니다.");
                         }
                     });
-
+                    getName();
 
         }
 
@@ -127,32 +134,14 @@ public class ReadChatActivity extends BasicActivity {
                 case R.id.btn_chat_send:
                     storageUpload();
                     break;
+
+                case R.id.btn_refresh:
+                    chatUpdate();
             }
         }
     };
 
 
-
-
-    private void realtime() {
-        final DocumentReference docRef = firebaseFirestore.collection("chats").document();
-        docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot snapshot,
-                                @Nullable FirebaseFirestoreException e) {
-                if (e != null) {
-                    Log.w(TAG, "Listen failed.", e);
-                    return;
-                }
-                if (snapshot != null && snapshot.exists()) {
-                        chatUpdate();
-
-                } else {
-
-                }
-            }
-        });
-    }
 
 
     private void chatUpdate() {
@@ -173,10 +162,37 @@ public class ReadChatActivity extends BasicActivity {
                                             document.getData().get("publisher").toString(),
                                             new Date(document.getDate("created").getTime()),
                                             document.getId())); // 문서 id
-                                    realtime();
+                                            //getName();
+
+
                                 }
                                 chatAdapter.notifyDataSetChanged();
 
+                            } else {
+                                //  Log.d(TAG, "Error getting documents: ", task.getException());
+                            }
+                        }
+                    });
+
+        }
+    }
+
+    private void getName() {
+        if (firebaseUser != null) {
+            CollectionReference collectionReference = firebaseFirestore.collection("users");
+            collectionReference
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                memberInfos.clear();
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    //Log.d(TAG, document.getId() + " => " + document.getData());
+                                   memberInfos.add(new MemberInfo(
+                                           document.getData().get("name").toString(),
+                                           document.getData().get("uid").toString()));
+                                }
                             } else {
                                 //  Log.d(TAG, "Error getting documents: ", task.getException());
                             }
@@ -192,7 +208,7 @@ public class ReadChatActivity extends BasicActivity {
         final String text = ((EditText) findViewById(R.id.et_chat_text)).getText().toString();
 
         if (text.length() > 0) {
-            // loaderLayout.setVisibility(View.VISIBLE);
+            //loaderLayout.setVisibility(View.VISIBLE);
             firebaseUser = FirebaseAuth.getInstance().getCurrentUser(); // UID
             FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
             ChatInfo chatInfo = (ChatInfo) getIntent().getSerializableExtra("chatInfo");
@@ -216,7 +232,7 @@ public class ReadChatActivity extends BasicActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        //loaderLayout.setVisibility(View.GONE);
+                    //    loaderLayout.setVisibility(View.GONE);
                         util.showToast("전송완료");
                         myStartActivity(ReadChatActivity.class);
                     }
@@ -224,7 +240,8 @@ public class ReadChatActivity extends BasicActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        //loaderLayout.setVisibility(View.GONE);
+                       //
+                        // loaderLayout.setVisibility(View.GONE);
                         util.showToast("전송실패");
                     }
                 });

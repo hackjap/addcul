@@ -5,4 +5,6 @@
     <color name="ultimate_gray">#939597</color>
     <color name="basic_text">#121212</color>
     <color name="light_text">#232323</color>
+    <color name="basic_gray">#7C7C7A</color>
+    <color name="bright_gray">#C1C1C1</color>
 </resources>
