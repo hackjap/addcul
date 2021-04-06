@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="illuminating_yellow">#F5dF4D</color>
+    <color name="basic_yellow">#FAC564</color>
+    <color name="ultimate_gray">#939597</color>
+    <color name="basic_text">#121212</color>
+    <color name="light_text">#232323</color>
+</resources>

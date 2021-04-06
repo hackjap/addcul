@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "441202058730",
+    "project_id": "addcul-d7136",
+    "storage_bucket": "addcul-d7136.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441202058730:android:d872b0d7fe345dd5a5fe93",
+        "android_client_info": {
+          "package_name": "com.example.addcul"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "441202058730-4g8pb6u3321sbno18ptrifkr28u9ingi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBohotfPTIzXynVd0d16VKx5AIfSYy0pFI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "441202058730-4g8pb6u3321sbno18ptrifkr28u9ingi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
