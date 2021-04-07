@@ -25,8 +25,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     TextView myInfoText;    // 닉네임 text
     private com.example.addcul.Util util;
 
-
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

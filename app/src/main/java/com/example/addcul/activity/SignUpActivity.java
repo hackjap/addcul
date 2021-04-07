@@ -72,7 +72,7 @@ public class SignUpActivity extends AppCompatActivity {
         final String birth = ((EditText)findViewById(R.id.et_birth)).getText().toString();
         final String phoneNum = ((EditText)findViewById(R.id.et_phone_num)).getText().toString();
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
+
 
         boolean signUpRule = id.length() > 0 && passwordCheck.length()>0 && name.length() > 0 && birth.length()>0 && phoneNum.length() > 0 ;
 
@@ -83,6 +83,7 @@ public class SignUpActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
+                                     user = FirebaseAuth.getInstance().getCurrentUser();
                                      memberInfo = new MemberInfo(name,phoneNum,birth,user.getUid());
                                     // 회원정보 firestore로 보내기
                                     storeUploader(memberInfo);

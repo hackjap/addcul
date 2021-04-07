@@ -1,8 +1,7 @@
-package com.example.addcul;
+package com.example.addcul.activity;
 
 import android.os.Handler;
 import android.os.Message;
-import android.view.textclassifier.ConversationActions;
 
 
 public class IntroTread extends Thread{

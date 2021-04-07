@@ -36,7 +36,7 @@ public class WriteChatActivity extends BasicActivity {
         //parent = findViewById(R.id.contentsLayout_chat);
         //buttonsBackgroundLayout = findViewById(R.id.buttonsBackgrundLayout_chat);
         loaderLayout= findViewById(R.id.loaderLayout);
-        findViewById(R.id.btn_chat_send).setOnClickListener(onClickListener);   // 등록하기 버튼
+        findViewById(R.id.img_chat_send).setOnClickListener(onClickListener);   // 등록하기 버튼
 
 
     }
@@ -78,7 +78,7 @@ public class WriteChatActivity extends BasicActivity {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.btn_chat_send:
+                case R.id.img_chat_send:
                     //storageUpload();
                     break;
                 case R.id.buttonsBackgrundLayout:

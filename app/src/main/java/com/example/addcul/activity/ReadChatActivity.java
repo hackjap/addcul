@@ -66,8 +66,8 @@ public class ReadChatActivity extends BasicActivity {
 
             loaderLayout = findViewById(R.id.loaderLayout);
             RecyclerView recyclerView = findViewById(R.id.recyclerView_chat);
-            findViewById(R.id.btn_chat_send).setOnClickListener(onClickListener);
-            findViewById(R.id.btn_refresh).setOnClickListener(onClickListener);
+            findViewById(R.id.img_chat_send).setOnClickListener(onClickListener);
+           // findViewById(R.id.btn_refresh).setOnClickListener(onClickListener);
 
             recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(new LinearLayoutManager(ReadChatActivity.this));
@@ -131,12 +131,11 @@ public class ReadChatActivity extends BasicActivity {
                     break;
 
                */
-                case R.id.btn_chat_send:
+                case R.id.img_chat_send:
                     storageUpload();
                     break;
 
-                case R.id.btn_refresh:
-                    chatUpdate();
+
             }
         }
     };

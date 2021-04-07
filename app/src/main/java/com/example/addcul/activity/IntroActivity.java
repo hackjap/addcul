@@ -6,9 +6,9 @@ import android.os.Handler;
 import android.os.Message;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.addcul.IntroTread;
 import com.example.addcul.R;
 
 public class IntroActivity extends AppCompatActivity {
@@ -17,6 +17,9 @@ public class IntroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         IntroTread introTread = new IntroTread(handler);
         introTread.start();

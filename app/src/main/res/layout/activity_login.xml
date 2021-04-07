@@ -123,19 +123,20 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/style_round"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:orientation="vertical"
-                    android:padding="15px">
+                    android:layout_gravity="center"
+                    android:background="@drawable/style_round"
+                    android:layout_marginTop="10dp">
 
-
-                    <com.google.android.gms.common.SignInButton
+                    <ImageView
                         android:id="@+id/btn_google"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5.5dp"
+                        app:srcCompat="@drawable/img_google_login" />
                 </LinearLayout>
 
             </LinearLayout>

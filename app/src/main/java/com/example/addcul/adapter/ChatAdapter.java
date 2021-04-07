@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.addcul.ChatInfo;
@@ -69,7 +68,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 
             }
         });
-        CardView cardView = view.findViewById(R.id.chat_menu);
+       /* CardView cardView = view.findViewById(R.id.chat_menu);
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,6 +76,8 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
             }
         });
 
+
+        */
         Log.e("텍스트뷰 : ", "크리에이트");
         return viewHolder;
     }
