@@ -121,10 +121,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                     break;
                 // 한국문화
                 case R.id.img_kor_info:
-                    //startActivity()
+                    startActivity(YoutubeActivity.class);
                     break;
                 case R.id.tv_kor_info:
-                    //startActivity()
+                    startActivity(YoutubeActivity.class);
                     break;
                 // 문제해결
                 case R.id.img_problem:

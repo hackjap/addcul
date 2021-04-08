@@ -9,46 +9,54 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
-
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.BasicActivity"/>
-        <activity android:name=".activity.ReadPostActivity"/>
-        <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.SignUpActivity"
-            android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".activity.PasswordResetActivity" />
-        <activity android:name=".activity.WritePostActivity" />
-
-        <activity android:name=".activity.ReadChatActivity"
-                    android:windowSoftInputMode="adjustPan">
+        <activity android:name=".activity.YoutubeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.BasicActivity" />
+        <activity android:name=".activity.ReadPostActivity" />
+        <activity android:name=".activity.LoginActivity" />
+        <activity
+            android:name=".activity.SignUpActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".activity.PasswordResetActivity" />
+        <activity android:name=".activity.WritePostActivity" />
+        <activity
+            android:name=".activity.ReadChatActivity"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <activity android:name=".activity.WriteChatActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity android:name=".activity.WriteChatActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".activity.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
