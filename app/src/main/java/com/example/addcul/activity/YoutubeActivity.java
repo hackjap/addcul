@@ -97,6 +97,7 @@ public class YoutubeActivity extends YouTubeBaseActivity {
         playerView4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 playerView4.initialize("AIzaSyBtin4Wne1eccgkKPBq0ee1ZzsLrU8tExo",listener4);
             }
         });

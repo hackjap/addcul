@@ -54,6 +54,7 @@ public class ReadChatActivity extends BasicActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
 
         if(firebaseUser == null){
+            util.showToast("로그인 후 이용가능 합니다.");
             myStartActivity(LoginActivity.class);
         }
         else {
@@ -106,6 +107,7 @@ public class ReadChatActivity extends BasicActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             util.showToast("게시글을 삭제하지 못하였습니다.");
+
                         }
                     });
                     getName();
@@ -242,8 +244,11 @@ public class ReadChatActivity extends BasicActivity {
                        //
                         // loaderLayout.setVisibility(View.GONE);
                         util.showToast("전송실패");
+
                     }
                 });
+
+
     }
 
 
