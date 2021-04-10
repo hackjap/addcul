@@ -30,7 +30,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.MyViewHolder> 
     public interface OnMyTouchListener{
         void onTouch(View v,int postion);
     }
-    public void setOnMyTouchListener(OnMyTouchListener onMyTouchListener){
+    public void setOnMyTouchListener(OnMyTouchListener listener){
         this.listener = listener;
     }
 
@@ -61,6 +61,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.MyViewHolder> 
         holder.photo.setBackgroundResource(resID);
 
 
+
     }
 
     @Override
@@ -84,6 +85,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.MyViewHolder> 
                     int position = getAdapterPosition();
                     if(listener!=null)
                         listener.onTouch(v,position);
+
                 }
             });
         }

@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -22,7 +23,7 @@ public class KcultureActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kculture);
 
-        Button btn_food, btn_life, btn_music, btn_travel;
+        final Button btn_food, btn_life, btn_music, btn_travel;
         LinearLayout contentLayout;
 
         final FragmentManager fragmentManager;
@@ -44,6 +45,16 @@ public class KcultureActivity extends AppCompatActivity {
         fragLife = new FragLife();
         fragTravel = new FragTravel();
 
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.addToBackStack(null);
+        ft.replace(R.id.contentLayout, fragFood);
+        ft.commit();
+
+        final Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.contentLayout);
+
+
+
+
         // Food
         btn_food.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +63,18 @@ public class KcultureActivity extends AppCompatActivity {
                 ft.addToBackStack(null);
                 ft.replace(R.id.contentLayout, fragFood);
                 ft.commit();
+                /*
+                for(Fragment fragment:getSupportFragmentManager().getFragments()){
+                    if(fragment.isVisible())
+                        if(fragment instanceof FragFood)
+                            btn_food.setBackgroundColor(getColor(R.color.basic_yellow));
+                        else
+                            btn_food.setBackgroundColor(getColor(R.color.ultimate_gray));
+                }
+
+                 */
+
+
             }
         });
         // Music
@@ -62,6 +85,8 @@ public class KcultureActivity extends AppCompatActivity {
                 ft.addToBackStack(null);
                 ft.replace(R.id.contentLayout, fragMusic);
                 ft.commit();
+
+
             }
         });
         // Life
@@ -84,5 +109,8 @@ public class KcultureActivity extends AppCompatActivity {
                 ft.commit();
             }
         });
+
+
     }
+
 }

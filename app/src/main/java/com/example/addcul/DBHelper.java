@@ -24,6 +24,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("insert into food(name, tag, photo)values ('떡볶이','#매운맛#중독#빨간맛', 'img_food_tteokbokki')");
         db.execSQL("insert into food(name, tag, photo)values ('양념치킨','#매콤달콤#치킨#맥주', 'img_food_chicken')");
 
+
     }
 
     @Override

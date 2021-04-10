@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         // 하단메뉴
         findViewById(R.id.img_home).setOnClickListener(onClickListener);
         findViewById(R.id.img_post).setOnClickListener(onClickListener);
-        findViewById(R.id.img_search).setOnClickListener(onClickListener);
+        findViewById(R.id.img_map).setOnClickListener(onClickListener);
             // 로그인
         findViewById(R.id.img_my_info).setOnClickListener(onClickListener);
         findViewById(R.id.tv_my_info).setOnClickListener(onClickListener);
@@ -143,9 +143,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                     util.showToast("로그아웃 ");
                 }
 
-                case R.id.img_search:
-                   // FirebaseAuth.getInstance().signOut();
-                  //  startActivity(MainActivity.class);
+                case R.id.img_map:
+                     FirebaseAuth.getInstance().signOut();
+                     startActivity(GoogleMapActivitiy.class);
                 case R.id.img_post:
                     startActivity(ReadChatActivity.class);
                     break;

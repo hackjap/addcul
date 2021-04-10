@@ -11,44 +11,46 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:orientation="vertical"
+        android:padding="10px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <com.google.android.youtube.player.YouTubePlayerView
-            android:id="@+id/youtubeView1"
+            android:id="@+id/youtubeView"
             android:layout_width="380dp"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_weight="1"></com.google.android.youtube.player.YouTubePlayerView>
-
-        <com.google.android.youtube.player.YouTubePlayerView
-            android:id="@+id/youtubeView2"
-            android:layout_width="380dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_weight="1">
+            android:layout_margin="10dp">
 
         </com.google.android.youtube.player.YouTubePlayerView>
 
-        <com.google.android.youtube.player.YouTubePlayerView
-            android:id="@+id/youtubeView3"
-            android:layout_width="380dp"
+        <TextView
+            android:id="@+id/tv_food_explain"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_weight="1">
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="ITZY는 JYP엔터테인멘트가 TWICE이후 3년 4개월 만에 선보인 5인조 걸그룹으로 2월 12에 데뷔했다. 있지라고 있으며 ‘너희가 원하는거 전부 있지? 있지!’ 라는 뜻을 갖고 있다." />
 
-        </com.google.android.youtube.player.YouTubePlayerView>
-
-        <com.google.android.youtube.player.YouTubePlayerView
-            android:id="@+id/youtubeView4"
+        <ImageView
+            android:id="@+id/imageView4"
             android:layout_width="380dp"
-            android:layout_height="wrap_content"
+            android:layout_height="280dp"
             android:layout_margin="10dp"
-            android:layout_weight="1">
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/img_itzy" />
 
-        </com.google.android.youtube.player.YouTubePlayerView>
+        <TextView
+            android:id="@+id/tv_food_explain2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="ITZY는 JYP엔터테인멘트가 TWICE이후 3년 4개월 만에 선보인 5인조 걸그룹으로 2월 12에 데뷔했다. 있지라고 있으며 ‘너희가 원하는거 전부 있지? 있지!’ 라는 뜻을 갖고 있다." />
 
     </LinearLayout>
 
