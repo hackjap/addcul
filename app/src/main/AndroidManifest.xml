@@ -4,7 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
@@ -15,9 +16,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.MyInfoActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.SlideActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyByp1zP0yyRPCkETcxppcybaf-_1bgtUtE"/>
+            android:value="AIzaSyByp1zP0yyRPCkETcxppcybaf-_1bgtUtE" />
+
         <activity android:name=".activity.GoogleMapActivitiy">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,6 +52,8 @@
         <activity android:name=".activity.BasicActivity" />
         <activity android:name=".activity.ReadPostActivity" />
         <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.TranslationActivity" />
+        <activity android:name=".activity.ProblemActivity" />
         <activity android:name=".activity.KcultureActivity" />
         <activity
             android:name=".activity.SignUpActivity"
@@ -72,6 +91,5 @@
             </intent-filter>
         </activity>
     </application>
-
 
 </manifest>

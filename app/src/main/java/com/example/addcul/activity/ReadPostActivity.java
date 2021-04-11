@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,7 +29,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class ReadPostActivity extends AppCompatActivity {
+public class ReadPostActivity extends BasicActivity {
 
     private static final String TAG = "ReadPostActivity";
 
@@ -58,7 +57,7 @@ public class ReadPostActivity extends AppCompatActivity {
         ((MainAdapter)mainAdapter).setOnPostListener(onPostListener);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        findViewById(R.id.floatingActionButton).setOnClickListener(onClickListener);
+        findViewById(R.id.goto_post_write).setOnClickListener(onClickListener);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(ReadPostActivity.this));
@@ -116,7 +115,7 @@ public class ReadPostActivity extends AppCompatActivity {
                     break;
 
                */
-                case R.id.floatingActionButton:
+                case R.id.goto_post_write:
                     myStartActivity(WritePostActivity.class);
                     break;
             }
