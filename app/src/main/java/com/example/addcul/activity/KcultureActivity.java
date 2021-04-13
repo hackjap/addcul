@@ -1,11 +1,10 @@
 package com.example.addcul.activity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -16,27 +15,41 @@ import com.example.addcul.fragment.FragLife;
 import com.example.addcul.fragment.FragMusic;
 import com.example.addcul.fragment.FragTravel;
 
-public class KcultureActivity extends AppCompatActivity {
+public class KcultureActivity extends BasicActivity {
+
+    FragmentManager fragmentManager;
+    FragFood fragFood;
+    FragMusic fragMusic;
+    FragLife fragLife;
+    FragTravel fragTravel;
+
+    LinearLayout contentLayout, btn_food_layout, btn_music_layout, btn_life_layout, btn_travel_layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kculture);
 
-        final Button btn_food, btn_life, btn_music, btn_travel;
-        LinearLayout contentLayout;
 
-        final FragmentManager fragmentManager;
-        final FragFood fragFood;
-        final FragMusic fragMusic;
-        final FragLife fragLife;
-        final FragTravel fragTravel;
+        //btn_food_layout,btn_life_layout,btn_music_layout,btn_travel_layout;
 
-        btn_food = (Button) findViewById(R.id.btn_food);
-        btn_life = (Button) findViewById(R.id.btn_life);
-        btn_music = (Button) findViewById(R.id.btn_music);
-        btn_travel = (Button) findViewById(R.id.btn_travel);
+        btn_food_layout = (LinearLayout) findViewById(R.id.btn_food_layout);
+        btn_music_layout = (LinearLayout) findViewById(R.id.btn_music_layout);
+        btn_life_layout = (LinearLayout) findViewById(R.id.btn_life_layout);
+        btn_travel_layout = (LinearLayout) findViewById(R.id.btn_travel_layout);
         contentLayout = (LinearLayout) findViewById(R.id.contentLayout);
+
+        // footer 바인딩
+        // 하단메뉴
+        findViewById(R.id.img_home).setOnClickListener(onFootlistner);
+        findViewById(R.id.img_translate).setOnClickListener(onFootlistner);
+        findViewById(R.id.img_map).setOnClickListener(onFootlistner);
+        // 로그인
+        findViewById(R.id.img_my_info).setOnClickListener(onFootlistner);
+        findViewById(R.id.tv_my_info).setOnClickListener(onFootlistner);
+
+
+        final Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.contentLayout);
 
         fragmentManager = getSupportFragmentManager();
         // 프래그먼트 객체 만들기
@@ -44,73 +57,71 @@ public class KcultureActivity extends AppCompatActivity {
         fragMusic = new FragMusic();
         fragLife = new FragLife();
         fragTravel = new FragTravel();
-
+        // 프래그먼트 첫 화면 로딩
         FragmentTransaction ft = fragmentManager.beginTransaction();
         ft.addToBackStack(null);
         ft.replace(R.id.contentLayout, fragFood);
         ft.commit();
 
-        final Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.contentLayout);
 
-
-
-
-        // Food
-        btn_food.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction ft = fragmentManager.beginTransaction();
-                ft.addToBackStack(null);
-                ft.replace(R.id.contentLayout, fragFood);
-                ft.commit();
-                /*
-                for(Fragment fragment:getSupportFragmentManager().getFragments()){
-                    if(fragment.isVisible())
-                        if(fragment instanceof FragFood)
-                            btn_food.setBackgroundColor(getColor(R.color.basic_yellow));
-                        else
-                            btn_food.setBackgroundColor(getColor(R.color.ultimate_gray));
-                }
-
-                 */
-
-
-            }
-        });
-        // Music
-        btn_music.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction ft = fragmentManager.beginTransaction();
-                ft.addToBackStack(null);
-                ft.replace(R.id.contentLayout, fragMusic);
-                ft.commit();
-
-
-            }
-        });
-        // Life
-        btn_life.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction ft = fragmentManager.beginTransaction();
-                ft.addToBackStack(null);
-                ft.replace(R.id.contentLayout, fragLife);
-                ft.commit();
-            }
-        });
-        // Travel
-        btn_travel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction ft = fragmentManager.beginTransaction();
-                ft.addToBackStack(null);
-                ft.replace(R.id.contentLayout, fragTravel);
-                ft.commit();
-            }
-        });
-
-
+        btn_food_layout.setOnClickListener(onClickListener);
+        btn_music_layout.setOnClickListener(onClickListener);
+        btn_life_layout.setOnClickListener(onClickListener);
+        btn_travel_layout.setOnClickListener(onClickListener);
     }
+
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            FragmentTransaction ft = fragmentManager.beginTransaction();
+            switch (v.getId()) {
+                case R.id.btn_food_layout:
+
+                    btn_food_layout.setBackgroundResource(R.drawable.part_round_back);
+                    btn_music_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+                    btn_life_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+                    btn_travel_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+
+                    ft = fragmentManager.beginTransaction();
+                    ft.addToBackStack(null);
+                    ft.replace(R.id.contentLayout, fragFood);
+                    ft.commit();
+                    break;
+                case R.id.btn_music_layout:
+                    btn_music_layout.setBackgroundResource(R.drawable.part_round_back);
+                    btn_food_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+                    btn_life_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+                    btn_travel_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+                    ft = fragmentManager.beginTransaction();
+                    ft.addToBackStack(null);
+                    ft.replace(R.id.contentLayout, fragMusic);
+                    ft.commit();
+                    break;
+                case R.id.btn_life_layout:
+                    btn_life_layout.setBackgroundResource(R.drawable.part_round_back);
+                    btn_food_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+                    btn_music_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+                    btn_travel_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+                    ft = fragmentManager.beginTransaction();
+                    ft.addToBackStack(null);
+                    ft.replace(R.id.contentLayout, fragLife);
+                    ft.commit();
+                    break;
+                case R.id.btn_travel_layout:
+                    btn_travel_layout.setBackgroundResource(R.drawable.part_round_back);
+                    btn_music_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+                    btn_food_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+                    btn_life_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+
+                    ft = fragmentManager.beginTransaction();
+                    ft.addToBackStack(null);
+                    ft.replace(R.id.contentLayout, fragTravel);
+                    ft.commit();
+                    break;
+            }
+        }
+    };
+
 
 }

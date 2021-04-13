@@ -2,14 +2,18 @@ package com.example.addcul;
 
 public class MemberInfo {
 
+    private String email;
     private String name;
+    private String sex;
     private String phoneNumber;
     private String birthDay;
     private String uid;
 
 
-    public MemberInfo(String name, String phoneNumber, String birthDay,String uid) {
+    public MemberInfo(String email,String name, String sex,String phoneNumber, String birthDay,String uid) {
+        this.email = email;
         this.name = name;
+        this.sex = sex;
         this.phoneNumber = phoneNumber;
         this.birthDay = birthDay;
         this.uid = uid;
@@ -24,6 +28,21 @@ public class MemberInfo {
 
     }
 
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getName() {
         return name;

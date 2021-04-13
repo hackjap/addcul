@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -30,6 +31,7 @@ public class SignUpActivity extends AppCompatActivity {
     private RelativeLayout loaderLayout;
     private FirebaseUser user;
     private MemberInfo memberInfo;
+    private String sex;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +43,9 @@ public class SignUpActivity extends AppCompatActivity {
         findViewById(R.id.btn_sign).setOnClickListener(onClickListener);
         loaderLayout = findViewById(R.id.loaderLayout);
 
+        RadioGroup rg = findViewById(R.id.radioGroup);
+
+        rg.setOnCheckedChangeListener(onCheckedChangeListener);
 
     }
 
@@ -65,12 +70,14 @@ public class SignUpActivity extends AppCompatActivity {
         }
     };
     private void signUp(){
-        String id = ((EditText)findViewById(R.id.et_id)).getText().toString();
+        final String id = ((EditText)findViewById(R.id.et_id)).getText().toString();
         String password = ((EditText)findViewById(R.id.et_pw)).getText().toString();
         String passwordCheck = ((EditText)findViewById(R.id.et_pw_check)).getText().toString();
         final String name = ((EditText)findViewById(R.id.et_name)).getText().toString();
         final String birth = ((EditText)findViewById(R.id.et_birth)).getText().toString();
         final String phoneNum = ((EditText)findViewById(R.id.et_phone_num)).getText().toString();
+
+
 
 
 
@@ -84,7 +91,7 @@ public class SignUpActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                      user = FirebaseAuth.getInstance().getCurrentUser();
-                                     memberInfo = new MemberInfo(name,phoneNum,birth,user.getUid());
+                                     memberInfo = new MemberInfo(id,name,sex,phoneNum,birth,user.getUid());
                                     // 회원정보 firestore로 보내기
                                     storeUploader(memberInfo);
                                     //loaderLayout.setVisibility(View.VISIBLE);
@@ -147,6 +154,17 @@ public class SignUpActivity extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
+
+    RadioGroup.OnCheckedChangeListener onCheckedChangeListener = new RadioGroup.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(RadioGroup group, int checkedId) {
+            if(checkedId == R.id.rb_man){
+                sex = "남자";
+            }else if(checkedId == R.id.rb_woman){
+                sex = "여자";
+            }
+        }
+    };
 
 } //end
 

@@ -65,7 +65,18 @@ public class ReadPostActivity extends BasicActivity {
         recyclerView.setAdapter(mainAdapter);
         Log.e("어뎁터","어뎁터");
 
+        // footer 바인딩
+        // 하단메뉴
+        findViewById(R.id.img_home).setOnClickListener(onFootlistner);
+        findViewById(R.id.img_translate).setOnClickListener(onFootlistner);
+        findViewById(R.id.img_map).setOnClickListener(onFootlistner);
+        // 로그인
+        findViewById(R.id.img_my_info).setOnClickListener(onFootlistner);
+        findViewById(R.id.tv_my_info).setOnClickListener(onFootlistner);
+
     }
+
+
 
 
     protected void onResume() {

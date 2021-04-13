@@ -26,6 +26,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
     private static final String TAG = "SignUpActivity";
@@ -34,6 +38,9 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private FirebaseAuth mAuth;  // 파이어 베이스 인증 객체
     private GoogleApiClient googleApiClient;    // 구글 API 클라이언트 객체
     private static final int REQ_SIGN_GOOGLE = 100; // 구글 로그인 결과 코드
+    FirebaseUser firebaseUser;
+    FirebaseFirestore firebaseFirestore;
+    String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,9 +59,10 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 .build();
 
 
-        // Initialize Firebase Auth
+        // Initialize Firebase
         mAuth = FirebaseAuth.getInstance();
-
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        firebaseFirestore = FirebaseFirestore.getInstance();
 
 
         findViewById(R.id.btn_google).setOnClickListener(onClickListener);
@@ -64,6 +72,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
         TextView textView;
 
+
+        // 메인에 넣어줄 계정 uid
 
 
     }
@@ -115,7 +125,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){ // 로그인이 성공했으면...
-                            startToast("로그인성공 ");
+                            startToast("구글 로그인성공 ");
                             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                             intent.putExtra("nickName",account.getDisplayName());
                             intent.putExtra("photoUrl",String.valueOf(account.getPhotoUrl())); // String.valueOf() 특정 자료형을 String 형태로 변환 .
@@ -143,8 +153,10 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 startToast("로그인에 성공했습니다");
                                 // 로그인 시, 하단메뉴 내정보로 변경
-
-                                myStartActivity(MainActivity.class);
+                                getUid();
+                                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                                intent.putExtra("uid",uid);
+                                startActivity(intent);
 
                             } else {
                                 if (task.getException() != null) { // 비밀번호가 null 값이 아닐때
@@ -160,6 +172,28 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             startToast("이메일 또는 비밀번호를 입력해주세요!!");
         }
     }// end of signup()
+
+
+    private void getUid() {
+        if (firebaseUser != null) {
+            CollectionReference collectionReference = firebaseFirestore.collection("users");
+            collectionReference
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    uid = document.getData().get("uid").toString();
+                                }
+                            } else {
+                                //  Log.d(TAG, "Error getting documents: ", task.getException());
+                            }
+                        }
+                    });
+
+        }
+    }
 
     private void startToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();

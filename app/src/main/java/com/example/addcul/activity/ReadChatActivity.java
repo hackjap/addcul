@@ -44,7 +44,7 @@ public class ReadChatActivity extends BasicActivity {
     private ArrayList<MemberInfo>memberInfos;
     private Util util;
     private RelativeLayout loaderLayout;
-
+    private ArrayList<MemberInfo>testArray;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +64,10 @@ public class ReadChatActivity extends BasicActivity {
             memberInfos = new ArrayList<>();
             chatAdapter = new ChatAdapter(ReadChatActivity.this, chatList, memberInfos);
             ((ChatAdapter) chatAdapter).setOnPostListener(onChatListener);
+
+            testArray = new ArrayList<>();
+            testArray = memberInfos;
+            //Log.e("cxchat : ",testArray.get(0).getName());
 
             loaderLayout = findViewById(R.id.loaderLayout);
             RecyclerView recyclerView = findViewById(R.id.recyclerView_chat);
@@ -156,7 +160,9 @@ public class ReadChatActivity extends BasicActivity {
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if (task.isSuccessful()) {
                                 chatList.clear();
+
                                 for (QueryDocumentSnapshot document : task.getResult()) {
+
                                     //Log.d(TAG, document.getId() + " => " + document.getData());
                                     chatList.add(new ChatInfo(
                                             document.getData().get("text").toString(),
@@ -187,13 +193,16 @@ public class ReadChatActivity extends BasicActivity {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if (task.isSuccessful()) {
+                                Log.e("cxupdate : ", "채팅은될까 1");
                                 memberInfos.clear();
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     //Log.d(TAG, document.getId() + " => " + document.getData());
+                                    Log.e("cxupdate : ", "채팅은될까 2");
                                    memberInfos.add(new MemberInfo(
                                            document.getData().get("name").toString(),
                                            document.getData().get("uid").toString()));
                                 }
+                                chatAdapter.notifyDataSetChanged();
                             } else {
                                 //  Log.d(TAG, "Error getting documents: ", task.getException());
                             }

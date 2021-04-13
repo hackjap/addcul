@@ -50,4 +50,5 @@
                 app:srcCompat="@drawable/ic_send_black_24dp" />
         </LinearLayout>
     </LinearLayout>
+    <include layout="@layout/activity_base"/>
 </LinearLayout>

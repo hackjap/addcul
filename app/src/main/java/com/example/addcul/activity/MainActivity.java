@@ -27,7 +27,12 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     FirebaseUser firebaseUser;
     ImageView myInfoProfile;  // 이미지 뷰
     TextView myInfoText;    // 닉네임 text
+
+    String nickName;
+    String photoUrl;
+
     private com.example.addcul.Util util;
+    int flag = 0;
 
     // 슬라이드
 
@@ -35,9 +40,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private LinearLayout layoutIndicator;
 
     private String[] images = new String[] {
+            "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99F2E033599D964307",
             "https://cdn.pixabay.com/photo/2019/12/26/10/44/horse-4720178_1280.jpg",
             "https://cdn.pixabay.com/photo/2020/11/04/15/29/coffee-beans-5712780_1280.jpg",
-            "https://cdn.pixabay.com/photo/2020/03/08/21/41/landscape-4913841_1280.jpg",
             "https://cdn.pixabay.com/photo/2020/09/02/18/03/girl-5539094_1280.jpg",
             "https://cdn.pixabay.com/photo/2014/03/03/16/15/mosque-279015_1280.jpg" };
 
@@ -46,6 +51,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser(); // 파이어베이스 유저 초기화
+
+        //FirebaseAuth.getInstance().signOut();
+
 
         // 슬라이드
         sliderViewPager = findViewById(R.id.sliderViewPager);
@@ -68,26 +78,35 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         myInfoProfile = findViewById(R.id.img_my_info);   // 프로필
         myInfoText = findViewById(R.id.tv_my_info);     // 닉네임
 
-        firebaseUser = FirebaseAuth.getInstance().getCurrentUser(); // 파이어베이스 유저 초기화
+
 
         util = new Util(this);
 
         if(firebaseUser == null) { // 로그인 상태가 아닐때
+            flag = 0;
             myInfoProfile.setImageResource(R.drawable.ic_lock_open_black_24dp);
             myInfoText.setText("로그인");
 
         }else{  // 로그인 상태일때
 
-            Intent intent = getIntent();
-            String nickName = intent.getStringExtra("nickName");    // loginActivity로 부터 닉네임 전달받음
-            String photoUrl = intent.getStringExtra("photoUrl");    //loginActivity로 부터 프로필 전달받음
+            flag = 1;
 
-            if(nickName != null & photoUrl != null) {   // 구글 로그인
+            /* 구글
+            Intent intent = getIntent();
+            nickName = intent.getStringExtra("nickName");    // loginActivity로 부터 닉네임 전달받음
+            photoUrl = intent.getStringExtra("photoUrl");    //loginActivity로 부터 프로필 전달받음
+
+             */
+
+            // 구글 로그인일 경우,
+            if(nickName != null & photoUrl != null) {   // 구글 로그인 상태일때
                 myInfoText.setText(nickName);   // 닉네임 텍스트뷰에 세팅
                 Glide.with(this).load(photoUrl).into(myInfoProfile); // 프로필 URL을 이미지 뷰에 세팅
 
             }
-            else{
+
+            else{ // 일반 로그인일 경우
+
 
                 myInfoProfile.setImageResource(R.drawable.img_bar_myinfo);
                 myInfoText.setText("내정보");
@@ -187,7 +206,18 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 case R.id.tv_my_info:
                     startActivity(LoginActivity.class);
                 case R.id.img_my_info:
-                    startActivity(LoginActivity.class);
+                    Intent intent = new Intent(getApplicationContext(),MyInfoActivity.class);
+                    intent.putExtra("nickname",nickName);
+                    intent.putExtra("profile",String.valueOf(photoUrl));
+
+                    if(flag==0){
+                        startActivity(LoginActivity.class);
+                    }else{
+
+
+                        startActivity(intent);
+                    }
+
                     break;
             } // end of switch
         }

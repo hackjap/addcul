@@ -198,6 +198,7 @@
                         android:textSize="18dp" />
 
                     <RadioGroup
+                        android:id="@+id/radioGroup"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -205,7 +206,7 @@
                         android:orientation="horizontal">
 
                         <RadioButton
-                            android:id="@+id/radioButton"
+                            android:id="@+id/rb_man"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.2"
@@ -213,7 +214,7 @@
                             android:text=" 남자" />
 
                         <RadioButton
-                            android:id="@+id/radioButton2"
+                            android:id="@+id/rb_woman"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
