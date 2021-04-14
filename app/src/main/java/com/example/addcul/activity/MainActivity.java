@@ -1,14 +1,18 @@
 package com.example.addcul.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager2.widget.ViewPager2;
@@ -39,18 +43,24 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private ViewPager2 sliderViewPager;
     private LinearLayout layoutIndicator;
 
-    private String[] images = new String[] {
+    private String[] images = new String[]{
             "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99F2E033599D964307",
             "https://cdn.pixabay.com/photo/2019/12/26/10/44/horse-4720178_1280.jpg",
             "https://cdn.pixabay.com/photo/2020/11/04/15/29/coffee-beans-5712780_1280.jpg",
             "https://cdn.pixabay.com/photo/2020/09/02/18/03/girl-5539094_1280.jpg",
-            "https://cdn.pixabay.com/photo/2014/03/03/16/15/mosque-279015_1280.jpg" };
+            "https://cdn.pixabay.com/photo/2014/03/03/16/15/mosque-279015_1280.jpg"};
 
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setIcon(R.drawable.img_logo_actionbar);
+
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser(); // 파이어베이스 유저 초기화
 
@@ -79,15 +89,14 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         myInfoText = findViewById(R.id.tv_my_info);     // 닉네임
 
 
-
         util = new Util(this);
 
-        if(firebaseUser == null) { // 로그인 상태가 아닐때
+        if (firebaseUser == null) { // 로그인 상태가 아닐때
             flag = 0;
             myInfoProfile.setImageResource(R.drawable.ic_lock_open_black_24dp);
             myInfoText.setText("로그인");
 
-        }else{  // 로그인 상태일때
+        } else {  // 로그인 상태일때
 
             flag = 1;
 
@@ -99,13 +108,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
              */
 
             // 구글 로그인일 경우,
-            if(nickName != null & photoUrl != null) {   // 구글 로그인 상태일때
+            if (nickName != null & photoUrl != null) {   // 구글 로그인 상태일때
                 myInfoText.setText(nickName);   // 닉네임 텍스트뷰에 세팅
                 Glide.with(this).load(photoUrl).into(myInfoProfile); // 프로필 URL을 이미지 뷰에 세팅
 
-            }
-
-            else{ // 일반 로그인일 경우
+            } else { // 일반 로그인일 경우
 
 
                 myInfoProfile.setImageResource(R.drawable.ic_account_circle_black_24dp);
@@ -113,13 +120,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 // 이미지 크키 설정
                 ViewGroup.LayoutParams params = myInfoProfile.getLayoutParams();
                 params.width = 100;
-                params.height =100;
+                params.height = 100;
                 myInfoProfile.setLayoutParams(params);
 
             }
             // myInfoProfile.setImageResource(R.drawable.ic_lock_open_black_24dp);
-
-
 
 
         }
@@ -144,19 +149,19 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         findViewById(R.id.img_home).setOnClickListener(onClickListener);
         findViewById(R.id.img_translate).setOnClickListener(onClickListener);
         findViewById(R.id.img_map).setOnClickListener(onClickListener);
-            // 로그인
+        // 로그인
         findViewById(R.id.img_my_info).setOnClickListener(onClickListener);
         findViewById(R.id.tv_my_info).setOnClickListener(onClickListener);
     }
 
-    View.OnClickListener onClickListener = new View.OnClickListener(){
+    View.OnClickListener onClickListener = new View.OnClickListener() {
 
         @Override
         public void onClick(View v) {
             /*
              *  중간메뉴
              */
-            switch (v.getId()){
+            switch (v.getId()) {
                 // SOS
                 case R.id.img_sos:
                     startActivity(ReadPostActivity.class);
@@ -166,7 +171,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                     startActivity(ReadPostActivity.class);
                     break;
                 // 언어교환
-                case R.id.img_lang_change :
+                case R.id.img_lang_change:
                     startActivity(ReadChatActivity.class);
                     break;
                 case R.id.tv_lang_change:
@@ -186,10 +191,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                     //startActivity()
                     break;
 
-            /*
-             * 하단메뉴
-             */
-                case R.id.img_home:{
+                /*
+                 * 하단메뉴
+                 */
+                case R.id.img_home: {
                     FirebaseAuth.getInstance().signOut();
                     startActivity(MainActivity.class);
                     util.showToast("로그아웃 ");
@@ -198,8 +203,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
                 case R.id.img_map:
                     // FirebaseAuth.getInstance().signOut();
-                     startActivity(GoogleMapActivitiy.class);
-                     break;
+                    startActivity(GoogleMapActivitiy.class);
+                    break;
                 case R.id.img_translate:
                     startActivity(TranslationActivity.class);
                     break;
@@ -208,13 +213,13 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                     startActivity(LoginActivity.class);
                     break;
                 case R.id.img_my_info:
-                    Intent intent = new Intent(getApplicationContext(),MyInfoActivity.class);
-                    intent.putExtra("nickname",nickName);
-                    intent.putExtra("profile",String.valueOf(photoUrl));
+                    Intent intent = new Intent(getApplicationContext(), MyInfoActivity.class);
+                    intent.putExtra("nickname", nickName);
+                    intent.putExtra("profile", String.valueOf(photoUrl));
 
-                    if(flag==0){
+                    if (flag == 0) {
                         startActivity(LoginActivity.class);
-                    }else{
+                    } else {
 
 
                         startActivity(intent);
@@ -225,8 +230,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         }
     };
 
-    private void startActivity(Class c){
-        Intent intent = new Intent(this,c);
+    private void startActivity(Class c) {
+        Intent intent = new Intent(this, c);
         startActivity(intent);
     }
 
