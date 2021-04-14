@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/illuminating_yellow</item>
         <item name="colorPrimaryDark">@color/ultimate_gray</item>
         <item name="colorAccent">@color/basic_text</item>
+        <item name="android:fontFamily">@font/app_main_font</item>
     </style>
 
 </resources>
