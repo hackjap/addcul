@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             else{ // 일반 로그인일 경우
 
 
-                myInfoProfile.setImageResource(R.drawable.img_bar_myinfo);
+                myInfoProfile.setImageResource(R.drawable.ic_account_circle_black_24dp);
                 myInfoText.setText("내정보");
                 // 이미지 크키 설정
                 ViewGroup.LayoutParams params = myInfoProfile.getLayoutParams();
@@ -199,12 +199,14 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 case R.id.img_map:
                     // FirebaseAuth.getInstance().signOut();
                      startActivity(GoogleMapActivitiy.class);
+                     break;
                 case R.id.img_translate:
                     startActivity(TranslationActivity.class);
                     break;
                 // 로그인
                 case R.id.tv_my_info:
                     startActivity(LoginActivity.class);
+                    break;
                 case R.id.img_my_info:
                     Intent intent = new Intent(getApplicationContext(),MyInfoActivity.class);
                     intent.putExtra("nickname",nickName);

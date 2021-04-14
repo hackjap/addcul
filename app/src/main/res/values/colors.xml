@@ -9,4 +9,6 @@
     <color name="white">#FFFFFF</color>
     <color name="bright_gray">#C1C1C1</color>
     <color name="colorPrimaryDark">#A8DDE1</color>
+    <color name="real_bright_gray">#11333333</color>
+    <color name="footer_gray">#3C3C3C</color>
 </resources>

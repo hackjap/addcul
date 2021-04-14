@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="match_parent"
-    android:layout_height="65dp"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
     android:background="@drawable/style_border"
     android:orientation="horizontal"
-    android:padding="5dp"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:padding="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#00ffffff">
 
         <ImageView
             android:id="@+id/img_home"
@@ -29,7 +30,7 @@
             android:gravity="center"
             android:text="홈"
             android:textColor="@color/basic_text"
-            android:textSize="10sp"
+            android:textSize="9sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -37,7 +38,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#00ffffff">
 
         <ImageView
             android:id="@+id/img_translate"
@@ -56,7 +58,7 @@
             android:gravity="center"
             android:text="번역기"
             android:textColor="@color/basic_text"
-            android:textSize="10sp"
+            android:textSize="9sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -64,7 +66,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#00ffffff">
 
         <ImageView
             android:id="@+id/img_map"
@@ -82,7 +85,7 @@
             android:gravity="center"
             android:text="다문화지도"
             android:textColor="@color/basic_text"
-            android:textSize="10sp"
+            android:textSize="9sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -90,7 +93,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#00ffffff">
 
         <ImageView
             android:id="@+id/img_my_info"
@@ -98,7 +102,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            app:srcCompat="@drawable/img_bar_info" />
+            app:srcCompat="@drawable/ic_lock_open_black_24dp" />
 
         <TextView
             android:id="@+id/tv_my_info"
@@ -108,7 +112,7 @@
             android:gravity="center"
             android:text="로그인"
             android:textColor="@color/basic_text"
-            android:textSize="10sp"
+            android:textSize="9sp"
             android:textStyle="bold" />
     </LinearLayout>
 
