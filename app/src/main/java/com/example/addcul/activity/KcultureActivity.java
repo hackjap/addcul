@@ -2,6 +2,7 @@ package com.example.addcul.activity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -77,7 +78,7 @@ public class KcultureActivity extends BasicActivity {
             FragmentTransaction ft = fragmentManager.beginTransaction();
             switch (v.getId()) {
                 case R.id.btn_food_layout:
-
+                    Log.e("버튼 : ","버튼 클릭 ");
                     btn_food_layout.setBackgroundResource(R.drawable.part_round_back);
                     btn_music_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
                     btn_life_layout.setBackgroundColor(Color.parseColor("#0000ff00"));

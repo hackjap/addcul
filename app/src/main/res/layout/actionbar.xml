@@ -5,11 +5,4 @@
     android:layout_height="60dp"
     android:background="@color/basic_gray">
 
-    <TextView
-        android:id="@+id/text_actionbar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:text="애드컬"
-        android:textSize="24dp" />
 </LinearLayout>
