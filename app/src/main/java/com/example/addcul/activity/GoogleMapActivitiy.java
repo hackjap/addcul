@@ -1,14 +1,11 @@
 package com.example.addcul.activity;
 
 import android.Manifest;
-import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.addcul.R;
@@ -41,14 +38,15 @@ public class GoogleMapActivitiy extends AppCompatActivity implements OnMapReadyC
         MarkerOptions markerOptions = new MarkerOptions().position(latLng).title("홍대입구역");
         googleMap.addMarker(markerOptions);
 
-        if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
-            googleMap.setMyLocationEnabled(true);
-        else
-            checkLocationPermissionWithRationale();
+        //if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
+           // googleMap.setMyLocationEnabled(true);
+        //else
+            //checkLocationPermissionWithRationale();
 
     }
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
 
+    /*
     private void checkLocationPermissionWithRationale() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
@@ -66,6 +64,8 @@ public class GoogleMapActivitiy extends AppCompatActivity implements OnMapReadyC
             }
         }
     }
+
+     */
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {

@@ -149,6 +149,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         // 로그인
         findViewById(R.id.img_my_info).setOnClickListener(onClickListener);
         findViewById(R.id.tv_my_info).setOnClickListener(onClickListener);
+
+        findViewById(R.id.tv_notice).setOnClickListener(onClickListener);
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -187,6 +189,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 case R.id.tv_problem:
                     //startActivity()
                     break;
+                case R.id.tv_notice:
+                    startActivity(GoogleMapActivitiy.class);
+                    break;
 
                 /*
                  * 하단메뉴
@@ -200,7 +205,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
                 case R.id.img_map:
                     // FirebaseAuth.getInstance().signOut();
-                    startActivity(GoogleMapActivitiy.class);
+                    startActivity(MapActivity.class);
                     break;
                 case R.id.img_translate:
                     startActivity(TranslationActivity.class);

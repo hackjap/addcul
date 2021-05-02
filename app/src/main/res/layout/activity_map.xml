@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.MapActivity">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="한국 문화 체험하기" />
+
+    <Button
+        android:id="@+id/btn_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="내 위치에서 찾기" />
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="400dp" />
+
+    <TextView
+        android:id="@+id/tv_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="좌표 : "
+        android:textColor="#0A0A0A"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이름 :"
+        android:textColor="#0A0A0A"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="주소 : "
+        android:textColor="#0A0A0A"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_pnum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="전화번호 : "
+        android:textColor="#0A0A0A"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_busstop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="버스정류장 : "
+        android:textColor="#0A0A0A"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_subway"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="지하철 : "
+        android:textColor="#0A0A0A"
+        android:textSize="18sp" />
+
+
+</LinearLayout>
+

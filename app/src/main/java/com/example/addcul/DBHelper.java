@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final int VERSION=6;
+    public static final int VERSION=8;
     public DBHelper(Context context){
         super(context, "addculDB", null, VERSION);
     }
@@ -30,8 +30,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 "title text," +
                 "subtitle text,"+
                 "photo text);";
-        db.execSQL(problemSQL);
 
+        db.execSQL(problemSQL);
         db.execSQL("insert into problem(title,subtitle,photo)values ('의료','Medical','img_medic')");
         db.execSQL("insert into problem(title,subtitle,photo)values ('법률','Law','img_law')");
         db.execSQL("insert into problem(title,subtitle,photo)values ('복지','Welefare','img_welfare')");
@@ -43,7 +43,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if(newVersion==VERSION){
             db.execSQL("drop table food");
-            db.execSQL("drop table problem");
+         //   db.execSQL("drop table problem");
             onCreate(db);
         }
     }

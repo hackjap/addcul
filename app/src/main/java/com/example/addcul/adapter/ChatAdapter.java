@@ -85,6 +85,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
+
         Log.e("텍스트뷰 : ", "바인드뷰홀더");
         View view = viewHolder.view;
         TextView NameTextView = view.findViewById(R.id.tv_chat_name); // 채팅작성자
@@ -92,7 +93,8 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         TextView createdTextView = view.findViewById(R.id.tv_chat_created);   // 채팅날짜
 
 
-       // context= this.activity;
+
+        // context= this.activity;
 
        // Intent intent = ((Activity)context).getIntent();
       //  googleNickname = intent.getStringExtra("nickname");

@@ -291,6 +291,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:gravity="center"
+                android:id="@+id/tv_notice"
                 android:text="이달의 공지"
                 android:textColor="@color/basic_text"
                 android:textSize="20dp" />

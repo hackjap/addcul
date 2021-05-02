@@ -3,8 +3,10 @@ package com.example.addcul.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,9 +32,11 @@ public class MyInfoActivity extends AppCompatActivity {
     Util util;
     ImageView myInfoProfile;
     TextView myInfoNickname;
+    private FirebaseAuth auth;
     private FirebaseUser firebaseUser;
     private FirebaseFirestore firebaseFirestore;
     private ArrayList<MemberInfo> memberInfos;
+    private ArrayList<MemberInfo>memberData;
     String currentUid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +45,22 @@ public class MyInfoActivity extends AppCompatActivity {
 
         util = new Util(this);
 
+        auth = FirebaseAuth.getInstance();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         firebaseFirestore = FirebaseFirestore.getInstance();
         memberInfos = new ArrayList<>();
+        memberData = new ArrayList<>();
+
+        // 로그아웃
+        findViewById(R.id.logout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                auth.signOut();
+                startActivity(MainActivity.class);
+                Toast.makeText(getApplicationContext(),"로그아웃 하였습니다.",Toast.LENGTH_SHORT).show();
+            }
+        });
+
         if(firebaseUser == null) { // 로그인 상태가 아닐때
             util.showToast("로그인해주세요");
             startActivity(LoginActivity.class);
@@ -57,17 +74,19 @@ public class MyInfoActivity extends AppCompatActivity {
 
             memberUpdate();
 
+            //myInfoNickname.setText(memberData.get(0).getName());
+            Log.e("cxmember22",memberInfos.get(0).getName());
             Log.e("cxupdate : ", " 도큐먼트 그전까지는되네-1");
 
-            int position = 0;
+           // int position = 0;
 
-            for (int index = 0; index <1; index++) {
+            //for (int index = 0; index <1; index++) {
                // if (currentUid.equals(memberInfos.get(index).getUid()))
                 //   position = index;
-            Log.e("cxfor","For문 안 ");
-        }
+          //  Log.e("cxfor","For문 안 ");
+       // }
             //Log.e("member  : ",memberInfos.get(0).getUid());
-            Log.e("cxUID : ",currentUid);
+           // Log.e("cxUID : ",currentUid);
          //   Log.e("cxname : ",memberInfos.get(0).getName());
 //            myInfoNickname.setText(memberInfos.get(0).getName().toString());
 
@@ -104,7 +123,7 @@ public class MyInfoActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if (task.isSuccessful()) {
-                                //memberInfos.clear();
+                                memberInfos.clear();
                                 Log.e("cxupdate : ", " 도큐먼트 그전까지는되네1");
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     //Log.d(TAG, document.getId() + " => " + document.getData());
@@ -117,9 +136,12 @@ public class MyInfoActivity extends AppCompatActivity {
                                             document.getData().get("birthDay").toString(),
                                             document.getData().get("uid").toString()));
 
+                                            //memberData = memberInfos;
+
                                             Log.e("cxupdate : ",document.get("uid").toString());
-                                            Log.e("cxmember",memberInfos.get(0).getName());
+                                            //Log.e("cxmember",memberInfos.get(3).getName());
                                 }
+                                Log.e("cxFFmember",memberInfos.get(3).getName());
                                 // chatAdapter.notifyDataSetChanged();
 
                             } else {

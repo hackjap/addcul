@@ -53,6 +53,7 @@ public class ReadChatActivity extends BasicActivity {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
+
         if(firebaseUser == null){
             util.showToast("로그인 후 이용가능 합니다.");
             myStartActivity(LoginActivity.class);
@@ -66,7 +67,7 @@ public class ReadChatActivity extends BasicActivity {
             ((ChatAdapter) chatAdapter).setOnPostListener(onChatListener);
 
             testArray = new ArrayList<>();
-            testArray = memberInfos;
+
             //Log.e("cxchat : ",testArray.get(0).getName());
 
             loaderLayout = findViewById(R.id.loaderLayout);
@@ -83,6 +84,14 @@ public class ReadChatActivity extends BasicActivity {
             // 멤버 데이터 불러오기
             getName();
 
+            if(memberInfos.size()!=0)
+                Log.e("GetName : ",testArray.get(0).getName());
+
+
+
+            //Log.e("GetName : ",testArray.get(0).getName());
+            //Log.e("GetName : ",testArray.get(1).getName());
+            //Log.e("GetName : ",testArray.get(2).getName());
 
         }
     }
@@ -115,6 +124,8 @@ public class ReadChatActivity extends BasicActivity {
                         }
                     });
                     getName();
+
+  ;
 
         }
 
@@ -173,6 +184,7 @@ public class ReadChatActivity extends BasicActivity {
 
 
                                 }
+
                                 chatAdapter.notifyDataSetChanged();
 
                             } else {
@@ -203,13 +215,23 @@ public class ReadChatActivity extends BasicActivity {
                                            document.getData().get("uid").toString()));
                                 }
                                 chatAdapter.notifyDataSetChanged();
+                                testArray = memberInfos;
+
+
+
                             } else {
                                 //  Log.d(TAG, "Error getting documents: ", task.getException());
                             }
+
+                            //Log.e("GetName : ",testArray.get(0).getName());
+                            //Log.e("GetName : ",testArray.get(1).getName());
+                            //Log.e("GetName : ",testArray.get(2).getName());
                         }
+
                     });
 
         }
+
     }
 
 

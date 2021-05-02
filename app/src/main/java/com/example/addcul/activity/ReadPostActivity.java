@@ -151,6 +151,7 @@ public class ReadPostActivity extends BasicActivity {
                                             new Date(document.getDate("createdAt").getTime()),
                                             document.getId()));
                                 }
+                                Log.e("cxFFmember",postList.get(3).getPublisher());
                                 mainAdapter.notifyDataSetChanged();
 
                             } else {
