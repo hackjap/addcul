@@ -131,7 +131,7 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
 
 
     private void run() {    // makeRequest
-        String listCount = "1/10/";
+        String listCount = "1/100/";
         url = defaultUrl + myAPIKey + "/json/culturalSpaceInfo/" + listCount;
         Log.e("Location : ", url);
         requestQueue = Volley.newRequestQueue(this);
@@ -215,7 +215,7 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
     @Override
     public boolean onMarkerClick(Marker marker) {
 
-        Integer markerPosition = (Integer) marker.getTag();  // 마커에서 데이터 검색
+        Integer markerPosition = (Integer)marker.getTag();  // 마커에서 데이터 검색
         textViewChange(markerPosition);
        // textViewChange(i);
         /* 기본 예시
