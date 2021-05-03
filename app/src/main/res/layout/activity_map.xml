@@ -7,10 +7,16 @@
     tools:context=".activity.MapActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_category_museum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="한국 문화 체험하기" />
+        android:text="박물관/기념관" />
+
+    <Button
+        android:id="@+id/btn_category_art"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="미술관" />
 
     <Button
         android:id="@+id/btn_location"
@@ -22,7 +28,7 @@
         android:id="@+id/fragment"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="400dp" />
+        android:layout_height="350dp" />
 
     <TextView
         android:id="@+id/tv_category"
@@ -57,18 +63,10 @@
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/tv_busstop"
+        android:id="@+id/tv_homepage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="버스정류장 : "
-        android:textColor="#0A0A0A"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/tv_subway"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="지하철 : "
+        android:text="홈페이지 : "
         android:textColor="#0A0A0A"
         android:textSize="18sp" />
 
