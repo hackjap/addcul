@@ -11,7 +11,6 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -56,8 +55,7 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
 
     SupportMapFragment mapFragment;
     GoogleMap map;
-    TextView tvAddress, tvCategory, tvName,tvHomepage,tvpNum;
-    Button btnMyLocation,btnCategoryArt,btnCategoryMuseum;
+    TextView tvAddress, tvCategory, tvName,tvHomepage,tvpNum,btnCategoryArt,btnCategoryMuseum,btnMyLocation;
     LatLng latLng;
     Location location;
 
@@ -82,9 +80,9 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        btnCategoryArt = (Button)findViewById(R.id.btn_category_art);
-        btnCategoryMuseum = (Button) findViewById(R.id.btn_category_museum);
-        btnMyLocation=(Button)findViewById(R.id.btn_location);
+        btnCategoryArt = (TextView)findViewById(R.id.btn_category_art);
+        btnCategoryMuseum = (TextView) findViewById(R.id.btn_category_museum);
+        btnMyLocation=(TextView) findViewById(R.id.btn_location);
         tvCategory = (TextView) findViewById(R.id.tv_category);
         tvName = (TextView) findViewById(R.id.tv_name);
         tvAddress = (TextView) findViewById(R.id.tv_address);
@@ -239,8 +237,8 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
         tvCategory.setText("종류 : "+data.get(position).getCategory());
         tvName.setText("이름 : "+data.get(position).getName());
         tvAddress.setText("주소 : "+ data.get(position).getAddr());
-        tvHomepage.setText("홈페이지 : "+ data.get(position).getHomepage());
-        tvpNum.setText("전화번호 : " + data.get(position).getpNum());
+       // tvHomepage.setText("홈페이지 : "+ data.get(position).getHomepage());
+        //tvpNum.setText("전화번호 : " + data.get(position).getpNum());
     }
     public void markerService(ArrayList<CultureMAPInfo> data,String mapCategory) {
 //       int categoryPostion=0;

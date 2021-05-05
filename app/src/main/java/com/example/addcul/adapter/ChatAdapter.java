@@ -137,7 +137,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 
                 break;  // 해당 작성자를 찾으면 break;
             } else {
-                publisher = "비로그인";
+                publisher = "구글 로그인";
             }
 
         }
@@ -151,20 +151,13 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
             if (loginUid.equals(chatID)) { // 로그인한 사용자와 채팅작성자가 같다면
                 NameTextView.setVisibility(View.GONE);
                 chatBack.setBackgroundResource(R.drawable.style_mychat_talk);
-
-                LinearLayout contentsLayout  = view.findViewById(R.id.contentLayout);
-                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.FILL_PARENT
-                );
-
-                params.weight = 1.0f;
-                params.gravity = Gravity.RIGHT;
-//                contentsLayout.setLayoutParams(params);
+                LinearLayout contentsLayout  = (LinearLayout)view.findViewById(R.id.chat_contentsLayout);
+                LinearLayout.LayoutParams params = (LinearLayout.LayoutParams)contentsLayout.getLayoutParams();
+                params.gravity= Gravity.RIGHT;
+                contentsLayout.setLayoutParams(params);
                 Log.e("IFuserID :  ", i + " : " + loginUid);
                 break;
 
-                //  params.gravity = Gravity.RIGHT;
-                // contentsLayout.setLayoutParams(params);
             } else {
                 //NameTextView.setVisibility(View.VISIBLE);
             }
@@ -172,7 +165,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 
         NameTextView.setText(publisher);
         TextTextView.setText(mDataset.get(position).getText());
-        createdTextView.setText(new SimpleDateFormat("yyyy-MM-dd kk:mm:ss", Locale.getDefault()).format(mDataset.get(position).getCreated()));
+        createdTextView.setText(new SimpleDateFormat("hh:mm:ss a", Locale.getDefault()).format(mDataset.get(position).getCreated()));
 
 
         // Log.e("최종 userID :  ", userID);

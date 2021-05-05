@@ -31,12 +31,11 @@ public class MyInfoActivity extends AppCompatActivity {
 
     Util util;
     ImageView myInfoProfile;
-    TextView myInfoNickname;
+    TextView myInfoNickname,myInfoEmail,myInfopNum,myInfoSex,myInfoBirth;
     private FirebaseAuth auth;
     private FirebaseUser firebaseUser;
     private FirebaseFirestore firebaseFirestore;
     private ArrayList<MemberInfo> memberInfos;
-    private ArrayList<MemberInfo>memberData;
     String currentUid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +48,16 @@ public class MyInfoActivity extends AppCompatActivity {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         firebaseFirestore = FirebaseFirestore.getInstance();
         memberInfos = new ArrayList<>();
-        memberData = new ArrayList<>();
+
+
+        myInfoProfile = findViewById(R.id.img_myinfo_profile);
+        myInfoNickname = findViewById(R.id.tv_myinfo_nickname);
+        myInfoEmail = findViewById(R.id.tv_myinfo_email);
+        myInfoBirth = findViewById(R.id.tv_myinfo_birth);
+        myInfoSex= findViewById(R.id.tv_myinfo_sex);
+        myInfopNum = findViewById(R.id.tv_myinfo_pnum);
+
+        currentUid = firebaseUser.getUid();  //현재 로그인 UID
 
         // 로그아웃
         findViewById(R.id.logout).setOnClickListener(new View.OnClickListener() {
@@ -64,33 +72,12 @@ public class MyInfoActivity extends AppCompatActivity {
         if(firebaseUser == null) { // 로그인 상태가 아닐때
             util.showToast("로그인해주세요");
             startActivity(LoginActivity.class);
+
         }
 
         else {
-
-            myInfoProfile = findViewById(R.id.img_myinfo_profile);
-            myInfoNickname = findViewById(R.id.tv_myinfo_nickname);
-            currentUid = firebaseUser.getUid();  //현재 로그인 UID
-
             memberUpdate();
 
-            //myInfoNickname.setText(memberData.get(0).getName());
-            Log.e("cxmember22",memberInfos.get(0).getName());
-            Log.e("cxupdate : ", " 도큐먼트 그전까지는되네-1");
-
-           // int position = 0;
-
-            //for (int index = 0; index <1; index++) {
-               // if (currentUid.equals(memberInfos.get(index).getUid()))
-                //   position = index;
-          //  Log.e("cxfor","For문 안 ");
-       // }
-            //Log.e("member  : ",memberInfos.get(0).getUid());
-           // Log.e("cxUID : ",currentUid);
-         //   Log.e("cxname : ",memberInfos.get(0).getName());
-//            myInfoNickname.setText(memberInfos.get(0).getName().toString());
-
-            //Log.e("nickname : ", memberInfos.get(0).getName());
         /* 구글 로그인
         Intent intent = getIntent();
         String nickname = intent.getStringExtra("nickname");
@@ -136,13 +123,15 @@ public class MyInfoActivity extends AppCompatActivity {
                                             document.getData().get("birthDay").toString(),
                                             document.getData().get("uid").toString()));
 
-                                            //memberData = memberInfos;
 
-                                            Log.e("cxupdate : ",document.get("uid").toString());
-                                            //Log.e("cxmember",memberInfos.get(3).getName());
                                 }
+
+                                // 동작
+                                registerInfo();
+
+//
+
                                 Log.e("cxFFmember",memberInfos.get(3).getName());
-                                // chatAdapter.notifyDataSetChanged();
 
                             } else {
                                 //  Log.d(TAG, "Error getting documents: ", task.getException());
@@ -151,6 +140,19 @@ public class MyInfoActivity extends AppCompatActivity {
                     });
 
         }
+    }
+    void registerInfo(){
+        int position = 0;
+        for (int index = 0; index <memberInfos.size(); index++) {
+            if (currentUid.equals(memberInfos.get(index).getUid()))
+                position = index;
+            Log.e("position : ",position+"");
+        }
+        myInfoNickname.setText(memberInfos.get(position).getName());
+        myInfoEmail.setText(memberInfos.get(position).getEmail());
+        myInfoSex.setText(memberInfos.get(position).getSex());
+        myInfopNum.setText(memberInfos.get(position).getPhoneNumber());
+        myInfoBirth.setText(memberInfos.get(position).getBirthDay());
     }
 
     public void startActivity(Class c) {
