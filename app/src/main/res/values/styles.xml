@@ -1,20 +1,16 @@
 <resources>
 
     <!-- Base application theme. -->
-<!--    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">-->
     <style name="AppTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
         <!-- 타이틀바 숨기기
-
+        <item name="windowNoTitle">true</item>
         -->
-<!--        <item name="windowNoTitle">true</item>-->
         <!--상태바 숨기기-->
-
-<!--        <item name="android:windowFullscreen">true</item>-->
+        <item name="android:windowFullscreen">true</item>
 <!--        &lt;!&ndash;투명 액션바&ndash;&gt;-->
-<!--        <item name="colorPrimary">#22ffffff</item>-->
+<!--        <item name="colorPrimary">#00000000</item>-->
 <!--        <item name="windowActionBarOverlay">true</item>-->
-
 
         <item name="colorPrimaryDark">@color/ultimate_gray</item>
         <item name="colorAccent">@color/basic_text</item>
