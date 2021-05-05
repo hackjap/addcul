@@ -56,8 +56,8 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
 
     SupportMapFragment mapFragment;
     GoogleMap map;
-    TextView tvAddress, tvCategory, tvName,tvBusstop,tvSubway,tvpNum;
-    Button btn,btnMyLocation;
+    TextView tvAddress, tvCategory, tvName,tvHomepage,tvpNum;
+    Button btnMyLocation,btnCategoryArt,btnCategoryMuseum;
     LatLng latLng;
     Location location;
 
@@ -67,6 +67,7 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
     String result; // parsing 결과
     String address; // 주소
 
+    Marker marker;
     int nearPostion=0;
 
     //volley
@@ -81,14 +82,14 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        btn = (Button) findViewById(R.id.button);
+        btnCategoryArt = (Button)findViewById(R.id.btn_category_art);
+        btnCategoryMuseum = (Button) findViewById(R.id.btn_category_museum);
         btnMyLocation=(Button)findViewById(R.id.btn_location);
         tvCategory = (TextView) findViewById(R.id.tv_category);
         tvName = (TextView) findViewById(R.id.tv_name);
         tvAddress = (TextView) findViewById(R.id.tv_address);
         tvpNum = (TextView)findViewById(R.id.tv_pnum);
-        tvBusstop = (TextView)findViewById(R.id.tv_busstop);
-        tvSubway = (TextView)findViewById(R.id.tv_subway);
+        tvHomepage =(TextView)findViewById(R.id.tv_homepage);
 
 
         defaultUrl = "http://openapi.seoul.go.kr:8088/";
@@ -105,27 +106,15 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
             public void onMapReady(GoogleMap googleMap) {
                 map = googleMap;
                 // 37.55512522440527, 126.96981185690053 서울역
-                map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.55512522440527,126.96981185690053),15));
+                map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.55512522440527,126.96981185690053),11));
                 map.setMyLocationEnabled(true); // 내위치 설정
                 //run();
             }
         });
 
         // 현재 위치 정보 가져오기 버튼 동작
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                 run();   // 프로세스 실행
+        run();
 
-            }
-        });
-
-        btnMyLocation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
 
     } // end of onCreate
 
@@ -185,18 +174,29 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
                         btnMyLocation.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(data.get(nearPostion).getLatitude(),data.get(nearPostion).getLongitude()),15));
+                                map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(data.get(nearPostion).getLatitude(),data.get(nearPostion).getLongitude()),13));
                             }
                         });
 
 
 
-
-                        map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(myLatitude,myLongitude),15));
+                       // map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(myLatitude,myLongitude),15));
                         //Log.e("내 위치 위도 : ",myLatitude.toString());
 
+                        // 미술관 버튼 동작 : 미술관 마커표시
+                        btnCategoryArt.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                markerService(data,"미술관");
+                            }
+                        });
+                        btnCategoryMuseum.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                markerService(data,"박물관/기념관");
+                            }
+                        });
 
-                        markerService(data); // 파싱 받은 데이터로 마커 생성
 
 
                     }
@@ -216,7 +216,7 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
     public boolean onMarkerClick(Marker marker) {
 
         Integer markerPosition = (Integer)marker.getTag();  // 마커에서 데이터 검색
-        textViewChange(markerPosition);
+        setTextView(markerPosition);
        // textViewChange(i);
         /* 기본 예시
         Integer clickCount = (Integer) marker.getTag();  // 마커에서 데이터 검색
@@ -235,28 +235,37 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
         return false;
     }
 
-    public void textViewChange(int position){
+    public void setTextView(int position){
         tvCategory.setText("종류 : "+data.get(position).getCategory());
         tvName.setText("이름 : "+data.get(position).getName());
         tvAddress.setText("주소 : "+ data.get(position).getAddr());
+        tvHomepage.setText("홈페이지 : "+ data.get(position).getHomepage());
         tvpNum.setText("전화번호 : " + data.get(position).getpNum());
-        tvBusstop.setText("버스 정류장 : " + data.get(position).getBusstop());
-        tvSubway.setText("지하철 : " + data.get(position).getSubway());
     }
-    public void markerService(ArrayList<CultureMAPInfo> data) {
+    public void markerService(ArrayList<CultureMAPInfo> data,String mapCategory) {
+//       int categoryPostion=0;
 
+        map.clear();
         for (int i = 0; i < data.size(); i++) {
-            latLng = new LatLng(data.get(i).getLatitude(), data.get(i).getLongitude());
-            Marker marker;
-            MarkerOptions markerOptions = new MarkerOptions()
-                    .position(latLng).title(data.get(i)
-                            .getName()).snippet("여기는 "+i+1+"번쨰 한국 문화 공간입니다.")
-                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
-            marker = map.addMarker(markerOptions);
-            marker.setTag(i);
+
+            String category  = data.get(i).getCategory();
+            Log.e("Test Category : ",category);
+            Log.e("Test MAPCategory : ",mapCategory);
+            if(mapCategory.equals(category)){
+                Log.e("Test Position : ","111");
+                latLng = new LatLng(data.get(i).getLatitude(), data.get(i).getLongitude());
+
+                MarkerOptions markerOptions = new MarkerOptions()
+                        .position(latLng).title(data.get(i)
+                                .getName()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
+                marker = map.addMarker(markerOptions);
+                marker.setTag(i);
 
 
-            textViewChange(i);
+                setTextView(i);
+            }
+
+
             /*
             tvName.setText("이름 : " + data.get(i).getName());
             tvAddress.setText("주소 : " + data.get(i).getAddr());
@@ -264,11 +273,11 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
 
 
              */
-
         }
         map.setOnMarkerClickListener(this);
 
     }
+
 
     public void setJason(String response) {
 
@@ -286,23 +295,15 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
             for (int i = 0; i < jsonArray.length(); i++) {
                 String index = jsonArray.getString(i);
                 JSONObject culture = new JSONObject(index);
-                String category = culture.getString("SUBJCODE");
-                String name = culture.getString("FAC_NAME");
-                String addr = culture.getString("ADDR");
-                String pNum = culture.getString("PHNE");
-
-                // 버스나 지하철 수단이 없는 경우도 있음
-                String busstop = culture.getString("BUSSTOP");
-                String subway = culture.getString("SUBWAY");
-                if(busstop.length()==0)
-                    busstop = " x ";
-                else if(subway.length()==0)
-                    subway =" x ";
-
+                String category = culture.getString("SUBJCODE");    // 종류
+                String name = culture.getString("FAC_NAME");        // 이름
+                String addr = culture.getString("ADDR");            // 주소
+                String pNum = culture.getString("PHNE");            // 전화번호
+                String hompage =culture.getString("HOMEPAGE");
                 double latitude = culture.getDouble("X_COORD");    // 위도
                 double longitude = culture.getDouble("Y_COORD");  // 경도
 
-                data.add(new CultureMAPInfo(category,name, addr, pNum, busstop,subway,latitude,longitude));
+                data.add(new CultureMAPInfo(category,name, addr, pNum,hompage,latitude,longitude));
             }
 
 

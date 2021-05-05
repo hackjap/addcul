@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -55,7 +56,8 @@ public class ReadChatActivity extends BasicActivity {
 
 
         if(firebaseUser == null){
-            util.showToast("로그인 후 이용가능 합니다.");
+          //  util.showToast("로그인 후 이용가능 합니다.");
+            Toast.makeText(getApplicationContext(),"로그인 후 이용가능 합니다.",Toast.LENGTH_SHORT).show();
             myStartActivity(LoginActivity.class);
         }
         else {

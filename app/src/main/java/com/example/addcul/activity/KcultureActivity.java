@@ -16,6 +16,8 @@ import com.example.addcul.fragment.FragLife;
 import com.example.addcul.fragment.FragMusic;
 import com.example.addcul.fragment.FragTravel;
 
+import java.util.List;
+
 public class KcultureActivity extends BasicActivity {
 
     FragmentManager fragmentManager;
@@ -50,7 +52,7 @@ public class KcultureActivity extends BasicActivity {
         findViewById(R.id.tv_my_info).setOnClickListener(onFootlistner);
 
 
-        final Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.contentLayout);
+      //  final Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.contentLayout);
 
         fragmentManager = getSupportFragmentManager();
         // 프래그먼트 객체 만들기
@@ -59,6 +61,10 @@ public class KcultureActivity extends BasicActivity {
         fragLife = new FragLife();
         fragTravel = new FragTravel();
         // 프래그먼트 첫 화면 로딩
+        btn_food_layout.setBackgroundResource(R.drawable.part_round_back);
+        btn_music_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+        btn_life_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+        btn_travel_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
         FragmentTransaction ft = fragmentManager.beginTransaction();
         ft.addToBackStack(null);
         ft.replace(R.id.contentLayout, fragFood);
@@ -69,6 +75,24 @@ public class KcultureActivity extends BasicActivity {
         btn_music_layout.setOnClickListener(onClickListener);
         btn_life_layout.setOnClickListener(onClickListener);
         btn_travel_layout.setOnClickListener(onClickListener);
+
+
+    }
+    public interface onBackPressedListener{
+        void onBackPressed();
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        // 프래그먼트 onBackPressedListener 사용
+        List<Fragment> fragmentList = getSupportFragmentManager().getFragments();
+        for(Fragment fragment:fragmentList){
+            if(fragment instanceof onBackPressedListener){
+
+            }
+        }
+
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {

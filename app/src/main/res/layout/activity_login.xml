@@ -46,7 +46,6 @@
             android:layout_height="50dp"
             android:layout_marginBottom="-1dp"
             android:background="@drawable/style_edit_border"
-            android:ems="10"
             android:hint="비밀번호"
             android:padding="10dp"
             android:inputType="textPassword" />
