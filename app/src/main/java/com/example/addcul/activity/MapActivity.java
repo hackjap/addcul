@@ -251,7 +251,7 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
             MarkerOptions markerOptions = new MarkerOptions()
                     .position(latLng).title(data.get(i)
                             .getName()).snippet("여기는 "+i+1+"번쨰 한국 문화 공간입니다.")
-                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE));
+                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
             marker = map.addMarker(markerOptions);
             marker.setTag(i);
 

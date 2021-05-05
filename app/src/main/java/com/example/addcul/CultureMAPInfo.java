@@ -5,18 +5,19 @@ public class CultureMAPInfo {
     private String name;    // 이름
     private String addr;    // 주소
     private String pNum;    // 전화번호
-    private String busstop;     // 버스정류장
-    private String subway;  // 지하철
+    private String homepage;
+
+
     private double latitude;
     private double longitude;
 
-    public CultureMAPInfo(String category, String name, String addr, String pNum, String busstop,String subway,double latitude,double longitude) {
+
+    public CultureMAPInfo(String category, String name, String addr, String pNum, String homepage, double latitude, double longitude) {
         this.category = category;
         this.name = name;
         this.addr = addr;
         this.pNum = pNum;
-        this.busstop = busstop;
-        this.subway = subway;
+        this.homepage = homepage;
         this.latitude = latitude;
         this.longitude = longitude;
     }
@@ -85,19 +86,12 @@ public class CultureMAPInfo {
         this.category = category;
     }
 
-    public String getBusstop() {
-        return busstop;
+
+    public String getHomepage() {
+        return homepage;
     }
 
-    public void setBusstop(String busstop) {
-        this.busstop = busstop;
-    }
-
-    public String getSubway() {
-        return subway;
-    }
-
-    public void setSubway(String subway) {
-        this.subway = subway;
+    public void setHomepage(String homepage) {
+        this.homepage = homepage;
     }
 }
