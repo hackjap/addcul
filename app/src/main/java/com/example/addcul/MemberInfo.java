@@ -25,7 +25,10 @@ public class MemberInfo {
         this.name = name;
         this.uid = uid;
 
-
+    }
+    // getUserName;
+    public MemberInfo(String name){
+        this.name =name;
     }
 
     public String getSex() {

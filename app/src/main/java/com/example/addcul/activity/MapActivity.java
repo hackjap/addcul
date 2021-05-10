@@ -2,19 +2,22 @@ package com.example.addcul.activity;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.android.volley.Request;
@@ -51,11 +54,13 @@ import java.util.List;
  *      markerServices : 마커 생성
  *      makeRequest : Volley 통신 후 url의 string 을 반환
  */
-public class MapActivity extends AppCompatActivity implements AutoPermissionsListener, GoogleMap.OnMarkerClickListener {
+public class MapActivity extends BasicActivity implements AutoPermissionsListener, GoogleMap.OnMarkerClickListener {
 
     SupportMapFragment mapFragment;
     GoogleMap map;
     TextView tvAddress, tvCategory, tvName,tvHomepage,tvpNum,btnCategoryArt,btnCategoryMuseum,btnMyLocation;
+    ImageView imgCall,imgUrl;
+    LinearLayout mapExplainContainer;
     LatLng latLng;
     Location location;
 
@@ -67,6 +72,7 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
 
     Marker marker;
     int nearPostion=0;
+    int partPosition=0;
 
     //volley
     RequestQueue requestQueue;
@@ -74,6 +80,10 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
 
     //
     ArrayList<CultureMAPInfo> data;
+
+    // backbutton
+    private final long FINISH_INTERVAL_TIME = 2000;
+    private long backPressedTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +98,20 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
         tvAddress = (TextView) findViewById(R.id.tv_address);
         tvpNum = (TextView)findViewById(R.id.tv_pnum);
         tvHomepage =(TextView)findViewById(R.id.tv_homepage);
+        imgCall = (ImageView)findViewById(R.id.img_call);
+        imgUrl = (ImageView)findViewById(R.id.img_url);
+        mapExplainContainer =(LinearLayout)findViewById(R.id.map_explain_container);
 
+        // footer 바인딩
+        // 하단메뉴
+        findViewById(R.id.img_home).setOnClickListener(onFooterlistner);
+        findViewById(R.id.img_translate).setOnClickListener(onFooterlistner);
+        findViewById(R.id.img_map).setOnClickListener(onFooterlistner);
+        findViewById(R.id.img_my_info).setOnClickListener(onFooterlistner);
+
+        ImageView ivMap = (ImageView)findViewById(R.id.img_map);
+        TextView tvMap = (TextView)findViewById(R.id.tv_map);
+        ivMap.setImageResource(R.drawable.img_bar_map_yellow);
 
         defaultUrl = "http://openapi.seoul.go.kr:8088/";
         myAPIKey = "73555766486a616e38336d64466f53";
@@ -98,6 +121,16 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
         AutoPermissions.Companion.loadAllPermissions(this, 101); // auto permission
 
+        if (firebaseUser == null) { // 로그인 상태가 아닐때
+
+        } else {
+            TextView tvMyinfo = (TextView)findViewById(R.id.tv_my_info);
+            ImageView ivMyinfo = (ImageView) findViewById(R.id.img_my_info);
+            ivMyinfo.setImageResource(R.drawable.ic_account_circle_black_24dp);
+            tvMyinfo.setText("내정보");
+
+        }
+
         // 구글맵 비동기 로드
         mapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
@@ -106,16 +139,34 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
                 // 37.55512522440527, 126.96981185690053 서울역
                 map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.55512522440527,126.96981185690053),11));
                 map.setMyLocationEnabled(true); // 내위치 설정
+
                 //run();
             }
         });
+
 
         // 현재 위치 정보 가져오기 버튼 동작
         run();
 
 
+
     } // end of onCreate
 
+    @Override
+    public void onBackPressed() {
+        long tempTime = System.currentTimeMillis();
+        long intervalTime = tempTime - backPressedTime;
+
+        if(0<=intervalTime && FINISH_INTERVAL_TIME >= intervalTime){
+            finish();
+        }
+        else{
+            backPressedTime = tempTime;
+           // Toast.makeText(getApplicationContext(),"종료 ",Toast.LENGTH_SHORT).show();
+            mapExplainContainer.setVisibility(View.GONE);
+        }
+
+    }
 
     private void run() {    // makeRequest
         String listCount = "1/100/";
@@ -134,6 +185,7 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
                         latLng = new LatLng(data.get(0).getLatitude(),data.get(0).getLongitude());
 
 
+
                         LatLng testLocation = new LatLng(37.566680508881475,126.99758279442203);  //37.566680508881475, 126.99758279442203 을지로4가역
 
 
@@ -146,7 +198,6 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
                         Double myLongitude = location.getLongitude();
                         // Double myLatitude = testLocation.latitude;
                          //Double myLongitude =testLocation.longitude;
-
 
                             Double oper;
                             Double min =99999.0;
@@ -186,6 +237,7 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
                             @Override
                             public void onClick(View v) {
                                 markerService(data,"미술관");
+
                             }
                         });
                         btnCategoryMuseum.setOnClickListener(new View.OnClickListener() {
@@ -214,7 +266,9 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
     public boolean onMarkerClick(Marker marker) {
 
         Integer markerPosition = (Integer)marker.getTag();  // 마커에서 데이터 검색
-        setTextView(markerPosition);
+        getContents(markerPosition);
+        mapExplainContainer.setVisibility(View.VISIBLE);
+
        // textViewChange(i);
         /* 기본 예시
         Integer clickCount = (Integer) marker.getTag();  // 마커에서 데이터 검색
@@ -233,10 +287,32 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
         return false;
     }
 
-    public void setTextView(int position){
-        tvCategory.setText("종류 : "+data.get(position).getCategory());
-        tvName.setText("이름 : "+data.get(position).getName());
-        tvAddress.setText("주소 : "+ data.get(position).getAddr());
+
+
+    public void getContents(final int position){
+        tvCategory.setText(data.get(position).getCategory());
+        tvName.setText(data.get(position).getName());
+        tvAddress.setText(data.get(position).getAddr());
+       // Log.e("포지션 : ",partPosition+" ");
+        imgCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 전화 연결
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+data.get(position).getpNum()));
+                startActivity(intent);
+            }
+        });
+        imgUrl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //url 연결
+                Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse(data.get(position).getHomepage()));
+                startActivity(intent);
+            }
+        });
+
+
+
        // tvHomepage.setText("홈페이지 : "+ data.get(position).getHomepage());
         //tvpNum.setText("전화번호 : " + data.get(position).getpNum());
     }
@@ -260,7 +336,7 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
                 marker.setTag(i);
 
 
-                setTextView(i);
+                getContents(i);
             }
 
 
@@ -303,6 +379,7 @@ public class MapActivity extends AppCompatActivity implements AutoPermissionsLis
 
                 data.add(new CultureMAPInfo(category,name, addr, pNum,hompage,latitude,longitude));
             }
+
 
 
 

@@ -51,7 +51,7 @@
             app:srcCompat="@drawable/ic_translate_black_24dp" />
 
         <TextView
-            android:id="@+id/tv_post"
+            android:id="@+id/tv_translate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -78,7 +78,7 @@
             app:srcCompat="@drawable/img_bar_map" />
 
         <TextView
-            android:id="@+id/tv_search"
+            android:id="@+id/tv_map"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"

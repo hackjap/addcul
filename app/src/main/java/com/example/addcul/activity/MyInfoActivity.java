@@ -9,7 +9,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.addcul.MemberInfo;
 import com.example.addcul.R;
@@ -25,7 +24,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
-public class MyInfoActivity extends AppCompatActivity {
+public class MyInfoActivity extends BasicActivity {
+
 
     private static final String TAG = "MyInfoActivity";
 
@@ -49,15 +49,22 @@ public class MyInfoActivity extends AppCompatActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
         memberInfos = new ArrayList<>();
 
+        // footer 바인딩
+        // 하단메뉴
+        findViewById(R.id.img_home).setOnClickListener(onFooterlistner);
+        findViewById(R.id.img_translate).setOnClickListener(onFooterlistner);
+        findViewById(R.id.img_map).setOnClickListener(onFooterlistner);
+        findViewById(R.id.img_my_info).setOnClickListener(onFooterlistner);
 
         myInfoProfile = findViewById(R.id.img_myinfo_profile);
         myInfoNickname = findViewById(R.id.tv_myinfo_nickname);
         myInfoEmail = findViewById(R.id.tv_myinfo_email);
         myInfoBirth = findViewById(R.id.tv_myinfo_birth);
-        myInfoSex= findViewById(R.id.tv_myinfo_sex);
+        myInfoSex = findViewById(R.id.tv_myinfo_sex);
         myInfopNum = findViewById(R.id.tv_myinfo_pnum);
 
         currentUid = firebaseUser.getUid();  //현재 로그인 UID
+
 
         // 로그아웃
         findViewById(R.id.logout).setOnClickListener(new View.OnClickListener() {
@@ -65,17 +72,23 @@ public class MyInfoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 auth.signOut();
                 startActivity(MainActivity.class);
-                Toast.makeText(getApplicationContext(),"로그아웃 하였습니다.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "로그아웃 하였습니다.", Toast.LENGTH_SHORT).show();
             }
         });
 
-        if(firebaseUser == null) { // 로그인 상태가 아닐때
+
+        if (firebaseUser == null) { // 로그인 상태가 아닐때
             util.showToast("로그인해주세요");
             startActivity(LoginActivity.class);
-
-        }
-
-        else {
+            TextView tvMyinfo = (TextView)findViewById(R.id.tv_my_info);
+            ImageView ivMyinfo = (ImageView) findViewById(R.id.img_my_info);
+            ivMyinfo.setImageResource(R.drawable.ic_lock_open_black_24dp);
+            tvMyinfo.setText("로그인");
+        } else {
+            TextView tvMyinfo = (TextView)findViewById(R.id.tv_my_info);
+            ImageView ivMyinfo = (ImageView) findViewById(R.id.img_my_info);
+            ivMyinfo.setImageResource(R.drawable.ic_account_circle_yellow_24dp);
+            tvMyinfo.setText("내정보");
             memberUpdate();
 
         /* 구글 로그인
@@ -100,7 +113,6 @@ public class MyInfoActivity extends AppCompatActivity {
 
 
     }
-
     private void memberUpdate() {
         if(firebaseUser!=null){
             CollectionReference collectionReference = firebaseFirestore.collection("users");

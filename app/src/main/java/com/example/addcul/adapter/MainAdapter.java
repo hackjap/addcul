@@ -1,6 +1,7 @@
 package com.example.addcul.adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.addcul.PostInfo;
 import com.example.addcul.R;
+import com.example.addcul.activity.ReadPostDetailActivity;
 import com.example.addcul.listener.OnPostListener;
 
 import java.text.SimpleDateFormat;
@@ -86,9 +88,15 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
 
 
-
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myStartActivity(ReadPostDetailActivity.class,position);
+            }
+        });
 
     }
+
 
     @Override
     public int getItemCount() {
@@ -124,6 +132,18 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     private void startToast(String msg) {
         Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show();
     }
+
+
+    private void myStartActivity(Class c,int position) {
+        Intent intent = new Intent(activity,c);
+        intent.putExtra("position",position);
+        activity.startActivity(intent);
+    }
+//    private void myStartActivity(Class c,PostInfo postInfo) {
+//        Intent intent = new Intent(activity, c);
+//        intent.putExtra("postInfo",postInfo);
+//        activity.startActivity(intent);
+//    }
 
 }
 

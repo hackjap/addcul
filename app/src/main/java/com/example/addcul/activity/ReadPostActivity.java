@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -47,6 +49,12 @@ public class ReadPostActivity extends BasicActivity {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
+     // footer 바인딩
+        // 하단메뉴
+        findViewById(R.id.img_home).setOnClickListener(onFooterlistner);
+        findViewById(R.id.img_translate).setOnClickListener(onFooterlistner);
+        findViewById(R.id.img_map).setOnClickListener(onFooterlistner);
+        findViewById(R.id.img_my_info).setOnClickListener(onFooterlistner);
 
 
 
@@ -63,16 +71,24 @@ public class ReadPostActivity extends BasicActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(ReadPostActivity.this));
         //recyclerView.setAdapter(new MainAdapter(ReadPostActivity.this,postList));
         recyclerView.setAdapter(mainAdapter);
-        Log.e("어뎁터","어뎁터");
 
-        // footer 바인딩
-        // 하단메뉴
-        findViewById(R.id.img_home).setOnClickListener(onFootlistner);
-        findViewById(R.id.img_translate).setOnClickListener(onFootlistner);
-        findViewById(R.id.img_map).setOnClickListener(onFootlistner);
-        // 로그인
-        findViewById(R.id.img_my_info).setOnClickListener(onFootlistner);
-        findViewById(R.id.tv_my_info).setOnClickListener(onFootlistner);
+
+
+        if(firebaseUser == null){
+
+            TextView tvMyinfo = (TextView)findViewById(R.id.tv_my_info);
+            ImageView ivMyinfo = (ImageView) findViewById(R.id.img_my_info);
+            ivMyinfo.setImageResource(R.drawable.ic_lock_open_black_24dp);
+            tvMyinfo.setText("로그인");
+
+        }
+        else {
+
+            TextView tvMyinfo = (TextView) findViewById(R.id.tv_my_info);
+            ImageView ivMyinfo = (ImageView) findViewById(R.id.img_my_info);
+            ivMyinfo.setImageResource(R.drawable.ic_account_circle_black_24dp);
+            tvMyinfo.setText("내정보");
+        }
 
     }
 
@@ -151,7 +167,7 @@ public class ReadPostActivity extends BasicActivity {
                                             new Date(document.getDate("createdAt").getTime()),
                                             document.getId()));
                                 }
-                                Log.e("cxFFmember",postList.get(3).getPublisher());
+
                                 mainAdapter.notifyDataSetChanged();
 
                             } else {

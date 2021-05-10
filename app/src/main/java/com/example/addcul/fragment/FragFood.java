@@ -75,7 +75,16 @@ public class FragFood extends Fragment {
         });
 
 
+//        // This callback will only be called when MyFragment is at least Started.
+//        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+//            @Override
+//            public void handleOnBackPressed() {
+//                // Handle the back button event
+//            }
+//        };
+//        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
 
+        // The callback can be enabled or disabled here or in handleOnBackPressed()
 
 
         // 내일 아이템을 눌렀을때 동작 + 이동되는 액티비티 구성
