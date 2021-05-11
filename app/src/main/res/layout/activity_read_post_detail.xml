@@ -9,16 +9,16 @@
     tools:context=".activity.ReadPostDetailActivity">
 
     <LinearLayout
-        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <LinearLayout
-            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
 
             android:orientation="horizontal">
 
@@ -50,38 +50,97 @@
         </LinearLayout>
 
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tv_post_title"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:textColor="#0C0C0C"
-            android:textSize="24sp"
-            tools:text="제목">
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_post_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textColor="#0C0C0C"
+                android:textSize="24sp"
+                tools:text="제목">
 
 
-        </TextView>
+            </TextView>
 
-        <TextView
-            android:id="@+id/tv_post_detail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
-            android:textColor="#0C0C0C"
-            tools:text="내용">
+            <TextView
+                android:id="@+id/tv_post_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:textColor="#0C0C0C"
+                tools:text="내용">
 
-        </TextView>
+            </TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:textColor="#0C0C0C"
+                android:textSize="24sp"
+                tools:text="댓글">
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/post_detail_recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <LinearLayout
+                    android:layout_marginTop="40dp"
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/style_edit_border"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/post_detail_et_comment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.7"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="댓글 입력"
+                        android:inputType="textPersonName" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1"
+                        android:background="@color/illuminating_yellow"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/post_detail_btn_comment_submit"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            app:srcCompat="@drawable/ic_send_black_24dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
     </LinearLayout>
-    </LinearLayout>
-
-<!--    하단메뉴-->
+    <!--    하단메뉴-->
     <LinearLayout
+        android:gravity="bottom"
         android:layout_width="match_parent"
 
         android:layout_height="wrap_content">

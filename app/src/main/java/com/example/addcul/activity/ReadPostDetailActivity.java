@@ -2,14 +2,19 @@ package com.example.addcul.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.addcul.MemberInfo;
+import com.example.addcul.PostDetailInfo;
 import com.example.addcul.PostInfo;
 import com.example.addcul.R;
+import com.example.addcul.adapter.PostDetailAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,12 +35,13 @@ public class ReadPostDetailActivity extends AppCompatActivity {
 
     FirebaseUser firebaseUser;
     FirebaseFirestore firebaseFirestore;
-    ArrayList<PostInfo> postList;
+    ArrayList<PostDetailInfo> postDetailInfos;
+    ArrayList<PostInfo>postList;
     ArrayList<MemberInfo> memberList;
-
+    RecyclerView.Adapter postDetailAdapter;
     String publisher;
     int position;
-    TextView postTitle, postDetail, postName, postUpdated;
+    TextView postTitle,postDetail, postConents, postName, postUpdated;
 
 
     @Override
@@ -46,14 +52,21 @@ public class ReadPostDetailActivity extends AppCompatActivity {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
-        postTitle = (TextView) findViewById(R.id.tv_post_title);
-        postDetail = (TextView) findViewById(R.id.tv_post_detail);
         postName = (TextView) findViewById(R.id.tv_post_name);
-        postUpdated = (TextView) findViewById(R.id.tv_post_updated);
-
+        postTitle = (TextView) findViewById(R.id.tv_post_title);
+        postDetail = (TextView)findViewById(R.id.tv_post_detail);
+        postConents = (TextView) findViewById(R.id.post_detail_tv_contents);
+        postUpdated = (TextView)findViewById(R.id.tv_post_updated);
 
         postList = new ArrayList<>();
         memberList = new ArrayList<>();
+        postDetailInfos = new ArrayList<>();
+
+        // recyclerView
+        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.post_detail_recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(ReadPostDetailActivity.this));
+        postDetailAdapter = new PostDetailAdapter(this,postDetailInfos);
+        recyclerView.setAdapter(postDetailAdapter);
 
 
         // 전달받은 인텐드 값 가져오기
@@ -67,7 +80,38 @@ public class ReadPostDetailActivity extends AppCompatActivity {
 
         // run
         postDetailUpdate();
+        comentUpdate();
+    }
 
+    private void comentUpdate() {
+        if (firebaseUser != null) {
+            CollectionReference collectionReference = firebaseFirestore.collection("posts_detail");
+            collectionReference
+                    .orderBy("created", Query.Direction.ASCENDING)
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                postDetailInfos.clear();
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                    //Log.d(TAG, document.getId() + " => " + document.getData());
+                                    postDetailInfos.add(new PostDetailInfo(
+                                           document.getData().get("contents").toString()));
+                                    //getName();
+                                    Log.e("XComent: ",postDetailInfos.get(0).getContents());
+                                }
+
+                                postDetailAdapter.notifyDataSetChanged();
+
+                            } else {
+                                //  Log.d(TAG, "Error getting documents: ", task.getException());
+                            }
+                        }
+                    });
+
+        }
     }
 
     private void postDetailUpdate() {

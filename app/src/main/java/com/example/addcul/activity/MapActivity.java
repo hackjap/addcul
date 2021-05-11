@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -58,8 +59,12 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
 
     SupportMapFragment mapFragment;
     GoogleMap map;
-    TextView tvAddress, tvCategory, tvName,tvHomepage,tvpNum,btnCategoryArt,btnCategoryMuseum,btnMyLocation;
-    ImageView imgCall,imgUrl;
+    TextView tvAddress, tvCategory, tvName, tvHomepage, tvpNum;
+
+    //nav_category
+    TextView btnCategoryArt, btnCategoryMuseum, btnMyLocation,
+            navCategoryTvConsertholl,navCategoryTvLibrary,navCategoryTvArtcenter,navCategoryTvEtc;
+    ImageView imgCall, imgUrl;
     LinearLayout mapExplainContainer;
     LatLng latLng;
     Location location;
@@ -71,8 +76,8 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
     String address; // 주소
 
     Marker marker;
-    int nearPostion=0;
-    int partPosition=0;
+    int nearPostion = 0;
+    int partPosition = 0;
 
     //volley
     RequestQueue requestQueue;
@@ -85,33 +90,61 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
     private final long FINISH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
 
+
+    //local-footer
+    FrameLayout kCultureNav;
+    FrameLayout welefareNav;
+
+    TextView footerTvKculture;
+    TextView footerTvWelefare;
+    TextView footerTvMychoice;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        btnCategoryArt = (TextView)findViewById(R.id.btn_category_art);
+        // navCategory
+        btnCategoryArt = (TextView) findViewById(R.id.btn_category_art);
         btnCategoryMuseum = (TextView) findViewById(R.id.btn_category_museum);
-        btnMyLocation=(TextView) findViewById(R.id.btn_location);
+        btnMyLocation = (TextView) findViewById(R.id.btn_location);
+        navCategoryTvConsertholl = (TextView) findViewById(R.id.nav_category_tv_concert_hall);  // 공연장
+        navCategoryTvLibrary = (TextView) findViewById(R.id.nav_category_tv_library);  // 도서관
+        navCategoryTvArtcenter = (TextView) findViewById(R.id.nav_category_tv_artcenter);  // 문화 예술회관
+        navCategoryTvEtc = (TextView) findViewById(R.id.nav_category_tv_etc);  // 기타
+
+
+        // data
         tvCategory = (TextView) findViewById(R.id.tv_category);
         tvName = (TextView) findViewById(R.id.tv_name);
         tvAddress = (TextView) findViewById(R.id.tv_address);
-        tvpNum = (TextView)findViewById(R.id.tv_pnum);
-        tvHomepage =(TextView)findViewById(R.id.tv_homepage);
-        imgCall = (ImageView)findViewById(R.id.img_call);
-        imgUrl = (ImageView)findViewById(R.id.img_url);
-        mapExplainContainer =(LinearLayout)findViewById(R.id.map_explain_container);
+        tvpNum = (TextView) findViewById(R.id.tv_pnum);
+        tvHomepage = (TextView) findViewById(R.id.tv_homepage);
+        imgCall = (ImageView) findViewById(R.id.img_call);
+        imgUrl = (ImageView) findViewById(R.id.img_url);
+        mapExplainContainer = (LinearLayout) findViewById(R.id.map_explain_container);
 
-        // footer 바인딩
+        // local-footer - Binding
+        kCultureNav = (FrameLayout) findViewById(R.id.map_frame_kculture_nav);
+        welefareNav = (FrameLayout) findViewById(R.id.map_frame_welefare_nav);
+        footerTvKculture = (TextView) findViewById(R.id.map_footer_tv_kculture);
+        footerTvWelefare = (TextView) findViewById(R.id.map_footer_tv_welefare);
+        footerTvMychoice = (TextView) findViewById(R.id.map_footer_tv_my_choice);
+
+        localFooterClickAction(); // localfooter 클릭 시 동작
+
+
+        // global - footer 바인딩
         // 하단메뉴
         findViewById(R.id.img_home).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_translate).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_map).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_my_info).setOnClickListener(onFooterlistner);
 
-        ImageView ivMap = (ImageView)findViewById(R.id.img_map);
-        TextView tvMap = (TextView)findViewById(R.id.tv_map);
+        ImageView ivMap = (ImageView) findViewById(R.id.img_map);
+        TextView tvMap = (TextView) findViewById(R.id.tv_map);
         ivMap.setImageResource(R.drawable.img_bar_map_yellow);
+
 
         defaultUrl = "http://openapi.seoul.go.kr:8088/";
         myAPIKey = "73555766486a616e38336d64466f53";
@@ -124,7 +157,7 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
         if (firebaseUser == null) { // 로그인 상태가 아닐때
 
         } else {
-            TextView tvMyinfo = (TextView)findViewById(R.id.tv_my_info);
+            TextView tvMyinfo = (TextView) findViewById(R.id.tv_my_info);
             ImageView ivMyinfo = (ImageView) findViewById(R.id.img_my_info);
             ivMyinfo.setImageResource(R.drawable.ic_account_circle_black_24dp);
             tvMyinfo.setText("내정보");
@@ -137,7 +170,7 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
             public void onMapReady(GoogleMap googleMap) {
                 map = googleMap;
                 // 37.55512522440527, 126.96981185690053 서울역
-                map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.55512522440527,126.96981185690053),11));
+                map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.55512522440527, 126.96981185690053), 11));
                 map.setMyLocationEnabled(true); // 내위치 설정
 
                 //run();
@@ -149,7 +182,6 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
         run();
 
 
-
     } // end of onCreate
 
     @Override
@@ -157,19 +189,18 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
         long tempTime = System.currentTimeMillis();
         long intervalTime = tempTime - backPressedTime;
 
-        if(0<=intervalTime && FINISH_INTERVAL_TIME >= intervalTime){
+        if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime) {
             finish();
-        }
-        else{
+        } else {
             backPressedTime = tempTime;
-           // Toast.makeText(getApplicationContext(),"종료 ",Toast.LENGTH_SHORT).show();
+            // Toast.makeText(getApplicationContext(),"종료 ",Toast.LENGTH_SHORT).show();
             mapExplainContainer.setVisibility(View.GONE);
         }
 
     }
 
     private void run() {    // makeRequest
-        String listCount = "1/100/";
+        String listCount = "1/200/";
         url = defaultUrl + myAPIKey + "/json/culturalSpaceInfo/" + listCount;
         Log.e("Location : ", url);
         requestQueue = Volley.newRequestQueue(this);
@@ -182,14 +213,13 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
 
                         setJason(response); // data 객체 데이터 값 삽입
 
-                        latLng = new LatLng(data.get(0).getLatitude(),data.get(0).getLongitude());
+                        latLng = new LatLng(data.get(0).getLatitude(), data.get(0).getLongitude());
 
 
+                        LatLng testLocation = new LatLng(37.566680508881475, 126.99758279442203);  //37.566680508881475, 126.99758279442203 을지로4가역
 
-                        LatLng testLocation = new LatLng(37.566680508881475,126.99758279442203);  //37.566680508881475, 126.99758279442203 을지로4가역
 
-
-                      //  map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 14)); // 기본 설정 위치
+                        //  map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 14)); // 기본 설정 위치
                         map.setMyLocationEnabled(true);
                         locationServices(); // location에 내 위치 저장
 
@@ -197,56 +227,79 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
                         Double myLatitude = location.getLatitude();
                         Double myLongitude = location.getLongitude();
                         // Double myLatitude = testLocation.latitude;
-                         //Double myLongitude =testLocation.longitude;
+                        //Double myLongitude =testLocation.longitude;
 
-                            Double oper;
-                            Double min =99999.0;
-                            for(int i=0;i<data.size();i++){
-                                oper = ((myLatitude-data.get(i).getLatitude()) + (myLongitude-data.get(i).getLongitude()));
+                        Double oper;
+                        Double min = 99999.0;
+                        for (int i = 0; i < data.size(); i++) {
+                            oper = ((myLatitude - data.get(i).getLatitude()) + (myLongitude - data.get(i).getLongitude()));
 
-                                // 거리 비교를 위해 절대값 처리
-                                if(oper<=0){
-                                    oper = oper*-1;
-                                }else{
-                                    oper = oper*1;
-                                }
-                                Log.e("TestOper : ", oper.toString());
-                                Log.e("Testmin : ", min.toString());
-
-                                if(oper < min){
-
-                                    min = oper;
-                                    nearPostion = i;
-
-                                }
+                            // 거리 비교를 위해 절대값 처리
+                            if (oper <= 0) {
+                                oper = oper * -1;
+                            } else {
+                                oper = oper * 1;
                             }
-                        btnMyLocation.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(data.get(nearPostion).getLatitude(),data.get(nearPostion).getLongitude()),13));
+                            Log.e("TestOper : ", oper.toString());
+                            Log.e("Testmin : ", min.toString());
+
+                            if (oper < min) {
+
+                                min = oper;
+                                nearPostion = i;
+
                             }
-                        });
+                        }
+
+//                        btnMyLocation.setOnClickListener(new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View v) {
+//                                map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(data.get(nearPostion).getLatitude(),data.get(nearPostion).getLongitude()),13));
+//                            }
+//                        });
 
 
-
-                       // map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(myLatitude,myLongitude),15));
+                        // map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(myLatitude,myLongitude),15));
                         //Log.e("내 위치 위도 : ",myLatitude.toString());
 
-                        // 미술관 버튼 동작 : 미술관 마커표시
+                        // nav_category 버튼 동작 : 미술관 마커표시
                         btnCategoryArt.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                markerService(data,"미술관");
+                                markerService(data, "미술관");
 
                             }
                         });
                         btnCategoryMuseum.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                markerService(data,"박물관/기념관");
+                                markerService(data, "박물관/기념관");
                             }
                         });
-
+                        navCategoryTvConsertholl.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                markerService(data, "공연장");
+                            }
+                        });
+                        navCategoryTvLibrary.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                markerService(data, "도서관");
+                            }
+                        });
+                        navCategoryTvArtcenter.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                markerService(data, "문화예술회관");
+                            }
+                        });
+                        navCategoryTvEtc.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                markerService(data, "기타");
+                            }
+                        });
 
 
                     }
@@ -265,11 +318,11 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
     @Override
     public boolean onMarkerClick(Marker marker) {
 
-        Integer markerPosition = (Integer)marker.getTag();  // 마커에서 데이터 검색
+        Integer markerPosition = (Integer) marker.getTag();  // 마커에서 데이터 검색
         getContents(markerPosition);
         mapExplainContainer.setVisibility(View.VISIBLE);
 
-       // textViewChange(i);
+        // textViewChange(i);
         /* 기본 예시
         Integer clickCount = (Integer) marker.getTag();  // 마커에서 데이터 검색
         if (clickCount != null) {
@@ -283,22 +336,19 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
          */
 
 
-
         return false;
     }
 
-
-
-    public void getContents(final int position){
+    public void getContents(final int position) {
         tvCategory.setText(data.get(position).getCategory());
         tvName.setText(data.get(position).getName());
         tvAddress.setText(data.get(position).getAddr());
-       // Log.e("포지션 : ",partPosition+" ");
+        // Log.e("포지션 : ",partPosition+" ");
         imgCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 전화 연결
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+data.get(position).getpNum()));
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + data.get(position).getpNum()));
                 startActivity(intent);
             }
         });
@@ -306,27 +356,27 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
             @Override
             public void onClick(View v) {
                 //url 연결
-                Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse(data.get(position).getHomepage()));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(data.get(position).getHomepage()));
                 startActivity(intent);
             }
         });
 
 
-
-       // tvHomepage.setText("홈페이지 : "+ data.get(position).getHomepage());
+        // tvHomepage.setText("홈페이지 : "+ data.get(position).getHomepage());
         //tvpNum.setText("전화번호 : " + data.get(position).getpNum());
     }
-    public void markerService(ArrayList<CultureMAPInfo> data,String mapCategory) {
+
+    public void markerService(ArrayList<CultureMAPInfo> data, String mapCategory) {
 //       int categoryPostion=0;
 
         map.clear();
         for (int i = 0; i < data.size(); i++) {
 
-            String category  = data.get(i).getCategory();
-            Log.e("Test Category : ",category);
-            Log.e("Test MAPCategory : ",mapCategory);
-            if(mapCategory.equals(category)){
-                Log.e("Test Position : ","111");
+            String category = data.get(i).getCategory();
+            Log.e("Test Category : ", category);
+            Log.e("Test MAPCategory : ", mapCategory);
+            if (mapCategory.equals(category)) {
+                Log.e("Test Position : ", "111");
                 latLng = new LatLng(data.get(i).getLatitude(), data.get(i).getLongitude());
 
                 MarkerOptions markerOptions = new MarkerOptions()
@@ -373,16 +423,12 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
                 String name = culture.getString("FAC_NAME");        // 이름
                 String addr = culture.getString("ADDR");            // 주소
                 String pNum = culture.getString("PHNE");            // 전화번호
-                String hompage =culture.getString("HOMEPAGE");
+                String hompage = culture.getString("HOMEPAGE");
                 double latitude = culture.getDouble("X_COORD");    // 위도
                 double longitude = culture.getDouble("Y_COORD");  // 경도
 
-                data.add(new CultureMAPInfo(category,name, addr, pNum,hompage,latitude,longitude));
+                data.add(new CultureMAPInfo(category, name, addr, pNum, hompage, latitude, longitude));
             }
-
-
-
-
 
 
         } catch (Exception e) {
@@ -458,5 +504,41 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
     @Override
     public void onGranted(int i, String[] strings) {
 
+    }
+
+    public void localFooterClickAction() {
+        footerTvKculture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                kCultureNav.setVisibility(View.VISIBLE);
+                welefareNav.setVisibility(View.GONE);
+                //part_up_round_back
+                footerTvKculture.setBackgroundResource(R.drawable.part_up_round_back);
+                footerTvWelefare.setBackgroundResource(R.drawable.default_back);
+                footerTvMychoice.setBackgroundResource(R.drawable.default_back);
+            }
+        });
+        footerTvWelefare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                welefareNav.setVisibility(View.VISIBLE);
+                kCultureNav.setVisibility(View.GONE);
+                //part_up_round_back
+                footerTvWelefare.setBackgroundResource(R.drawable.part_up_round_back);
+                footerTvKculture.setBackgroundResource(R.drawable.default_back);
+                footerTvMychoice.setBackgroundResource(R.drawable.default_back);
+            }
+        });
+        footerTvMychoice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                kCultureNav.setVisibility(View.GONE);
+                welefareNav.setVisibility(View.GONE);
+                //part_up_round_back
+                footerTvMychoice.setBackgroundResource(R.drawable.part_up_round_back);
+                footerTvKculture.setBackgroundResource(R.drawable.default_back);
+                footerTvWelefare.setBackgroundResource(R.drawable.default_back);
+            }
+        });
     }
 }
