@@ -18,8 +18,9 @@ import com.google.firebase.auth.FirebaseUser;
 public class BasicActivity extends AppCompatActivity {
 
     Util util;
-    int flag =0;
+    int flag = 0;
     FirebaseUser firebaseUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,47 +30,45 @@ public class BasicActivity extends AppCompatActivity {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
 
-        if (firebaseUser == null) { // 로그인 상태가 아닐때
-            flag = 0;
-
-        } else {  // 로그인 상태일때
 
 
-        }
+
     }
-    View.OnClickListener onFootlistner = new View.OnClickListener() {
+
+    View.OnClickListener onFooterlistner = new View.OnClickListener() {
 
         @Override
         public void onClick(View v) {
-
             //하단메뉴
 
             switch (v.getId()) {
                 case R.id.img_home: {
                     startActivity(MainActivity.class);
-                   // FirebaseAuth.getInstance().signOut();
-                   // util.showToast("로그아웃 ");
                     break;
                 }
-
                 case R.id.img_map:
-                    // FirebaseAuth.getInstance().signOut();
-                    startActivity(GoogleMapActivitiy.class);
+
+                    startActivity(MapActivity.class);
                     break;
                 case R.id.img_translate:
                     startActivity(TranslationActivity.class);
                     break;
-                // 로그인
-                case R.id.tv_my_info:
-                    startActivity(LoginActivity.class);
+
                 case R.id.img_my_info:
-                    startActivity(LoginActivity.class);
+                    if (firebaseUser != null) {
+                        startActivity(MyInfoActivity.class);
+                    } else {
+                        startActivity(LoginActivity.class);
+                    }
+
+
+
+
                     break;
             } // end of switch
 
         }
     };
-
 
 
     private void startActivity(Class c) {

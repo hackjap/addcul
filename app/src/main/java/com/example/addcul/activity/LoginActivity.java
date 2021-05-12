@@ -73,6 +73,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         TextView textView;
 
 
+
         // 메인에 넣어줄 계정 uid
 
 

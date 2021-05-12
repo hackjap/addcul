@@ -2,7 +2,6 @@ package com.example.addcul.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -16,18 +15,16 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.addcul.PostInfo;
+import com.example.addcul.PostDetailInfo;
 import com.example.addcul.R;
 import com.example.addcul.activity.ReadPostDetailActivity;
 import com.example.addcul.listener.OnPostListener;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Locale;
 
-public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
+public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.ViewHolder> {
 
-    private ArrayList<PostInfo> mDataset;
+    private ArrayList<PostDetailInfo> postDetailInfos;
     private Activity activity;
     private OnPostListener onPostListener;
 
@@ -42,8 +39,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     }
 
-    public MainAdapter(Activity activity, ArrayList<PostInfo> dataSet) {
-        this.mDataset = dataSet;
+    public PostDetailAdapter(Activity activity, ArrayList<PostDetailInfo> dataSet) {
+        this.postDetailInfos = dataSet;
         this.activity = activity;
 
     }
@@ -55,7 +52,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     // Create new views (invoked by the layout manager)
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_post, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_detail_post, viewGroup, false);
         final ViewHolder viewHolder = new ViewHolder(view);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,21 +68,19 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             }
         });
 
-        Log.e("텍스트뷰 : ","크리에이트");
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
         View view = viewHolder.view;
-        TextView titleTextView = view.findViewById(R.id.titleTextView); // 게시글 제목 텍스트뷰
-        TextView contentsTextView = view.findViewById(R.id.contentsTextView);
-        TextView createdTextView = view.findViewById(R.id.createdAtTextView);   // 게시글 날짜 텍스트뷰
+        //TextView nameTextView = view.findViewById(R.id.titleTextView); // 게시글 제목 텍스트뷰
+        TextView contentsTextView = view.findViewById(R.id.post_detail_tv_contents);
+       // TextView createdTextView = view.findViewById(R.id.createdAtTextView);   // 게시글 날짜 텍스트뷰
 
-        titleTextView.setText(mDataset.get(position).getTitle());
-        contentsTextView.setText(mDataset.get(position).getContents());
-        createdTextView.setText(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(mDataset.get(position).getCreatedAt()));
-
+        //titleTextView.setText(postDetailInfos.get(position).getname());
+        contentsTextView.setText(postDetailInfos.get(position).getContents());
+        //createdTextView.setText(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(postDetailInfos.get(position).getCreatedAt()));
 
 
         view.setOnClickListener(new View.OnClickListener() {
@@ -100,14 +95,14 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return mDataset.size();
+        return postDetailInfos.size();
     }
 
 
     private void showPopup(View v, final int position) {
         PopupMenu popupMenu = new PopupMenu(activity, v);
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            String id = mDataset.get(position).getId();
+            String id = postDetailInfos.get(position).getId();
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {

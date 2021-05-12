@@ -6,10 +6,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.addcul.R;
 import com.google.gson.Gson;
@@ -24,7 +25,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class TranslationActivity extends AppCompatActivity {
+public class TranslationActivity extends BasicActivity {
 
     Button btTranslate;
     EditText etSource;
@@ -39,6 +40,18 @@ public class TranslationActivity extends AppCompatActivity {
         etSource = (EditText) findViewById(R.id.et_source);
         tvResult = (TextView) findViewById(R.id.textView);
         btTranslate = (Button) findViewById(R.id.button2);
+
+        // footer 바인딩
+        // 하단메뉴
+        findViewById(R.id.img_home).setOnClickListener(onFooterlistner);
+        findViewById(R.id.img_translate).setOnClickListener(onFooterlistner);
+        findViewById(R.id.img_map).setOnClickListener(onFooterlistner);
+        findViewById(R.id.img_my_info).setOnClickListener(onFooterlistner);
+
+        ImageView ivTran = findViewById(R.id.img_translate);
+        TextView tvTran = findViewById(R.id.tv_translate);
+        ivTran.setImageResource(R.drawable.ic_translate_yellow_24dp);
+        tvTran.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.basic_yellow));
 
         //번역 실행버튼 클릭이벤트
         btTranslate.setOnClickListener(new View.OnClickListener() {

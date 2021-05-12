@@ -33,12 +33,10 @@ public class ProblemActivity extends BasicActivity {
 
         // footer 바인딩
         // 하단메뉴
-        findViewById(R.id.img_home).setOnClickListener(onFootlistner);
-        findViewById(R.id.img_translate).setOnClickListener(onFootlistner);
-        findViewById(R.id.img_map).setOnClickListener(onFootlistner);
-        // 로그인
-        findViewById(R.id.img_my_info).setOnClickListener(onFootlistner);
-        findViewById(R.id.tv_my_info).setOnClickListener(onFootlistner);
+        findViewById(R.id.img_home).setOnClickListener(onFooterlistner);
+        findViewById(R.id.img_translate).setOnClickListener(onFooterlistner);
+        findViewById(R.id.img_map).setOnClickListener(onFooterlistner);
+        findViewById(R.id.img_my_info).setOnClickListener(onFooterlistner);
 
 
         // DB 구현

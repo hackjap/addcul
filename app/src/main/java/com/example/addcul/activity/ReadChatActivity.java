@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -55,10 +57,18 @@ public class ReadChatActivity extends BasicActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
 
 
+        // footer 바인딩
+        // 하단메뉴
+        findViewById(R.id.img_home).setOnClickListener(onFooterlistner);
+        findViewById(R.id.img_translate).setOnClickListener(onFooterlistner);
+        findViewById(R.id.img_map).setOnClickListener(onFooterlistner);
+        findViewById(R.id.img_my_info).setOnClickListener(onFooterlistner);
+
         if(firebaseUser == null){
           //  util.showToast("로그인 후 이용가능 합니다.");
             Toast.makeText(getApplicationContext(),"로그인 후 이용가능 합니다.",Toast.LENGTH_SHORT).show();
             myStartActivity(LoginActivity.class);
+
         }
         else {
 
@@ -70,7 +80,12 @@ public class ReadChatActivity extends BasicActivity {
 
             testArray = new ArrayList<>();
 
-            //Log.e("cxchat : ",testArray.get(0).getName());
+
+
+            TextView tvMyinfo = (TextView)findViewById(R.id.tv_my_info);
+            ImageView ivMyinfo = (ImageView) findViewById(R.id.img_my_info);
+            ivMyinfo.setImageResource(R.drawable.ic_account_circle_black_24dp);
+            tvMyinfo.setText("내정보");
 
             loaderLayout = findViewById(R.id.loaderLayout);
             RecyclerView recyclerView = findViewById(R.id.recyclerView_chat);

@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -23,17 +22,18 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
+public class MainActivity extends BasicActivity implements GoogleApiClient.OnConnectionFailedListener {
     private static final String TAG = "MainActivity";
     FirebaseUser firebaseUser;
     ImageView myInfoProfile;  // 이미지 뷰
     TextView myInfoText;    // 닉네임 text
-
     String nickName;
     String photoUrl;
+    ImageView home;
 
     private com.example.addcul.Util util;
     int flag = 0;
+
 
     // 슬라이드
 
@@ -41,11 +41,15 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private LinearLayout layoutIndicator;
 
     private String[] images = new String[]{
-            "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99F2E033599D964307",
-            "https://cdn.pixabay.com/photo/2019/12/26/10/44/horse-4720178_1280.jpg",
-            "https://cdn.pixabay.com/photo/2020/11/04/15/29/coffee-beans-5712780_1280.jpg",
-            "https://cdn.pixabay.com/photo/2020/09/02/18/03/girl-5539094_1280.jpg",
-            "https://cdn.pixabay.com/photo/2014/03/03/16/15/mosque-279015_1280.jpg"};
+            "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/bf7e57b1-a2ff-4287-ac70-863557065865/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210510%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210510T075543Z&X-Amz-Expires=86400&X-Amz-Signature=076f94f335c7b6e67aa99e50fcc326cb88c72f21c58513de8a6ede1f708871ae&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22",
+            "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8485e203-2f30-4271-bac7-009c9434fdaf/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210510%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210510T075715Z&X-Amz-Expires=86400&X-Amz-Signature=4cbe8a39b414154a5f48f0f1b7c7b96a229b5648806b4e40d8f4a0d59226e0b4&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22",
+            "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/bc15894f-a423-4595-895b-b3630c4a5784/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210510%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210510T075718Z&X-Amz-Expires=86400&X-Amz-Signature=c2e06f347aa4325637f9692ff50ce572f49e1148096dd73a468c2cf11a8a7340&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22"
+    };
+//            "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99F2E033599D964307",
+//            "https://cdn.pixabay.com/photo/2019/12/26/10/44/horse-4720178_1280.jpg",
+//            "https://cdn.pixabay.com/photo/2020/11/04/15/29/coffee-beans-5712780_1280.jpg",
+//            "https://cdn.pixabay.com/photo/2020/09/02/18/03/girl-5539094_1280.jpg",
+//            "https://cdn.pixabay.com/photo/2014/03/03/16/15/mosque-279015_1280.jpg"
 
 
     @Override
@@ -58,12 +62,20 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         actionBar.setDisplayShowHomeEnabled(true);
        // actionBar.setIcon(R.drawable.img_logo_actionbar);
 
+        View actionbarView = getLayoutInflater().inflate(R.layout.actionbar,null);
+        actionbarView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(MainActivity.class);
+            }
+        });
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser(); // 파이어베이스 유저 초기화
 
         //FirebaseAuth.getInstance().signOut();
 
-
+        home = (ImageView)findViewById(R.id.img_home);
+        home.setImageResource(R.drawable.ic_home_yellow_24dp);
         // 슬라이드
         sliderViewPager = findViewById(R.id.sliderViewPager);
         layoutIndicator = findViewById(R.id.layoutIndicators);
@@ -89,19 +101,20 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         util = new Util(this);
 
         if (firebaseUser == null) { // 로그인 상태가 아닐때
-            flag = 0;
             myInfoProfile.setImageResource(R.drawable.ic_lock_open_black_24dp);
             myInfoText.setText("로그인");
 
         } else {  // 로그인 상태일때
 
-            flag = 1;
+            TextView tvMyinfo = (TextView)findViewById(R.id.tv_my_info);
+            ImageView ivMyinfo = (ImageView) findViewById(R.id.img_my_info);
+            ivMyinfo.setImageResource(R.drawable.ic_account_circle_black_24dp);
+            tvMyinfo.setText("내정보");
 
             /* 구글
             Intent intent = getIntent();
             nickName = intent.getStringExtra("nickName");    // loginActivity로 부터 닉네임 전달받음
             photoUrl = intent.getStringExtra("photoUrl");    //loginActivity로 부터 프로필 전달받음
-
              */
 
             // 구글 로그인일 경우,
@@ -142,13 +155,12 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         findViewById(R.id.img_problem).setOnClickListener(onClickListener);
         findViewById(R.id.tv_problem).setOnClickListener(onClickListener);
 
+        // footer 바인딩
         // 하단메뉴
-        findViewById(R.id.img_home).setOnClickListener(onClickListener);
-        findViewById(R.id.img_translate).setOnClickListener(onClickListener);
-        findViewById(R.id.img_map).setOnClickListener(onClickListener);
-        // 로그인
-        findViewById(R.id.img_my_info).setOnClickListener(onClickListener);
-        findViewById(R.id.tv_my_info).setOnClickListener(onClickListener);
+        findViewById(R.id.img_home).setOnClickListener(onFooterlistner);
+        findViewById(R.id.img_translate).setOnClickListener(onFooterlistner);
+        findViewById(R.id.img_map).setOnClickListener(onFooterlistner);
+        findViewById(R.id.img_my_info).setOnClickListener(onFooterlistner);
 
         findViewById(R.id.tv_notice).setOnClickListener(onClickListener);
     }
@@ -193,42 +205,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                     startActivity(GoogleMapActivitiy.class);
                     break;
 
-                /*
-                 * 하단메뉴
-                 */
-                case R.id.img_home: {
-                    FirebaseAuth.getInstance().signOut();
-                    startActivity(MainActivity.class);
-                    util.showToast("로그아웃 ");
-                    break;
-                }
-
-                case R.id.img_map:
-                    // FirebaseAuth.getInstance().signOut();
-                    startActivity(MapActivity.class);
-                    break;
-                case R.id.img_translate:
-                    startActivity(TranslationActivity.class);
-                    break;
-                // 로그인
-                case R.id.tv_my_info:
-                    startActivity(LoginActivity.class);
-                    break;
-                case R.id.img_my_info:
-                    Intent intent = new Intent(getApplicationContext(), MyInfoActivity.class);
-                    intent.putExtra("nickname", nickName);
-                    intent.putExtra("profile", String.valueOf(photoUrl));
-
-                    if (flag == 0) {
-                        startActivity(LoginActivity.class);
-                    } else {
+           } // end of switch
 
 
-                        startActivity(intent);
-                    }
-
-                    break;
-            } // end of switch
         }
     };
 
