@@ -39,6 +39,8 @@ public class ReadPostDetailActivity extends AppCompatActivity {
     ArrayList<PostInfo>postList;
     ArrayList<MemberInfo> memberList;
     RecyclerView.Adapter postDetailAdapter;
+
+    //ArrayList<String>testArray;
     String publisher;
     int position;
     TextView postTitle,postDetail, postConents, postName, postUpdated;
@@ -61,11 +63,17 @@ public class ReadPostDetailActivity extends AppCompatActivity {
         postList = new ArrayList<>();
         memberList = new ArrayList<>();
         postDetailInfos = new ArrayList<>();
+       // testArray = new ArrayList<>();
+        //testArray.add("장성필");
+
+
 
         // recyclerView
+
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.post_detail_recyclerView);
+        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(ReadPostDetailActivity.this));
-        postDetailAdapter = new PostDetailAdapter(this,postDetailInfos);
+        postDetailAdapter = new PostDetailAdapter(ReadPostDetailActivity.this,postDetailInfos);
         recyclerView.setAdapter(postDetailAdapter);
 
 
@@ -77,17 +85,18 @@ public class ReadPostDetailActivity extends AppCompatActivity {
             position = -1;
         }
 
-
         // run
         postDetailUpdate();
         comentUpdate();
+
+
     }
 
     private void comentUpdate() {
         if (firebaseUser != null) {
+            Log.e("XComent: ","11111111");
             CollectionReference collectionReference = firebaseFirestore.collection("posts_detail");
             collectionReference
-                    .orderBy("created", Query.Direction.ASCENDING)
                     .get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
@@ -95,8 +104,7 @@ public class ReadPostDetailActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 postDetailInfos.clear();
                                 for (QueryDocumentSnapshot document : task.getResult()) {
-
-                                    //Log.d(TAG, document.getId() + " => " + document.getData());
+                                    Log.e("XComent: ","2222222");
                                     postDetailInfos.add(new PostDetailInfo(
                                            document.getData().get("contents").toString()));
                                     //getName();
@@ -132,6 +140,7 @@ public class ReadPostDetailActivity extends AppCompatActivity {
                                             document.getData().get("publisher").toString(),
                                             new Date(document.getDate("createdAt").getTime()),
                                             document.getId()));
+                                      Log.e("XComent: ","44444");
                                 }
                                 Date date = new Date();
                                 SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
