@@ -12,6 +12,12 @@ public class ChatInfo implements Serializable {
 
 
 
+    public ChatInfo(String text) {
+    ;
+        this.text = text;
+
+
+    }
 
     // 채팅버젼
     public ChatInfo(String text, String publisher,Date created) {
