@@ -2,6 +2,8 @@ package com.example.addcul.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -23,7 +25,9 @@ import com.example.addcul.listener.OnPostListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class RealChatAdapter extends RecyclerView.Adapter<RealChatAdapter.ViewHolder> {
 
@@ -32,6 +36,7 @@ public class RealChatAdapter extends RecyclerView.Adapter<RealChatAdapter.ViewHo
     private Activity activity;
     private OnPostListener onPostListener;
     FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+    String loginUid = firebaseUser.getUid();
 
     public RealChatAdapter(Activity activity, ArrayList<ChatInfo>cDataset, ArrayList<MemberInfo> mDataSet) {
         this.cDateset = cDataset;
@@ -50,12 +55,10 @@ public class RealChatAdapter extends RecyclerView.Adapter<RealChatAdapter.ViewHo
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_realchat, viewGroup, false);
         final ViewHolder viewHolder = new ViewHolder(view);
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        Log.e("XXonCreate","onCreate");
 
-            }
-        });
+
+
 
         return viewHolder;
     }
@@ -77,39 +80,25 @@ public class RealChatAdapter extends RecyclerView.Adapter<RealChatAdapter.ViewHo
             contentsTextView = view.findViewById(R.id.tv_realchat_text);
             createdTextView =view.findViewById(R.id.tv_realchat_created);   // 게시글 날짜 텍스트뷰
 
+            Log.e("XXviewHolder","ViewHolder");
         }
+
 
     }
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
         View view = viewHolder.view;
 
+        Log.e("XXonBindViewHolder","onBInd");
+        //showMyChat(position,viewHolder,view);
 
-//        String loginUid = firebaseUser.getUid();
-//        String publisher="";
-//
-//        // 채팅 작성자명 동기화
-//        for(int i=0;i< mDataset.size();i++){
-//            String chatID = cDateset.get(position).getPublisher(); // 채팅 작성자 uid
-//            String userID = mDataset.get(i).getUid(); // 각 사용자 uid
-//
-//            if(chatID.equals(userID)){
-//                publisher = mDataset.get(i).getName();
-//                break; // 해당 작성자 찾으면 break;
-//            }else{
-//                publisher = "구글 로그인";
-//            }
-//        }
 
-//        for(int i =0;i<mDataset.size();i++){
-//            String chatID  = cDateset.get(position).getPublisher();
-//            if(loginUid.equals(chatID)){    // 로그인한 사용자이면
-//                viewHolder.titleTextView
-//            }
-//        }
-       // viewHolder.titleTextView.setText(publisher);
+
+
+
+        viewHolder.titleTextView.setText(cDateset.get(position).getPublisher());
         viewHolder.contentsTextView.setText(cDateset.get(position).getText());
-        //viewHolder.createdTextView.setText(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(cDateset.get(position).getCreated()));
+        viewHolder.createdTextView.setText(new SimpleDateFormat("yyyy-MM-dd mm:ss", Locale.getDefault()).format(cDateset.get(position).getCreated()));
 
 
 
@@ -125,9 +114,31 @@ public class RealChatAdapter extends RecyclerView.Adapter<RealChatAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return mDataset.size();
+        return cDateset.size();
     }
 
+    private void showMyChat(int position,ViewHolder viewHolder, View view) {
+
+
+
+
+                        for (int i = 0; i < mDataset.size(); i++) {
+                            String userID = mDataset.get(0).getName();  // 로그인한 사용자 이름
+                            String chatID = cDateset.get(position).getPublisher();  // 채팅 작성자 이름 ㅁ
+
+                            Log.e("ShowMyChat : ", userID + " : " + position + " " + chatID);
+                            if (userID.equals(chatID)) {      // 로그인한 사용자 명과  채팅작성자가 같다면
+                                viewHolder.titleTextView.setVisibility(View.GONE);
+                                viewHolder.chatBack.setBackgroundResource(R.drawable.style_mychat_talk);
+                                LinearLayout contentsLayout = (LinearLayout) view.findViewById(R.id.realchat_contentsLayout);
+                                LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) contentsLayout.getLayoutParams();
+                                params.gravity = Gravity.RIGHT;
+                                contentsLayout.setLayoutParams(params);
+                            }
+                        }
+
+
+    }
 
     private void showPopup(View v, final int position) {
         PopupMenu popupMenu = new PopupMenu(activity, v);

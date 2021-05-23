@@ -142,7 +142,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 
         }
 
-        Log.e("DATASIZE :  ", " " + mDataset.size());
+
         for (int i = 0; i < uDataset.size(); i++) {
             //String userID = uDataset.get(i).getUid();
             String chatID = mDataset.get(position).getPublisher();
