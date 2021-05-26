@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".lifeInfo.NaverActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="오늘은 대한민국의 대표 포털사이트인 네이버(NAVER.com)에서\n
+회원가입하는 방법에 대해 알아보겠습니다."
+            android:textSize="15dp" />
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/img_naver0" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#99000000" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="1. 네이버 포털사이트 접속하기\n
+- 인터넷 익스플로러 or 구글 크롬 등 실행 > \n
+주소창에 www.naver.com 입력\n
+- 네이버 사이트 접속 성공시 오른쪽 하단 회원가입 버튼 클릭"
+            android:textSize="15dp" />
+        <ImageView
+            android:id="@+id/imageView14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            app:layout_aspectRatio="100%"
+            app:layout_widthPercent="100%"
+            app:srcCompat="@drawable/img_naver1" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#99000000" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="2. 약관 동의하기\n
+- 아래 사진과 같이 약관에 동의하시면 됩니다.\n
+(4가지 전부 클릭해도 되지만. 저는 개인정보보호? 를 해야한다는\n
+꼰대마인드 때문에 (선택)사항은 체크하지 않습니다.\n
+- (필수)는 꼭 체크 후 확인 버튼 클릭"
+            android:textSize="15dp" />
+        <ImageView
+            android:id="@+id/imageView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            app:layout_aspectRatio="100%"
+            app:layout_widthPercent="100%"
+            app:srcCompat="@drawable/img_naver2" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#99000000" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="3. 정보 입력\n
+1) 아이디: 입력한 아이디가 네이버 로그인 및 \n
+네이버 메일의 아이디가 됩니다.\n
+2) 비밀번호: 최대한 영문,숫자,특수문자 조합이 좋습니다.\n
+3) 이름: 본인 이름 입력\n
+4) 생년월일: 본인 탄생일 입력"
+            android:textSize="15dp" />
+        <ImageView
+            android:id="@+id/imageView16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            app:layout_aspectRatio="100%"
+            app:layout_widthPercent="100%"
+            app:srcCompat="@drawable/img_naver3" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#99000000" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="- 성별: 본인 주민등록상 성별(남,여) 선택\n
+- 본인 확인 이메일(선택): 입력하지 않아도 무방하나\n
+혹시 나중에 비밀번호 분실등의 상황에서 기존 가지고\n
+있던 메일 주소를 입력하면 찾기 쉽겠죠?\n
+- 휴대전화: 본인이 사용중인 모바일폰 번호 입력 후 인증번호 받기\n
+-> 인증번호 입력 후 '가입하기' 클릭"
+            android:textSize="15dp" />
+        <ImageView
+            android:id="@+id/imageView17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            app:layout_aspectRatio="100%"
+            app:layout_widthPercent="100%"
+            app:srcCompat="@drawable/img_naver4" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#99000000" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="4. 가입완료\n
+- 끝!!! 너무 쉽죠??"
+            android:textSize="15dp" />
+        <ImageView
+            android:id="@+id/imageView18"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            app:layout_aspectRatio="100%"
+            app:layout_widthPercent="100%"
+            app:srcCompat="@drawable/img_naver5" />
+    </LinearLayout>
+</ScrollView>
