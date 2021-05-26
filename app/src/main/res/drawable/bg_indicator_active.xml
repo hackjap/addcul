@@ -7,6 +7,6 @@
         android:height="12dp" />
 
     <solid
-        android:color="@color/illuminating_yellow" />
+        android:color="@color/basic_yellow" />
 
 </shape>
