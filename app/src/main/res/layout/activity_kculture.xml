@@ -7,7 +7,6 @@
 
 
     <LinearLayout
-        android:background="@color/ultimate_gray"
         android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,44 +14,38 @@
 
         <LinearLayout
             android:clickable="true"
-
-            android:id="@+id/btn_food_layout"
+            android:id="@+id/btn_newWord_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-
             android:layout_weight="1">
-
             <Button
                 android:clickable="false"
-                android:id="@+id/btn_food"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:id="@+id/btn_newWord"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:background="#0000ff00"
-                android:text="Food" />
+                android:background="@drawable/style_kculture_bar"
+                android:text="신조어" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/btn_music_layout"
+            android:id="@+id/btn_shop_layout"
             android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-
             android:layout_weight="1">
 
             <Button
                 android:layout_gravity="center"
                 android:clickable="false"
-                android:id="@+id/btn_music"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#0000ff00"
-                android:text="Music" />
+                android:id="@+id/btn_shop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/style_kculture_bar"
+                android:text="쇼핑" />
 
         </LinearLayout>
 
@@ -62,18 +55,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_weight="1"
-            >
+            android:layout_weight="1">
 
             <Button
                 android:clickable="false"
                 android:id="@+id/btn_life"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#0000ff00"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/style_kculture_bar"
                 android:layout_gravity="center"
-                android:text="Life" />
+                android:text="일상" />
         </LinearLayout>
 
         <LinearLayout
@@ -88,16 +79,16 @@
             <Button
                 android:clickable="false"
                 android:id="@+id/btn_travel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:background="#0000ff00"
                 android:layout_gravity="center"
-                android:text="travel" />
+                android:text="여행" />
 
         </LinearLayout>
 
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/contentLayout"
         android:layout_width="match_parent"
@@ -105,7 +96,8 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-   </LinearLayout>
+    </LinearLayout>
+
     <LinearLayout
         android:clickable="true"
         android:layout_width="match_parent"

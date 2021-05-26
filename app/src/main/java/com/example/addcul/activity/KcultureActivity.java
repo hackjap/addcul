@@ -11,9 +11,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.addcul.R;
-import com.example.addcul.fragment.FragFood;
 import com.example.addcul.fragment.FragLife;
-import com.example.addcul.fragment.FragMusic;
+import com.example.addcul.fragment.FragNewWord;
+import com.example.addcul.fragment.FragShop;
 import com.example.addcul.fragment.FragTravel;
 
 import java.util.List;
@@ -21,12 +21,14 @@ import java.util.List;
 public class KcultureActivity extends BasicActivity {
 
     FragmentManager fragmentManager;
-    FragFood fragFood;
-    FragMusic fragMusic;
+//    FragFood fragFood;
+    FragNewWord fragNewWord;
+//    FragMusic fragMusic;
+    FragShop fragShop;
     FragLife fragLife;
     FragTravel fragTravel;
 
-    LinearLayout contentLayout, btn_food_layout, btn_music_layout, btn_life_layout, btn_travel_layout;
+    LinearLayout contentLayout, btn_newWord_layout, btn_shop_layout, btn_life_layout, btn_travel_layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +38,8 @@ public class KcultureActivity extends BasicActivity {
 
         //btn_food_layout,btn_life_layout,btn_music_layout,btn_travel_layout;
 
-        btn_food_layout = (LinearLayout) findViewById(R.id.btn_food_layout);
-        btn_music_layout = (LinearLayout) findViewById(R.id.btn_music_layout);
+        btn_newWord_layout = (LinearLayout) findViewById(R.id.btn_newWord_layout);
+        btn_shop_layout = (LinearLayout) findViewById(R.id.btn_shop_layout);
         btn_life_layout = (LinearLayout) findViewById(R.id.btn_life_layout);
         btn_travel_layout = (LinearLayout) findViewById(R.id.btn_travel_layout);
         contentLayout = (LinearLayout) findViewById(R.id.contentLayout);
@@ -54,23 +56,23 @@ public class KcultureActivity extends BasicActivity {
 
         fragmentManager = getSupportFragmentManager();
         // 프래그먼트 객체 만들기
-        fragFood = new FragFood();
-        fragMusic = new FragMusic();
+        fragNewWord = new FragNewWord();
+        fragShop = new FragShop();
         fragLife = new FragLife();
         fragTravel = new FragTravel();
         // 프래그먼트 첫 화면 로딩
-        btn_food_layout.setBackgroundResource(R.drawable.part_round_back);
-        btn_music_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+        btn_newWord_layout.setBackgroundResource(R.drawable.part_round_back);
+        btn_shop_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
         btn_life_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
         btn_travel_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
         FragmentTransaction ft = fragmentManager.beginTransaction();
         ft.addToBackStack(null);
-        ft.replace(R.id.contentLayout, fragFood);
+        ft.replace(R.id.contentLayout, fragNewWord);
         ft.commit();
 
 
-        btn_food_layout.setOnClickListener(onClickListener);
-        btn_music_layout.setOnClickListener(onClickListener);
+        btn_newWord_layout.setOnClickListener(onClickListener);
+        btn_shop_layout.setOnClickListener(onClickListener);
         btn_life_layout.setOnClickListener(onClickListener);
         btn_travel_layout.setOnClickListener(onClickListener);
 
@@ -99,32 +101,32 @@ public class KcultureActivity extends BasicActivity {
 
             FragmentTransaction ft = fragmentManager.beginTransaction();
             switch (v.getId()) {
-                case R.id.btn_food_layout:
+                case R.id.btn_newWord_layout:
                     Log.e("버튼 : ","버튼 클릭 ");
-                    btn_food_layout.setBackgroundResource(R.drawable.part_round_back);
-                    btn_music_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+                    btn_newWord_layout.setBackgroundResource(R.drawable.part_round_back);
+                    btn_shop_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
                     btn_life_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
                     btn_travel_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
 
                     ft = fragmentManager.beginTransaction();
                     ft.addToBackStack(null);
-                    ft.replace(R.id.contentLayout, fragFood);
+                    ft.replace(R.id.contentLayout, fragNewWord);
                     ft.commit();
                     break;
-                case R.id.btn_music_layout:
-                    btn_music_layout.setBackgroundResource(R.drawable.part_round_back);
-                    btn_food_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+                case R.id.btn_shop_layout:
+                    btn_shop_layout.setBackgroundResource(R.drawable.part_round_back);
+                    btn_newWord_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
                     btn_life_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
                     btn_travel_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
                     ft = fragmentManager.beginTransaction();
                     ft.addToBackStack(null);
-                    ft.replace(R.id.contentLayout, fragMusic);
+                    ft.replace(R.id.contentLayout, fragShop);
                     ft.commit();
                     break;
                 case R.id.btn_life_layout:
                     btn_life_layout.setBackgroundResource(R.drawable.part_round_back);
-                    btn_food_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
-                    btn_music_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+                    btn_newWord_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+                    btn_shop_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
                     btn_travel_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
                     ft = fragmentManager.beginTransaction();
                     ft.addToBackStack(null);
@@ -133,8 +135,8 @@ public class KcultureActivity extends BasicActivity {
                     break;
                 case R.id.btn_travel_layout:
                     btn_travel_layout.setBackgroundResource(R.drawable.part_round_back);
-                    btn_music_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
-                    btn_food_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+                    btn_shop_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+                    btn_newWord_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
                     btn_life_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
 
                     ft = fragmentManager.beginTransaction();

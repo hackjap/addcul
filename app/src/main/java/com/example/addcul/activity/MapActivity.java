@@ -107,7 +107,7 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
         // navCategory
         btnCategoryArt = (TextView) findViewById(R.id.btn_category_art);
         btnCategoryMuseum = (TextView) findViewById(R.id.btn_category_museum);
-        btnMyLocation = (TextView) findViewById(R.id.btn_location);
+//      btnMyLocation = (TextView) findViewById(R.id.btn_location);
         navCategoryTvConsertholl = (TextView) findViewById(R.id.nav_category_tv_concert_hall);  // 공연장
         navCategoryTvLibrary = (TextView) findViewById(R.id.nav_category_tv_library);  // 도서관
         navCategoryTvArtcenter = (TextView) findViewById(R.id.nav_category_tv_artcenter);  // 문화 예술회관
@@ -118,8 +118,8 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
         tvCategory = (TextView) findViewById(R.id.tv_category);
         tvName = (TextView) findViewById(R.id.tv_name);
         tvAddress = (TextView) findViewById(R.id.tv_address);
-        tvpNum = (TextView) findViewById(R.id.tv_pnum);
-        tvHomepage = (TextView) findViewById(R.id.tv_homepage);
+//        tvpNum = (TextView) findViewById(R.id.tv_pnum);
+//        tvHomepage = (TextView) findViewById(R.id.tv_homepage);
         imgCall = (ImageView) findViewById(R.id.img_call);
         imgUrl = (ImageView) findViewById(R.id.img_url);
         mapExplainContainer = (LinearLayout) findViewById(R.id.map_explain_container);

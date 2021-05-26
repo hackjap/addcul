@@ -418,4 +418,3 @@
         <include layout="@layout/footer"></include>
     </LinearLayout>
 </LinearLayout>
-
