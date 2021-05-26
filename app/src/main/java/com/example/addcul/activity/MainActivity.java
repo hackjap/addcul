@@ -202,7 +202,7 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
                     //startActivity()
                     break;
                 case R.id.tv_notice:
-                    startActivity(GoogleMapActivitiy.class);
+                    startActivity(IndexActivitiy.class);
                     break;
 
            } // end of switch

@@ -12,17 +12,23 @@ public class ChatInfo implements Serializable {
 
 
 
+    public ChatInfo(String publisher,String text) {
+        this.publisher = publisher;
+        this.text = text;
+
+
+    }
 
     // 채팅버젼
-    public ChatInfo(String text, String publisher,Date created) {
+    public ChatInfo( String publisher,String text,Date created) {
+        this.publisher=publisher;
         this.text = text;
         this.created = created;
-        this.publisher=publisher;
 
     }
 
     // 문서 삭제용
-    public ChatInfo(String text, String publisher,Date created,String id) {
+    public ChatInfo( String publisher,String text,Date created,String id) {
         this.text = text;
         this.publisher=publisher;
         this.created = created;

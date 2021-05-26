@@ -10,7 +10,7 @@
 
 
     <LinearLayout
-        android:id="@+id/chat_contentsLayout"
+        android:id="@+id/realchat_contentsLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
@@ -35,7 +35,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tv_chat_name"
+                    android:id="@+id/tv_realchat_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -50,7 +50,7 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:id="@+id/chat_back"
+                        android:id="@+id/realchat_back"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/style_chat_talk"
@@ -59,7 +59,7 @@
                         android:padding="5dp">
 
                         <TextView
-                            android:id="@+id/tv_chat_text"
+                            android:id="@+id/tv_realchat_text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="2dp"
@@ -70,7 +70,7 @@
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/tv_chat_created"
+                        android:id="@+id/tv_realchat_created"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom"

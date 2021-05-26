@@ -26,6 +26,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -48,6 +50,8 @@ public class ReadChatActivity extends BasicActivity {
     private Util util;
     private RelativeLayout loaderLayout;
     private ArrayList<MemberInfo>testArray;
+    DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference conditionRef = database.child("text");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -167,6 +171,7 @@ public class ReadChatActivity extends BasicActivity {
                */
                 case R.id.img_chat_send:
                     storageUpload();
+                    writeChat();
                     break;
 
 
@@ -174,8 +179,49 @@ public class ReadChatActivity extends BasicActivity {
         }
     };
 
+    private void writeChat(){
+
+        conditionRef.setValue("writechat");
+
+    }
 
 
+
+    private void realChatUpdate() {
+        if (firebaseUser != null) {
+            CollectionReference collectionReference = firebaseFirestore.collection("chats");
+            collectionReference
+                    .orderBy("created", Query.Direction.ASCENDING)
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                chatList.clear();
+
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                    //Log.d(TAG, document.getId() + " => " + document.getData());
+                                    chatList.add(new ChatInfo(
+                                            document.getData().get("text").toString(),
+                                            document.getData().get("publisher").toString(),
+                                            new Date(document.getDate("created").getTime()),
+                                            document.getId())); // 문서 id
+                                    //getName();
+
+
+                                }
+
+                                chatAdapter.notifyDataSetChanged();
+
+                            } else {
+                                //  Log.d(TAG, "Error getting documents: ", task.getException());
+                            }
+                        }
+                    });
+
+        }
+    }
 
     private void chatUpdate() {
         if (firebaseUser != null) {

@@ -25,6 +25,7 @@ import java.util.ArrayList;
 public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.ViewHolder> {
 
     private ArrayList<PostDetailInfo> postDetailInfos;
+    private ArrayList<String> testInfos;
     private Activity activity;
     private OnPostListener onPostListener;
 
@@ -74,12 +75,13 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Vi
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
         View view = viewHolder.view;
-        //TextView nameTextView = view.findViewById(R.id.titleTextView); // 게시글 제목 텍스트뷰
+        TextView nameTextView = view.findViewById(R.id.titleTextView); // 게시글 제목 텍스트뷰
         TextView contentsTextView = view.findViewById(R.id.post_detail_tv_contents);
-       // TextView createdTextView = view.findViewById(R.id.createdAtTextView);   // 게시글 날짜 텍스트뷰
+        TextView createdTextView = view.findViewById(R.id.createdAtTextView);   // 게시글 날짜 텍스트뷰
 
-        //titleTextView.setText(postDetailInfos.get(position).getname());
-        contentsTextView.setText(postDetailInfos.get(position).getContents());
+        nameTextView.setText("작성자(이름)");
+        contentsTextView.setText(postDetailInfos.get(position).getContents().toString());
+
         //createdTextView.setText(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(postDetailInfos.get(position).getCreatedAt()));
 
 
@@ -95,7 +97,7 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Vi
 
     @Override
     public int getItemCount() {
-        return postDetailInfos.size();
+      return postDetailInfos.size();
     }
 
 
