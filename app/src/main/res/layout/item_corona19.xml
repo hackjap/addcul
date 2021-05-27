@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+    //날짜
+    <TextView
+        android:id="@+id/corona_date"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:text="20210524"
+        android:textColor="#918A82"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:background="@drawable/style_date"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="오늘 확진자"
+            android:textColor="#EC515F"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="격리 해제"
+            android:textColor="#0C4C8A"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        //확진자
+        <TextView
+            android:id="@+id/corona_confirmed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="136467"
+            android:textColor="#EC515F"
+            android:textSize="22dp"
+            android:textStyle="bold" />
+        //격리해제
+        <TextView
+            android:id="@+id/corona_release"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="126427"
+            android:textColor="#0C4C8A"
+            android:textSize="22dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="누적 사망자"
+            android:textColor="#3C3C45"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="누적 확진자"
+            android:textColor="#52B49B"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp">
+        //누적 사망자
+        <TextView
+            android:id="@+id/corona_death"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="1934"
+            android:textColor="#3C3C45"
+            android:textSize="22dp"
+            android:textStyle="bold" />
+        //검사 진행
+        <TextView
+            android:id="@+id/corona_exam"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="120704"
+            android:textColor="#52B49B"
+            android:textSize="22dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>

@@ -30,8 +30,7 @@
             android:gravity="center"
             android:text="홈"
             android:textColor="@color/basic_text"
-            android:textSize="9sp"
-            android:textStyle="bold" />
+            android:textSize="10sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -58,8 +57,7 @@
             android:gravity="center"
             android:text="번역기"
             android:textColor="@color/basic_text"
-            android:textSize="9sp"
-            android:textStyle="bold" />
+            android:textSize="10sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -85,8 +83,7 @@
             android:gravity="center"
             android:text="다문화지도"
             android:textColor="@color/basic_text"
-            android:textSize="9sp"
-            android:textStyle="bold" />
+            android:textSize="10sp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -112,8 +109,7 @@
             android:gravity="center"
             android:text="로그인"
             android:textColor="@color/basic_text"
-            android:textSize="9sp"
-            android:textStyle="bold" />
+            android:textSize="10sp"/>
     </LinearLayout>
 
 </LinearLayout>

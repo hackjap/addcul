@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +31,7 @@ public class MyInfoActivity extends BasicActivity {
     private static final String TAG = "MyInfoActivity";
 
     Util util;
-    ImageView myInfoProfile;
+    LinearLayout myInfoProfile;
     TextView myInfoNickname,myInfoEmail,myInfopNum,myInfoSex,myInfoBirth;
     private FirebaseAuth auth;
     private FirebaseUser firebaseUser;
@@ -56,7 +57,7 @@ public class MyInfoActivity extends BasicActivity {
         findViewById(R.id.img_map).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_my_info).setOnClickListener(onFooterlistner);
 
-        myInfoProfile = findViewById(R.id.img_myinfo_profile);
+        myInfoProfile = findViewById(R.id.img_myInfo_profile);
         myInfoNickname = findViewById(R.id.tv_myinfo_nickname);
         myInfoEmail = findViewById(R.id.tv_myinfo_email);
         myInfoBirth = findViewById(R.id.tv_myinfo_birth);

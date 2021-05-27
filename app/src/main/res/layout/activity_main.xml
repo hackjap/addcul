@@ -100,8 +100,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:layout_marginBottom="25dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="18dp"
                 android:orientation="horizontal"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp">
@@ -281,35 +281,32 @@
             -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="8dp"
+                android:layout_height="5dp"
                 android:background="@color/real_bright_gray"
                 android:orientation="vertical" />
 
             <TextView
+                android:id="@+id/tv_notice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:gravity="center"
-                android:id="@+id/tv_notice"
-                android:text="이달의 공지"
+                android:text="애드컬 5월호"
                 android:textColor="@color/basic_text"
                 android:textSize="20dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="5dp"
                 android:layout_weight="0.5"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_corona"
                     android:layout_width="match_parent"
-                    android:layout_height="380dp"
-                    android:background="@drawable/img_main_second"
-                    android:orientation="vertical" />
-
+                    android:layout_height="match_parent" />
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 
