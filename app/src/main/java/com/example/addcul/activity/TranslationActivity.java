@@ -53,6 +53,9 @@ public class TranslationActivity extends BasicActivity {
         ivTran.setImageResource(R.drawable.ic_translate_yellow_24dp);
         tvTran.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.basic_yellow));
 
+
+
+
         //번역 실행버튼 클릭이벤트
         btTranslate.setOnClickListener(new View.OnClickListener() {
             @Override

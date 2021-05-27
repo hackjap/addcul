@@ -58,6 +58,8 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
@@ -77,6 +79,8 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
 
         home = (ImageView)findViewById(R.id.img_home);
         home.setImageResource(R.drawable.ic_home_yellow_24dp);
+
+
         // 슬라이드
         sliderViewPager = findViewById(R.id.sliderViewPager);
         layoutIndicator = findViewById(R.id.layoutIndicators);
