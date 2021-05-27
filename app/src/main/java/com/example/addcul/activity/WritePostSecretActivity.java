@@ -28,8 +28,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class WritePostActivity extends BasicActivity {
-    private static final String TAG = "WritePostActivity";
+public class WritePostSecretActivity extends BasicActivity {
+    private static final String TAG = "WritePostSosActivity";
     private FirebaseUser user;
     private ArrayList<String> pathList = new ArrayList<>();
     LinearLayout parent;
@@ -42,7 +42,7 @@ public class WritePostActivity extends BasicActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_write_post);
+        setContentView(R.layout.activity_write_post_secret);
         parent = findViewById(R.id.contentsLayout);
         buttonsBackgroundLayout = findViewById(R.id.buttonsBackgrundLayout);
         loaderLayout= findViewById(R.id.loaderLayout);
@@ -61,7 +61,7 @@ public class WritePostActivity extends BasicActivity {
 
                     ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
-                    ImageView imageView = new ImageView(WritePostActivity.this);
+                    ImageView imageView = new ImageView(WritePostSecretActivity.this);
                     imageView.setLayoutParams(layoutParams);
                     imageView.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -70,7 +70,7 @@ public class WritePostActivity extends BasicActivity {
                         }
                     });
 
-                    EditText editText = new EditText(WritePostActivity.this);
+                    EditText editText = new EditText(WritePostSecretActivity.this);
                     editText.setLayoutParams(layoutParams);
                     editText.setInputType(InputType.TYPE_TEXT_FLAG_MULTI_LINE|InputType.TYPE_CLASS_TEXT);
                     editText.setHint("내용");
@@ -110,7 +110,7 @@ public class WritePostActivity extends BasicActivity {
             FirebaseStorage storage = FirebaseStorage.getInstance();
             FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
             PostInfo postInfo = (PostInfo)getIntent().getSerializableExtra("postinfo");
-            final DocumentReference documentReference = postInfo == null ?firebaseFirestore.collection("posts_free").document():firebaseFirestore.collection("posts").document(postInfo.getId());
+            final DocumentReference documentReference = postInfo == null ?firebaseFirestore.collection("posts_secret").document():firebaseFirestore.collection("posts_sos").document(postInfo.getId());
             final Date date = postInfo == null ? new Date() : postInfo.getCreatedAt();
             storeUploader(documentReference,new PostInfo(title,contents,user.getUid(),date));
 

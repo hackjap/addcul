@@ -1,66 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="true"
     android:orientation="vertical">
 
-    <ScrollView
+
+    <LinearLayout
+        android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="4">
+        android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:clickable="true"
+            android:id="@+id/btn_post_free_layout"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <Button
+                android:clickable="false"
+                android:id="@+id/btn_post_free"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@drawable/style_kculture_bar"
+                android:text="자유게시판" />
 
         </LinearLayout>
 
-    </ScrollView>
-
-
-    <LinearLayout
-        android:id="@+id/goto_post_write"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:background="@drawable/style_post_border"
-        android:orientation="horizontal"
-        android:padding="10dp">
-
-        <ImageView
+        <LinearLayout
+            android:id="@+id/btn_post_sos_layout"
+            android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:src="@drawable/ic_edit_black_24dp" />
+            android:orientation="vertical"
+            android:layout_weight="1">
 
-        <TextView
+            <Button
+                android:layout_gravity="center"
+                android:clickable="false"
+                android:id="@+id/btn_post_sos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/style_kculture_bar"
+                android:text="SOS" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_post_secret_layout"
+            android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="5dp"
-            android:text="게시글 작성"
-            android:textColor="@color/basic_text"
-            android:textSize="15dp" />
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <Button
+                android:clickable="false"
+                android:id="@+id/btn_post_secret"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/style_kculture_bar"
+                android:layout_gravity="center"
+                android:text="익명게시판" />
+        </LinearLayout>
+
     </LinearLayout>
 
-
-    <!-- 하단메뉴 -->
     <LinearLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <include layout="@layout/footer"></include>
     </LinearLayout>
 </LinearLayout>

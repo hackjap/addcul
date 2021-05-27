@@ -43,7 +43,7 @@ import java.util.Date;
 public class MainActivity extends BasicActivity implements GoogleApiClient.OnConnectionFailedListener {
     private static final String TAG = "MainActivity";
     FirebaseUser firebaseUser;
-    ImageView myInfoProfile;   // 이미지 뷰
+    ImageView myInfoProfile;  // 이미지 뷰
     TextView myInfoText;    // 닉네임 text
     String nickName;
     String photoUrl;
@@ -52,6 +52,7 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
 
     private com.example.addcul.Util util;
     int flag = 0;
+
 
     // 슬라이드
 

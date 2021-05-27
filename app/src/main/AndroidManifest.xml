@@ -73,6 +73,9 @@
         <activity android:name=".activity.PregnancybirthActivity" />
         <activity android:name=".activity.ProblemActivity" />
         <activity android:name=".activity.KcultureActivity" />
+        <activity android:name=".activity.WritePostSosActivity" />
+        <activity android:name=".activity.WritePostSecretActivity" />
+
         <activity
             android:name=".activity.SignUpActivity"
             android:windowSoftInputMode="adjustPan" />

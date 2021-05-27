@@ -1,35 +1,27 @@
 package com.example.addcul.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.addcul.PostInfo;
 import com.example.addcul.R;
 import com.example.addcul.Util;
-import com.example.addcul.adapter.MainAdapter;
-import com.example.addcul.listener.OnPostListener;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
+import com.example.addcul.fragment.FragPostFree;
+import com.example.addcul.fragment.FragPostSecret;
+import com.example.addcul.fragment.FragPostSos;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class ReadPostActivity extends BasicActivity {
 
@@ -41,6 +33,12 @@ public class ReadPostActivity extends BasicActivity {
     private ArrayList<PostInfo> postList;
     private Util util;
 
+    FragmentManager fragmentManager;
+    FragPostFree fragPostFree;
+    FragPostSos fragPostSos;
+    FragPostSecret fragPostSecret;
+    LinearLayout contentLayout, btn_post_free_layout, btn_post_sos_layout, btn_post_secret_layout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,134 +47,101 @@ public class ReadPostActivity extends BasicActivity {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
+        btn_post_free_layout = (LinearLayout)findViewById(R.id.btn_post_free_layout);
+        btn_post_sos_layout = (LinearLayout) findViewById(R.id.btn_post_sos_layout);
+        btn_post_secret_layout = (LinearLayout) findViewById(R.id.btn_post_secret_layout);
+        contentLayout = (LinearLayout) findViewById(R.id.contentLayout);
+
+        /*
+         *프래그먼트
+         */
+        fragmentManager = getSupportFragmentManager();
+        // 프래그먼트 객체 만들기
+        fragPostFree = new FragPostFree();
+        fragPostSos =  new FragPostSos();
+        fragPostSecret = new FragPostSecret();
+
+        // 프래그먼트 첫 화면 로딩
+        btn_post_free_layout.setBackgroundResource(R.drawable.part_round_back);
+        btn_post_sos_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+        btn_post_secret_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.addToBackStack(null);
+        ft.replace(R.id.contentLayout, fragPostFree);
+        ft.commit();
+
+
+        btn_post_free_layout.setOnClickListener(onClickListener);
+        btn_post_sos_layout.setOnClickListener(onClickListener);
+        btn_post_secret_layout.setOnClickListener(onClickListener);
+
+
+
+
      // footer 바인딩
         // 하단메뉴
         findViewById(R.id.img_home).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_translate).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_map).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_my_info).setOnClickListener(onFooterlistner);
+        //postUpdate();
 
 
 
 
-        util = new Util(this);
-        postList = new ArrayList<>();
-        mainAdapter = new MainAdapter(ReadPostActivity.this,postList);
-        ((MainAdapter)mainAdapter).setOnPostListener(onPostListener);
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        findViewById(R.id.goto_post_write).setOnClickListener(onClickListener);
-
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(ReadPostActivity.this));
-        //recyclerView.setAdapter(new MainAdapter(ReadPostActivity.this,postList));
-        recyclerView.setAdapter(mainAdapter);
-
-
-
-        if(firebaseUser == null){
-
-            TextView tvMyinfo = (TextView)findViewById(R.id.tv_my_info);
-            ImageView ivMyinfo = (ImageView) findViewById(R.id.img_my_info);
-            ivMyinfo.setImageResource(R.drawable.ic_lock_open_black_24dp);
-            tvMyinfo.setText("로그인");
-
-        }
-        else {
-
-            TextView tvMyinfo = (TextView) findViewById(R.id.tv_my_info);
-            ImageView ivMyinfo = (ImageView) findViewById(R.id.img_my_info);
-            ivMyinfo.setImageResource(R.drawable.ic_account_circle_black_24dp);
-            tvMyinfo.setText("내정보");
-        }
 
     }
-
-
-
-
-    protected void onResume() {
-        super.onResume();
-        postUpdate();
-    }
-
-    OnPostListener onPostListener = new OnPostListener() {
-        @Override
-        public void onDelete(int position) {
-           final String id = postList.get(position).getId();
-            firebaseFirestore.collection("posts").document(id)
-                    .delete()
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            util.showToast("게시글을 삭제하였습니다.");
-                            postUpdate();
-                            Log.e("포스트 게시물 삭제 : ",id);
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            util.showToast("게시글을 삭제하지 못하였습니다.");
-                        }
-                    });
-
-
-        }
-
-        @Override
-        public void onModify(int position) {
-            myStartActivity(WritePostActivity.class, postList.get(position));
-        }
-
-    };
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+
+            FragmentTransaction ft = fragmentManager.beginTransaction();
             switch (v.getId()) {
-              /*  case R.id.logoutButton:
-                    FirebaseAuth.getInstance().signOut();
-                    myStartActivity(SignUpActivity.class);
-                    finish();
+                case R.id.btn_post_free_layout:
+                    Log.e("버튼 : ","버튼 클릭 ");
+                    btn_post_free_layout.setBackgroundResource(R.drawable.part_round_back);
+                    btn_post_sos_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+                    btn_post_secret_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+
+
+                    ft = fragmentManager.beginTransaction();
+                    ft.addToBackStack(null);
+                    ft.replace(R.id.contentLayout, fragPostFree);
+                    ft.commit();
                     break;
 
-               */
-                case R.id.goto_post_write:
-                    myStartActivity(WritePostActivity.class);
+                case R.id.btn_post_sos_layout:
+                    btn_post_sos_layout.setBackgroundResource(R.drawable.part_round_back);
+                    btn_post_free_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+                    btn_post_secret_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+
+                    ft = fragmentManager.beginTransaction();
+                    ft.addToBackStack(null);
+                    ft.replace(R.id.contentLayout, fragPostSos);
+                    ft.commit();
                     break;
+
+                case R.id.btn_post_secret_layout:
+                    btn_post_secret_layout.setBackgroundResource(R.drawable.part_round_back);
+                    btn_post_free_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+                    btn_post_sos_layout.setBackgroundColor(Color.parseColor("#0000ff00"));
+
+                    ft = fragmentManager.beginTransaction();
+                    ft.addToBackStack(null);
+                    ft.replace(R.id.contentLayout, fragPostSecret);
+                    ft.commit();
+                    break;
+
             }
         }
     };
-    private void postUpdate(){
-        if (firebaseUser != null) {
-            CollectionReference collectionReference = firebaseFirestore.collection("posts");
-            collectionReference
-                    .orderBy("createdAt", Query.Direction.DESCENDING).get()
-                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful()) {
-                                postList.clear();
-                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                    //Log.d(TAG, document.getId() + " => " + document.getData());
-                                    postList.add(new PostInfo(
-                                            document.getData().get("title").toString(),
-                                            document.getData().get("contents").toString(),
-                                            document.getData().get("publisher").toString(),
-                                            new Date(document.getDate("createdAt").getTime()),
-                                            document.getId()));
-                                }
 
-                                mainAdapter.notifyDataSetChanged();
 
-                            } else {
-                              //  Log.d(TAG, "Error getting documents: ", task.getException());
-                            }
-                        }
-                    });
-        }
-    }
+
+
 
     private void myStartActivity(Class c) {
         Intent intent = new Intent(this, c);
@@ -189,6 +154,8 @@ public class ReadPostActivity extends BasicActivity {
         Intent intent = new Intent(this, c);
         intent.putExtra("postInfo",postInfo);
         startActivity(intent);
+
+
     }
 
 }
