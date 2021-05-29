@@ -16,11 +16,11 @@ public class PostDetailInfo implements Serializable {
         this.contents = contents;
     }
 
-    public PostDetailInfo(String name, String contents, String publisher, Date createdAt) {
+    public PostDetailInfo(String name, String contents, Date createdAt,String id ) {
         this.name = name;
         this.contents = contents;
-        this.publisher = publisher;
         this.createdAt = createdAt;
+        this.id = id;
 
     }
 

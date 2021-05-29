@@ -236,7 +236,7 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
                     break;
                 // 언어교환
                 case R.id.img_lang_change:
-                    startActivity(ReadChatActivity.class);
+                    startActivity(IndexActivitiy.class);
                     break;
                 case R.id.tv_lang_change:
                     //startActivity()

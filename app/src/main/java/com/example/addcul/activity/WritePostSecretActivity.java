@@ -110,7 +110,7 @@ public class WritePostSecretActivity extends BasicActivity {
             FirebaseStorage storage = FirebaseStorage.getInstance();
             FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
             PostInfo postInfo = (PostInfo)getIntent().getSerializableExtra("postinfo");
-            final DocumentReference documentReference = postInfo == null ?firebaseFirestore.collection("posts_secret").document():firebaseFirestore.collection("posts_sos").document(postInfo.getId());
+            final DocumentReference documentReference = postInfo == null ?firebaseFirestore.collection("posts_secret").document():firebaseFirestore.collection("posts_secret").document(postInfo.getId());
             final Date date = postInfo == null ? new Date() : postInfo.getCreatedAt();
             storeUploader(documentReference,new PostInfo(title,contents,user.getUid(),date));
 

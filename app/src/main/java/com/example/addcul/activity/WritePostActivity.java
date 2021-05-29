@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -99,6 +100,9 @@ public class WritePostActivity extends BasicActivity {
         }
     };
 
+
+
+
     // 파이어스토어 업로드
     private void storageUpload() {
         final String title = ((EditText) findViewById(R.id.titleEditText)).getText().toString();    // 게시글 제목
@@ -110,9 +114,11 @@ public class WritePostActivity extends BasicActivity {
             FirebaseStorage storage = FirebaseStorage.getInstance();
             FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
             PostInfo postInfo = (PostInfo)getIntent().getSerializableExtra("postinfo");
-            final DocumentReference documentReference = postInfo == null ?firebaseFirestore.collection("posts_free").document():firebaseFirestore.collection("posts").document(postInfo.getId());
+            final DocumentReference documentReference = postInfo == null ?firebaseFirestore.collection("posts_free").document():firebaseFirestore.collection("posts_free").document(postInfo.getId());
+            //Log.e("CXXPOST",postInfo.getId());
             final Date date = postInfo == null ? new Date() : postInfo.getCreatedAt();
-            storeUploader(documentReference,new PostInfo(title,contents,user.getUid(),date));
+            CollectionReference collectionReference = firebaseFirestore.collection("posts_free");
+            storeUploader(documentReference,new PostInfo(title,contents,user.getUid(),date,documentReference.getId()));
 
     }
         else{

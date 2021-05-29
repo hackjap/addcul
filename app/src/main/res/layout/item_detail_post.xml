@@ -21,7 +21,7 @@
             app:srcCompat="@drawable/img_bar_info" />
 
         <TextView
-            android:id="@+id/titleTextView"
+            android:id="@+id/post_detail_tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -62,7 +62,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/createdAtTextView"
+        android:id="@+id/post_detail_tv_created"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
