@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.addcul.MemberInfo;
 import com.example.addcul.PostInfo;
 import com.example.addcul.R;
 import com.example.addcul.Util;
@@ -44,6 +45,7 @@ public class FragPostSos extends Fragment {
     FirebaseFirestore firebaseFirestore;
     RecyclerView.Adapter mainAdapter;
     ArrayList<PostInfo> postList;
+    ArrayList<MemberInfo>memberInfos;
     Util util;
 
     public FragPostSos() {
@@ -71,7 +73,10 @@ public class FragPostSos extends Fragment {
 
         util = new Util(getActivity());
         postList = new ArrayList<>();
-        mainAdapter = new MainAdapter(getActivity(),postList);
+        memberInfos = new ArrayList<>();
+
+        String actID = "sos";
+        mainAdapter = new MainAdapter(getActivity(),postList,memberInfos,actID);
         ((MainAdapter)mainAdapter).setOnPostListener(onPostListener);
 
         RecyclerView recyclerView = view.findViewById(R.id.rc_post_free);
@@ -82,7 +87,7 @@ public class FragPostSos extends Fragment {
         //recyclerView.setAdapter(new MainAdapter(ReadPostActivity.this,postList));
         recyclerView.setAdapter(mainAdapter);
         postUpdate();
-                
+        getMemberData();   // 어댑터에 넘겨줄 멤버 객체 ( 유효성 검사에 사용 )
 
 
 
@@ -90,6 +95,35 @@ public class FragPostSos extends Fragment {
         return view;
 
 
+
+    }
+    private void getMemberData() {
+        if (firebaseUser != null) {
+            CollectionReference collectionReference = firebaseFirestore.collection("users");
+            collectionReference
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                Log.e("GXX : ", "채팅은될까 1");
+                                memberInfos.clear();
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    //Log.d(TAG, document.getId() + " => " + document.getData());
+                                    Log.e("cxupdate : ", "채팅은될까 2");
+                                    memberInfos.add(new MemberInfo(
+                                            document.getData().get("name").toString(),
+                                            document.getData().get("uid").toString()));
+                                }
+                                mainAdapter.notifyDataSetChanged();
+
+                            } else {
+                            }
+                        }
+
+                    });
+
+        }
 
     }
 

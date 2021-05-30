@@ -136,7 +136,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
                         android:gravity="center|top"
-                        android:text="SOS"
+                        android:text="애드판"
                         android:textColor="@color/basic_text"
                         android:textSize="13dp" />
                 </LinearLayout>
@@ -171,7 +171,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
                         android:gravity="center|top"
-                        android:text="언어교환"
+                        android:text="애드톡"
                         android:textColor="@color/basic_text"
                         android:textSize="13dp" />
                 </LinearLayout>
@@ -206,7 +206,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
                         android:gravity="center|top"
-                        android:text="K-문화"
+                        android:text="K문화"
                         android:textColor="@color/basic_text"
                         android:textSize="13dp" />
                 </LinearLayout>
@@ -241,7 +241,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
                         android:gravity="center|top"
-                        android:text="문제해결"
+                        android:text="애드정보"
                         android:textColor="@color/basic_text"
                         android:textSize="13dp" />
                 </LinearLayout>

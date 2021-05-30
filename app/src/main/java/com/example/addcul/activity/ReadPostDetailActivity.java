@@ -54,6 +54,7 @@ public class ReadPostDetailActivity extends AppCompatActivity {
     int position;
     TextView postTitle,postDetail, postConents, postName, postUpdated;
     ImageView sendBtn;
+    String actID;
 
 
     @Override
@@ -85,30 +86,35 @@ public class ReadPostDetailActivity extends AppCompatActivity {
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.post_detail_recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(ReadPostDetailActivity.this));
-        postDetailAdapter = new PostDetailAdapter(ReadPostDetailActivity.this,postDetailInfos,memberList);
+        postDetailAdapter = new PostDetailAdapter(ReadPostDetailActivity.this,postDetailInfos,memberList,actID);
         ((PostDetailAdapter)postDetailAdapter).setOnPostListener(onPostListener);
         recyclerView.setAdapter(postDetailAdapter);
 
 
+        // MainAdapter로 부터 act별칭과 포지션 값 받아옴
         // 전달받은 인텐드 값 가져오기
         Intent postIntent = getIntent();
         if (postIntent != null) {
             position = postIntent.getIntExtra("position", 0);
+            actID = postIntent.getStringExtra("actID");
         } else {
             position = -1;
         }
 
+        Log.e("CXXPOSITION",position+"");
         // run
-        postDetailUpdate(); // 게시판 상세 페이지
-        comentUpdate(); // 댓글 업데이트
+        postDetailUpdate(); // 게시판 상세 업데이트 (게시판, 댓글)
+
 
 
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                storageUpload();
+                storageUpload(position);
             }
         });
+
+        postDetailUpdate();
 
     }
 
@@ -116,13 +122,13 @@ public class ReadPostDetailActivity extends AppCompatActivity {
         @Override
         public void onDelete(int position) {
             final String id = postDetailInfos.get(position).getId();
-            firebaseFirestore.collection("posts_free_detail").document(id)
+            firebaseFirestore.collection("posts_"+actID+"_detail").document(id)
                     .delete()
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             util.showToast("게시글을 삭제하였습니다.");
-                            comentUpdate();
+                            postDetailUpdate();
                             Log.e("포스트 게시물 삭제 : ", id);
                         }
                     })
@@ -149,25 +155,29 @@ public class ReadPostDetailActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         postDetailUpdate();
-        comentUpdate();
+        //comentUpdate();
     }
 
     // 파이어스토어 업로드
-    private void storageUpload() {
+    private void storageUpload(int position) {  // 게시글 상세페이지에서 댓글(comment)을 파이어스토어 업로드
+
        // final String title = ((EditText) findViewById(R.id.titleEditText)).getText().toString();    // 게시글 제목
         final String contents = ((EditText)findViewById(R.id.post_detail_et_comment)).getText().toString();
         int rn = ((int)(Math.random()*100000)+1);
 
-        postDetailUpdate();
+        //postDetailUpdate();
 
-       // String SID = postList.get
+
+        String SID = postList.get(position).getId();
+
         if ( contents.length()>0) {
             firebaseUser = FirebaseAuth.getInstance().getCurrentUser(); // UID
             FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
             PostDetailInfo postDetailInfos = (PostDetailInfo)getIntent().getSerializableExtra("postDetailInfos");
-            final DocumentReference documentReference = postDetailInfos == null ?firebaseFirestore.collection("posts_free_detail").document():firebaseFirestore.collection("posts_free_detail").document(postDetailInfos.getId());
+            final DocumentReference documentReference = postDetailInfos == null ?firebaseFirestore.collection("posts_"+actID+"_detail_"+SID).document():firebaseFirestore.collection("posts_"+actID+"_detail_"+SID).document(postDetailInfos.getId());
             final Date date = postDetailInfos == null ? new Date() : postDetailInfos.getCreatedAt();
 
+            Log.e("CXXSID : ","posts_"+actID+"_detail"+SID);
             storeUploader(documentReference,new PostDetailInfo(firebaseUser.getUid(),contents,date,documentReference.getId()));
 
         }
@@ -184,7 +194,8 @@ public class ReadPostDetailActivity extends AppCompatActivity {
                         //loaderLayout.setVisibility(View.GONE);
                         startToast("댓글 등록을 성공하였습니다.");
                         //finish();
-                        myStartActivity(ReadPostDetailActivity.class);
+                        myStartActivity2(ReadPostDetailActivity.class,position,actID);
+                        postDetailUpdate();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -198,10 +209,14 @@ public class ReadPostDetailActivity extends AppCompatActivity {
 
 
 
-    private void comentUpdate() {
+    private void comentUpdate(ArrayList<PostInfo> postList) {
         if (firebaseUser != null) {
-            Log.e("XComent: ","11111111");
-            CollectionReference collectionReference = firebaseFirestore.collection("posts_free_detail");
+
+           // postDetailUpdate(); // 게시판 정보 객체를 받아와서 해당 게시판에 맞는 댓글창 업데이트
+
+            String SID = postList.get(position).getId();
+            Log.e("CXXCOMMENT!!: ","posts_"+actID+"_detail"+SID);
+            CollectionReference collectionReference = firebaseFirestore.collection("posts_"+actID+"_detail_"+SID);
             collectionReference
                     .get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -210,17 +225,14 @@ public class ReadPostDetailActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 postDetailInfos.clear();
                                 for (QueryDocumentSnapshot document : task.getResult()) {
-                                    Log.e("XComent: ","2222222");
                                     postDetailInfos.add(new PostDetailInfo(
                                             document.getData().get("name").toString(),
                                             document.getData().get("contents").toString(),
                                             new Date(document.getDate("createdAt").getTime()),
                                             document.getId()));
-
-                                    //getName();
-                                    Log.e("XComent: ",postDetailInfos.get(0).getContents());
                                 }
-
+                                //getName();
+                            //    Log.e("CXXComent: ",postDetailInfos.get(0).getContents());
                                 postDetailAdapter.notifyDataSetChanged();
 
                             } else {
@@ -232,9 +244,10 @@ public class ReadPostDetailActivity extends AppCompatActivity {
         }
     }
 
-    private void postDetailUpdate() {
+    private void postDetailUpdate() {   // post(게시판) 객체를 가져와 상세페이지를 띄어주는 함수
         if (firebaseUser != null) {
-            CollectionReference collectionReference = firebaseFirestore.collection("posts_free");
+            CollectionReference collectionReference = firebaseFirestore.collection("posts_"+actID);
+            Log.e("CXXPOSTACT","posts_"+actID);
             collectionReference
                     .orderBy("createdAt", Query.Direction.DESCENDING).get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -250,7 +263,7 @@ public class ReadPostDetailActivity extends AppCompatActivity {
                                             document.getData().get("publisher").toString(),
                                             new Date(document.getDate("createdAt").getTime()),
                                             document.getId()));
-                                      Log.e("XComent: ","44444");
+
                                 }
                                 Date date = new Date();
                                 SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -263,6 +276,8 @@ public class ReadPostDetailActivity extends AppCompatActivity {
                                 postUpdated.setText(updated);
 
                                 getUserName();
+                                comentUpdate(postList);
+                                Log.e("CXX! :",postList.get(0).getId());
 
 
                             } else {
@@ -272,6 +287,7 @@ public class ReadPostDetailActivity extends AppCompatActivity {
                     });
         }
     }
+
 
 
     private void getUserName() {
@@ -306,6 +322,12 @@ public class ReadPostDetailActivity extends AppCompatActivity {
     private void myStartActivity(Class c) {
         Intent intent = new Intent(this, c);
 //        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+    private void myStartActivity2(Class c,int position,String actID) {
+        Intent intent = new Intent(this,c);
+        intent.putExtra("position",position);
+        intent.putExtra("actID",actID);
         startActivity(intent);
     }
 }

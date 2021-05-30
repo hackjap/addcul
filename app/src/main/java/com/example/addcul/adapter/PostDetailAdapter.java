@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.addcul.MemberInfo;
 import com.example.addcul.PostDetailInfo;
+import com.example.addcul.PostInfo;
 import com.example.addcul.R;
 import com.example.addcul.activity.ReadPostDetailActivity;
 import com.example.addcul.listener.OnPostListener;
@@ -41,6 +42,7 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Vi
     private OnPostListener onPostListener;
     private FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+    String actID;
     //TextView nameTextView;
     public static class ViewHolder extends RecyclerView.ViewHolder {
         View view;
@@ -53,10 +55,11 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Vi
 
     }
 
-    public PostDetailAdapter(Activity activity, ArrayList<PostDetailInfo> dataSet, ArrayList<MemberInfo> memberInfos) {
+    public PostDetailAdapter(Activity activity, ArrayList<PostDetailInfo> dataSet, ArrayList<MemberInfo> memberInfos,String actID) {
         this.postDetailInfos = dataSet;
         this.activity = activity;
         this.memberInfos = memberInfos;
+        this.actID = actID;
     }
 
     public void setOnPostListener(OnPostListener onPostListener){
@@ -96,8 +99,8 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Vi
 
         String data = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(postDetailInfos.get(position).getCreatedAt());
         String uid = postDetailInfos.get(position).getname();
-        Log.e("CXX",uid);
-        Log.e("CXX",data);
+        Log.e("CXXADAPTER",uid);
+        Log.e("CXXADAPTER",data);
 
 
         getUserName(uid,viewHolder);
@@ -109,7 +112,7 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Vi
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myStartActivity(ReadPostDetailActivity.class,position);
+                myStartActivity2(ReadPostDetailActivity.class,position,actID);
             }
         });
 
@@ -164,7 +167,7 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Vi
                                 memberInfos.add(new MemberInfo(
                                     document.getData().get("name").toString()));
                             // postName.setText(memberInfos.get(0).getName());
-                                TextView nameTextView = viewHolder.view.findViewById(R.id.post_detail_tv_name); // 게시글 제목 텍스트뷰
+                                TextView nameTextView = viewHolder.view.findViewById(R.id.post_detail_tv_title); // 게시글 제목 텍스트뷰
                                 nameTextView.setText(memberInfos.get(0).getName());
                                 Log.e("CXX",memberInfos.get(0).getName());
                         }
@@ -186,11 +189,19 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Vi
         intent.putExtra("position",position);
         activity.startActivity(intent);
     }
-//    private void myStartActivity(Class c,PostInfo postInfo) {
-//        Intent intent = new Intent(activity, c);
-//        intent.putExtra("postInfo",postInfo);
-//        activity.startActivity(intent);
-//    }
+    private void myStartActivity(Class c, PostInfo postInfo) {
+        Intent intent = new Intent(activity, c);
+        intent.putExtra("postInfo", postInfo);
+        activity.startActivity(intent);
+
+
+    }
+    private void myStartActivity2(Class c,int position,String actID) {
+        Intent intent2 = new Intent(activity,c);
+        intent2.putExtra("position",position);
+        intent2.putExtra("actID",actID);
+        activity.startActivity(intent2);
+    }
 
 }
 

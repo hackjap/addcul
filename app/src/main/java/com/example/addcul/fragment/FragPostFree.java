@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.addcul.MemberInfo;
 import com.example.addcul.PostInfo;
 import com.example.addcul.R;
 import com.example.addcul.Util;
@@ -43,6 +44,7 @@ public class FragPostFree extends Fragment {
     FirebaseFirestore firebaseFirestore;
     RecyclerView.Adapter mainAdapter;
     ArrayList<PostInfo> postList;
+    ArrayList<MemberInfo>memberInfos;
     Util util;
 
     public FragPostFree() {
@@ -68,9 +70,17 @@ public class FragPostFree extends Fragment {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
+        String actID = "free";
+
         util = new Util(getActivity());
         postList = new ArrayList<>();
-        mainAdapter = new MainAdapter(getActivity(),postList);
+        memberInfos = new ArrayList<>();
+
+        getMemberData();
+        postUpdate();
+
+
+        mainAdapter = new MainAdapter(getActivity(),postList,memberInfos,actID);  // 인자값(context,게시판객체,액티비티 id )
         ((MainAdapter)mainAdapter).setOnPostListener(onPostListener);
 
         RecyclerView recyclerView = view.findViewById(R.id.rc_post_free);
@@ -79,10 +89,8 @@ public class FragPostFree extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         //recyclerView.setAdapter(new MainAdapter(ReadPostActivity.this,postList));
+
         recyclerView.setAdapter(mainAdapter);
-        postUpdate();
-
-
 
 
 
@@ -92,6 +100,38 @@ public class FragPostFree extends Fragment {
 
     }
 
+    private void getMemberData() {
+        if (firebaseUser != null) {
+            CollectionReference collectionReference = firebaseFirestore.collection("users");
+            collectionReference
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+
+                                memberInfos.clear();
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    //Log.d(TAG, document.getId() + " => " + document.getData());
+                                    Log.e("cxupdate : ", "채팅은될까 2");
+                                    memberInfos.add(new MemberInfo(
+                                            document.getData().get("name").toString(),
+                                            document.getData().get("uid").toString()));
+                                    Log.e("GXX11 : ",  document.getData().get("name").toString());
+                                }
+                                Log.e("GXX22 : ",  memberInfos.get(0).getName());
+                                Log.e("GXX33",memberInfos.size()+"");
+                                mainAdapter.notifyDataSetChanged();
+
+                            } else {
+                            }
+                        }
+
+                    });
+
+        }
+
+    }
 
     OnPostListener onPostListener = new OnPostListener() {
         @Override

@@ -121,7 +121,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         //  googleNickname = intent.getStringExtra("nickname");
 
 
-        int sessionPosition = 0;
+
         String loginUid = firebaseUser.getUid();
         String publisher = "";
 

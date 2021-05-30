@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.addcul.MemberInfo;
 import com.example.addcul.PostInfo;
 import com.example.addcul.R;
 import com.example.addcul.Util;
@@ -44,6 +45,7 @@ public class FragPostSecret extends Fragment {
     FirebaseFirestore firebaseFirestore;
     RecyclerView.Adapter mainAdapter;
     ArrayList<PostInfo> postList;
+    ArrayList<MemberInfo> memberInfos;
     Util util;
 
     public FragPostSecret() {
@@ -65,14 +67,14 @@ public class FragPostSecret extends Fragment {
         View view = inflater.inflate(R.layout.fragment_frag_post_secret, container, false);
 
 
-
-
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         firebaseFirestore = FirebaseFirestore.getInstance();
-
+        memberInfos = new ArrayList<>();
         postList = new ArrayList<>();
-        mainAdapter = new MainAdapter(getActivity(),postList);
-        ((MainAdapter)mainAdapter).setOnPostListener(onPostListener);
+        String actID = "secret";
+
+        mainAdapter = new MainAdapter(getActivity(), postList, memberInfos, actID);
+        ((MainAdapter) mainAdapter).setOnPostListener(onPostListener);
         util = new Util(getActivity());
 
         RecyclerView recyclerView = view.findViewById(R.id.rc_post_free);
@@ -82,18 +84,48 @@ public class FragPostSecret extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         //recyclerView.setAdapter(new MainAdapter(ReadPostActivity.this,postList));
         recyclerView.setAdapter(mainAdapter);
+
+
+
+
         postUpdate();
-                
-
-
+        getMemberData();
 
 
         return view;
 
 
-
     }
 
+    private void getMemberData() {
+        if (firebaseUser != null) {
+            CollectionReference collectionReference = firebaseFirestore.collection("users");
+            collectionReference
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                Log.e("cxupdate : ", "채팅은될까 1");
+                                memberInfos.clear();
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    //Log.d(TAG, document.getId() + " => " + document.getData());
+                                    Log.e("cxupdate : ", "채팅은될까 2");
+                                    memberInfos.add(new MemberInfo(
+                                            document.getData().get("name").toString(),
+                                            document.getData().get("uid").toString()));
+                                }
+                                mainAdapter.notifyDataSetChanged();
+
+                            } else {
+                            }
+                        }
+
+                    });
+
+        }
+
+    }
 
     OnPostListener onPostListener = new OnPostListener() {
         @Override
@@ -106,7 +138,7 @@ public class FragPostSecret extends Fragment {
                         public void onSuccess(Void aVoid) {
                             util.showToast("게시글을 삭제하였습니다.");
                             postUpdate();
-                            Log.e("포스트 게시물 삭제 : ",id);
+                            Log.e("포스트 게시물 삭제 : ", id);
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -176,9 +208,10 @@ public class FragPostSecret extends Fragment {
                     });
         }
     }
-    private void myStartActivity(Class c,PostInfo postInfo) {
+
+    private void myStartActivity(Class c, PostInfo postInfo) {
         Intent intent = new Intent(getActivity(), c);
-        intent.putExtra("postInfo",postInfo);
+        intent.putExtra("postInfo", postInfo);
         startActivity(intent);
     }
 }

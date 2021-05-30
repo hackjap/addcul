@@ -16,10 +16,14 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.addcul.MemberInfo;
 import com.example.addcul.PostInfo;
 import com.example.addcul.R;
 import com.example.addcul.activity.ReadPostDetailActivity;
 import com.example.addcul.listener.OnPostListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -28,8 +32,13 @@ import java.util.Locale;
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     private ArrayList<PostInfo> mDataset;
+    private ArrayList<MemberInfo> uDataset; // 멤버 객체
     private Activity activity;
     private OnPostListener onPostListener;
+    private FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+    private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+
+    String actID;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         View view;
@@ -42,13 +51,16 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     }
 
-    public MainAdapter(Activity activity, ArrayList<PostInfo> dataSet) {
+    public MainAdapter(Activity activity, ArrayList<PostInfo> dataSet, ArrayList<MemberInfo> userData, String actID) {
         this.mDataset = dataSet;
         this.activity = activity;
+        this.uDataset = userData;
+        this.actID = actID;
+
 
     }
 
-    public void setOnPostListener(OnPostListener onPostListener){
+    public void setOnPostListener(OnPostListener onPostListener) {
         this.onPostListener = onPostListener;
     }
 
@@ -56,6 +68,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_post, viewGroup, false);
+
         final ViewHolder viewHolder = new ViewHolder(view);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +84,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             }
         });
 
-        Log.e("텍스트뷰 : ","크리에이트");
+        Log.e("텍스트뷰 : ", "크리에이트");
         return viewHolder;
     }
 
@@ -81,17 +94,45 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         TextView titleTextView = view.findViewById(R.id.titleTextView); // 게시글 제목 텍스트뷰
         TextView contentsTextView = view.findViewById(R.id.contentsTextView);
         TextView createdTextView = view.findViewById(R.id.createdAtTextView);   // 게시글 날짜 텍스트뷰
+        TextView nameTextView = view.findViewById(R.id.post_tv_name);
+        String uid = firebaseUser.getUid();
 
+        nameTextView.setText(mDataset.get(position).getPublisher());
         titleTextView.setText(mDataset.get(position).getTitle());
         contentsTextView.setText(mDataset.get(position).getContents());
         createdTextView.setText(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(mDataset.get(position).getCreatedAt()));
 
 
 
+        String publisher = "오류";
+       // Log.e("CXXMem", uDataset.get(0).getName());
+        //  Log.e("CXXUDD",uDataset.size()+"");
+
+        //  채팅 작성자명 동기화
+        for (int i = 0; i < uDataset.size(); i++) {
+            String chatID = mDataset.get(position).getPublisher();  // 각 대화마다의 작성자 uid를 구함
+            String userID = uDataset.get(i).getUid();   // 각 사용자의 uid
+            // userID = uDataset.get(i).getUid();
+            if (chatID.equals(userID)) {   // 로그인 사용자라면
+                publisher = uDataset.get(i).getName();
+                break;
+
+            } else {
+                publisher = "구글 로그인";
+            }
+        }
+
+        if(actID.equals("secret")){
+            nameTextView.setText("익명");
+        }else
+        {
+            nameTextView.setText(publisher);
+        }
+
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myStartActivity(ReadPostDetailActivity.class,position);
+                myStartActivity(ReadPostDetailActivity.class, position, actID);
             }
         });
 
@@ -108,6 +149,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         PopupMenu popupMenu = new PopupMenu(activity, v);
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             String id = mDataset.get(position).getId();
+
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
@@ -134,9 +176,10 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     }
 
 
-    private void myStartActivity(Class c,int position) {
-        Intent intent = new Intent(activity,c);
-        intent.putExtra("position",position);
+    private void myStartActivity(Class c, int position, String actID) {
+        Intent intent = new Intent(activity, c);
+        intent.putExtra("position", position);
+        intent.putExtra("actID", actID);
         activity.startActivity(intent);
     }
 //    private void myStartActivity(Class c,PostInfo postInfo) {
