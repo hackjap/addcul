@@ -25,13 +25,15 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class MyInfoActivity extends BasicActivity {
 
 
     private static final String TAG = "MyInfoActivity";
 
     Util util;
-    LinearLayout myInfoProfile;
+    CircleImageView myInfoProfile;
     TextView myInfoNickname,myInfoEmail,myInfopNum,myInfoSex,myInfoBirth;
     private FirebaseAuth auth;
     private FirebaseUser firebaseUser;
