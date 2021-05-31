@@ -286,6 +286,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="서울 식물원"
+                            android:textStyle="bold"
                             android:textColor="@color/basic_text"
                             android:textSize="25dp" />
 

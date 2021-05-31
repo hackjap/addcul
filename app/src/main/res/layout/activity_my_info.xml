@@ -215,6 +215,8 @@
                     android:orientation="vertical">
 
                     <LinearLayout
+                        android:id="@+id/mylog_free_btn"
+                        android:clickable="true"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:background="@drawable/style_round"
@@ -238,7 +240,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
-                        android:visibility="gone" />
+                        android:visibility="gone"
+                         />
                 </LinearLayout>
 
                 <LinearLayout

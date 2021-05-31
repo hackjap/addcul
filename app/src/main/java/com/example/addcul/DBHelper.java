@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final int VERSION=46;
+    public static final int VERSION=64;
     public DBHelper(Context context){
         super(context, "addculDB", null, VERSION);
     }
@@ -35,17 +35,29 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("insert into newWord(num, name, info, subInfo)values ('10','애빼시', '[ 애교 빼면 시체 ]', '-')");
 
         //쇼핑 테이블
-        String shopSQL="create table shop(" +
+        String shopSQL="create table shopWomen(" +
                 "_id integer primary key autoincrement," +
                 "name text," +
                 "tag text," +
                 "photo text);";
         db.execSQL(shopSQL);
-        db.execSQL("insert into shop(name, tag, photo)values ('마이더스비','#1+1  #베이직 의류', 'img_shop_midasb')");
-        db.execSQL("insert into shop(name, tag, photo)values ('러브패리스','#고급적 #중저가  #오피스룩', 'img_shop_loveparis')");
-        db.execSQL("insert into shop(name, tag, photo)values ('저스트원','#청바지  #배기진', 'img_shop_justone')");
-        db.execSQL("insert into shop(name, tag, photo)values ('모코블링','#독특한 스타일  #호불호', 'img_shop_mocobling')");
-        db.execSQL("insert into shop(name, tag, photo)values ('피핀','#데일리룩 #키에 따른 바지 사이즈', 'img_shop_pippin')");
+        db.execSQL("insert into shopWomen(name, tag, photo)values ('마이더스비','#1+1  #베이직 의류', 'img_shop_midasb')");
+        db.execSQL("insert into shopWomen(name, tag, photo)values ('러브패리스','#고급적 #중저가  #오피스룩', 'img_shop_loveparis')");
+        db.execSQL("insert into shopWomen(name, tag, photo)values ('저스트원','#청바지  #배기진', 'img_shop_justone')");
+        db.execSQL("insert into shopWomen(name, tag, photo)values ('모코블링','#독특한 스타일  #호불호', 'img_shop_mocobling')");
+        db.execSQL("insert into shopWomen(name, tag, photo)values ('피핀','#데일리룩 #키에 따른 바지 사이즈', 'img_shop_pippin')");
+
+        String shopSQL2="create table shopMen(" +
+                "_id integer primary key autoincrement," +
+                "name text," +
+                "tag text," +
+                "photo text);";
+        db.execSQL(shopSQL2);
+        db.execSQL("insert into shopMen(name, tag, photo)values ('네임벨류','#1+1  #베이직 의류', 'img_shop_midasb')");
+        db.execSQL("insert into shopMen(name, tag, photo)values ('바이더알','#고급적 #중저가  #오피스룩', 'img_shop_loveparis')");
+        db.execSQL("insert into shopMen(name, tag, photo)values ('멋남','#청바지  #배기진', 'img_shop_justone')");
+        db.execSQL("insert into shopMen(name, tag, photo)values ('슈퍼스타아이','#독특한 스타일  #호불호', 'img_shop_mocobling')");
+        db.execSQL("insert into shopMen(name, tag, photo)values ('지니푸','#데일리룩 #키에 따른 바지 사이즈', 'img_shop_pippin')");
 
         //일상 테이블
         String lifeSQL="create table life(" +
@@ -76,11 +88,13 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if(newVersion==VERSION){
-            db.execSQL("drop table newWord");
-            db.execSQL("drop table shop");
-            db.execSQL("drop table life");
-            db.execSQL("drop table problem");
+       if(newVersion==VERSION){
+//            db.execSQL("drop table newWord");
+//            db.execSQL("drop table shopWomen");
+//            db.execSQL("drop table shopMen");
+//            db.execSQL("drop table life");
+//            db.execSQL("drop table problem");
+//            //db.execSQL("drop table shop");
             onCreate(db);
         }
     }

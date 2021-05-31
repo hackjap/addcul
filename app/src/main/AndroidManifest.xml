@@ -75,6 +75,7 @@
         <activity android:name=".activity.KcultureActivity" />
         <activity android:name=".activity.WritePostSosActivity" />
         <activity android:name=".activity.WritePostSecretActivity" />
+        <activity android:name=".activity.ExperienceActivity03_2" />
 
         <activity
             android:name=".activity.SignUpActivity"

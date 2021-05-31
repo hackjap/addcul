@@ -5,25 +5,31 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.addcul.MemberInfo;
+import com.example.addcul.PostInfo;
 import com.example.addcul.R;
 import com.example.addcul.Util;
+import com.example.addcul.adapter.PostMyLogAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -35,11 +41,18 @@ public class MyInfoActivity extends BasicActivity {
     Util util;
     CircleImageView myInfoProfile;
     TextView myInfoNickname,myInfoEmail,myInfopNum,myInfoSex,myInfoBirth;
+    ArrayList<PostInfo> postList;
     private FirebaseAuth auth;
     private FirebaseUser firebaseUser;
     private FirebaseFirestore firebaseFirestore;
     private ArrayList<MemberInfo> memberInfos;
     String currentUid;
+    int flagFree=0;
+    // 댓글기록
+    RecyclerView recyclerViewFree;
+    PostMyLogAdapter postMyLogAdapter;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +64,12 @@ public class MyInfoActivity extends BasicActivity {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         firebaseFirestore = FirebaseFirestore.getInstance();
         memberInfos = new ArrayList<>();
+        postList = new ArrayList<>();
+
+        recyclerViewFree = findViewById(R.id.rv_myinfo_free);
+
+        // 활동 로그 버튼
+        findViewById(R.id.mylog_free_btn).setOnClickListener(onClickListener);
 
         // footer 바인딩
         // 하단메뉴
@@ -68,6 +87,15 @@ public class MyInfoActivity extends BasicActivity {
 
         currentUid = firebaseUser.getUid();  //현재 로그인 UID
 
+        String actID = "free";
+        getPostData(actID);
+
+
+        recyclerViewFree.setHasFixedSize(true);
+        recyclerViewFree.setLayoutManager(new LinearLayoutManager(MyInfoActivity.this));
+        postMyLogAdapter = new PostMyLogAdapter(this,postList,memberInfos);
+       // ((PostDetailAdapter)postDetailAdapter).setOnPostListener(onPostListener);
+        recyclerViewFree.setAdapter(postMyLogAdapter);
 
         // 로그아웃
         findViewById(R.id.logout).setOnClickListener(new View.OnClickListener() {
@@ -116,6 +144,70 @@ public class MyInfoActivity extends BasicActivity {
 
 
     }
+
+
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.mylog_free_btn:{
+                    if(flagFree==0){
+                        recyclerViewFree.setVisibility(View.VISIBLE);
+                        flagFree = 1;
+                    }
+                    else{
+                        recyclerViewFree.setVisibility(View.GONE);
+                        flagFree =0;
+                    }
+                }
+
+            }
+        }
+    };
+
+    private void getPostData(String actID) {   // post(게시판) 객체를 가져와 상세페이지를 띄어주는 함수
+        if (firebaseUser != null) {
+            CollectionReference collectionReference = firebaseFirestore.collection("posts_"+ actID);
+            Log.e("CXXPOSTACT","posts_"+actID);
+            collectionReference
+                    .orderBy("createdAt", Query.Direction.DESCENDING).get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                postList.clear();
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    //Log.d(TAG, document.getId() + " => " + document.getData());
+                                    postList.add(new PostInfo(
+                                            document.getData().get("title").toString(),
+                                            document.getData().get("contents").toString(),
+                                            document.getData().get("publisher").toString(),
+                                            new Date(document.getDate("createdAt").getTime()),
+                                            document.getId()));
+
+                                }
+                                postMyLogAdapter.notifyDataSetChanged();
+                                Date date = new Date();
+                                SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                                String updated = transFormat.format(date);
+//
+//                                postTitle.setText(postList.get(position).getTitle());
+//                                postDetail.setText(postList.get(position).getContents());
+//                                //postName.setText(postList.get(position).getPublisher());
+//                                publisher = postList.get(position).getPublisher();
+//                                postUpdated.setText(updated);
+
+//                                getUserName();
+//                                comentUpdate(postList);
+//                                Log.e("CXX! :",postList.get(0).getId());
+                            } else {
+                                //  Log.d(TAG, "Error getting documents: ", task.getException());
+                            }
+                        }
+                    });
+        }
+    }
+
     private void memberUpdate() {
         if(firebaseUser!=null){
             CollectionReference collectionReference = firebaseFirestore.collection("users");

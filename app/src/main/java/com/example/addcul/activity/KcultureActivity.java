@@ -122,6 +122,7 @@ public class KcultureActivity extends BasicActivity {
                     ft.addToBackStack(null);
                     ft.replace(R.id.contentLayout, fragShop);
                     ft.commit();
+
                     break;
                 case R.id.btn_life_layout:
                     btn_life_layout.setBackgroundResource(R.drawable.part_round_back);

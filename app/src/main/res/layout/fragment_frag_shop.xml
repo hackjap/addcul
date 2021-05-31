@@ -18,6 +18,8 @@
             android:scrollbars="none">
 
             <LinearLayout
+                android:id="@+id/frag_shop_women_btn"
+                android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -36,7 +38,7 @@
                     android:padding="12dp">
 
                     <TextView
-                        android:id="@+id/btn_shop_womenC"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="여성 의류"
@@ -45,6 +47,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/frag_shop_men_btn"
+                    android:clickable="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="7dp"
@@ -54,7 +58,7 @@
                     android:padding="12dp">
 
                     <TextView
-                        android:id="@+id/btn_shop_menC"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="남성 의류"
@@ -63,6 +67,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/frag_shop_appliance_btn"
+                    android:clickable="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="7dp"
@@ -81,6 +87,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/frag_shop_makeUp_btn"
+                    android:clickable="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="7dp"
@@ -99,6 +107,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/frag_shop_food_btn"
+                    android:clickable="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="7dp"
@@ -117,6 +127,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/frag_shop_furniture_btn"
+                    android:clickable="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="7dp"

@@ -6,13 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.addcul.FoodInfo;
 import com.example.addcul.R;
 import com.example.addcul.ShopInfo;
 
@@ -32,6 +30,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.MyViewHolder> 
     public interface OnMyTouchListener{
         void onTouch(View v,int postion);
     }
+
     public void setOnMyTouchListener(OnMyTouchListener listener){
         this.listener = listener;
     }

@@ -64,9 +64,12 @@ public class ProblemActivity extends BasicActivity {
             @Override
             public void onTouch(View v, int postion) {
                 Log.e("출력 : ","출력 ");
-                startActivity(PregnancybirthActivity.class);
-
-
+                if(postion == 0) {
+                    startActivity(PregnancybirthActivity.class);
+                }
+                else{
+                    startActivity(ExperienceActivity03_2.class);
+                }
             }
         });
 
