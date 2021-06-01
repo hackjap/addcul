@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -28,6 +29,12 @@ public class FragShop extends Fragment {
     RecyclerView recyclerView;
     ShopAdapter shopAdapter;
     // DB 구현
+    LinearLayout btnWomen;
+    LinearLayout btnMen;
+    LinearLayout btnAppliance;
+    LinearLayout btnMakeUp;
+    LinearLayout btnFood;
+    LinearLayout btnFurniture;
 
     ArrayList<ShopInfo> list;
 
@@ -45,12 +52,22 @@ public class FragShop extends Fragment {
         View view = inflater.inflate(R.layout.fragment_frag_shop, container, false);
 
 
-        view.findViewById(R.id.frag_shop_women_btn).setOnClickListener(onClickListener);
-        view.findViewById(R.id.frag_shop_men_btn).setOnClickListener(onClickListener);
-        view.findViewById(R.id.frag_shop_appliance_btn).setOnClickListener(onClickListener);
-        view.findViewById(R.id.frag_shop_makeUp_btn).setOnClickListener(onClickListener);
-        view.findViewById(R.id.frag_shop_food_btn).setOnClickListener(onClickListener);
-        view.findViewById(R.id.frag_shop_furniture_btn).setOnClickListener(onClickListener);
+
+        btnWomen = view.findViewById(R.id.frag_shop_women_btn);
+        btnMen = view.findViewById(R.id.frag_shop_men_btn);
+        btnAppliance = view.findViewById(R.id.frag_shop_appliance_btn);
+        btnMakeUp = view.findViewById(R.id.frag_shop_makeUp_btn);
+        btnFood = view.findViewById(R.id.frag_shop_food_btn);
+        btnFurniture = view.findViewById(R.id.frag_shop_furniture_btn);
+
+
+        btnWomen.setOnClickListener(onClickListener);
+        btnMen.setOnClickListener(onClickListener);
+        btnAppliance.setOnClickListener(onClickListener);
+        btnMakeUp.setOnClickListener(onClickListener);
+        btnFood.setOnClickListener(onClickListener);
+        btnFurniture.setOnClickListener(onClickListener);
+
 
 
         recyclerView = (RecyclerView) view.findViewById(R.id.rv_shop);
@@ -124,6 +141,7 @@ public class FragShop extends Fragment {
 
             switch (v.getId()) {
                 case R.id.frag_shop_women_btn: {
+                    setBtnBackColor(btnWomen);
                     String tableName = "shopWomen";
                     getDatabase(tableName);
                     shopAdapter = new ShopAdapter(list, getActivity());
@@ -145,7 +163,7 @@ public class FragShop extends Fragment {
                     break;
                 }
                 case R.id.frag_shop_men_btn:{
-
+                    setBtnBackColor(btnMen);
                     String tableName = "shopMen";
                     getDatabase(tableName);
                     shopAdapter = new ShopAdapter(list, getActivity());
@@ -166,8 +184,102 @@ public class FragShop extends Fragment {
                         }
                     });
                     break;
-
                 }
+                case R.id.frag_shop_appliance_btn:{
+                    setBtnBackColor(btnAppliance);
+                    String tableName = "shopMen";
+                    getDatabase(tableName);
+                    shopAdapter = new ShopAdapter(list, getActivity());
+                    recyclerView.setAdapter(shopAdapter);
+
+                    shopAdapter.setOnMyTouchListener(new ShopAdapter.OnMyTouchListener() {
+                        @Override
+                        public void onTouch(View v, int position) {
+
+                            if (position == 0) {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.midasb.co.kr/"));
+                                startActivity(intent);
+                            } else if (position == 1) {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.naver.com/"));
+                                startActivity(intent);
+                            }
+
+                        }
+                    });
+                    break;
+                }
+                case R.id.frag_shop_makeUp_btn:{
+                    setBtnBackColor(btnMakeUp);
+                    String tableName = "shopMen";
+                    getDatabase(tableName);
+                    shopAdapter = new ShopAdapter(list, getActivity());
+                    recyclerView.setAdapter(shopAdapter);
+
+                    shopAdapter.setOnMyTouchListener(new ShopAdapter.OnMyTouchListener() {
+                        @Override
+                        public void onTouch(View v, int position) {
+
+                            if (position == 0) {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.midasb.co.kr/"));
+                                startActivity(intent);
+                            } else if (position == 1) {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.naver.com/"));
+                                startActivity(intent);
+                            }
+
+                        }
+                    });
+                    break;
+                }
+                case R.id.frag_shop_food_btn:{
+                    setBtnBackColor(btnFood);
+                    String tableName = "shopMen";
+                    getDatabase(tableName);
+                    shopAdapter = new ShopAdapter(list, getActivity());
+                    recyclerView.setAdapter(shopAdapter);
+
+                    shopAdapter.setOnMyTouchListener(new ShopAdapter.OnMyTouchListener() {
+                        @Override
+                        public void onTouch(View v, int position) {
+
+                            if (position == 0) {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.midasb.co.kr/"));
+                                startActivity(intent);
+                            } else if (position == 1) {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.naver.com/"));
+                                startActivity(intent);
+                            }
+
+                        }
+                    });
+                    break;
+                }
+                case R.id.frag_shop_furniture_btn:{
+                    setBtnBackColor(btnFurniture);
+                    String tableName = "shopMen";
+                    getDatabase(tableName);
+                    shopAdapter = new ShopAdapter(list, getActivity());
+                    recyclerView.setAdapter(shopAdapter);
+
+                    shopAdapter.setOnMyTouchListener(new ShopAdapter.OnMyTouchListener() {
+                        @Override
+                        public void onTouch(View v, int position) {
+
+                            if (position == 0) {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.midasb.co.kr/"));
+                                startActivity(intent);
+                            } else if (position == 1) {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.naver.com/"));
+                                startActivity(intent);
+                            }
+
+                        }
+                    });
+                    break;
+                }
+
+
+
             }
         }
     };
@@ -176,5 +288,17 @@ public class FragShop extends Fragment {
 //        startActivity(intent);
 //    }
 
+
+    // 해당하는 버튼의 배경색 변경
+    public void setBtnBackColor(LinearLayout pointed){
+        btnWomen.setBackgroundResource(R.drawable.style_main_fill);
+        btnMen.setBackgroundResource(R.drawable.style_main_fill);
+        btnAppliance.setBackgroundResource(R.drawable.style_main_fill);
+        btnMakeUp.setBackgroundResource(R.drawable.style_main_fill);
+        btnFood.setBackgroundResource(R.drawable.style_main_fill);
+        btnFurniture.setBackgroundResource(R.drawable.style_main_fill);
+        pointed.setBackgroundResource(R.drawable.style_main_fill_yellow);
+
+    }
 
 }

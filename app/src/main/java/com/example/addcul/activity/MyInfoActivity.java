@@ -40,14 +40,15 @@ public class MyInfoActivity extends BasicActivity {
 
     Util util;
     CircleImageView myInfoProfile;
-    TextView myInfoNickname,myInfoEmail,myInfopNum,myInfoSex,myInfoBirth;
+    TextView myInfoNickname, myInfoEmail, myInfopNum, myInfoSex, myInfoBirth;
     ArrayList<PostInfo> postList;
+    ArrayList<PostInfo> myPostList;
     private FirebaseAuth auth;
     private FirebaseUser firebaseUser;
     private FirebaseFirestore firebaseFirestore;
     private ArrayList<MemberInfo> memberInfos;
     String currentUid;
-    int flagFree=0;
+    int flagFree = 0;
     // 댓글기록
     RecyclerView recyclerViewFree;
     PostMyLogAdapter postMyLogAdapter;
@@ -65,6 +66,7 @@ public class MyInfoActivity extends BasicActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
         memberInfos = new ArrayList<>();
         postList = new ArrayList<>();
+        myPostList = new ArrayList<>();
 
         recyclerViewFree = findViewById(R.id.rv_myinfo_free);
 
@@ -88,13 +90,12 @@ public class MyInfoActivity extends BasicActivity {
         currentUid = firebaseUser.getUid();  //현재 로그인 UID
 
         String actID = "free";
-        getPostData(actID);
 
 
         recyclerViewFree.setHasFixedSize(true);
         recyclerViewFree.setLayoutManager(new LinearLayoutManager(MyInfoActivity.this));
-        postMyLogAdapter = new PostMyLogAdapter(this,postList,memberInfos);
-       // ((PostDetailAdapter)postDetailAdapter).setOnPostListener(onPostListener);
+        postMyLogAdapter = new PostMyLogAdapter(this, myPostList, memberInfos);
+        // ((PostDetailAdapter)postDetailAdapter).setOnPostListener(onPostListener);
         recyclerViewFree.setAdapter(postMyLogAdapter);
 
         // 로그아웃
@@ -111,35 +112,18 @@ public class MyInfoActivity extends BasicActivity {
         if (firebaseUser == null) { // 로그인 상태가 아닐때
             util.showToast("로그인해주세요");
             startActivity(LoginActivity.class);
-            TextView tvMyinfo = (TextView)findViewById(R.id.tv_my_info);
+            TextView tvMyinfo = (TextView) findViewById(R.id.tv_my_info);
             ImageView ivMyinfo = (ImageView) findViewById(R.id.img_my_info);
             ivMyinfo.setImageResource(R.drawable.ic_lock_open_black_24dp);
             tvMyinfo.setText("로그인");
         } else {
-            TextView tvMyinfo = (TextView)findViewById(R.id.tv_my_info);
+            TextView tvMyinfo = (TextView) findViewById(R.id.tv_my_info);
             ImageView ivMyinfo = (ImageView) findViewById(R.id.img_my_info);
             ivMyinfo.setImageResource(R.drawable.ic_account_circle_yellow_24dp);
             tvMyinfo.setText("내정보");
+
+            getPostData(actID);
             memberUpdate();
-
-        /* 구글 로그인
-        Intent intent = getIntent();
-        String nickname = intent.getStringExtra("nickname");
-        String profile = intent.getStringExtra("profile");
-
-       // Log.e("nickname : ",nickname);
-       // Log.e("profile : ",profile);
-
-        Log.e("nickname : ",memberInfos.get(0).getName());
-
-        myInfoNickname.setText(memberInfos.get(0).getName());
-        String url = "https://cdn.pixabay.com/photo/2019/12/26/10/44/horse-4720178_1280.jpg";
-        Glide.with(this).load(url).into(myInfoProfile);
-
-        Log.e("url : ",url);
-
-
-         */
         }
 
 
@@ -149,15 +133,14 @@ public class MyInfoActivity extends BasicActivity {
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()){
-                case R.id.mylog_free_btn:{
-                    if(flagFree==0){
+            switch (v.getId()) {
+                case R.id.mylog_free_btn: {
+                    if (flagFree == 0) {
                         recyclerViewFree.setVisibility(View.VISIBLE);
                         flagFree = 1;
-                    }
-                    else{
+                    } else {
                         recyclerViewFree.setVisibility(View.GONE);
-                        flagFree =0;
+                        flagFree = 0;
                     }
                 }
 
@@ -167,8 +150,8 @@ public class MyInfoActivity extends BasicActivity {
 
     private void getPostData(String actID) {   // post(게시판) 객체를 가져와 상세페이지를 띄어주는 함수
         if (firebaseUser != null) {
-            CollectionReference collectionReference = firebaseFirestore.collection("posts_"+ actID);
-            Log.e("CXXPOSTACT","posts_"+actID);
+            CollectionReference collectionReference = firebaseFirestore.collection("posts_" + actID);
+            Log.e("CXXPOSTACT", "posts_" + actID);
             collectionReference
                     .orderBy("createdAt", Query.Direction.DESCENDING).get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -186,6 +169,18 @@ public class MyInfoActivity extends BasicActivity {
                                             document.getId()));
 
                                 }
+
+                                String uid = firebaseUser.getUid();
+
+                                Log.e("CXXLOG", postList.size()+"");
+                                for (int i = 0; i < postList.size(); i++) {
+                                    if (uid.equals(postList.get(i).getPublisher())) {
+                                        myPostList.add(postList.get(i));
+                                    }
+                                }
+                                Log.e("CXXLOG", myPostList.size()+"");
+
+
                                 postMyLogAdapter.notifyDataSetChanged();
                                 Date date = new Date();
                                 SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -209,7 +204,7 @@ public class MyInfoActivity extends BasicActivity {
     }
 
     private void memberUpdate() {
-        if(firebaseUser!=null){
+        if (firebaseUser != null) {
             CollectionReference collectionReference = firebaseFirestore.collection("users");
             collectionReference
                     .get()
@@ -222,7 +217,7 @@ public class MyInfoActivity extends BasicActivity {
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     //Log.d(TAG, document.getId() + " => " + document.getData());
                                     Log.e("cxupdate : ", " 도큐먼트 그전까지는되네2");
-                                   memberInfos.add(new MemberInfo(
+                                    memberInfos.add(new MemberInfo(
                                             document.getData().get("email").toString(),
                                             document.getData().get("name").toString(),
                                             document.getData().get("sex").toString(),
@@ -233,12 +228,12 @@ public class MyInfoActivity extends BasicActivity {
 
                                 }
 
-                                // 동작
+                                // 등록정보 set 하기
                                 registerInfo();
 
 //
 
-                                Log.e("cxFFmember",memberInfos.get(3).getName());
+                                Log.e("cxFFmember", memberInfos.get(3).getName());
 
                             } else {
                                 //  Log.d(TAG, "Error getting documents: ", task.getException());
@@ -248,12 +243,13 @@ public class MyInfoActivity extends BasicActivity {
 
         }
     }
-    void registerInfo(){
+
+    void registerInfo() {
         int position = 0;
-        for (int index = 0; index <memberInfos.size(); index++) {
+        for (int index = 0; index < memberInfos.size(); index++) {
             if (currentUid.equals(memberInfos.get(index).getUid()))
                 position = index;
-            Log.e("position : ",position+"");
+            Log.e("position : ", position + "");
         }
         myInfoNickname.setText(memberInfos.get(position).getName());
         myInfoEmail.setText(memberInfos.get(position).getEmail());
