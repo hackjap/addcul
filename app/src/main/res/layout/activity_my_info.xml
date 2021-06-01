@@ -252,6 +252,7 @@
                     android:orientation="vertical">
 
                     <LinearLayout
+                        android:id="@+id/mylog_sos_btn"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:background="@drawable/style_round"
@@ -265,6 +266,7 @@
                             android:text="SOS 게시판" />
 
                         <ImageView
+                            android:id="@+id/sosLogProgress"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:src="@drawable/ic_arrow_drop_down_black_24dp" />
@@ -285,6 +287,7 @@
                     android:orientation="vertical">
 
                     <LinearLayout
+                        android:id="@+id/mylog_secret_btn"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
 
@@ -299,6 +302,7 @@
                             android:text="익명 게시판" />
 
                         <ImageView
+                            android:id="@+id/secretLogProgress"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:src="@drawable/ic_arrow_drop_down_black_24dp" />

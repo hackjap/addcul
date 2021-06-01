@@ -254,10 +254,10 @@
         android:id="@+id/map_explain_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_margin="10dp"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:visibility="visible"
-        android:layout_margin="10dp">
+        android:visibility="gone">
         <!--맵 선택 시 서브 페이지-->
         <LinearLayout
             android:layout_width="match_parent"
@@ -286,9 +286,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="서울 식물원"
-                            android:textStyle="bold"
                             android:textColor="@color/basic_text"
-                            android:textSize="25dp" />
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/tv_category"
@@ -323,9 +323,9 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center|center_vertical"
                     android:layout_weight="1"
-                    android:background="@drawable/style_map_border">
+                    android:background="@drawable/style_map_border"
+                    android:gravity="center|center_vertical">
 
                     <ImageView
                         android:id="@+id/img_call"

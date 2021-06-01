@@ -170,9 +170,8 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
             public void onMapReady(GoogleMap googleMap) {
                 map = googleMap;
                 // 37.55512522440527, 126.96981185690053 서울역
-                map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.55512522440527, 126.96981185690053), 11));
+                map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.55512522440527, 126.96981185690053), 12));
                 map.setMyLocationEnabled(true); // 내위치 설정
-
                 //run();
             }
         });

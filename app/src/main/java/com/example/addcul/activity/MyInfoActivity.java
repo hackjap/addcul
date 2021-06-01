@@ -41,6 +41,7 @@ public class MyInfoActivity extends BasicActivity {
     Util util;
     CircleImageView myInfoProfile;
     TextView myInfoNickname, myInfoEmail, myInfopNum, myInfoSex, myInfoBirth;
+    ImageView freeLogProgress,sosLogProgress,secretLogProgress;
     ArrayList<PostInfo> postList;
     ArrayList<PostInfo> myPostList;
     private FirebaseAuth auth;
@@ -48,9 +49,9 @@ public class MyInfoActivity extends BasicActivity {
     private FirebaseFirestore firebaseFirestore;
     private ArrayList<MemberInfo> memberInfos;
     String currentUid;
-    int flagFree = 0;
+    int flagFree = 0, flagSos = 0, flagSecret = 0;
     // 댓글기록
-    RecyclerView recyclerViewFree;
+    RecyclerView recyclerViewFree,recyclerViewSos,recyclerViewSecret;
     PostMyLogAdapter postMyLogAdapter;
 
 
@@ -68,10 +69,19 @@ public class MyInfoActivity extends BasicActivity {
         postList = new ArrayList<>();
         myPostList = new ArrayList<>();
 
+        // 활동 로그 리사이클러뷰
         recyclerViewFree = findViewById(R.id.rv_myinfo_free);
+        recyclerViewSos = findViewById(R.id.rv_myinfo_sos);
+        recyclerViewSecret = findViewById(R.id.rv_myinfo_secret);
+        freeLogProgress = findViewById(R.id.freeLogProgress);
+        sosLogProgress = findViewById(R.id.sosLogProgress);
+        secretLogProgress = findViewById(R.id.secretLogProgress);
+
 
         // 활동 로그 버튼
         findViewById(R.id.mylog_free_btn).setOnClickListener(onClickListener);
+        findViewById(R.id.mylog_sos_btn).setOnClickListener(onClickListener);
+        findViewById(R.id.mylog_secret_btn).setOnClickListener(onClickListener);
 
         // footer 바인딩
         // 하단메뉴
@@ -89,14 +99,10 @@ public class MyInfoActivity extends BasicActivity {
 
         currentUid = firebaseUser.getUid();  //현재 로그인 UID
 
-        String actID = "free";
 
 
-        recyclerViewFree.setHasFixedSize(true);
-        recyclerViewFree.setLayoutManager(new LinearLayoutManager(MyInfoActivity.this));
-        postMyLogAdapter = new PostMyLogAdapter(this, myPostList, memberInfos);
-        // ((PostDetailAdapter)postDetailAdapter).setOnPostListener(onPostListener);
-        recyclerViewFree.setAdapter(postMyLogAdapter);
+
+
 
         // 로그아웃
         findViewById(R.id.logout).setOnClickListener(new View.OnClickListener() {
@@ -122,33 +128,77 @@ public class MyInfoActivity extends BasicActivity {
             ivMyinfo.setImageResource(R.drawable.ic_account_circle_yellow_24dp);
             tvMyinfo.setText("내정보");
 
-            getPostData(actID);
+            //getPostData(actID);
+
+
             memberUpdate();
+
         }
 
 
     }
 
+    private void setRecyclerView(RecyclerView recyclerView){
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(MyInfoActivity.this));
+        postMyLogAdapter = new PostMyLogAdapter(this, myPostList, memberInfos);
+        // ((PostDetailAdapter)postDetailAdapter).setOnPostListener(onPostListener);
+        recyclerView.setAdapter(postMyLogAdapter);
+
+    }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.mylog_free_btn: {
+                    getPostData(recyclerViewFree,"free");
                     if (flagFree == 0) {
                         recyclerViewFree.setVisibility(View.VISIBLE);
+                        freeLogProgress.setImageResource(R.drawable.ic_baseline_arrow_drop_up_24);
                         flagFree = 1;
                     } else {
                         recyclerViewFree.setVisibility(View.GONE);
+                        freeLogProgress.setImageResource(R.drawable.ic_arrow_drop_down_black_24dp);
+
                         flagFree = 0;
                     }
+                    break;
+                }
+                case R.id.mylog_sos_btn:{
+                    getPostData(recyclerViewSos,"sos");
+
+                    if (flagSos == 0) {
+                        recyclerViewSos.setVisibility(View.VISIBLE);
+                        sosLogProgress.setImageResource(R.drawable.ic_baseline_arrow_drop_up_24);
+                        flagSos = 1;
+                    } else {
+                        recyclerViewSos.setVisibility(View.GONE);
+                        sosLogProgress.setImageResource(R.drawable.ic_arrow_drop_down_black_24dp);
+                        flagSos = 0;
+                    }
+                    break;
+                }
+                case R.id.mylog_secret_btn:{
+                    getPostData(recyclerViewSecret,"secret");
+
+                    if (flagSecret == 0) {
+                        recyclerViewSecret.setVisibility(View.VISIBLE);
+                        secretLogProgress.setImageResource(R.drawable.ic_baseline_arrow_drop_up_24);
+                        flagSecret = 1;
+                    } else {
+                        recyclerViewSecret.setVisibility(View.GONE);
+                        secretLogProgress.setImageResource(R.drawable.ic_arrow_drop_down_black_24dp);
+                        flagSecret = 0;
+                    }
+                    break;
                 }
 
             }
         }
     };
 
-    private void getPostData(String actID) {   // post(게시판) 객체를 가져와 상세페이지를 띄어주는 함수
+    private void getPostData(final RecyclerView recyclerView, final String actID) {   // post(게시판) 객체를 가져와 상세페이지를 띄어주는 함수
         if (firebaseUser != null) {
             CollectionReference collectionReference = firebaseFirestore.collection("posts_" + actID);
             Log.e("CXXPOSTACT", "posts_" + actID);
@@ -170,8 +220,9 @@ public class MyInfoActivity extends BasicActivity {
 
                                 }
 
+                                // 게시판 로그 활동만 가져오기
                                 String uid = firebaseUser.getUid();
-
+                                myPostList.clear();
                                 Log.e("CXXLOG", postList.size()+"");
                                 for (int i = 0; i < postList.size(); i++) {
                                     if (uid.equals(postList.get(i).getPublisher())) {
@@ -181,20 +232,14 @@ public class MyInfoActivity extends BasicActivity {
                                 Log.e("CXXLOG", myPostList.size()+"");
 
 
-                                postMyLogAdapter.notifyDataSetChanged();
+//                                postMyLogAdapter.notifyDataSetChanged();
                                 Date date = new Date();
                                 SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                                 String updated = transFormat.format(date);
-//
-//                                postTitle.setText(postList.get(position).getTitle());
-//                                postDetail.setText(postList.get(position).getContents());
-//                                //postName.setText(postList.get(position).getPublisher());
-//                                publisher = postList.get(position).getPublisher();
-//                                postUpdated.setText(updated);
 
-//                                getUserName();
-//                                comentUpdate(postList);
-//                                Log.e("CXX! :",postList.get(0).getId());
+                                setRecyclerView(recyclerView);
+
+
                             } else {
                                 //  Log.d(TAG, "Error getting documents: ", task.getException());
                             }

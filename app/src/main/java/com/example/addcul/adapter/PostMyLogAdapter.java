@@ -95,26 +95,6 @@ public class PostMyLogAdapter extends RecyclerView.Adapter<PostMyLogAdapter.View
         contentsTextView.setText(mDataset.get(position).getContents());
         createdTextView.setText(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(mDataset.get(position).getCreatedAt()));
 
-
-//        String publisher = "오류";
-//        // Log.e("CXXMem", uDataset.get(0).getName());
-//        //  Log.e("CXXUDD",uDataset.size()+"");
-//
-//        //  채팅 작성자명 동기화
-//        for (int i = 0; i < uDataset.size(); i++) {
-//            String chatID = mDataset.get(position).getPublisher();  // 각 대화마다의 작성자 uid를 구함
-//            String userID = uDataset.get(i).getUid();   // 각 사용자의 uid
-//            // userID = uDataset.get(i).getUid();
-//            if (chatID.equals(userID)) {   // 로그인 사용자라면
-//                publisher = uDataset.get(i).getName();
-//                break;
-//
-//            } else {
-//                publisher = "구글 로그인";
-//            }
-//        }
-
-
     }
 
     @Override
@@ -160,11 +140,6 @@ public class PostMyLogAdapter extends RecyclerView.Adapter<PostMyLogAdapter.View
         intent.putExtra("actID", actID);
         activity.startActivity(intent);
     }
-//    private void myStartActivity(Class c,PostInfo postInfo) {
-//        Intent intent = new Intent(activity, c);
-//        intent.putExtra("postInfo",postInfo);
-//        activity.startActivity(intent);
-//    }
 
 }
 
