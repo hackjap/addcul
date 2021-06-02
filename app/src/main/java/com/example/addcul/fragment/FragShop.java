@@ -14,9 +14,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.addcul.DBHelper;
+import com.example.addcul.Util.DBHelper;
 import com.example.addcul.R;
-import com.example.addcul.ShopInfo;
+import com.example.addcul.DTO.ShopInfo;
 import com.example.addcul.adapter.ShopAdapter;
 
 import java.util.ArrayList;

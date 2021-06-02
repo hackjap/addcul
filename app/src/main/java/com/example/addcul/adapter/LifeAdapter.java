@@ -11,8 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.addcul.FoodInfo;
-import com.example.addcul.LifeInfo;
+import com.example.addcul.DTO.LifeInfo;
 import com.example.addcul.R;
 
 import java.util.ArrayList;

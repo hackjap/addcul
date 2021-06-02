@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.addcul.ProblemInfo;
+import com.example.addcul.DTO.ProblemInfo;
 import com.example.addcul.R;
 
 import java.util.ArrayList;

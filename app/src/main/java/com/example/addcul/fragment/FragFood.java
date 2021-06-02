@@ -13,10 +13,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.addcul.DBHelper;
-import com.example.addcul.FoodInfo;
+import com.example.addcul.Util.DBHelper;
+import com.example.addcul.DTO.FoodInfo;
 import com.example.addcul.R;
-import com.example.addcul.activity.YoutubeActivity;
+import com.example.addcul.activity.kculture.YoutubeActivity;
 import com.example.addcul.adapter.FoodAdapter;
 
 import java.util.ArrayList;

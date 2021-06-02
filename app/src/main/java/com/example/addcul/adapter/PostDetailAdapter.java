@@ -16,11 +16,11 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.addcul.MemberInfo;
-import com.example.addcul.PostDetailInfo;
-import com.example.addcul.PostInfo;
+import com.example.addcul.DTO.MemberInfo;
+import com.example.addcul.DTO.PostDetailInfo;
+import com.example.addcul.DTO.PostInfo;
 import com.example.addcul.R;
-import com.example.addcul.activity.ReadPostDetailActivity;
+import com.example.addcul.activity.post.ReadPostDetailActivity;
 import com.example.addcul.listener.OnPostListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

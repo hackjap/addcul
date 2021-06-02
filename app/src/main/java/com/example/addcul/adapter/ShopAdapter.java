@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.addcul.R;
-import com.example.addcul.ShopInfo;
+import com.example.addcul.DTO.ShopInfo;
 
 import java.util.ArrayList;
 

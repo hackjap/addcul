@@ -13,8 +13,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.addcul.DBHelper;
-import com.example.addcul.LifeInfo;
+import com.example.addcul.Util.DBHelper;
+import com.example.addcul.DTO.LifeInfo;
 import com.example.addcul.R;
 import com.example.addcul.adapter.LifeAdapter;
 import com.example.addcul.lifeInfo.NaverActivity;

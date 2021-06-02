@@ -16,8 +16,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.addcul.ChatInfo;
-import com.example.addcul.MemberInfo;
+import com.example.addcul.DTO.ChatInfo;
+import com.example.addcul.DTO.MemberInfo;
 import com.example.addcul.R;
 import com.example.addcul.listener.OnPostListener;
 import com.google.firebase.auth.FirebaseAuth;

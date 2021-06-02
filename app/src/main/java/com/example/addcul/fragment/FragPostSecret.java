@@ -12,12 +12,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.addcul.MemberInfo;
-import com.example.addcul.PostInfo;
+import com.example.addcul.DTO.MemberInfo;
+import com.example.addcul.DTO.PostInfo;
 import com.example.addcul.R;
-import com.example.addcul.Util;
-import com.example.addcul.activity.WritePostActivity;
-import com.example.addcul.activity.WritePostSecretActivity;
+import com.example.addcul.Util.Util;
+import com.example.addcul.activity.post.WritePostActivity;
+import com.example.addcul.activity.post.WritePostSecretActivity;
 import com.example.addcul.adapter.MainAdapter;
 import com.example.addcul.listener.OnPostListener;
 import com.google.android.gms.tasks.OnCompleteListener;

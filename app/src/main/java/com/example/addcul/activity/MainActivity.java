@@ -22,9 +22,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
-import com.example.addcul.Corona19;
+import com.example.addcul.DTO.Corona19;
 import com.example.addcul.R;
-import com.example.addcul.Util;
+import com.example.addcul.Util.Util;
+import com.example.addcul.activity.chat.IndexActivitiy;
+import com.example.addcul.activity.config.BasicActivity;
+import com.example.addcul.activity.kculture.KcultureActivity;
+import com.example.addcul.activity.post.ReadPostActivity;
+import com.example.addcul.activity.problem.ProblemActivity;
 import com.example.addcul.adapter.Corona19Adapter;
 import com.example.addcul.adapter.ImageSliderAdapter;
 import com.google.android.gms.common.ConnectionResult;
@@ -50,7 +55,7 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
     ImageView home;
     RecyclerView recyclerView;
 
-    private com.example.addcul.Util util;
+    private Util util;
     int flag = 0;
 
     // 슬라이드

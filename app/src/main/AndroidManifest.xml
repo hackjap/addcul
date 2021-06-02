@@ -18,8 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.IndexActivitiy"></activity>
-        <activity android:name=".activity.ReadPostDetailActivity"
+        <activity android:name=".activity.chat.IndexActivitiy"></activity>
+        <activity android:name=".activity.post.ReadPostDetailActivity"
             android:noHistory="true"
             >
 
@@ -29,21 +29,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MyInfoActivity">
+        <activity android:name=".activity.account.MyInfoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.SlideActivity">
+        <activity android:name=".activity.config.SlideActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MapActivity">
+        <activity android:name=".activity.googlemap.MapActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -55,14 +55,14 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyByp1zP0yyRPCkETcxppcybaf-_1bgtUtE" />
 
-        <activity android:name=".activity.GoogleMapActivitiy">
+        <activity android:name=".activity.googlemap.GoogleMapActivitiy">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.YoutubeActivity">
+        <activity android:name=".activity.kculture.YoutubeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -70,22 +70,22 @@
         </activity>
 
         <activity android:name=".lifeInfo.NaverActivity" />
-        <activity android:name=".activity.BasicActivity" />
-        <activity android:name=".activity.ReadPostActivity" />
-        <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.TranslationActivity" />
-        <activity android:name=".activity.PregnancybirthActivity" />
-        <activity android:name=".activity.ProblemActivity" />
-        <activity android:name=".activity.KcultureActivity" />
-        <activity android:name=".activity.WritePostSosActivity" />
-        <activity android:name=".activity.WritePostSecretActivity" />
-        <activity android:name=".activity.ExperienceActivity03_2" />
+        <activity android:name=".activity.config.BasicActivity" />
+        <activity android:name=".activity.post.ReadPostActivity" />
+        <activity android:name=".activity.account.LoginActivity" />
+        <activity android:name=".activity.translate.TranslationActivity" />
+        <activity android:name=".activity.problem.PregnancybirthActivity" />
+        <activity android:name=".activity.problem.ProblemActivity" />
+        <activity android:name=".activity.kculture.KcultureActivity" />
+        <activity android:name=".activity.post.WritePostSosActivity" />
+        <activity android:name=".activity.post.WritePostSecretActivity" />
+        <activity android:name=".activity.kculture.ExperienceActivity03_2" />
 
         <activity
-            android:name=".activity.SignUpActivity"
+            android:name=".activity.account.SignUpActivity"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".activity.PasswordResetActivity" />
-        <activity android:name=".activity.WritePostActivity">
+        <activity android:name=".activity.account.PasswordResetActivity" />
+        <activity android:name=".activity.post.WritePostActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -93,7 +93,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.ReadChatActivity"
+            android:name=".activity.chat.ReadChatActivity"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -101,7 +101,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.WriteChatActivity">
+        <activity android:name=".activity.chat.WriteChatActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -115,7 +115,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.IntroActivity">
+        <activity android:name=".activity.config.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

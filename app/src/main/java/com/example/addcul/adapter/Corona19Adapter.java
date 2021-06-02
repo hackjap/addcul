@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.addcul.Corona19;
+import com.example.addcul.DTO.Corona19;
 import com.example.addcul.R;
 
 import java.util.ArrayList;
