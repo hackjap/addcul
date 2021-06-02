@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.addcul.DTO.MemberInfo;
 import com.example.addcul.R;
-import com.example.addcul.activity.MainActivity;
+import com.example.addcul.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

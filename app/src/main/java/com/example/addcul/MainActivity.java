@@ -1,4 +1,4 @@
-package com.example.addcul.activity;
+package com.example.addcul;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,7 +23,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.addcul.DTO.Corona19;
-import com.example.addcul.R;
 import com.example.addcul.Util.Util;
 import com.example.addcul.activity.chat.IndexActivitiy;
 import com.example.addcul.activity.config.BasicActivity;

@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.addcul.R;
 import com.example.addcul.Util.Util;
-import com.example.addcul.activity.MainActivity;
+import com.example.addcul.MainActivity;
 import com.example.addcul.activity.translate.TranslationActivity;
 import com.example.addcul.activity.account.LoginActivity;
 import com.example.addcul.activity.account.MyInfoActivity;

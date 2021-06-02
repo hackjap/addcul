@@ -5,8 +5,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final int VERSION=64;
-    public DBHelper(Context context){
+    public static final int VERSION = 66;
+
+    public DBHelper(Context context) {
         super(context, "addculDB", null, VERSION);
     }
 
@@ -15,7 +16,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
 //        신조어 테이블
-        String wordSQL="create table newWord(" +
+        String wordSQL = "create table newWord(" +
                 "_id integer primary key autoincrement," +
                 "num text," +
                 "name text," +
@@ -35,7 +36,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("insert into newWord(num, name, info, subInfo)values ('10','애빼시', '[ 애교 빼면 시체 ]', '-')");
 
         //쇼핑 테이블
-        String shopSQL="create table shopWomen(" +
+        String shopSQL = "create table shopWomen(" +
                 "_id integer primary key autoincrement," +
                 "name text," +
                 "tag text," +
@@ -47,7 +48,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("insert into shopWomen(name, tag, photo)values ('모코블링','#독특한 스타일  #호불호', 'img_shop_mocobling')");
         db.execSQL("insert into shopWomen(name, tag, photo)values ('피핀','#데일리룩 #키에 따른 바지 사이즈', 'img_shop_pippin')");
 
-        String shopSQL2="create table shopMen(" +
+        String shopSQL2 = "create table shopMen(" +
                 "_id integer primary key autoincrement," +
                 "name text," +
                 "tag text," +
@@ -60,7 +61,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("insert into shopMen(name, tag, photo)values ('지니푸','#데일리룩 #키에 따른 바지 사이즈', 'img_shop_pippin')");
 
         //일상 테이블
-        String lifeSQL="create table life(" +
+        String lifeSQL = "create table life(" +
                 "_id integer primary key autoincrement," +
                 "name text," +
                 "photo text);";
@@ -70,13 +71,25 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("insert into life(name, photo)values ('지하철 1회용 카드 구매', 'img_info_subway')");
         db.execSQL("insert into life(name, photo)values ('배달의 민족 주문하기', 'img_logo_bedal')");
 
+        //여행 테이블
+        String travelSQL = "create table travel(" +
+                "_id integer primary key autoincrement," +
+                "name text," +
+                "photo text);";
+        db.execSQL(travelSQL);
+        db.execSQL("insert into travel(name, photo)values ('공주 하대리 칠석제', 'culture1')");
+        db.execSQL("insert into travel(name, photo)values ('세계 다문화 박물관', 'culture2')");
+        db.execSQL("insert into travel(name, photo)values ('한국 민속촌', 'culture3')");
+        db.execSQL("insert into travel(name, photo)values ('안산 다문화거리', 'culture4')");
+        db.execSQL("insert into travel(name, photo)values ('행복전통마을 구름에', 'culture5')");
+        db.execSQL("insert into travel(name, photo)values ('마장축산물시장', 'culture6')");
 
 
         // 문제해결 테이블
-        String problemSQL="create table problem(" +
+        String problemSQL = "create table problem(" +
                 "_id integer primary key autoincrement," +
                 "title text," +
-                "subtitle text,"+
+                "subtitle text," +
                 "photo text);";
         db.execSQL(problemSQL);
         db.execSQL("insert into problem(title,subtitle,photo)values ('의료','Medical','img_medic')");
@@ -88,14 +101,13 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-       if(newVersion==VERSION){
+        if (newVersion == VERSION) {
 //            db.execSQL("drop table newWord");
 //            db.execSQL("drop table shopWomen");
 //            db.execSQL("drop table shopMen");
 //            db.execSQL("drop table life");
 //            db.execSQL("drop table problem");
-//            //db.execSQL("drop table shop");
-            onCreate(db);
+//            onCreate(db);
         }
     }
 }

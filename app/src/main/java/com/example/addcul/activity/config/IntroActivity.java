@@ -10,7 +10,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.addcul.R;
-import com.example.addcul.activity.MainActivity;
+import com.example.addcul.MainActivity;
 
 public class IntroActivity extends AppCompatActivity {
 

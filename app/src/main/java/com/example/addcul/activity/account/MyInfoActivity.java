@@ -17,7 +17,7 @@ import com.example.addcul.DTO.PostInfo;
 import com.example.addcul.R;
 import com.example.addcul.Util.Util;
 import com.example.addcul.activity.config.BasicActivity;
-import com.example.addcul.activity.MainActivity;
+import com.example.addcul.MainActivity;
 import com.example.addcul.adapter.PostMyLogAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

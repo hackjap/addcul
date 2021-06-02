@@ -7,46 +7,29 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/travel_gotoPage"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="@drawable/img_travel"
-        android:orientation="horizontal">
+        android:layout_height="180dp"
+        android:background="@drawable/culture1">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#77000000"
-            android:orientation="vertical">
+            android:background="#77000000">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/travel_infoName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tv_chat_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:textColor="#ffffff"
-                    android:textSize="30dp"
-                    android:textStyle="bold"
-                    tools:text="제주도" />
-
-                <TextView
-                    android:id="@+id/tv_chat_tag"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center"
-                    android:textColor="#ffffff"
-                    android:textSize="15dp"
-                    android:textStyle="bold"
-                    tools:text="누군가와의 #로멘스를 꿈꾸며"/>
-
-            </LinearLayout>
+                android:layout_height="match_parent"
+                android:gravity="top|right"
+                android:layout_margin="15dp"
+                android:text="공주 하대리 '칠석제'"
+                android:textColor="@color/white"
+                android:textSize="30dp" />
         </LinearLayout>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#cc000000"/>
 </LinearLayout>
