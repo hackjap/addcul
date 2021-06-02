@@ -10,15 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:gravity="bottom|center">
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:padding="50dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginBottom="-160dp"
             app:srcCompat="@drawable/img_logo_login" />
     </LinearLayout>
 
@@ -27,14 +25,15 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:padding="30dp">
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
 
         <EditText
             android:id="@+id/et_id"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="-3dp"
-            android:background="@drawable/style_edit_border"
+            android:background="@drawable/style_login_border"
             android:ems="10"
             android:hint="이메일"
             android:padding="10dp"
@@ -45,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="-1dp"
-            android:background="@drawable/style_edit_border"
+            android:background="@drawable/style_login_border"
             android:hint="비밀번호"
             android:padding="10dp"
             android:inputType="textPassword" />

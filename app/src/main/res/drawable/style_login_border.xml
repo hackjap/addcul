@@ -9,12 +9,7 @@
             <stroke
                 android:width="1.5dp"
                 android:color="@color/basic_yellow" />
-            <solid android:color="#FFFFFF" />
-            <corners
-                android:bottomLeftRadius="50dp"
-                android:bottomRightRadius="50dp"
-                android:topLeftRadius="50dp"
-                android:topRightRadius="50dp" />
+            <solid android:color="#00FFFFFF" />
         </shape>
     </item>
 </layer-list>

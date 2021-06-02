@@ -54,9 +54,9 @@ public class IndexActivitiy extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_index_activitiy);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView_realChat);
-        editText = (EditText) findViewById(R.id.et_realchat_text);
-        sendButton = (ImageView) findViewById(R.id.img_realchat_send);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView_chat);
+        editText = (EditText) findViewById(R.id.et_chat_text);
+        sendButton = (ImageView) findViewById(R.id.img_chat_send);
 
         chatInfos = new ArrayList<>();
         memberInfos = new ArrayList<>();
