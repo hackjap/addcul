@@ -173,6 +173,7 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
                 map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.55512522440527, 126.96981185690053), 12));
                 map.setMyLocationEnabled(true); // 내위치 설정
                 //run();
+
             }
         });
 
@@ -185,6 +186,7 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
 
     @Override
     public void onBackPressed() {
+
         long tempTime = System.currentTimeMillis();
         long intervalTime = tempTime - backPressedTime;
 
@@ -227,6 +229,7 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
                         Double myLongitude = location.getLongitude();
                         // Double myLatitude = testLocation.latitude;
                         //Double myLongitude =testLocation.longitude;
+
 
                         Double oper;
                         Double min = 99999.0;

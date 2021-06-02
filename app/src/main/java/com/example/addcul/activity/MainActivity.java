@@ -58,8 +58,8 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
     private LinearLayout layoutIndicator;
     private String[] images = new String[]{
 //            "https://www.notion.so/jsp98/56841d5a774a4bb583e697252fa03770",
-            "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/0903a414-5369-4369-aa1c-80da5e82025d/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210526%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210526T080901Z&X-Amz-Expires=86400&X-Amz-Signature=b6d45d39f4693d1120eb45f1d23aaf6c93e03679e5f4a7544588440e0f41f9e0&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22",
-            "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/6c4a005a-37da-4674-8d76-68e302d1be94/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210526%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210526T083102Z&X-Amz-Expires=86400&X-Amz-Signature=397f1db394be1b40f197391d9a2ef3268336fa8f458fe50167e581ad11b18e91&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22",
+            "https://drive.google.com/file/d/15BUirr59rKVo3aDNyVKSa68RxaTWj8Jy/view?usp=sharing",
+            "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA0MjBfMTcx%2FMDAxNjE4OTI3NTQ1NzUy.d0-ipQ6rWIvYH7lqEPA8o5j8rB7r7yxZ78-QAfBeSfsg.tTSUhUXLva-kdlGMvHkFL9iLt84CO8GAsd1DA7wSFpUg.JPEG.pentoinsoo%2F01-KT%25B0%25B6%25B7%25B0%25BD%25C3%25B3%25EB%25C6%25AE5%25B1%25E2%25B1%25E2%25BA%25AF%25B0%25E6.jpg&type=sc960_832",
             "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8be1b9d4-c9b4-4c74-bb2d-4974e63e6151/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210526%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210526T081329Z&X-Amz-Expires=86400&X-Amz-Signature=1742eb1ee0b6b0d04dd09e9137d5d32b66ea8371bd2b35ae0c0a9794df5b543e&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22"
     };
 //            "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99F2E033599D964307",
@@ -208,7 +208,6 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
         findViewById(R.id.img_translate).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_map).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_my_info).setOnClickListener(onFooterlistner);
-
         findViewById(R.id.tv_notice).setOnClickListener(onClickListener);
     }
 
@@ -224,7 +223,6 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
                 case R.id.img_sos:
                     startActivity(ReadPostActivity.class);
                     break;
-
                 case R.id.tv_sos:
                     startActivity(ReadPostActivity.class);
                     break;
@@ -251,10 +249,7 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
                 case R.id.tv_notice:
                     startActivity(IndexActivitiy.class);
                     break;
-
            } // end of switch
-
-
         }
     };
 
@@ -283,6 +278,7 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
             layoutIndicator.addView(indicators[i]);
         }
         setCurrentIndicator(0);
+
     }
 
     private void setCurrentIndicator(int position) {
@@ -337,6 +333,7 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
                         tmpRel = xpp.getText();
                         count++;
                         relFlag = false;
+
                     }
                     else if (deathFlag) {
                         tmpDeath = xpp.getText();

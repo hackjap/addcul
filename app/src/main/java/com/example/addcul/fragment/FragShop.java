@@ -110,7 +110,7 @@ public class FragShop extends Fragment {
 
 
         // 내일 아이템을 눌렀을때 동작 + 이동되는 액티비티 구성
-
+        setBtnBackColor(btnWomen);
 
         return view;
     }
