@@ -67,7 +67,7 @@
         android:background="#00ffffff">
 
         <ImageView
-            android:id="@+id/img_sear"
+            android:id="@+id/img_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

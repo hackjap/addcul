@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -33,52 +34,40 @@ public class BasicActivity extends AppCompatActivity {
 
         util = new Util(this);
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-
-
-
-
-
     }
-
     public View.OnClickListener onFooterlistner = new View.OnClickListener() {
 
         @Override
         public void onClick(View v) {
             //하단메뉴
-
             switch (v.getId()) {
                 case R.id.img_home: {
                     startActivity(MainActivity.class);
                     break;
                 }
                 case R.id.img_map:
-
                     startActivity(MapActivity.class);
+                    break;
+                case R.id.img_search:
+                    Toast.makeText(getApplicationContext(),"곧 기능을 출시할 예정이에요.",Toast.LENGTH_LONG).show();
                     break;
                 case R.id.img_translate:
                     startActivity(TranslationActivity.class);
                     break;
-
                 case R.id.img_my_info:
                     if (firebaseUser != null) {
                         startActivity(MyInfoActivity.class);
                     } else {
                         startActivity(LoginActivity.class);
                     }
-
-
-
-
                     break;
             } // end of switch
 
         }
     };
 
-
     private void startActivity(Class c) {
         Intent intent = new Intent(this, c);
         startActivity(intent);
     }
-
 }

@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final int VERSION = 66;
+    public static final int VERSION = 74;
 
     public DBHelper(Context context) {
         super(context, "addculDB", null, VERSION);
@@ -102,12 +102,13 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (newVersion == VERSION) {
-//            db.execSQL("drop table newWord");
-//            db.execSQL("drop table shopWomen");
-//            db.execSQL("drop table shopMen");
-//            db.execSQL("drop table life");
-//            db.execSQL("drop table problem");
-//            onCreate(db);
+            db.execSQL("drop table newWord");
+            db.execSQL("drop table shopWomen");
+            db.execSQL("drop table shopMen");
+            db.execSQL("drop table life");
+            db.execSQL("drop table problem");
+            db.execSQL("drop table travel");
+              onCreate(db);
         }
     }
 }

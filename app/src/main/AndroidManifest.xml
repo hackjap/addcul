@@ -20,9 +20,7 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".activity.chat.IndexActivitiy"></activity>
         <activity android:name=".activity.post.ReadPostDetailActivity"
-            android:noHistory="true"
             >
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

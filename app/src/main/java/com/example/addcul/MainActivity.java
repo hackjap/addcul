@@ -208,6 +208,7 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
 
         // footer 바인딩
         // 하단메뉴
+        findViewById(R.id.img_search).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_home).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_translate).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_map).setOnClickListener(onFooterlistner);
