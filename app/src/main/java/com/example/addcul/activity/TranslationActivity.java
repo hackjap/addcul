@@ -51,7 +51,6 @@ public class TranslationActivity extends BasicActivity {
         ImageView ivTran = findViewById(R.id.img_translate);
         TextView tvTran = findViewById(R.id.tv_translate);
         ivTran.setImageResource(R.drawable.ic_translate_yellow_24dp);
-        tvTran.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.basic_yellow));
 
 
 

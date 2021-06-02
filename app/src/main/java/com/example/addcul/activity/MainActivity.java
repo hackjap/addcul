@@ -53,12 +53,9 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
     private com.example.addcul.Util util;
     int flag = 0;
 
-
     // 슬라이드
-
     private ViewPager2 sliderViewPager;
     private LinearLayout layoutIndicator;
-
     private String[] images = new String[]{
 //            "https://www.notion.so/jsp98/56841d5a774a4bb583e697252fa03770",
             "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/0903a414-5369-4369-aa1c-80da5e82025d/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210526%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210526T080901Z&X-Amz-Expires=86400&X-Amz-Signature=b6d45d39f4693d1120eb45f1d23aaf6c93e03679e5f4a7544588440e0f41f9e0&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22",
@@ -126,11 +123,8 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
         home.setImageResource(R.drawable.ic_home_yellow_24dp);
         // 이미지 크키 설정
         ViewGroup.LayoutParams params2 = home.getLayoutParams();
-        params2.width = 130;
-        params2.height = 130;
         home.setLayoutParams(params2);
 
-        textView.setText("");
         // 슬라이드
         sliderViewPager = findViewById(R.id.sliderViewPager);
         layoutIndicator = findViewById(R.id.layoutIndicators);
