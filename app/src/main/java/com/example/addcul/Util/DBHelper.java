@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final int VERSION = 88;
+    public static final int VERSION = 89;
 
     public DBHelper(Context context) {
         super(context, "addculDB", null, VERSION);
@@ -150,23 +150,24 @@ public class DBHelper extends SQLiteOpenHelper {
                 "photo text);";
         db.execSQL(problemSQL);
         db.execSQL("insert into problem(title,subtitle,photo)values ('의료','Medical','img_medic')");
-        db.execSQL("insert into problem(title,subtitle,photo)values ('법률','Law','img_law')");
+        db.execSQL("insert into problem(title,subtitle,photo)values ('취업','employ','img_employ')");
         db.execSQL("insert into problem(title,subtitle,photo)values ('복지','Welefare','img_welfare')");
+        db.execSQL("insert into problem(title,subtitle,photo)values ('법률','Law','img_law')");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (newVersion == VERSION) {
-            db.execSQL("drop table newWord");
-            db.execSQL("drop table shopWomen");
-            db.execSQL("drop table shopMen");
-            db.execSQL("drop table shopApp");
-            db.execSQL("drop table shopMake");
-            db.execSQL("drop table shopFood");
-            db.execSQL("drop table shopFurni");
-            db.execSQL("drop table life");
-            db.execSQL("drop table problem");
-            db.execSQL("drop table travel");
+//            db.execSQL("drop table newWord");
+//            db.execSQL("drop table shopWomen");
+//            db.execSQL("drop table shopMen");
+//            db.execSQL("drop table shopApp");
+//            db.execSQL("drop table shopMake");
+//            db.execSQL("drop table shopFood");
+//            db.execSQL("drop table shopFurni");
+//            db.execSQL("drop table life");
+//            db.execSQL("drop table problem");
+//            db.execSQL("drop table travel");
             onCreate(db);
         }
     }

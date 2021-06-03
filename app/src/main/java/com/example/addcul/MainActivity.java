@@ -2,10 +2,13 @@ package com.example.addcul;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -52,7 +55,7 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
     String nickName;
     String photoUrl;
     ImageView home;
-    RecyclerView recyclerView;
+    RecyclerView recyclerView, rvNotice;
 
     private Util util;
     int flag = 0;
@@ -61,17 +64,10 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
     private ViewPager2 sliderViewPager;
     private LinearLayout layoutIndicator;
     private String[] images = new String[]{
-//            "https://www.notion.so/jsp98/56841d5a774a4bb583e697252fa03770",
             "https://blogfiles.pstatic.net/MjAyMTA2MDNfMTIw/MDAxNjIyNjk1MTM0ODE2.deHSpdovuEeCMyOIpR1NMyf_qyL5OcMfdkBNXkk8uE4g.F_pifAvWR-xx2DctV8KKETjlK89wPllEASw190LGd-cg.PNG.jangsp57/main1.png",
             "https://blogfiles.pstatic.net/MjAyMTA2MDNfMTQ5/MDAxNjIyNjk1MTMyMTA1.L4xh2WRV1OCihQgWZXrNJUSEUrnjdWLq7xJUk8JPD94g.x-g0APJPWeHYU6ZLN-WCf6byx_erM9ugF2z3xzc2VHkg.PNG.jangsp57/main2.png",
             "https://blogfiles.pstatic.net/MjAyMTA2MDNfMTI2/MDAxNjIyNjk1MTQyNDIz.Wi4Zk9PR9ynlsHKLT0JDZNodeCjOz9bVgSNrWcuz-Y0g.2aPMSpZdTrqswiYdkK7jl45SELGxrGsIWgYnASNi27Mg.PNG.jangsp57/main3.png"
     };
-//            "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99F2E033599D964307",
-//            "https://cdn.pixabay.com/photo/2019/12/26/10/44/horse-4720178_1280.jpg",
-//            "https://cdn.pixabay.com/photo/2020/11/04/15/29/coffee-beans-5712780_1280.jpg",
-//            "https://cdn.pixabay.com/photo/2020/09/02/18/03/girl-5539094_1280.jpg",
-//            "https://cdn.pixabay.com/photo/2014/03/03/16/15/mosque-279015_1280.jpg"
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,13 +78,13 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
         //Date 객체 사용
         Date date = new Date();
         String time1 = simpleDateFormat.format(date);
-        //requestQueue의 선언부
 
+        //requestQueue의 선언부
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         String url = "http://openapi.data.go.kr/openapi/service/rest/Covid19/" +
                 "getCovid19InfStateJson?serviceKey=I2PzH0J7xfnYQlkzYq7DrQx7wXDZ" +
                 "SgSwGR4W%2FrQ0YBLeg703oEvi%2BZiW9bt0F9POtNwkX60pN7Ngn4Ecr3tUug%3D" +
-                "%3D&pageNo=1&numOfRows=10&startCreateDt=20201212&endCreateDt="+time1;
+                "%3D&pageNo=1&numOfRows=10&startCreateDt=20201212&endCreateDt=" + time1;
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET,
                 url,
@@ -109,9 +105,8 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
-       // actionBar.setIcon(R.drawable.img_logo_actionbar);
 
-        View actionbarView = getLayoutInflater().inflate(R.layout.actionbar,null);
+        View actionbarView = getLayoutInflater().inflate(R.layout.actionbar, null);
         actionbarView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -123,8 +118,8 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser(); // 파이어베이스 유저 초기화
 
         //FirebaseAuth.getInstance().signOut();
-        TextView textView = (TextView)findViewById(R.id.tv_home);
-        home = (ImageView)findViewById(R.id.img_home);
+        TextView textView = (TextView) findViewById(R.id.tv_home);
+        home = (ImageView) findViewById(R.id.img_home);
         home.setImageResource(R.drawable.ic_home_yellow_24dp);
         // 이미지 크키 설정
         ViewGroup.LayoutParams params2 = home.getLayoutParams();
@@ -147,12 +142,11 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
 
         setupIndicators(images.length);
 
+        util = new Util(this);
 
         myInfoProfile = findViewById(R.id.img_my_info);   // 프로필
         myInfoText = findViewById(R.id.tv_my_info);     // 닉네임
 
-
-        util = new Util(this);
 
         if (firebaseUser == null) { // 로그인 상태가 아닐때
             myInfoProfile.setImageResource(R.drawable.ic_lock_open_black_24dp);
@@ -160,16 +154,8 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
 
         } else {  // 로그인 상태일때
 
-            TextView tvMyinfo = (TextView)findViewById(R.id.tv_my_info);
-            ImageView ivMyinfo = (ImageView) findViewById(R.id.img_my_info);
-            ivMyinfo.setImageResource(R.drawable.ic_account_circle_black_24dp);
-            tvMyinfo.setText("내정보");
-
-            /* 구글
-            Intent intent = getIntent();
-            nickName = intent.getStringExtra("nickName");    // loginActivity로 부터 닉네임 전달받음
-            photoUrl = intent.getStringExtra("photoUrl");    //loginActivity로 부터 프로필 전달받음
-             */
+            myInfoProfile.setImageResource(R.drawable.ic_account_circle_black_24dp);
+            myInfoText.setText("내정보");
 
             // 구글 로그인일 경우,
             if (nickName != null & photoUrl != null) {   // 구글 로그인 상태일때
@@ -184,10 +170,8 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
                 params.width = 75;
                 params.height = 75;
                 myInfoProfile.setLayoutParams(params);
-
             }
             // myInfoProfile.setImageResource(R.drawable.ic_lock_open_black_24dp);
-
 
         }
 
@@ -215,6 +199,21 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
         findViewById(R.id.img_map).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_my_info).setOnClickListener(onFooterlistner);
         findViewById(R.id.tv_notice).setOnClickListener(onClickListener);
+
+
+        ListView listView = (ListView) findViewById(R.id.lv_notice);
+
+        ArrayList<String> data1 = new ArrayList<>();
+
+        for (int i = 0; i < 10; i++)
+            data1.add("test" + i);
+
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this,
+                android.R.layout.simple_list_item_1, data1);
+
+        Log.e("CXXDATA : ", data1.size() + "");
+        listView.setAdapter(arrayAdapter);
+
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -255,7 +254,7 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
                 case R.id.tv_notice:
                     startActivity(IndexActivitiy.class);
                     break;
-           } // end of switch
+            } // end of switch
         }
     };
 
@@ -284,7 +283,6 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
             layoutIndicator.addView(indicators[i]);
         }
         setCurrentIndicator(0);
-
     }
 
     private void setCurrentIndicator(int position) {
@@ -304,6 +302,7 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
             }
         }
     }
+
     public void processData(String data) {
         recyclerView = (RecyclerView) findViewById(R.id.rv_corona);
         ArrayList<Corona19> list = new ArrayList<>();
@@ -316,9 +315,9 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
             xpp.setInput(new StringReader(data));
 
             int eventType = xpp.getEventType();
-            boolean dateFlag = false, confFlag = false, relFlag = false, deathFlag=false, examFlag=false;
-            int count=0;
-            String tmpDate="", tmpConf="", tmpRel="", tmpDeath="", tmpExam="";
+            boolean dateFlag = false, confFlag = false, relFlag = false, deathFlag = false, examFlag = false;
+            int count = 0;
+            String tmpDate = "", tmpConf = "", tmpRel = "", tmpDeath = "", tmpExam = "";
             while (eventType != XmlPullParser.END_DOCUMENT) {
                 if (eventType == XmlPullParser.START_TAG) {
                     if (xpp.getName().equals("stateDt")) dateFlag = true;
@@ -340,21 +339,19 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
                         count++;
                         relFlag = false;
 
-                    }
-                    else if (deathFlag) {
+                    } else if (deathFlag) {
                         tmpDeath = xpp.getText();
                         count++;
                         deathFlag = false;
-                    }
-                    else if (examFlag) {
+                    } else if (examFlag) {
                         tmpExam = xpp.getText();
                         count++;
                         examFlag = false;
                     }
                 }
-                if(count==5) {
-                    list.add(new Corona19(tmpDate,tmpConf,tmpRel,tmpDeath,tmpExam));
-                    count=0;
+                if (count == 5) {
+                    list.add(new Corona19(tmpDate, tmpConf, tmpRel, tmpDeath, tmpExam));
+                    count = 0;
                 }
                 eventType = xpp.next();
             }
@@ -364,4 +361,6 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new Corona19Adapter(list));
     }
+
+
 }

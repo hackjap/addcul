@@ -42,13 +42,11 @@ public class RealChatAdapter extends RecyclerView.Adapter<RealChatAdapter.ViewHo
         this.cDateset = cDataset;
         this.mDataset = mDataSet;
         this.activity = activity;
-
     }
 
     public void setOnPostListener(OnPostListener onPostListener){
         this.onPostListener = onPostListener;
     }
-
 
     // Create new views (invoked by the layout manager)
     @Override
@@ -56,9 +54,6 @@ public class RealChatAdapter extends RecyclerView.Adapter<RealChatAdapter.ViewHo
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_realchat, viewGroup, false);
         final ViewHolder viewHolder = new ViewHolder(view);
         Log.e("XXonCreate","onCreate");
-
-
-
 
         return viewHolder;
     }
@@ -71,7 +66,6 @@ public class RealChatAdapter extends RecyclerView.Adapter<RealChatAdapter.ViewHo
         TextView contentsTextView;
         TextView createdTextView;
 
-
         public ViewHolder(View v) {
             super(v);
             view = v;
@@ -83,7 +77,6 @@ public class RealChatAdapter extends RecyclerView.Adapter<RealChatAdapter.ViewHo
             Log.e("XXviewHolder","ViewHolder");
         }
 
-
     }
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
@@ -92,15 +85,11 @@ public class RealChatAdapter extends RecyclerView.Adapter<RealChatAdapter.ViewHo
         Log.e("XXonBindViewHolder","onBInd");
         //showMyChat(position,viewHolder,view);
 
-
-
-
-
         viewHolder.titleTextView.setText(cDateset.get(position).getPublisher());
         viewHolder.contentsTextView.setText(cDateset.get(position).getText());
         viewHolder.createdTextView.setText(new SimpleDateFormat("yyyy-MM-dd mm:ss", Locale.getDefault()).format(cDateset.get(position).getCreated()));
 
-
+        showMyChat(position,viewHolder,view);
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,16 +100,12 @@ public class RealChatAdapter extends RecyclerView.Adapter<RealChatAdapter.ViewHo
 
     }
 
-
     @Override
     public int getItemCount() {
         return cDateset.size();
     }
 
     private void showMyChat(int position,ViewHolder viewHolder, View view) {
-
-
-
 
                         for (int i = 0; i < mDataset.size(); i++) {
                             String userID = mDataset.get(0).getName();  // 로그인한 사용자 이름
@@ -136,8 +121,6 @@ public class RealChatAdapter extends RecyclerView.Adapter<RealChatAdapter.ViewHo
                                 contentsLayout.setLayoutParams(params);
                             }
                         }
-
-
     }
 
     private void showPopup(View v, final int position) {
@@ -152,9 +135,7 @@ public class RealChatAdapter extends RecyclerView.Adapter<RealChatAdapter.ViewHo
                         return true;
                     case R.id.delete:
                         onPostListener.onDelete(position);
-
                         return true;
-
                     default:
                         return false;
                 }
@@ -168,7 +149,6 @@ public class RealChatAdapter extends RecyclerView.Adapter<RealChatAdapter.ViewHo
     private void startToast(String msg) {
         Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show();
     }
-
 
     private void myStartActivity(Class c,int position) {
         Intent intent = new Intent(activity,c);

@@ -1568,6 +1568,13 @@
                     </LinearLayout>
                 </ScrollView>
             </LinearLayout>
+
+            <include layout="@layout/activity_training"
+                android:visibility="gone"
+                android:id="@+id/sos02_3"
+                >
+
+            </include>
         </FrameLayout>
     </LinearLayout>
 

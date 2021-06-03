@@ -10,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,6 +18,8 @@ import com.example.addcul.DTO.PostDetailInfo;
 import com.example.addcul.DTO.PostInfo;
 import com.example.addcul.R;
 import com.example.addcul.Util.Util;
+import com.example.addcul.activity.account.LoginActivity;
+import com.example.addcul.activity.config.BasicActivity;
 import com.example.addcul.adapter.PostDetailAdapter;
 import com.example.addcul.listener.OnPostListener;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -39,7 +40,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class ReadPostDetailActivity extends AppCompatActivity {
+public class ReadPostDetailActivity extends BasicActivity {
 
     FirebaseUser firebaseUser;
     FirebaseFirestore firebaseFirestore;
@@ -76,8 +77,22 @@ public class ReadPostDetailActivity extends AppCompatActivity {
         postList = new ArrayList<>();
         memberList = new ArrayList<>();
         postDetailInfos = new ArrayList<>();
-       // testArray = new ArrayList<>();
+        // testArray = new ArrayList<>();
         //testArray.add("장성필");
+
+        ImageView myInfoProfile = findViewById(R.id.img_my_info);   // 프로필
+        TextView myInfoText = findViewById(R.id.tv_my_info);     // 닉네임
+
+        if (firebaseUser == null) { // 로그인 상태가 아닐때
+            Toast.makeText(getApplicationContext(), "로그인 후 이용해주세요.", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this,LoginActivity.class);
+            startActivity(intent);
+
+        } else {  // 로그인 상태일때
+            myInfoProfile.setImageResource(R.drawable.ic_account_circle_black_24dp);
+            myInfoText.setText("내정보");
+        }
+
 
 
 

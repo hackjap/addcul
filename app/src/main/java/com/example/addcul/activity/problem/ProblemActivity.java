@@ -6,7 +6,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,8 +40,20 @@ public class ProblemActivity extends BasicActivity {
         findViewById(R.id.img_translate).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_map).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_my_info).setOnClickListener(onFooterlistner);
+        findViewById(R.id.img_search).setOnClickListener(onFooterlistner);
+
+        // 로그인 인증
+        ImageView myInfoProfile = findViewById(R.id.img_my_info);   // 프로필
+        TextView myInfoText = findViewById(R.id.tv_my_info);     // 닉네임
 
 
+        if (firebaseUser == null) { // 로그인 상태가 아닐때
+
+        } else {  // 로그인 상태일때
+            myInfoProfile.setImageResource(R.drawable.ic_account_circle_black_24dp);
+            myInfoText.setText("내정보");
+
+        }
         // DB 구현
         DBHelper dbHelper = new DBHelper(this);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
@@ -72,6 +86,9 @@ public class ProblemActivity extends BasicActivity {
                     startActivity(EmployActivity.class);
                 }
                 else if(position == 2){
+                    startActivity(BasiclifeActivity.class);
+                }
+                else{
                     startActivity(BasiclifeActivity.class);
                 }
             }

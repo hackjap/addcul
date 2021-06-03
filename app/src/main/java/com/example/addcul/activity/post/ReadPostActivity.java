@@ -5,15 +5,20 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.addcul.DTO.PostInfo;
+import com.example.addcul.MainActivity;
 import com.example.addcul.R;
 import com.example.addcul.Util.Util;
+import com.example.addcul.activity.account.LoginActivity;
 import com.example.addcul.activity.config.BasicActivity;
 import com.example.addcul.fragment.FragPostFree;
 import com.example.addcul.fragment.FragPostSecret;
@@ -48,7 +53,7 @@ public class ReadPostActivity extends BasicActivity {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
-        btn_post_free_layout = (LinearLayout)findViewById(R.id.btn_post_free_layout);
+        btn_post_free_layout = (LinearLayout) findViewById(R.id.btn_post_free_layout);
         btn_post_sos_layout = (LinearLayout) findViewById(R.id.btn_post_sos_layout);
         btn_post_secret_layout = (LinearLayout) findViewById(R.id.btn_post_secret_layout);
         contentLayout = (LinearLayout) findViewById(R.id.contentLayout);
@@ -59,7 +64,7 @@ public class ReadPostActivity extends BasicActivity {
         fragmentManager = getSupportFragmentManager();
         // 프래그먼트 객체 만들기
         fragPostFree = new FragPostFree();
-        fragPostSos =  new FragPostSos();
+        fragPostSos = new FragPostSos();
         fragPostSecret = new FragPostSecret();
 
         // 프래그먼트 첫 화면 로딩
@@ -72,16 +77,13 @@ public class ReadPostActivity extends BasicActivity {
         ft.replace(R.id.contentLayout, fragPostFree);
         ft.commit();
 
-
         btn_post_free_layout.setOnClickListener(onClickListener);
         btn_post_sos_layout.setOnClickListener(onClickListener);
         btn_post_secret_layout.setOnClickListener(onClickListener);
 
-
-
-
-     // footer 바인딩
+        // footer 바인딩
         // 하단메뉴
+        findViewById(R.id.img_search).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_home).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_translate).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_map).setOnClickListener(onFooterlistner);
@@ -89,10 +91,27 @@ public class ReadPostActivity extends BasicActivity {
         //postUpdate();
 
 
+        ImageView myInfoProfile = findViewById(R.id.img_my_info);   // 프로필
+        TextView myInfoText = findViewById(R.id.tv_my_info);     // 닉네임
 
 
+        if (firebaseUser == null) { // 로그인 상태가 아닐때
+            Toast.makeText(getApplicationContext(), "로그인 후 이용해주세요.", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
 
+        } else {  // 로그인 상태일때
+            myInfoProfile.setImageResource(R.drawable.ic_account_circle_black_24dp);
+            myInfoText.setText("내정보");
+        }
 
+    }   // end of oncreate
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {

@@ -1,24 +1,25 @@
 package com.example.addcul.activity.kculture;
 
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.addcul.MainActivity;
 import com.example.addcul.R;
 import com.example.addcul.activity.config.BasicActivity;
 import com.example.addcul.fragment.FragLife;
 import com.example.addcul.fragment.FragNewWord;
 import com.example.addcul.fragment.FragShop;
 import com.example.addcul.fragment.FragTravel;
-
-import java.util.List;
 
 public class KcultureActivity extends BasicActivity {
 
@@ -48,7 +49,7 @@ public class KcultureActivity extends BasicActivity {
 
         // footer 바인딩
         // 하단메뉴
-
+        findViewById(R.id.img_search).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_home).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_translate).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_map).setOnClickListener(onFooterlistner);
@@ -80,23 +81,41 @@ public class KcultureActivity extends BasicActivity {
         btn_travel_layout.setOnClickListener(onClickListener);
 
 
-    }
-    public interface onBackPressedListener{
-        void onBackPressed();
+        ImageView myInfoProfile = findViewById(R.id.img_my_info);   // 프로필
+        TextView myInfoText = findViewById(R.id.tv_my_info);     // 닉네임
+
+
+        if (firebaseUser == null) { // 로그인 상태가 아닐때
+
+        } else {  // 로그인 상태일때
+            myInfoProfile.setImageResource(R.drawable.ic_account_circle_black_24dp);
+            myInfoText.setText("내정보");
+        }
     }
 
     @Override
     public void onBackPressed() {
-
-        // 프래그먼트 onBackPressedListener 사용
-        List<Fragment> fragmentList = getSupportFragmentManager().getFragments();
-        for(Fragment fragment:fragmentList){
-            if(fragment instanceof onBackPressedListener){
-
-            }
-        }
-
+        super.onBackPressed();
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
+
+    //    public interface onBackPressedListener{
+//        void onBackPressed();
+//    }
+//
+//    @Override
+//    public void onBackPressed() {
+//
+//        // 프래그먼트 onBackPressedListener 사용
+//        List<Fragment> fragmentList = getSupportFragmentManager().getFragments();
+//        for(Fragment fragment:fragmentList){
+//            if(fragment instanceof onBackPressedListener){
+//
+//            }
+//        }
+//
+//    }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override

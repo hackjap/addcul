@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TabHost;
 
@@ -15,6 +16,7 @@ import com.example.addcul.R;
 @SuppressWarnings("deprecation")
 public class EmployActivity extends TabActivity {
 
+    Button button001,button002,button003,button004,button005,button006,button007,button008;
     //한국버튼
     ImageView homebtn01,callbtn01;
     //의정부 버튼
@@ -51,13 +53,17 @@ public class EmployActivity extends TabActivity {
 
         TabHost tabHost = getTabHost();
 
-        TabHost.TabSpec tab1 = tabHost.newTabSpec("Group1").setIndicator("거점센터");
-        tab1.setContent(R.id.sos02_1);
-        tabHost.addTab(tab1);//레이아웃과 연결
+        TabHost.TabSpec tab1 = tabHost.newTabSpec("Group1").setIndicator("취업정보");
+        tab1.setContent(R.id.sos02_3);
+        tabHost.addTab(tab1);
 
-        TabHost.TabSpec tab2 = tabHost.newTabSpec("Group2").setIndicator("소지역센터");
-        tab2.setContent(R.id.sos02_2);
-        tabHost.addTab(tab2);
+        TabHost.TabSpec tab2 = tabHost.newTabSpec("Group2").setIndicator("거점센터");
+        tab2.setContent(R.id.sos02_1);
+        tabHost.addTab(tab2);//레이아웃과 연결
+
+        TabHost.TabSpec tab3 = tabHost.newTabSpec("Group3").setIndicator("소지역센터");
+        tab3.setContent(R.id.sos02_2);
+        tabHost.addTab(tab3);
 
         tabHost.setCurrentTab(0);
 
@@ -372,5 +378,85 @@ public class EmployActivity extends TabActivity {
                 startActivity(intent);
             }
         });
+
+        //외국인 종합안내센터
+        button001 = (Button)findViewById(R.id.button01);
+        button001.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("https://www.hikorea.go.kr/pt/main_kr.pt"));
+                startActivity(intent);
+            }
+        });
+
+        //서울글로벌센터 홈페이지 바로가기
+        button002 = (Button)findViewById(R.id.button02);
+        button002.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("http://global.seoul.go.kr/index.do"));
+                startActivity(intent);
+            }
+        });
+
+        //워크넷 홈페이지 바로가기
+        button003 = (Button)findViewById(R.id.button03);
+        button003.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.work.go.kr/seekWantedMain.do"));
+                startActivity(intent);
+            }
+        });
+
+        //한국직업정보시스템 홈페이지 바로가기
+        button004 = (Button)findViewById(R.id.button04);
+        button004.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://know.work.go.kr/"));
+                startActivity(intent);
+            }
+        });
+
+        //고용복지플러스센터 홈페이지 바로가기
+        button005 = (Button)findViewById(R.id.button05);
+        button005.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.work.go.kr/jobcenter/index.do"));
+                startActivity(intent);
+            }
+        });
+
+        //한국여성인력개발센터 연합 홈페이지 바로가기
+        button006 = (Button)findViewById(R.id.button06);
+        button006.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.vocation.or.kr/main.aspx"));
+                startActivity(intent);
+            }
+        });
+
+//        // 고용노동부 홈페이지 바로가기
+//        button007 = (Button)findViewById(R.id.button07);
+//        button07.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.moel.go.kr/index.do"));
+//                startActivity(intent);
+//            }
+//        });
+//
+//        // 고용노동부 직업능력개발정보망 홈페이지 바로가기
+//        button08 = (Button)findViewById(R.id.button08);
+//        button08.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.hrd.go.kr/hrdp/ma/pmmao/indexNew.do"));
+//                startActivity(intent);
+//            }
+//        });
     }
 }

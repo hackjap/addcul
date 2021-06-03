@@ -77,7 +77,6 @@ public class ReadChatActivity extends BasicActivity {
 
         }
         else {
-
             util = new Util(this);
             chatList = new ArrayList<>();
             memberInfos = new ArrayList<>();
@@ -85,8 +84,6 @@ public class ReadChatActivity extends BasicActivity {
             ((ChatAdapter) chatAdapter).setOnPostListener(onChatListener);
 
             testArray = new ArrayList<>();
-
-
 
             TextView tvMyinfo = (TextView)findViewById(R.id.tv_my_info);
             ImageView ivMyinfo = (ImageView) findViewById(R.id.img_my_info);

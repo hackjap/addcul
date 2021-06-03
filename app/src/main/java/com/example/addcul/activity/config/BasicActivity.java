@@ -8,13 +8,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.addcul.MainActivity;
 import com.example.addcul.R;
 import com.example.addcul.Util.Util;
-import com.example.addcul.MainActivity;
-import com.example.addcul.activity.translate.TranslationActivity;
 import com.example.addcul.activity.account.LoginActivity;
 import com.example.addcul.activity.account.MyInfoActivity;
 import com.example.addcul.activity.googlemap.MapActivity;
+import com.example.addcul.activity.translate.TranslationActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -34,6 +34,8 @@ public class BasicActivity extends AppCompatActivity {
 
         util = new Util(this);
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
+
     }
     public View.OnClickListener onFooterlistner = new View.OnClickListener() {
 
