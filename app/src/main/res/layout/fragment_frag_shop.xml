@@ -112,7 +112,6 @@
                     android:layout_margin="7dp"
                     android:background="@drawable/style_shop_border"
                     android:clickable="true"
-
                     android:orientation="horizontal"
                     android:padding="10dp">
 
@@ -128,12 +127,11 @@
 
                 <LinearLayout
                     android:id="@+id/frag_shop_furniture_btn"
-                    android:layout_width="wrap_content"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="7dp"
                     android:background="@drawable/style_shop_border"
                     android:clickable="true"
-
                     android:orientation="horizontal"
                     android:padding="10dp">
 
@@ -142,7 +140,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="가구"
+                        android:text="인테리어"
                         android:textColor="@color/basic_text"
                         android:textSize="13dp" />
                 </LinearLayout>
