@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final int VERSION = 86;
+    public static final int VERSION = 88;
 
     public DBHelper(Context context) {
         super(context, "addculDB", null, VERSION);
@@ -22,16 +22,16 @@ public class DBHelper extends SQLiteOpenHelper {
                 "subInfo text);";
         db.execSQL(wordSQL);
 
-        db.execSQL("insert into newWord(num, name, info, subInfo)values ('1','군싹', '[ 군침이 싹 돈다 ]', '음식이 맛있어 보여 군침이 돈다는 것을 줄인 말이에요!\n맛있는 음식을 봤을 때 사용해보아요!')");
-        db.execSQL("insert into newWord(num, name, info, subInfo)values ('2','스불재', '[ 스스로 불러온 재앙 ]', '-')");
-        db.execSQL("insert into newWord(num, name, info, subInfo)values ('3','주불', '[ 주소 불러 ]', '-')");
-        db.execSQL("insert into newWord(num, name, info, subInfo)values ('4','재질', '[ 느낌, 스타일, 부류 ]', '-')");
-        db.execSQL("insert into newWord(num, name, info, subInfo)values ('5','머선129', '[ 무슨 일이야? ]', '-')");
-        db.execSQL("insert into newWord(num, name, info, subInfo)values ('6','억텐', '[ 억지 텐션 ]', '-')");
-        db.execSQL("insert into newWord(num, name, info, subInfo)values ('7','임포', '[ 스파이 | 배신자 ]', '-')");
-        db.execSQL("insert into newWord(num, name, info, subInfo)values ('8','쫌쫌따리', '[ 조금씩 틈틈히 모으는 모양 ]', '-')");
-        db.execSQL("insert into newWord(num, name, info, subInfo)values ('9','갑통알', '[ 갑자기 통장을 보니 알바해야겠다 ]', '-')");
-        db.execSQL("insert into newWord(num, name, info, subInfo)values ('10','애빼시', '[ 애교 빼면 시체 ]', '-')");
+        db.execSQL("insert into newWord(num, name, info, subInfo)values ('1','군싹', '[ 군침이 싹 돈다 ]', '음식이 맛있어 보여 군침이 돈다는 것을 줄인 말이에요! 맛있는 음식을 봤을 때 사용해보아요!')");
+        db.execSQL("insert into newWord(num, name, info, subInfo)values ('2','스불재', '[ 스스로 불러온 재앙 ]', '자기 자신이 나쁜 결과를 만들었다는 뜻이에요! 실수했을 때 센스있게 사용해봐요!')");
+        db.execSQL("insert into newWord(num, name, info, subInfo)values ('3','주불', '[ 주소 불러 ]', '친구에게 주소를 물어볼 때 사용하는 말이에요! 센스있게 주소를 물어봐요!')");
+        db.execSQL("insert into newWord(num, name, info, subInfo)values ('4','재질', '[ 느낌, 스타일, 부류 ]', '요즘에는 옷 스타일 좋다~ 보다는 재질 좋다~라고 말해요! 재질로 친구 스타일 칭찬해봐요!')");
+        db.execSQL("insert into newWord(num, name, info, subInfo)values ('5','머선129', '[ 무슨 일이야? ]', '1(일) 2(이) 9(구)로 한국어 발음대로 무슨 일 있냐고 물어보는 뜻이에요! 친구에게 무슨 일이 있는지 궁금할 때 물어봐요! ')");
+        db.execSQL("insert into newWord(num, name, info, subInfo)values ('6','억텐', '[ 억지 텐션 ]', '억지 텐션의 줄임말로 억지로 즐거운 척한다는 뜻이에요! 억지로 무언가를 하려는 친구에게 장난으로 써봐요!')");
+        db.execSQL("insert into newWord(num, name, info, subInfo)values ('7','임포', '[ 스파이 | 배신자 ]', '임포스터라는 게임의 주인공으로 팀원을 배신하는 스파이 같은 뜻이에요! 배신하는 친구에게 임포라고 놀려봐요!')");
+        db.execSQL("insert into newWord(num, name, info, subInfo)values ('8','쫌쫌따리', '[ 조금씩 틈틈히 모으는 모양 ]', '조금씩 틈틈히 동전모으듯이 꾸준히 모은다는 뜻이에요! 꾸준히 모으는 뭔가가 있을 때 친구에게 좀좀따리라고 설명해봐요!')");
+        db.execSQL("insert into newWord(num, name, info, subInfo)values ('9','갑통알', '[ 갑자기 통장을 보니 알바해야겠다 ]', '통장에 돈이 별로 없어서 일해야한다는 뜻이에요! 이 말을 쓸 때는 많이 슬프겠죠....?')");
+        db.execSQL("insert into newWord(num, name, info, subInfo)values ('10','애빼시', '[ 애교 빼면 시체 ]', '애교가 너무 많은 친구나 자신에게 쓰는 말이에요! 자신이 애교가 많다면 애빼시라고 소개해도 좋아요!')");
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
