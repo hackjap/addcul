@@ -11,11 +11,10 @@ import android.widget.LinearLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.addcul.Util.DBHelper;
 import com.example.addcul.DTO.ProblemInfo;
 import com.example.addcul.R;
+import com.example.addcul.Util.DBHelper;
 import com.example.addcul.activity.config.BasicActivity;
-import com.example.addcul.activity.kculture.ExperienceActivity03_2;
 import com.example.addcul.adapter.ProblemAdapter;
 
 import java.util.ArrayList;
@@ -64,13 +63,16 @@ public class ProblemActivity extends BasicActivity {
 
         problemAdapter.setOnMyTouchListener(new ProblemAdapter.OnMyTouchListener() {
             @Override
-            public void onTouch(View v, int postion) {
+            public void onTouch(View v, int position) {
                 Log.e("출력 : ","출력 ");
-                if(postion == 0) {
+                if(position == 0) {
                     startActivity(PregnancybirthActivity.class);
                 }
-                else{
-                    startActivity(ExperienceActivity03_2.class);
+                else if(position == 1){
+                    startActivity(EmployActivity.class);
+                }
+                else if(position == 2){
+                    startActivity(BasiclifeActivity.class);
                 }
             }
         });

@@ -77,8 +77,14 @@
         <activity android:name=".activity.kculture.KcultureActivity" />
         <activity android:name=".activity.post.WritePostSosActivity" />
         <activity android:name=".activity.post.WritePostSecretActivity" />
+        <activity android:name=".activity.kculture.ExperienceActivity03_1" />
         <activity android:name=".activity.kculture.ExperienceActivity03_2" />
-
+        <activity android:name=".activity.kculture.ExperienceActivity03_3" />
+        <activity android:name=".activity.kculture.ExperienceActivity03_4" />
+        <activity android:name=".activity.kculture.ExperienceActivity03_5" />
+        <activity android:name=".activity.kculture.ExperienceActivity03_6" />
+        <activity android:name=".activity.problem.EmployActivity" />
+        <activity android:name=".activity.problem.BasiclifeActivity" />
         <activity
             android:name=".activity.account.SignUpActivity"
             android:windowSoftInputMode="adjustPan" />

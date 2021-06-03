@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/colorPrimaryDark">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="25sp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="25dp"
+                android:text="사회보장제도" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:text="국민기초생활보장 "
+                android:textColor="@color/yeonori"
+                android:textSize="25sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="생활이 어려운 사람들에게 국가가 생계비와 주거비(국토부), 교육비(교육부), 의료비 등의 급여를 제공하여 기본적 생활을 국가가 보장해주고, 근로능력이 있는 자에게는 체계적인 자활지원 서비스를 제공하여 자활·자립을 지원해주는 제도로 법령이 정하는 바에 따라 외국인도 혜택을 받을 수 있다. " />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="적용대상"
+                android:textColor="@color/orange"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="아래의 경우에 해당하는 외국인이면서 1.소득인정액 기준, 2.부양의무자 기준을 동시 충족하면 국민기초생활보장 급여를 받을 수 있다. " />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/bright_gray"
+                android:inputType="textMultiLine"
+                android:lineSpacingExtra="5dp"
+                android:padding="10dp"
+                android:text="※국내에 등록·체류하고 있는 외국인 중 대한민국 국민과 혼인하여 본인 또는 배우자가 임신 중이거나, 대한민국 국적의 미성년 자녀를 양육하고 있는 경우(이혼, 배우자 사망인 경우도 포함)
+※ 배우자의 대한민국 국적인 직계존속(부모, 조부모 등)과 생계나 주거를 같이하고 있는 경우 그 외의 외국인은 국민기초생활보장 대상자가 될 수 없으나, 같은 가족 내에 한국인이 있다면 그 한국인은 대상자가 될 수 있다. 이 경우에도 소득인 정액 기준,부양의무자 기준을 모두 충족해야 한다." />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="1. 가구 소득인정액 (소득평가액+재산의 소득환산액)이 급여별 수급자 선정기준(기준 중위소득의 일정 비율*) 이하인 자
+※ (2018년) 생계급여 30%, 의료급여 40%, 주거급여 43%, 교육급여 50%
+2. 부양의무자 (1촌의 직계혈족 및 그 배우자)가 없는 자, 부양의무자가 있어도 부양 능력이 없거나 또는 부양을 받을 수 없는 자
+※ 맞춤형 급여 개편(’15.7월)에 따라 교육급여는 부양의무자 기준 적용 폐지 " />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="● 2018년 기준 중위소득 "
+                    android:textColor="@color/yeonori"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="65dp"
+                    android:src="@drawable/basiclife01"
+                    android:layout_marginTop="5dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:lineSpacingExtra="5dp"
+                    android:text="※ 8인 이상 가구는 7인 가구 기준 중위소득에서 6인 가구 기준 중위소득의 차액을 7인 가구 기준 중위소득에 더하여 산정 "
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="● 2018년 수급자 선정 기준(기준 중위소득의 %)"
+                    android:textColor="@color/yeonori"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="162dp"
+                    android:src="@drawable/basiclife02"
+                    android:layout_marginTop="5dp"
+                    />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="급여의 종류"
+                android:textColor="@color/orange"
+                android:textSize="18sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="생계급여"
+                android:textColor="@color/yeonori"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="- 급여의 내용 : 의복·음식물 및 연료비, 기타 일상생활에 기본적으로 필요한 금품을 지급
+ - 급여액 : 생계급여최저보장수준(기준 중위소득의 30%)에서 가구의 소득인정액을 차감한 금액"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/basic_gray"
+                android:inputType="textMultiLine"
+                android:lineSpacingExtra="5dp"
+                android:padding="10dp"
+                android:text="※ 생계급여액 = 생계급여 최저보장수준(대상자 선정기준) - 소득인정액 " />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="주거급여"
+                android:textColor="@color/orange"
+                android:textSize="18sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="- 급여의 내용 : 거주지, 거주 유형, 가구규모 등을 고려하여 주거 안정에 필요한 임차료, 수선 유지비를 지급
+- 급여액 : 임차가구에게는 수급자의 실제 임차료를 근거로 지역별 기준 임대료, 가구원수, 소득인정액에 따라 차등 지급, 자가가구에게는 주택 노후도에 따라 보수범위를 경보수, 중보수, 대보수로 구분하여 수급자의 소득인정액에 따라 수선유지비용 차등 지원"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="● 임차가구의 최저보장수준(2018년 기준) "
+                    android:textColor="@color/yeonori"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:src="@drawable/basiclife03"
+                    android:layout_marginTop="5dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:lineSpacingExtra="5dp"
+                    android:text="가구원수가 7인 이상인 경우, 가구원 2인 증가할 때마다 기준임대료 10% 증가 "
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="● 자가가구의 최저보장수준(2018년 기준) "
+                    android:textColor="@color/yeonori"
+                    />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="82dp"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/basiclife04" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:lineSpacingExtra="5dp"
+                    android:text="소득인정액이 생계급여 선정기준 이하인 경우 수선비용의 100%, 생계급여 선정기준을 초과하나 기준 중위소득 35% 이하인 경우 수선비용의 90%, 기준 중위소득 35% 초과에서 43% 이하인 경우 수선비용의 80%를 지급, 육로로 통행이 불가능한 도서지역(제주도 본섬 제외)의 경우, 위 수선비용을 10% 가산 "
+                    />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="교육급여"
+                android:textColor="@color/yeonori"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="급여의 내용 : 입학금·수업료, 교과서대, 부교재비, 학용품비 등 "
+                />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="235dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/basiclife05" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="해산급여"
+                android:textColor="@color/yeonori"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="수급자가 출산(출산예정 포함) 시 출생영아 1인당 600,000원(쌍둥이 출산시 1,200천원 지급)을 현금으로 지급"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="장제급여"
+                android:textColor="@color/yeonori"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="수급자가 사망했을 때 사망자 1인당 750,000원 지급"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="신청방법"
+                android:textColor="@color/orange"
+                android:textSize="18sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="국민기초대상자 신청은 읍·면사무소 또는 동 주민센터에 가서 ‘사회복지서비스 및 급여 제공(변경)신청서’를 제출하면 된다.
+신청서를 제출하면 담당 공무원이 대상자가 자격이 있는지를 조사한다.
+신청일로부터 30일 이내, 늦어도 60일 이내에 대상자인지 아닌지 알려준다"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:src="@drawable/basiclife06"
+                android:layout_marginTop="5dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/bright_gray"
+                android:inputType="textMultiLine"
+                android:lineSpacingExtra="5dp"
+                android:padding="10dp"
+                android:text="※ 이 내용은 2018년 4월 기준으로 작성된 자료이므로, 일부 내용은 참고하시는 시점의 내용과 상이할 수 있음을 알려드립니다. " />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="▣ 알아두세요! "
+                android:textColor="@color/yeonori"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/bright_gray"
+            android:inputType="textMultiLine"
+            android:lineSpacingExtra="5dp"
+            android:padding="10dp"
+            android:text="보건복지콜센터 129 나와 우리 가족에게 필요한 복지정보와 상담을 원하면, 어디서나 국번없이 129로 전화하면 된다.
+상담내용 : 소득보장, 민생안정지원, 복지서비스, 건강생활 상담
+상담시간 : 평일 09:00~18:00, 긴급지원상담은 365일 24시간(보건복지콜센터) " />
+    </LinearLayout>
+</ScrollView>

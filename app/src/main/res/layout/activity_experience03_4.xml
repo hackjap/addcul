@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/colorPrimaryDark">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="25dp"
+                    android:text="안산 다문화거리 및 다문화 홍보 학습관" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:textSize="24sp"
+                android:textColor="@color/yeonori"
+                android:text="안산 다문화거리 및 다문화 홍보 학습관"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/mapicon"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/orange"
+                    android:text="경기 안산시 단원구 중앙대로 462"/>
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/c04_"
+                android:layout_width="370dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:padding="0sp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/culture4" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:text="안산 다문화 음식거리"
+                android:textColor="@color/yeonori"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="많은 관광객들과 외국인들로 가득 차는만큼 다양한 언어로 꾸며진 간판을 단 가게들이 자리를 잡고 있다."/>
+            <ImageView
+                android:id="@+id/c04_2"
+                android:layout_width="370dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:padding="0sp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/culture4_2" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="안산의 다문화음식거리에는 다양한 나라 사람들이 모여드는 만큼 다른 음식거리에서 볼 수 없는 개성있는 음식이 많다. 그 외에도 외국을 방불케 하는 전통음식점을 방문할 수 있다. "/>
+            <ImageView
+                android:id="@+id/c04_3"
+                android:layout_width="370dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:padding="0sp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/culture4_3" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="흰색 오리알을 곳곳에서 볼 수 있으며 우리나라 시장에서는 흔히 볼 수 없는 소 혀, 돼지 귀 같은 음식들도 판다."/>
+            <ImageView
+                android:id="@+id/c04_4"
+                android:layout_width="370dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:padding="0sp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/culture4_4" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="안산 다문화 거리에는 각기 다른 인종, 종교, 문화가 모여있다. 또한 이슬람 사원도 위치하고 있다."/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:text="다문화 홍보학습관"
+                android:textColor="@color/yeonori"
+                />
+            <ImageView
+                android:id="@+id/c04_5"
+                android:layout_width="370dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:padding="0sp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/culture4_5" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="다문화 거리를 나오면 다문화 홍보학습관이 있다. 안산 다문화홍보학습관은 다문화 교류의 공간으로 모두가 함께 더불어 가는 사회를 만들기 위해 다문화 이해교육장으로 운영되는 곳이다. 다문화 홍보 학습관에서는  체험활동을 비롯해서 관람을 통해 전통의상, 전통놀이, 전통악기등을 살필 수 있다. 또 각나라의 선생님들이 있어 좀 더 실감나게 각 나라의 문화를 배우고 들을 수 있다. "/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

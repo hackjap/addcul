@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/colorPrimaryDark">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="25sp"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="25dp"
+                    android:text="500년 전통의 공주 하대리 '칠석제'" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:textSize="24sp"
+                android:textColor="@color/yeonori"
+                android:text="500년 전통의 공주 하대리 칠석제"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="공주시 계룡면 하대2리 마을회관 앞 느티나무 정자 "
+                android:textColor="@color/orange"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/c01_"
+                android:layout_width="370dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:padding="0sp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/culture1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:text="조선의 개국과 함께 시작된 민족의 전통 문화 재현"
+                android:textColor="@color/yeonori"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="매년 견우와 직녀가 만난다는 칠석날을 전후해 치러지는 공주시 계룡면 하대리 칠석제는 수령이 500년을 넘긴 느티나무 아래에서 펼쳐지는 500년이 넘는 전통의 민속축제다."/>
+
+            <ImageView
+                android:id="@+id/c01_2"
+                android:layout_width="370dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:padding="0sp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/culture1_2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="농기를 들고 풍장을 치며 두레 바탕으로 나가 농기와 영기를 세우고 돌아오는 것을 말하는 '농기 세우기'는 칠석제의 첫날인 8월 6일 칠석제 행사가 치러지는 마을회관 앞에 세워진 농기를 농지에 옮겨 세우는 것으로 가장 먼저 진행된다."/>
+            <ImageView
+                android:id="@+id/c01_3"
+                android:layout_width="370dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:padding="0sp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/culture1_3" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="또한 논농사를 하며 마을 사람들이 협력하여 논의 김을 매는 공동노동인 두레 논매기가 시작되었는데 이날 행사에서는 두레논매기와 '논매기 소리'가 재현되어 흥을 돋았다."/>
+            <ImageView
+                android:id="@+id/c01_4"
+                android:layout_width="370dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:padding="0sp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/culture1_5" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="두레논매기가 끝나면 지친 몸을 털어 새로운 기를 받는 풍장으로 한바탕 신명을 돋우는 걸립풍장이 이어진다."/>
+            <ImageView
+                android:id="@+id/c01_5"
+                android:layout_width="370dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:padding="0sp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/culture1_4" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:layout_marginBottom="20dp"
+                android:text="칠석제가 끝나면 풍성하게 장만한 음식을 나누어 먹는 마을의 화합과 안녕을 기원하는 마을 한마당 잔치가 펼쳐진다. 일제강점기에 일인들이 군선을 만든다며 느티나무 열한 그루를 베어 간 사건이 있었는데 이는 민족정신을 말살하려는 책동이었다고 보고 그 후 남은 한 그루를 정성으로 가꾸어 오며 그 긴 역사를 이어 오늘날 하대리의 마을 문화로 발전시켜 화합의 축제로 승화시킨 것이다"/>
+
+            </LinearLayout>
+    </ScrollView>
+</LinearLayout>

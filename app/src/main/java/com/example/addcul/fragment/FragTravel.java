@@ -13,11 +13,16 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.addcul.R;
 import com.example.addcul.DTO.TravelInfo;
+import com.example.addcul.R;
 import com.example.addcul.Util.DBHelper;
+import com.example.addcul.activity.kculture.ExperienceActivity03_1;
+import com.example.addcul.activity.kculture.ExperienceActivity03_2;
+import com.example.addcul.activity.kculture.ExperienceActivity03_3;
+import com.example.addcul.activity.kculture.ExperienceActivity03_4;
+import com.example.addcul.activity.kculture.ExperienceActivity03_5;
+import com.example.addcul.activity.kculture.ExperienceActivity03_6;
 import com.example.addcul.adapter.TravelAdapter;
-import com.example.addcul.lifeInfo.NaverActivity;
 
 import java.util.ArrayList;
 
@@ -65,10 +70,34 @@ public class FragTravel extends Fragment {
 
         travelAdapter.setOnMyTouchListener(new TravelAdapter.OnMyTouchListener() {
             @Override
-            public void onTouch(View v, int postion) {
+            public void onTouch(View v, int position) {
                 Log.e("출력 : ","출력 ");
-                Intent intent = new Intent(getContext(), NaverActivity.class);
-                startActivity(intent);
+
+                if(position == 0){
+                    Intent intent = new Intent(getContext(), ExperienceActivity03_1.class);
+                    startActivity(intent);
+                }
+                else if(position == 1){
+                    Intent intent = new Intent(getContext(), ExperienceActivity03_2.class);
+                    startActivity(intent);
+                }
+                else if(position == 2){
+                    Intent intent = new Intent(getContext(), ExperienceActivity03_3.class);
+                    startActivity(intent);
+                }
+                else if(position == 3){
+                    Intent intent = new Intent(getContext(), ExperienceActivity03_4.class);
+                    startActivity(intent);
+                }
+                else if(position == 4){
+                    Intent intent = new Intent(getContext(), ExperienceActivity03_5.class);
+                    startActivity(intent);
+                }
+                else {
+                    Intent intent = new Intent(getContext(), ExperienceActivity03_6.class);
+                    startActivity(intent);
+                }
+
             }
         });
         return view;

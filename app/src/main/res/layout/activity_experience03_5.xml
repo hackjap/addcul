@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/colorPrimaryDark">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="25dp"
+                    android:text="행복전통마을 구름에" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:textSize="24sp"
+                android:textColor="@color/yeonori"
+                android:text="행복전통마을 구름에"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/mapicon"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/orange"
+                    android:text="경북 안동시 민속촌길 190"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/homepageicon"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/yeonori"
+                    android:autoLink="web"
+                    android:text="http://www.gurume-andong.com/svc/"/>
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/c05_"
+                android:layout_width="370dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:padding="0sp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/culture5" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:text="비움과 채움, 체험과 사유(思惟)가 공존한다."
+                android:textColor="@color/yeonori"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="전통리조트 구름에는 융합과 통섭의 가치를 생활문화에 반영한 신개념휴양지다. 숙박시설과 부대시설을 긴밀히 연계하여 육체적인 휴식은 물론 내면의 충전까지 가능하도록 했다."/>
+            <ImageView
+                android:id="@+id/c05_2"
+                android:layout_width="370dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:padding="0sp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/culture5_2" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:text="유실위기의 전통에 생명을 불어 넣다."
+                android:textColor="@color/yeonori"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="유서 깊은 안동의 고택들을 전통미와 편의성을 동시에 만족시키는 고품격 객실이다. 대단위 숙박시설과 차별화된 진심과 정성으로 서비스를 추구한다."/>
+            <ImageView
+                android:id="@+id/c05_3"
+                android:layout_width="370dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:padding="0sp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/culture5_3" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:text="고택 숙박"
+                android:textColor="@color/yeonori"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="울창한 푸른 숲 언덕 위에 자리잡은 고택군락은 도시에서 만나기 힘든 특별한 아름다움이 있다. 저마다의 이야기와 역사를 간직한 총 7채의 고택을 고택의 원형은 최대한 보존하면서 현대적인 편리함을 적절히 가미한 12개의 객실을 갖고 있다."/>
+            <ImageView
+                android:id="@+id/c05_4"
+                android:layout_width="370dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:padding="0sp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/culture5_4" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:text="가족, 친구, 연인과 함께 즐기는 고택에서의 전통체험"
+                android:textColor="@color/yeonori"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="고택군락을 마주보고 있는 신축 한옥군락은 전통 문화의 매력과 가능성을 발견할 수 있는 특별한 장소다. 약 1만 7천 여 ㎡ 규모의 한옥 시설은 서원을 컨셉으로 현대인에게 흥미롭고 유익하게 재해석한 전통 문화를 체험할 수 있는 공간으로 꾸몄다."/>
+            <ImageView
+                android:id="@+id/c05_5"
+                android:layout_width="370dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:padding="0sp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/culture5_5" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/colorPrimaryDark">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="25sp"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="25dp"
+                    android:text="한국민속촌" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:textSize="24sp"
+                android:textColor="@color/yeonori"
+                android:text="한국민속촌"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/mapicon"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/orange"
+                    android:text="경기 용인시 기흥구 민속촌로 90 한국민속촌"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/homepageicon"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/yeonori"
+                    android:autoLink="web"
+                    android:text="http://www.koreanfolk.co.kr/"/>
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/c03_"
+                android:layout_width="370dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:padding="0sp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/culture3" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:text="전통문화의 즐거움을 재발견하는 시간"
+                android:textColor="@color/yeonori"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="한국민속촌은 오랜 시간을 거쳐 전승되어 온 우리 문화 속 생활풍속을 한데 모아 내외국인 관광객에게 민족문화를 소개하기 위해 조성되었습니다. 건립 초기부터 교육적 가치와 관광적 가치를 염두에 둔 최고의 전통문화 테마의 종합관광지를 목적으로 설립되어, 1974년 창립 이래 지금까지 생생한 문화체험과 아름다운 자연속의 전통문화 관광지로서 사랑받고 있습니다. "/>
+            <ImageView
+                android:id="@+id/c03_2"
+                android:layout_width="370dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:padding="0sp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/culture3_2" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="'한국 민속촌'에서는 선조들이 살아온 흔적과 문화가 담긴 아름다운 조선시대 마을로 시간여행을 떠나보세요. 신명나는 전통예술과 다양한 체험과 전시, 특별한 테마행사를 만날 수 있습니다."/>
+            <ImageView
+                android:id="@+id/c03_3"
+                android:layout_width="370dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:padding="0sp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/culture3_3" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="한국민속촌의 조선시대 마을은 각 지방에서 이건 및 복원한 실물가옥으로 이루어져 있으며, 철저한 고증과 자문을 거쳐 사계절 변화에 따라 생활문화를 재현하고 있습니다. 야외에서 만나는 체험형 전시와 전통방식을 계승한 생활공예, 절기별 세시풍속을 행하며 잊혀져 가는 전통 문화유산의 가치를 함께 나누고자 하는 노력을 계속하고 있습니다. "/>
+            <ImageView
+                android:id="@+id/c04_4"
+                android:layout_width="370dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:padding="0sp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/culture3_4" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
+                android:layout_marginBottom="20dp"
+                android:text="전통은 맥이 끊긴 낡은 유물이 아닌, 현대 생활 구석구석까지 녹아있는 우리 민족 삶의 양식입니다. 전통문화의 가치를 새롭게 발견하여 함께 누리고 나아가 세계에서 빛날 수 있게 보전해 가는 것이 한국민속촌의 역할입니다. 한국민속촌이 지켜가는 전통문화 속에서 과거와 현재를 경험하고, 미래를 열어갈 새로운 가치를 만나보시길 바랍니다.  "/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
