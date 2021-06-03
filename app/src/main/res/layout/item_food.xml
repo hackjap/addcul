@@ -9,7 +9,7 @@
     <LinearLayout
         android:id="@+id/food_container"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="220dp"
         android:background="@drawable/img_food_pork"
         android:orientation="horizontal">
 

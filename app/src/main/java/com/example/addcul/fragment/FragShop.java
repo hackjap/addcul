@@ -36,6 +36,7 @@ public class FragShop extends Fragment {
     LinearLayout btnFood;
     LinearLayout btnFurniture;
 
+
     ArrayList<ShopInfo> list;
 
     public FragShop() {
@@ -149,15 +150,25 @@ public class FragShop extends Fragment {
                     shopAdapter.setOnMyTouchListener(new ShopAdapter.OnMyTouchListener() {
                         @Override
                         public void onTouch(View v, int position) {
-
                             if (position == 0) {
-                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.midasb.co.kr/"));
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.croquis.zigzag&referrer=af_tranid%3DaALbSNrhALd2UfOvR5ctCw%26shortlink%3D189189a0%26pid%3Dzigzag_website_aos%26af_click_lookback%3D1d%26af_web_id%3D98a651ce-1f5c-41e4-950c-d741ac07bc7b-o%26utm_source%3Dzigzag_website_aos"));
                                 startActivity(intent);
                             } else if (position == 1) {
-                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.naver.com/"));
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.midasb.co.kr/"));
+                                startActivity(intent);
+                            }else if (position == 2) {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://loveparis.net/"));
+                                startActivity(intent);
+                            }else if (position == 3) {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://justone.co.kr/?enlipleMBDCEnc=bm89MCZrbm89MCZrd3JkU2VxPTI0MzQxOTU1JnM9MjIzNzAmYWRndWJ1bj1HRyZnYj1HRyZzYz01ZGM4ZTA4NDE4NDk0OWRkOTlhOTE4NWViMDJiN2I5YiZtYz0yMjM3MCZ1PWp1c3RvbmUmcHJvZHVjdD1uY3Q="));
+                                startActivity(intent);
+                            }else if (position == 4) {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.mocobling.com/"));
+                                startActivity(intent);
+                            } else if (position == 5) {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.pippin.co.kr/?da_ref=Yz10UnNFVVI=&enlipleMBDCEnc=bm89MCZrbm89MCZrd3JkU2VxPTI1NTk0NzI4JnM9MjIzNzAmYWRndWJ1bj1HRyZnYj1HRyZzYz01MzVhNDg2MjFmMWM0MDU5OWQ4N2Y4M2RiYTBlNDQxOCZtYz0yMjM3MCZ1PXBpcHBpbjExJnByb2R1Y3Q9bmN0&gclid=Cj0KCQjw2NyFBhDoARIsAMtHtZ4FYF5gtg7oBGGZ6TCGklsQ37amY0XsHQxAU13i8hK0xkIGZcGf-I8aAicYEALw_wcB"));
                                 startActivity(intent);
                             }
-
                         }
                     });
                     break;
@@ -174,13 +185,25 @@ public class FragShop extends Fragment {
                         public void onTouch(View v, int position) {
 
                             if (position == 0) {
-                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.midasb.co.kr/"));
-                                startActivity(intent);
-                            } else if (position == 1) {
-                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.naver.com/"));
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.croquis.zigzag&referrer=af_tranid%3DaALbSNrhALd2UfOvR5ctCw%26shortlink%3D189189a0%26pid%3Dzigzag_website_aos%26af_click_lookback%3D1d%26af_web_id%3D98a651ce-1f5c-41e4-950c-d741ac07bc7b-o%26utm_source%3Dzigzag_website_aos"));
                                 startActivity(intent);
                             }
-
+//                            } else if (position == 1) {
+//                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.midasb.co.kr/"));
+//                                startActivity(intent);
+//                            }else if (position == 2) {
+//                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://loveparis.net/"));
+//                                startActivity(intent);
+//                            }else if (position == 3) {
+//                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://justone.co.kr/?enlipleMBDCEnc=bm89MCZrbm89MCZrd3JkU2VxPTI0MzQxOTU1JnM9MjIzNzAmYWRndWJ1bj1HRyZnYj1HRyZzYz01ZGM4ZTA4NDE4NDk0OWRkOTlhOTE4NWViMDJiN2I5YiZtYz0yMjM3MCZ1PWp1c3RvbmUmcHJvZHVjdD1uY3Q="));
+//                                startActivity(intent);
+//                            }else if (position == 4) {
+//                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.mocobling.com/"));
+//                                startActivity(intent);
+//                            } else if (position == 5) {
+//                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.pippin.co.kr/?da_ref=Yz10UnNFVVI=&enlipleMBDCEnc=bm89MCZrbm89MCZrd3JkU2VxPTI1NTk0NzI4JnM9MjIzNzAmYWRndWJ1bj1HRyZnYj1HRyZzYz01MzVhNDg2MjFmMWM0MDU5OWQ4N2Y4M2RiYTBlNDQxOCZtYz0yMjM3MCZ1PXBpcHBpbjExJnByb2R1Y3Q9bmN0&gclid=Cj0KCQjw2NyFBhDoARIsAMtHtZ4FYF5gtg7oBGGZ6TCGklsQ37amY0XsHQxAU13i8hK0xkIGZcGf-I8aAicYEALw_wcB"));
+//                                startActivity(intent);
+//                            }
                         }
                     });
                     break;
@@ -291,14 +314,15 @@ public class FragShop extends Fragment {
 
     // 해당하는 버튼의 배경색 변경
     public void setBtnBackColor(LinearLayout pointed){
-        btnWomen.setBackgroundResource(R.drawable.style_main_fill);
-        btnMen.setBackgroundResource(R.drawable.style_main_fill);
-        btnAppliance.setBackgroundResource(R.drawable.style_main_fill);
-        btnMakeUp.setBackgroundResource(R.drawable.style_main_fill);
-        btnFood.setBackgroundResource(R.drawable.style_main_fill);
-        btnFurniture.setBackgroundResource(R.drawable.style_main_fill);
-        pointed.setBackgroundResource(R.drawable.style_main_fill_yellow);
+        btnWomen.setBackgroundResource(R.drawable.style_shop_border);
+        btnMen.setBackgroundResource(R.drawable.style_shop_border);
+        btnAppliance.setBackgroundResource(R.drawable.style_shop_border);
+        btnMakeUp.setBackgroundResource(R.drawable.style_shop_border);
+        btnFood.setBackgroundResource(R.drawable.style_shop_border);
+        btnFurniture.setBackgroundResource(R.drawable.style_shop_border);
+
+        pointed.setBackgroundResource(R.drawable.style_shop_border_y);
+
 
     }
-
 }

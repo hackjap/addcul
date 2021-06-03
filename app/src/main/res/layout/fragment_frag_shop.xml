@@ -18,132 +18,133 @@
             android:scrollbars="none">
 
             <LinearLayout
-
-                android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:clickable="true"
                 android:orientation="horizontal">
 
                 <LinearLayout
                     android:id="@+id/frag_shop_women_btn"
-                    android:layout_width="wrap_content"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="14dp"
                     android:layout_marginTop="7dp"
                     android:layout_marginRight="7dp"
                     android:layout_marginBottom="7dp"
-                    android:background="@drawable/style_main_fill"
-                    android:gravity="center"
+                    android:background="@drawable/style_shop_border"
+
                     android:orientation="horizontal"
-                    android:padding="12dp">
+                    android:padding="10dp">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
                         android:text="여성 의류"
                         android:textColor="@color/basic_text"
-                        android:textSize="15dp" />
+                        android:textSize="13dp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/frag_shop_men_btn"
-                    android:clickable="true"
-                    android:layout_width="wrap_content"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="7dp"
-                    android:background="@drawable/style_main_fill"
-                    android:gravity="center"
+                    android:background="@drawable/style_shop_border"
+                    android:clickable="true"
                     android:orientation="horizontal"
-                    android:padding="12dp">
+                    android:padding="10dp">
 
                     <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
                         android:text="남성 의류"
                         android:textColor="@color/basic_text"
-                        android:textSize="15dp" />
+                        android:textSize="13dp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/frag_shop_appliance_btn"
-                    android:clickable="true"
-                    android:layout_width="wrap_content"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="7dp"
-                    android:background="@drawable/style_main_fill"
-                    android:gravity="center"
+                    android:background="@drawable/style_shop_border"
+                    android:clickable="true"
                     android:orientation="horizontal"
-                    android:padding="12dp">
+                    android:padding="10dp">
 
                     <TextView
                         android:id="@+id/btn_shop_appliance"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
                         android:text="가전제품"
                         android:textColor="@color/basic_text"
-                        android:textSize="15dp" />
+                        android:textSize="13dp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/frag_shop_makeUp_btn"
-                    android:clickable="true"
-                    android:layout_width="wrap_content"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="7dp"
-                    android:background="@drawable/style_main_fill"
-                    android:gravity="center"
+                    android:background="@drawable/style_shop_border"
+                    android:clickable="true"
                     android:orientation="horizontal"
-                    android:padding="12dp">
+                    android:padding="10dp">
 
                     <TextView
                         android:id="@+id/btn_shop_makeUp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
                         android:text="화장품"
                         android:textColor="@color/basic_text"
-                        android:textSize="15dp" />
+                        android:textSize="13dp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/frag_shop_food_btn"
-                    android:clickable="true"
-                    android:layout_width="wrap_content"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="7dp"
-                    android:background="@drawable/style_main_fill"
-                    android:gravity="center"
+                    android:background="@drawable/style_shop_border"
+                    android:clickable="true"
+
                     android:orientation="horizontal"
-                    android:padding="12dp">
+                    android:padding="10dp">
 
                     <TextView
                         android:id="@+id/btn_shop_food"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
                         android:text="식품"
                         android:textColor="@color/basic_text"
-                        android:textSize="15dp" />
+                        android:textSize="13dp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/frag_shop_furniture_btn"
-                    android:clickable="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="7dp"
-                    android:background="@drawable/style_main_fill"
-                    android:gravity="center"
+                    android:background="@drawable/style_shop_border"
+                    android:clickable="true"
+
                     android:orientation="horizontal"
-                    android:padding="12dp">
+                    android:padding="10dp">
 
                     <TextView
                         android:id="@+id/btn_shop_furniture"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
                         android:text="가구"
                         android:textColor="@color/basic_text"
-                        android:textSize="15dp" />
+                        android:textSize="13dp" />
                 </LinearLayout>
             </LinearLayout>
         </HorizontalScrollView>
@@ -152,6 +153,6 @@
             android:id="@+id/rv_shop"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp" />
     </LinearLayout>
 </FrameLayout>
