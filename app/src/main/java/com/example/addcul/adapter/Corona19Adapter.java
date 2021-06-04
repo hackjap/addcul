@@ -34,7 +34,7 @@ public class Corona19Adapter extends RecyclerView.Adapter<Corona19Adapter.Corona
 
             int  result = Integer.parseInt(list.get(position).getConf())-Integer.parseInt(list.get(position+1).getConf());
 
-            holder.date.setText(result+"");
+            holder.date.setText(result+"▲");
             holder.conf.setText(list.get(position).getConf());
             holder.release.setText(list.get(position).getRelease());
             holder.death.setText(list.get(position).getDeath());

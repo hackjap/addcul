@@ -2,13 +2,10 @@ package com.example.addcul;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,6 +31,7 @@ import com.example.addcul.activity.post.ReadPostActivity;
 import com.example.addcul.activity.problem.ProblemActivity;
 import com.example.addcul.adapter.Corona19Adapter;
 import com.example.addcul.adapter.ImageSliderAdapter;
+import com.example.addcul.adapter.NoticeAdapter;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.auth.FirebaseAuth;
@@ -201,18 +199,11 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
         findViewById(R.id.tv_notice).setOnClickListener(onClickListener);
 
 
-        ListView listView = (ListView) findViewById(R.id.lv_notice);
+        // 공지사항 리사이클러뷰
+        rvNotice = (RecyclerView) findViewById(R.id.rv_notice);
 
-        ArrayList<String> data1 = new ArrayList<>();
-
-        for (int i = 0; i < 10; i++)
-            data1.add("test" + i);
-
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1, data1);
-
-        Log.e("CXXDATA : ", data1.size() + "");
-        listView.setAdapter(arrayAdapter);
+        rvNotice.setLayoutManager(new LinearLayoutManager(this));
+        rvNotice.setAdapter(new NoticeAdapter());
 
     }
 

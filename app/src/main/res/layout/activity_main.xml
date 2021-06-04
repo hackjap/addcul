@@ -340,13 +340,11 @@
                     android:text="공지사항"
                     android:textColor="@color/basic_text"
                     android:textSize="20dp" />
-
-                <ListView
-                    android:id="@+id/lv_notice"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_notice"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
-
+                    android:layout_height="wrap_content">
+                </androidx.recyclerview.widget.RecyclerView>
 
             </LinearLayout>
         </LinearLayout>
