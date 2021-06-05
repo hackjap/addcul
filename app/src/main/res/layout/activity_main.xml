@@ -20,10 +20,10 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
                 android:id="@+id/sliderContainer"
-                android:clickable="true"
-                android:layout_height="410dp">
+                android:layout_width="match_parent"
+                android:layout_height="410dp"
+                android:clickable="true">
 
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/sliderViewPager"
@@ -315,23 +315,22 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="8dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:background="@color/real_bright_gray"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
             </LinearLayout>
 
 
-
             <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_weight="0.5"
-            android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="0.5"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/tv_notice"
@@ -342,13 +341,138 @@
                     android:text="공지사항"
                     android:textColor="@color/basic_text"
                     android:textSize="20dp" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_notice"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                </androidx.recyclerview.widget.RecyclerView>
+                    android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+
+            <!--            FAQ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/real_bright_gray"
+                android:orientation="vertical">
 
             </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="0.5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_faq"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:gravity="left"
+                    android:text="FAQ"
+                    android:textColor="@color/basic_text"
+                    android:textSize="20dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#000000" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/faq_tv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:layout_weight="1"
+                        android:text="다문화가족지원센터에서는 어떤 서비스를 제공하나요?"
+                        android:textSize="15dp" />
+
+                    <ImageView
+                        android:id="@+id/faq_img1"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|right"
+                        android:src="@drawable/ic_arrow_drop_down_black_24dp"></ImageView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/faq_explain1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/basic_yellow"
+                    android:orientation="vertical"
+                    android:padding="15dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="다문화가족지원센터 사업(가족, 성평등, 인권, 사회통합영역 프로그램 운영, 상담 등) 및 방문교육서비스(한국어교육서비스, 부모교육서비스, 자녀생활서비스), 정보안내, 다문화가족 자녀 언어발달지원사업, 결혼이민자 통번역서비스를 제공하며, 무료로 서비스를 받을 수 있습니다. 단, 자녀생활서비스는 소득기준별 본인부담금 적용됩니다.">
+
+                    </TextView>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#000000" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/faq_tv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:layout_weight="1"
+                        android:text="한국어를 잘하지 못합니다. 약국이나 병원에서 진료를 받을 때 도움을 받을 수 있을까요?"
+                        android:textSize="15dp" />
+
+                    <ImageView
+                        android:id="@+id/faq_img2"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|right"
+                        android:src="@drawable/ic_arrow_drop_down_black_24dp"></ImageView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/faq_explain2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/basic_yellow"
+                    android:orientation="vertical"
+                    android:padding="15dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="다누리콜센터 1577-1366번으로 전화주시면, 해당언어 상담원이 의사 또는 약사 분께 통역하여드립니다.
+(※ 서비스언어 : 한국어, 영어, 중국어, 베트남어, 필리핀어, 캄보디아어, 몽골어, 러시아어, 일본어, 태국어, 우즈베키스탄어, 네팔어, 라오스)">
+
+                    </TextView>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
         </LinearLayout>
     </ScrollView>
 

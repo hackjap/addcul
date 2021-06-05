@@ -257,7 +257,7 @@
         android:layout_margin="10dp"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:visibility="visible">
+        android:visibility="gone">
         <!--맵 선택 시 서브 페이지-->
         <LinearLayout
             android:layout_width="match_parent"
@@ -277,7 +277,7 @@
                     android:orientation="vertical">
 
                     <LinearLayout
-                        android:layout_width="280dp"
+                        android:layout_width="250dp"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
 
@@ -368,7 +368,7 @@
                 android:src="@drawable/ic_baseline_surround_sound_24"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="20dp"
                 ></ImageView>
 
             <TextView
@@ -419,6 +419,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:layout_marginRight="20dp"
             android:background="#00ffffff"
             android:orientation="horizontal">
 
@@ -426,6 +427,7 @@
                 android:layout_width="wrap_content"
                 android:src="@drawable/ic_baseline_local_hospital_24"
                 android:layout_weight="1"
+                android:layout_marginLeft="13dp"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content">
 

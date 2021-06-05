@@ -15,12 +15,19 @@ import com.example.addcul.R;
 public class ImageSliderAdapter extends RecyclerView.Adapter<ImageSliderAdapter.MyViewHolder> {
     private Context context;
     private String[] sliderImage;
+    public OnMyTouchListener listener = null;
 
     public ImageSliderAdapter(Context context, String[] sliderImage) {
         this.context = context;
         this.sliderImage = sliderImage;
     }
 
+    public void setOnMyTouchListener(ImageSliderAdapter.OnMyTouchListener listener){
+        this.listener = listener;
+    }
+    public interface OnMyTouchListener{
+        void onTouch(View v,int position);
+    }
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -46,7 +53,20 @@ public class ImageSliderAdapter extends RecyclerView.Adapter<ImageSliderAdapter.
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             mImageView = itemView.findViewById(R.id.imageSlider);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if(listener!=null)
+                        listener.onTouch(v,position);
+
+                }
+            });
+
         }
+
+
 
         public void bindSliderImage(String imageURL) {
             Glide.with(context)

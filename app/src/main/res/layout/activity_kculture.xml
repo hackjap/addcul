@@ -18,6 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:background="@drawable/style_kculture_bar"
             android:layout_weight="1">
             <Button
                 android:clickable="false"
@@ -31,6 +32,8 @@
         </LinearLayout>
 
         <LinearLayout
+            android:background="@drawable/style_kculture_bar"
+
             android:id="@+id/btn_shop_layout"
             android:clickable="true"
             android:layout_width="wrap_content"
@@ -51,6 +54,7 @@
 
         <LinearLayout
             android:id="@+id/btn_life_layout"
+            android:background="@drawable/style_kculture_bar"
             android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,16 +62,18 @@
             android:layout_weight="1">
 
             <Button
-                android:clickable="false"
                 android:id="@+id/btn_life"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/style_kculture_bar"
                 android:layout_gravity="center"
+                android:background="@drawable/style_kculture_bar"
+                android:clickable="false"
                 android:text="일상" />
         </LinearLayout>
 
         <LinearLayout
+            android:background="@drawable/style_kculture_bar"
+
             android:id="@+id/btn_travel_layout"
             android:clickable="true"
             android:layout_width="wrap_content"

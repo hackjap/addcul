@@ -90,7 +90,7 @@ public class IndexActivitiy extends AppCompatActivity {
             adapter = new RealChatAdapter(IndexActivitiy.this,chatInfos,memberInfos);
             recyclerView.setLayoutManager(new LinearLayoutManager(IndexActivitiy.this));
             recyclerView.setAdapter(adapter);
-
+            recyclerView.scrollToPosition(adapter.getItemCount()-1);
 
 
             conditionRef.orderByValue().addChildEventListener(new ChildEventListener() {
@@ -100,8 +100,12 @@ public class IndexActivitiy extends AppCompatActivity {
                     ChatData chatData = snapshot.getValue(ChatData.class);
                     Log.e("snapshot : ",chatData.getUserName() +" : " + chatData.getMessage());
 
-                    chatInfos.add(new ChatInfo(chatData.getUserName(),chatData.getMessage(),new Date(),firebaseUser.getUid()));
-                    adapter.notifyDataSetChanged();
+
+                    chatInfos.add(new ChatInfo(chatData.getUserName(),chatData.getMessage(),new Date(),chatData.getUid()));
+                    // adapter.notifyDataSetChanged();
+                    adapter = new RealChatAdapter(IndexActivitiy.this,chatInfos,memberInfos);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(IndexActivitiy.this));
+                    recyclerView.setAdapter(adapter);
                     recyclerView.scrollToPosition(adapter.getItemCount()-1);
                 }
 
@@ -126,11 +130,7 @@ public class IndexActivitiy extends AppCompatActivity {
                 }
             });
 
-
         }
-
-
-
 
     }
 
@@ -152,9 +152,17 @@ public class IndexActivitiy extends AppCompatActivity {
                             sendButton.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    final ChatData chatData = new ChatData( memberInfos.get(0).getName(), editText.getText().toString());
-                                    conditionRef.push().setValue(chatData);
-                                    editText.setText("");
+
+                                    if(editText.getText().length() > 0){
+                                        final ChatData chatData = new ChatData( memberInfos.get(0).getName(), editText.getText().toString(),firebaseUser.getUid());
+                                        conditionRef.push().setValue(chatData);
+                                        editText.setText("");
+
+                                    }
+                                        // 채팅메시지가 빈 값일 경우
+                                    else{
+                                        Toast.makeText(getApplicationContext(),"대화 내용을 입력해주세요",Toast.LENGTH_LONG).show();
+                                    }
                                 }
                             });
                         } else {

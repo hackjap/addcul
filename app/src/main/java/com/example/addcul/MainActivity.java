@@ -30,6 +30,7 @@ import com.example.addcul.Util.Util;
 import com.example.addcul.activity.chat.IndexActivitiy;
 import com.example.addcul.activity.config.BasicActivity;
 import com.example.addcul.activity.kculture.KcultureActivity;
+import com.example.addcul.activity.kculture.YoutubeActivity;
 import com.example.addcul.activity.post.ReadPostActivity;
 import com.example.addcul.activity.problem.ProblemActivity;
 import com.example.addcul.adapter.Corona19Adapter;
@@ -57,7 +58,7 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
     String photoUrl;
     ImageView home;
     RecyclerView recyclerView, rvNotice;
-
+    int faqFlag =0;
     private Util util;
     int flag = 0;
 
@@ -130,14 +131,25 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
         sliderViewPager = findViewById(R.id.sliderViewPager);
         layoutIndicator = findViewById(R.id.layoutIndicators);
 
+        ImageSliderAdapter imageSliderAdapter = new ImageSliderAdapter(this, images);
         sliderViewPager.setOffscreenPageLimit(1);
-        sliderViewPager.setAdapter(new ImageSliderAdapter(this, images));
+        sliderViewPager.setAdapter(imageSliderAdapter);
 
         sliderViewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
                 setCurrentIndicator(position);
+            }
+        });
+
+        imageSliderAdapter.setOnMyTouchListener(new ImageSliderAdapter.OnMyTouchListener() {
+            @Override
+            public void onTouch(View v, int position) {
+                if(position == 0){
+                    Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.naver.com"));
+                    startActivity(intent);
+                }
             }
         });
 
@@ -205,12 +217,34 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
         findViewById(R.id.tv_notice).setOnClickListener(onClickListener);
 
 
+        //FAQ
+        findViewById(R.id.faq_tv1).setOnClickListener(onClickListener);
+        findViewById(R.id.faq_tv2).setOnClickListener(onClickListener);
         // 공지사항 리사이클러뷰
+        NoticeAdapter noticeAdapter = new NoticeAdapter(getNotice());
         rvNotice = (RecyclerView) findViewById(R.id.rv_notice);
 
         rvNotice.setLayoutManager(new LinearLayoutManager(this));
-        rvNotice.setAdapter(new NoticeAdapter());
+        rvNotice.setAdapter(noticeAdapter);
 
+        noticeAdapter.setOnMyTouchLister(new NoticeAdapter.OnMyTouchLister() {
+            @Override
+            public void onTouch(View v, int position) {
+                if(position==0){
+                    Toast.makeText(getApplicationContext(),"test",Toast.LENGTH_LONG).show();
+                    startActivity(YoutubeActivity.class);
+                }
+                else if(position==1){
+                    Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("https://www.liveinkorea.kr/portal/KOR/board/mlbs/boardView.do?menuSeq=282&boardSeq=2&conSeq=394554"));
+                    startActivity(intent);
+                }
+                else if(position==2){
+                    Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("https://www.liveinkorea.kr/portal/KOR/board/mlbs/boardView.do?menuSeq=282&boardSeq=2&conSeq=401194"));
+                    startActivity(intent);
+                }
+
+            }
+        });
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -258,6 +292,39 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
                     Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_LONG).show();
                     Log.e("CXXTEST", "df");
                     break;
+                }
+                // FAQ
+                case R.id.faq_tv1:{
+                    if(faqFlag == 0) {
+                        findViewById(R.id.faq_explain1).setVisibility(View.VISIBLE);
+                        ImageView image  = findViewById(R.id.faq_img1);
+                        image.setImageResource(R.drawable.ic_baseline_arrow_drop_up_24);
+                        faqFlag = 1;
+                    }
+                    else{
+                        findViewById(R.id.faq_explain1).setVisibility(View.GONE);
+                        ImageView image  = findViewById(R.id.faq_img1);
+                        image.setImageResource(R.drawable.ic_arrow_drop_down_black_24dp);
+                        faqFlag =0;
+
+                    }
+                    break;
+                }
+                case R.id.faq_tv2:{
+                    if(faqFlag == 0) {
+                        findViewById(R.id.faq_explain2).setVisibility(View.VISIBLE);
+                        ImageView image  = findViewById(R.id.faq_img1);
+                        image.setImageResource(R.drawable.ic_baseline_arrow_drop_up_24);
+                        faqFlag = 1;
+                    }
+                    else{
+                        findViewById(R.id.faq_explain2).setVisibility(View.GONE);
+                        ImageView image  = findViewById(R.id.faq_img1);
+                        image.setImageResource(R.drawable.ic_arrow_drop_down_black_24dp);
+                        faqFlag =0;
+                    }
+                    break;
+
                 }
             } // end of switch
         }
@@ -367,5 +434,16 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
         recyclerView.setAdapter(new Corona19Adapter(list));
     }
 
+
+    private ArrayList<String> getNotice(){
+        ArrayList<String> noticeList = new ArrayList<>();
+        noticeList.add(0,"(추천) 애드컬 사용법 ver.1");
+        noticeList.add(1,"(코로나19) 사회적 거리 두기 단계별 기준 및 방역 조치");
+        noticeList.add(2,"2021년 한국생활가이드북 웰컴북");
+
+
+
+        return noticeList;
+    }
 
 }
