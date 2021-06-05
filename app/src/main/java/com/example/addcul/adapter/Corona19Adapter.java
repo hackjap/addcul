@@ -20,27 +20,23 @@ public class Corona19Adapter extends RecyclerView.Adapter<Corona19Adapter.Corona
         this.list=list;
     }
 
-
     @NonNull
     @Override
     public Corona19ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_corona19,parent,false);
         return new Corona19ViewHolder(view);
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull Corona19ViewHolder holder, int position) {
 
-
-            int  result = Integer.parseInt(list.get(position).getConf())-Integer.parseInt(list.get(position+1).getConf());
-
-            holder.date.setText(result+"▲");
+            int result = Integer.parseInt(list.get(position).getConf())-Integer.parseInt(list.get(position+1).getConf());
+            holder.date.setText("▲ "+result);
             holder.conf.setText(list.get(position).getConf());
             holder.release.setText(list.get(position).getRelease());
             holder.death.setText(list.get(position).getDeath());
             holder.exam.setText(list.get(position).getExam());
-
-
     }
 
     @Override

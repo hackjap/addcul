@@ -28,6 +28,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.addcul.DTO.CultureMAPInfo;
+import com.example.addcul.DTO.EmergencyMAPInfo;
+import com.example.addcul.DTO.WelfareMAPInfo;
 import com.example.addcul.R;
 import com.example.addcul.activity.config.BasicActivity;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -61,10 +63,10 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
     SupportMapFragment mapFragment;
     GoogleMap map;
     TextView tvAddress, tvCategory, tvName, tvHomepage, tvpNum;
-
+    int MARKER_FLAG = 0;
     //nav_category
     TextView btnCategoryArt, btnCategoryMuseum, btnMyLocation,
-            navCategoryTvConsertholl,navCategoryTvLibrary,navCategoryTvArtcenter,navCategoryTvEtc;
+            navCategoryTvConsertholl, navCategoryTvLibrary, navCategoryTvArtcenter, navCategoryTvEtc;
     ImageView imgCall, imgUrl;
     LinearLayout mapExplainContainer;
     LatLng latLng;
@@ -76,7 +78,7 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
     String result; // parsing 결과
     String address; // 주소
 
-    Marker marker;
+    Marker marker1, marker2, marker3;
     int nearPostion = 0;
     int partPosition = 0;
 
@@ -86,6 +88,8 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
 
     //
     ArrayList<CultureMAPInfo> data;
+    ArrayList<WelfareMAPInfo> welefareData;
+    ArrayList<EmergencyMAPInfo>emergencyData;
 
     // backbutton
     private final long FINISH_INTERVAL_TIME = 2000;
@@ -96,9 +100,9 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
     FrameLayout kCultureNav;
     FrameLayout welefareNav;
 
-    TextView footerTvKculture;
-    TextView footerTvWelefare;
-    TextView footerTvMychoice;
+    LinearLayout footerTvKculture;
+    LinearLayout footerTvWelefare;
+    LinearLayout footerTvEmergency;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,9 +132,9 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
         // local-footer - Binding
         kCultureNav = (FrameLayout) findViewById(R.id.map_frame_kculture_nav);
         welefareNav = (FrameLayout) findViewById(R.id.map_frame_welefare_nav);
-        footerTvKculture = (TextView) findViewById(R.id.map_footer_tv_kculture);
-        footerTvWelefare = (TextView) findViewById(R.id.map_footer_tv_welefare);
-        footerTvMychoice = (TextView) findViewById(R.id.map_footer_tv_my_choice);
+        footerTvKculture = (LinearLayout) findViewById(R.id.map_footer_tv_kculture);
+        footerTvWelefare = (LinearLayout) findViewById(R.id.map_footer_tv_welefare);
+        footerTvEmergency = (LinearLayout) findViewById(R.id.map_footer_tv_emergency);
 
         localFooterClickAction(); // localfooter 클릭 시 동작
 
@@ -147,10 +151,9 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
         ivMap.setImageResource(R.drawable.img_bar_map_yellow);
 
 
-        defaultUrl = "http://openapi.seoul.go.kr:8088/";
-        myAPIKey = "73555766486a616e38336d64466f53";
-
         data = new ArrayList<>();   // data 객체 초기화
+        welefareData = new ArrayList<>();
+        emergencyData = new ArrayList<>();
 
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
         AutoPermissions.Companion.loadAllPermissions(this, 101); // auto permission
@@ -180,7 +183,7 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
 
 
         // 현재 위치 정보 가져오기 버튼 동작
-        run();
+        cutureRun();
 
 
     } // end of onCreate
@@ -200,29 +203,83 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
         }
 
     }
+    private void emergencyRun() {    // makeRequest
 
-    private void run() {    // makeRequest
-        String listCount = "1/200/";
-        url = defaultUrl + myAPIKey + "/json/culturalSpaceInfo/" + listCount;
-        Log.e("Location : ", url);
+        url = "http://openapi.seoul.go.kr:8088/73555766486a616e38336d64466f53/json/TvEmgcHospitalInfo/1/100/";
+
         requestQueue = Volley.newRequestQueue(this);
         stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        // tvWeather.setText("날씨 : \n"+response);
 
+                        // 데이터 파싱 및 객체 가져오기
+                        setEmergencyJason(response);
 
-                        setJason(response); // data 객체 데이터 값 삽입
+                        //마커 표시
+                        emergencyMarkerService(emergencyData);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        tvName.setText(error.getMessage());
+                    }
+                }
+        ); // end of stringRequest argument
+        requestQueue.add(stringRequest);
+
+    }
+    private void welfareRun() {    // makeRequest
+
+        url = "https://openapi.gg.go.kr/MultipleCulturesFamilySupport?key=59bf4a04d0be4d56b741d21f0c9a2ee9&type=json&pIndex=1&pSize=100";
+
+        requestQueue = Volley.newRequestQueue(this);
+        stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        setWelfareJason(response); // data 객체 데이터 값 삽입
+
+                        // latLng = new LatLng(welefareData.get(0).getLatitude(), welefareData.get(0).getLongitude());
+                        //마커 표시
+                        welefareMarkerService(welefareData);
+                        // locationServices(); // location에 내 위치 저장
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        tvName.setText(error.getMessage());
+                    }
+                }
+        ); // end of stringRequest argument
+        requestQueue.add(stringRequest);
+
+    }
+
+    private void cutureRun() {    // makeRequest
+
+        String listCount = "1/200/";
+        defaultUrl = "http://openapi.seoul.go.kr:8088/";
+        myAPIKey = "73555766486a616e38336d64466f53";
+        url = defaultUrl + myAPIKey + "/json/culturalSpaceInfo/" + listCount;
+
+        requestQueue = Volley.newRequestQueue(this);
+        stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        setCultureJason(response); // data 객체 데이터 값 삽입
 
                         latLng = new LatLng(data.get(0).getLatitude(), data.get(0).getLongitude());
 
-
                         LatLng testLocation = new LatLng(37.566680508881475, 126.99758279442203);  //37.566680508881475, 126.99758279442203 을지로4가역
 
-
                         //  map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 14)); // 기본 설정 위치
-                        map.setMyLocationEnabled(true);
+                        //map.setMyLocationEnabled(true);
                         locationServices(); // location에 내 위치 저장
 
                         // 현재 내 위치
@@ -318,11 +375,18 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
 
     }
 
+
     @Override
     public boolean onMarkerClick(Marker marker) {
 
         Integer markerPosition = (Integer) marker.getTag();  // 마커에서 데이터 검색
-        getContents(markerPosition);
+        if(MARKER_FLAG ==0)
+            getKultureContents(markerPosition);
+        else if(MARKER_FLAG == 1)
+            getWelfareContents(markerPosition);
+        else if(MARKER_FLAG == 2)
+            getEmergencyContents(markerPosition);
+
         mapExplainContainer.setVisibility(View.VISIBLE);
 
         // textViewChange(i);
@@ -338,11 +402,11 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
         }
          */
 
-
         return false;
     }
 
-    public void getContents(final int position) {
+    public void getKultureContents(final int position) {
+        MARKER_FLAG = 0;
         tvCategory.setText(data.get(position).getCategory());
         tvName.setText(data.get(position).getName());
         tvAddress.setText(data.get(position).getAddr());
@@ -363,33 +427,129 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
                 startActivity(intent);
             }
         });
-
-
-        // tvHomepage.setText("홈페이지 : "+ data.get(position).getHomepage());
-        //tvpNum.setText("전화번호 : " + data.get(position).getpNum());
     }
 
-    public void markerService(ArrayList<CultureMAPInfo> data, String mapCategory) {
+        public void getWelfareContents(final int position) {
+            MARKER_FLAG = 1;
+
+            tvName.setText(welefareData.get(position).getName());
+            tvAddress.setText(welefareData.get(position).getAddr());
+            // Log.e("포지션 : ",partPosition+" ");
+            imgCall.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // 전화 연결
+                    Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + welefareData.get(position).getpNum()));
+                    startActivity(intent);
+                }
+            });
+            imgUrl.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//                    //url 연결
+//                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(welefareData.get(position).getHomepage()));
+//                    startActivity(intent);
+                }
+            });
+        }
+            public void getEmergencyContents(final int position) {
+                MARKER_FLAG = 2;
+                tvCategory.setText(emergencyData.get(position).getCategory());
+                tvName.setText(emergencyData.get(position).getName());
+                tvAddress.setText(emergencyData.get(position).getAddr());
+                // Log.e("포지션 : ",partPosition+" ");
+                imgCall.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // 전화 연결
+                        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + emergencyData.get(position).getpNum()));
+                        startActivity(intent);
+                    }
+                });
+                imgUrl.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+//                    //url 연결
+//                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(welefareData.get(position).getHomepage()));
+//                    startActivity(intent);
+                    }
+                });
+
+    }
+
+    public void emergencyMarkerService(ArrayList<EmergencyMAPInfo> EData) {
+        map.clear();
+        for (int i = 0; i < EData.size(); i++) {
+
+            double latitude = EData.get(i).getLatitude();
+            double longitude = EData.get(i).getLongitude();
+
+            LatLng welfareLatLng = new LatLng(latitude,longitude);
+
+            Log.e("LATLATTIDUE1 :", welfareLatLng + "");
+            Log.e("LATLATTIDUE2 :", latitude + "");
+            Log.e("LATLATTIDUE3 :", longitude + "");
+
+            MarkerOptions markerOptions = new MarkerOptions()
+                    .position(welfareLatLng).title(EData.get(i)
+                            .getName()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+            marker2 = map.addMarker(markerOptions);
+            marker2.setTag(i);
+            marker2.showInfoWindow();
+            getEmergencyContents(i);
+        }
+        map.setOnMarkerClickListener(this);
+
+    }
+
+
+    public void welefareMarkerService(ArrayList<WelfareMAPInfo> wData) {
+        map.clear();
+        for (int i = 0; i < wData.size(); i++) {
+
+            double latitude = wData.get(i).getLatitude();
+            double longitude = wData.get(i).getLongitude();
+
+            LatLng welfareLatLng = new LatLng(latitude,longitude);
+
+            Log.e("LATLATTIDUE1 :", welfareLatLng + "");
+            Log.e("LATLATTIDUE2 :", latitude + "");
+            Log.e("LATLATTIDUE3 :", longitude + "");
+
+            MarkerOptions markerOptions = new MarkerOptions()
+                    .position(welfareLatLng).title(wData.get(i)
+                            .getName()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
+            marker2 = map.addMarker(markerOptions);
+            marker2.setTag(i);
+            marker2.showInfoWindow();
+           getWelfareContents(i);
+        }
+        map.setOnMarkerClickListener(this);
+
+    }
+
+    public void markerService(ArrayList<CultureMAPInfo> cData, String mapCategory) {
 //       int categoryPostion=0;
 
         map.clear();
-        for (int i = 0; i < data.size(); i++) {
+        for (int i = 0; i < cData.size(); i++) {
 
-            String category = data.get(i).getCategory();
+            String category = cData.get(i).getCategory();
             Log.e("Test Category : ", category);
             Log.e("Test MAPCategory : ", mapCategory);
             if (mapCategory.equals(category)) {
                 Log.e("Test Position : ", "111");
-                latLng = new LatLng(data.get(i).getLatitude(), data.get(i).getLongitude());
-
+                LatLng cultureLatLng = new LatLng(cData.get(i).getLatitude(), cData.get(i).getLongitude());
+                Log.e("LATLATTIDUE2 :", latLng.toString());
                 MarkerOptions markerOptions = new MarkerOptions()
-                        .position(latLng).title(data.get(i)
-                                .getName()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
-                marker = map.addMarker(markerOptions);
-                marker.setTag(i);
+                        .position(cultureLatLng).title(cData.get(i)
+                                .getName()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW));
+                marker1 = map.addMarker(markerOptions);
+                marker1.setTag(i);
+                marker1.showInfoWindow();
 
 
-                getContents(i);
+                getKultureContents(i);
             }
 
 
@@ -398,26 +558,105 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
             tvAddress.setText("주소 : " + data.get(i).getAddr());
             tvLatlng.setText("위도 : " + latitude + "\n경도 : " + longitude);
 
-
              */
         }
         map.setOnMarkerClickListener(this);
 
     }
 
-
-    public void setJason(String response) {
+    public void setEmergencyJason(String response) {
 
         try {
-            Log.e("JSonData : ", "33333333333333333333333333333333");
-            Log.e("getJason : ", response);
 
             JSONObject jsonObject = new JSONObject(response);
-            String culturalSpaceInfo = jsonObject.getString("culturalSpaceInfo");
-            JSONObject subObject = new JSONObject(culturalSpaceInfo);
-
+            Log.e("getJason1 : ", jsonObject.toString());
+            String tvEmgcHospitalInfo = jsonObject.getString("TvEmgcHospitalInfo");
+            Log.e("getJason2 : ", tvEmgcHospitalInfo);
+            JSONObject subObject = new JSONObject(tvEmgcHospitalInfo);
+            Log.e("getJason3 : ", subObject.toString());
             String row = subObject.getString("row");
+
+            JSONArray rowArray = new JSONArray(row);
+            Log.e("getJason7 : ", rowArray.toString());
+            for (int i = 0; i < rowArray.length(); i++) {
+                String index = rowArray.getString(i);
+                JSONObject emergency = new JSONObject(index);
+
+                String category = emergency.getString("DUTYDIVNAM");
+                String name = emergency.getString("DUTYNAME");        // 이름
+                Log.e("getJason8 : ", name);
+                String addr = emergency.getString("DUTYADDR");            // 주소
+                String pNum = emergency.getString("DUTYTEL3");            // 전화번호
+                double latitude = emergency.getDouble("WGS84LAT");    // 위도
+                double longitude = emergency.getDouble("WGS84LON");  // 경도
+
+                emergencyData.add(new EmergencyMAPInfo(category,name, addr, pNum, latitude, longitude));
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+    public void setWelfareJason(String response) {
+
+        try {
+
+            JSONObject jsonObject = new JSONObject(response);
+            Log.e("getJason1 : ", jsonObject.toString());
+            String multipleCulturesFamilySupport = jsonObject.getString("MultipleCulturesFamilySupport");
+            Log.e("getJason2 : ", multipleCulturesFamilySupport);
+            JSONArray jsonArray = new JSONArray(multipleCulturesFamilySupport);
+            Log.e("getJason3 : ", jsonArray.toString());
+            String firstIndex = jsonArray.get(1).toString();
+            Log.e("getJason4 : ", firstIndex);
+            JSONObject rowObject = new JSONObject(firstIndex);
+            Log.e("getJason5 : ", rowObject.toString());
+            String row = rowObject.getString("row");
+            Log.e("getJason6 : ", row);
+
+
+            JSONArray rowArray = new JSONArray(row);
+            Log.e("getJason7 : ", rowArray.toString());
+            for (int i = 0; i < rowArray.length(); i++) {
+                String index = rowArray.getString(i);
+                JSONObject welfare = new JSONObject(index);
+                String name = welfare.getString("INST_GRP_NM");        // 이름
+                Log.e("getJason8 : ", name);
+                String addr = welfare.getString("REFINE_LOTNO_ADDR");            // 주소
+                String pNum = welfare.getString("CONTCT_NO");            // 전화번호
+                double latitude = welfare.getDouble("REFINE_WGS84_LAT");    // 위도
+                double longitude = welfare.getDouble("REFINE_WGS84_LOGT");  // 경도
+
+                welefareData.add(new WelfareMAPInfo(name, addr, pNum, latitude, longitude));
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+    public void setCultureJason(String response) {
+
+        try {
+
+            JSONObject jsonObject = new JSONObject(response);
+            //Log.e("getJason1 : ", jsonObject.toString());
+            String culturalSpaceInfo = jsonObject.getString("culturalSpaceInfo");
+            // Log.e("getJason2 : ", culturalSpaceInfo);
+            JSONObject subObject = new JSONObject(culturalSpaceInfo);
+            // Log.e("getJason3 : ", subObject.toString());
+            String row = subObject.getString("row");
+            // Log.e("getJason4 : ", row);
             JSONArray jsonArray = new JSONArray(row);
+            // Log.e("getJason4 : ", jsonArray.toString());
+
 
             for (int i = 0; i < jsonArray.length(); i++) {
                 String index = jsonArray.getString(i);
@@ -518,29 +757,31 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
                 //part_up_round_back
                 footerTvKculture.setBackgroundResource(R.drawable.part_up_round_back);
                 footerTvWelefare.setBackgroundResource(R.drawable.default_back);
-                footerTvMychoice.setBackgroundResource(R.drawable.default_back);
+                footerTvEmergency.setBackgroundResource(R.drawable.default_back);
             }
         });
         footerTvWelefare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                welefareNav.setVisibility(View.VISIBLE);
+//                welefareNav.setVisibility(View.VISIBLE);
                 kCultureNav.setVisibility(View.GONE);
                 //part_up_round_back
                 footerTvWelefare.setBackgroundResource(R.drawable.part_up_round_back);
                 footerTvKculture.setBackgroundResource(R.drawable.default_back);
-                footerTvMychoice.setBackgroundResource(R.drawable.default_back);
+                footerTvEmergency.setBackgroundResource(R.drawable.default_back);
+                welfareRun();
             }
         });
-        footerTvMychoice.setOnClickListener(new View.OnClickListener() {
+        footerTvEmergency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 kCultureNav.setVisibility(View.GONE);
                 welefareNav.setVisibility(View.GONE);
                 //part_up_round_back
-                footerTvMychoice.setBackgroundResource(R.drawable.part_up_round_back);
+                footerTvEmergency.setBackgroundResource(R.drawable.part_up_round_back);
                 footerTvKculture.setBackgroundResource(R.drawable.default_back);
                 footerTvWelefare.setBackgroundResource(R.drawable.default_back);
+                emergencyRun();
             }
         });
     }
