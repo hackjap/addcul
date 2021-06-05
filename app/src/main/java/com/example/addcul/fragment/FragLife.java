@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.addcul.Util.DBHelper;
 import com.example.addcul.DTO.LifeInfo;
 import com.example.addcul.R;
+import com.example.addcul.activity.kculture.YoutubeActivity;
 import com.example.addcul.adapter.LifeAdapter;
 import com.example.addcul.lifeInfo.NaverActivity;
 
@@ -68,8 +69,16 @@ public class FragLife extends Fragment {
             public void onTouch(View v, int postion) {
                 Log.e("출력 : ","출력 ");
 
-                Intent intent = new Intent(getContext(), NaverActivity.class);
-                startActivity(intent);
+                if(postion == 0){
+                    Intent intent = new Intent(getContext(), NaverActivity.class);
+                    startActivity(intent);
+                }
+
+                else if(postion ==3){
+                    Intent intent = new Intent(getContext(), YoutubeActivity.class);
+                    startActivity(intent);
+                }
+
             }
         });
         return view;

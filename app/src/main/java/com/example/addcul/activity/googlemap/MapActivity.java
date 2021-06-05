@@ -218,6 +218,7 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
 
                         //마커 표시
                         emergencyMarkerService(emergencyData);
+                        map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.55512522440527, 126.96981185690053), 12));
                     }
                 },
                 new Response.ErrorListener() {
@@ -245,6 +246,7 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
                         // latLng = new LatLng(welefareData.get(0).getLatitude(), welefareData.get(0).getLongitude());
                         //마커 표시
                         welefareMarkerService(welefareData);
+                        map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.55512522440527, 126.96981185690053), 10));
                         // locationServices(); // location에 내 위치 저장
                     }
                 },
@@ -261,7 +263,7 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
 
     private void cutureRun() {    // makeRequest
 
-        String listCount = "1/200/";
+        String listCount = "1/300/";
         defaultUrl = "http://openapi.seoul.go.kr:8088/";
         myAPIKey = "73555766486a616e38336d64466f53";
         url = defaultUrl + myAPIKey + "/json/culturalSpaceInfo/" + listCount;
@@ -281,6 +283,7 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
                         //  map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 14)); // 기본 설정 위치
                         //map.setMyLocationEnabled(true);
                         locationServices(); // location에 내 위치 저장
+
 
                         // 현재 내 위치
                         Double myLatitude = location.getLatitude();
@@ -327,37 +330,42 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
                             @Override
                             public void onClick(View v) {
                                 markerService(data, "미술관");
-
+                                map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.55512522440527, 126.96981185690053), 11));
                             }
                         });
                         btnCategoryMuseum.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 markerService(data, "박물관/기념관");
+                                map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.55512522440527, 126.96981185690053), 11));
                             }
                         });
                         navCategoryTvConsertholl.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 markerService(data, "공연장");
+                                map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.55512522440527, 126.96981185690053), 11));
                             }
                         });
                         navCategoryTvLibrary.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 markerService(data, "도서관");
+                                map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.55512522440527, 126.96981185690053), 11));
                             }
                         });
                         navCategoryTvArtcenter.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 markerService(data, "문화예술회관");
+                                map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.55512522440527, 126.96981185690053), 11));
                             }
                         });
                         navCategoryTvEtc.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 markerService(data, "기타");
+                                map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.55512522440527, 126.96981185690053), 11));
                             }
                         });
 

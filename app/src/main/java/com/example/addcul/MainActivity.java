@@ -1,12 +1,15 @@
 package com.example.addcul;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -189,6 +192,9 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
         findViewById(R.id.img_problem).setOnClickListener(onClickListener);
         findViewById(R.id.tv_problem).setOnClickListener(onClickListener);
 
+        // 매인 베너
+        findViewById(R.id.sliderContainer).setOnClickListener(onClickListener);
+
         // footer 바인딩
         // 하단메뉴
         findViewById(R.id.img_search).setOnClickListener(onFooterlistner);
@@ -245,6 +251,14 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
                 case R.id.tv_notice:
                     startActivity(IndexActivitiy.class);
                     break;
+
+                case R.id.sliderContainer: {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.naver.com"));
+                    startActivity(intent);
+                    Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_LONG).show();
+                    Log.e("CXXTEST", "df");
+                    break;
+                }
             } // end of switch
         }
     };
