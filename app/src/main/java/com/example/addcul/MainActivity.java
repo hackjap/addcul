@@ -167,6 +167,7 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
 
         } else {  // 로그인 상태일때
 
+
             myInfoProfile.setImageResource(R.drawable.ic_account_circle_black_24dp);
             myInfoText.setText("내정보");
 
@@ -313,13 +314,13 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
                 case R.id.faq_tv2:{
                     if(faqFlag == 0) {
                         findViewById(R.id.faq_explain2).setVisibility(View.VISIBLE);
-                        ImageView image  = findViewById(R.id.faq_img1);
+                        ImageView image  = findViewById(R.id.faq_img2);
                         image.setImageResource(R.drawable.ic_baseline_arrow_drop_up_24);
                         faqFlag = 1;
                     }
                     else{
                         findViewById(R.id.faq_explain2).setVisibility(View.GONE);
-                        ImageView image  = findViewById(R.id.faq_img1);
+                        ImageView image  = findViewById(R.id.faq_img2);
                         image.setImageResource(R.drawable.ic_arrow_drop_down_black_24dp);
                         faqFlag =0;
                     }

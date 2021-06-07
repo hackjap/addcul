@@ -83,11 +83,11 @@ public class IndexActivitiy extends AppCompatActivity {
             myInfoProfile.setImageResource(R.drawable.ic_account_circle_black_24dp);
             myInfoText.setText("내정보");
 
-
             getUserName(userName);
             //chatUpdate();
 
-            adapter = new RealChatAdapter(IndexActivitiy.this,chatInfos,memberInfos);
+
+                    adapter = new RealChatAdapter(IndexActivitiy.this,chatInfos,memberInfos);
             recyclerView.setLayoutManager(new LinearLayoutManager(IndexActivitiy.this));
             recyclerView.setAdapter(adapter);
             recyclerView.scrollToPosition(adapter.getItemCount()-1);
@@ -148,6 +148,7 @@ public class IndexActivitiy extends AppCompatActivity {
                             memberInfos.add(new MemberInfo(
                                     document.getData().get("name").toString(),
                                     firebaseUser.getUid())
+
                             );
                             sendButton.setOnClickListener(new View.OnClickListener() {
                                 @Override

@@ -439,7 +439,7 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
 
         public void getWelfareContents(final int position) {
             MARKER_FLAG = 1;
-
+            tvCategory.setText("");
             tvName.setText(welefareData.get(position).getName());
             tvAddress.setText(welefareData.get(position).getAddr());
             // Log.e("포지션 : ",partPosition+" ");

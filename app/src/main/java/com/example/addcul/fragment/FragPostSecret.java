@@ -16,7 +16,6 @@ import com.example.addcul.DTO.MemberInfo;
 import com.example.addcul.DTO.PostInfo;
 import com.example.addcul.R;
 import com.example.addcul.Util.Util;
-import com.example.addcul.activity.post.WritePostActivity;
 import com.example.addcul.activity.post.WritePostSecretActivity;
 import com.example.addcul.adapter.MainAdapter;
 import com.example.addcul.listener.OnPostListener;
@@ -154,7 +153,7 @@ public class FragPostSecret extends Fragment {
         @Override
         public void onModify(int position) {
 
-            myStartActivity(WritePostActivity.class, postList.get(position));
+            myStartActivity(WritePostSecretActivity.class, postList.get(position));
         }
 
     };

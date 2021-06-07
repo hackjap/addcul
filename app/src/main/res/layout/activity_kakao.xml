@@ -19,6 +19,32 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="오늘은 대한민국의 필수 메신저앱인 카카오톡에 대해 알바보겠습니다. "></TextView>
+
+
+        <ImageView
+            android:id="@+id/img_kakao1"
+            android:layout_width="380dp"
+            android:layout_height="190dp"
+            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/kakao1" />
+
+        <TextView
+            android:id="@+id/tv_food_explain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="카카오톡 설치 안내 동영상 ">
+
+        </TextView>
         <com.google.android.youtube.player.YouTubePlayerView
             android:id="@+id/youtubeView"
             android:layout_width="380dp"
@@ -27,22 +53,7 @@
 
         </com.google.android.youtube.player.YouTubePlayerView>
 
-        <TextView
-            android:id="@+id/tv_food_explain"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="ITZY는 JYP엔터테인멘트가 TWICE이후 3년 4개월 만에 선보인 5인조 걸그룹으로 2월 12에 데뷔했다. 있지라고 있으며 ‘너희가 원하는거 전부 있지? 있지!’ 라는 뜻을 갖고 있다." />
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="380dp"
-            android:layout_height="280dp"
-            android:layout_margin="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:src="@drawable/img_itzy" />
 
         <TextView
             android:id="@+id/tv_food_explain2"
@@ -50,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="ITZY는 JYP엔터테인멘트가 TWICE이후 3년 4개월 만에 선보인 5인조 걸그룹으로 2월 12에 데뷔했다. 있지라고 있으며 ‘너희가 원하는거 전부 있지? 있지!’ 라는 뜻을 갖고 있다." />
+           ></TextView>
 
     </LinearLayout>
 

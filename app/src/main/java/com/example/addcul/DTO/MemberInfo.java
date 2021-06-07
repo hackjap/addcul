@@ -24,7 +24,6 @@ public class MemberInfo {
     public MemberInfo(String name,String uid) {
         this.name = name;
         this.uid = uid;
-
     }
     // getUserName;
     public MemberInfo(String name){

@@ -93,6 +93,7 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Vi
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
         View view = viewHolder.view;
+        TextView nameTextView = viewHolder.view.findViewById(R.id.post_detail_tv_name); // 게시글 제목 텍스트뷰
 
         TextView contentsTextView = view.findViewById(R.id.post_detail_tv_contents);
         TextView createdTextView = view.findViewById(R.id.post_detail_tv_created);   // 게시글 날짜 텍스트뷰
@@ -168,7 +169,10 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Vi
                                     document.getData().get("name").toString()));
                             // postName.setText(memberInfos.get(0).getName());
                                 TextView nameTextView = viewHolder.view.findViewById(R.id.post_detail_tv_name); // 게시글 제목 텍스트뷰
-                                nameTextView.setText(memberInfos.get(0).getName());
+
+                                    nameTextView.setText(memberInfos.get(0).getName());
+
+
                                 Log.e("CXX",memberInfos.get(0).getName());
                         }
                     }

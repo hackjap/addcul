@@ -52,6 +52,15 @@ public class TranslationActivity extends BasicActivity {
         ivTran.setImageResource(R.drawable.ic_translate_yellow_24dp);
 
 
+        if (firebaseUser == null) { // 로그인 상태가 아닐때
+
+        } else {
+            TextView tvMyinfo = (TextView) findViewById(R.id.tv_my_info);
+            ImageView ivMyinfo = (ImageView) findViewById(R.id.img_my_info);
+            ivMyinfo.setImageResource(R.drawable.ic_account_circle_black_24dp);
+            tvMyinfo.setText("내정보");
+
+        }
 
 
         //번역 실행버튼 클릭이벤트

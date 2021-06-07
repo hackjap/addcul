@@ -16,9 +16,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.addcul.Util.DBHelper;
 import com.example.addcul.DTO.LifeInfo;
 import com.example.addcul.R;
+import com.example.addcul.activity.kculture.KakaoActivity;
 import com.example.addcul.activity.kculture.YoutubeActivity;
 import com.example.addcul.adapter.LifeAdapter;
-import com.example.addcul.lifeInfo.NaverActivity;
+import com.example.addcul.activity.kculture.NaverActivity;
 
 import java.util.ArrayList;
 
@@ -74,6 +75,13 @@ public class FragLife extends Fragment {
                     startActivity(intent);
                 }
 
+                else if(postion ==1){
+                    Intent intent = new Intent(getContext(), KakaoActivity.class);
+                    startActivity(intent);
+                }
+                else if(postion ==2){
+
+                }
                 else if(postion ==3){
                     Intent intent = new Intent(getContext(), YoutubeActivity.class);
                     startActivity(intent);

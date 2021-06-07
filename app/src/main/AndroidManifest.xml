@@ -18,6 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+
         <activity android:name=".activity.chat.IndexActivitiy"></activity>
         <activity android:name=".activity.post.ReadPostDetailActivity"
             >
@@ -67,7 +68,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".lifeInfo.NaverActivity" />
+        <activity android:name=".activity.kculture.NaverActivity" />
         <activity android:name=".activity.config.BasicActivity" />
         <activity android:name=".activity.post.ReadPostActivity" />
         <activity android:name=".activity.account.LoginActivity" />
@@ -85,6 +86,8 @@
         <activity android:name=".activity.kculture.ExperienceActivity03_6" />
         <activity android:name=".activity.problem.EmployActivity" />
         <activity android:name=".activity.problem.BasiclifeActivity" />
+        <activity android:name=".activity.kculture.KakaoActivity" />
+
         <activity
             android:name=".activity.account.SignUpActivity"
             android:windowSoftInputMode="adjustPan" />
