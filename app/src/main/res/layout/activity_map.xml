@@ -27,7 +27,8 @@
                 android:visibility="gone">
 
                 <HorizontalScrollView
-                    android:layout_width="match_parent"
+                    android:layout_marginTop="3dp"
+                    android:layout_width="320dp"
                     android:layout_height="wrap_content"
                     android:scrollbars="none">
 
@@ -44,11 +45,11 @@
                             android:background="@drawable/style_map_border"
                             android:gravity="center"
                             android:orientation="horizontal"
-                            android:padding="12dp">
+                            android:padding="10dp">
 
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
                                 android:layout_marginRight="10dp"
                                 app:srcCompat="@drawable/img_map_musieum" />
 
@@ -58,7 +59,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="박물관"
                                 android:textColor="@color/basic_text"
-                                android:textSize="18dp" />
+                                android:textSize="15dp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -68,11 +69,11 @@
                             android:background="@drawable/style_map_border"
                             android:gravity="center"
                             android:orientation="horizontal"
-                            android:padding="12dp">
+                            android:padding="10dp">
 
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
                                 android:layout_marginRight="10dp"
                                 app:srcCompat="@drawable/img_map_art" />
 
@@ -82,7 +83,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="미술관"
                                 android:textColor="@color/basic_text"
-                                android:textSize="18dp" />
+                                android:textSize="15dp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -92,11 +93,11 @@
                             android:background="@drawable/style_map_border"
                             android:gravity="center"
                             android:orientation="horizontal"
-                            android:padding="12dp">
+                            android:padding="10dp">
 
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
                                 android:layout_marginRight="10dp"
                                 app:srcCompat="@drawable/img_map_concert_hall" />
 
@@ -106,7 +107,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="공연장"
                                 android:textColor="@color/basic_text"
-                                android:textSize="18dp" />
+                                android:textSize="15dp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -116,11 +117,11 @@
                             android:background="@drawable/style_map_border"
                             android:gravity="center"
                             android:orientation="horizontal"
-                            android:padding="12dp">
+                            android:padding="10dp">
 
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
                                 android:layout_marginRight="10dp"
                                 app:srcCompat="@drawable/img_map_library" />
 
@@ -130,7 +131,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="도서관"
                                 android:textColor="@color/basic_text"
-                                android:textSize="18dp" />
+                                android:textSize="15dp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -140,11 +141,11 @@
                             android:background="@drawable/style_map_border"
                             android:gravity="center"
                             android:orientation="horizontal"
-                            android:padding="12dp">
+                            android:padding="10dp">
 
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
                                 android:layout_marginRight="10dp"
                                 app:srcCompat="@drawable/img_map_artcenter" />
 
@@ -154,7 +155,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="문화예술회관"
                                 android:textColor="@color/basic_text"
-                                android:textSize="18dp" />
+                                android:textSize="15dp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -164,11 +165,11 @@
                             android:background="@drawable/style_map_border"
                             android:gravity="center"
                             android:orientation="horizontal"
-                            android:padding="12dp">
+                            android:padding="10dp">
 
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
                                 android:layout_marginRight="10dp"
                                 app:srcCompat="@drawable/img_map_etc" />
 
@@ -178,7 +179,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="기타"
                                 android:textColor="@color/basic_text"
-                                android:textSize="18dp" />
+                                android:textSize="15dp" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -253,9 +254,8 @@
     <LinearLayout
         android:id="@+id/map_explain_container"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:layout_weight="1"
         android:orientation="vertical"
         android:visibility="gone">
         <!--맵 선택 시 서브 페이지-->
@@ -286,7 +286,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/basic_text"
-                            android:textSize="20dp"
+                            android:textSize="18dp"
                             android:textStyle="bold"
                             tools:text="서울 식물원" />
 
@@ -295,8 +295,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
-                            tools:text="기타"
-                            android:textSize="16dp" />
+                            android:textSize="15dp"
+                            tools:text="기타" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -306,19 +306,19 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:layout_gravity="top"
                             android:id="@+id/imageView12"
                             android:layout_width="30dp"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="top"
                             app:srcCompat="@drawable/ic_location_on_black_24dp" />
 
                         <TextView
-                            android:layout_gravity="center"
                             android:id="@+id/tv_address"
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
-                            tools:text="퇴계로 34길 28"
-                            android:textSize="15dp" />
+                            android:layout_gravity="center"
+                            android:textSize="15dp"
+                            tools:text="퇴계로 34길 28" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -326,21 +326,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/style_map_border"
-                    android:gravity="center|center_vertical">
+                    android:layout_gravity="end">
 
                     <ImageView
                         android:id="@+id/img_call"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
                         app:srcCompat="@drawable/ic_call_black_24dp" />
 
                     <ImageView
                         android:id="@+id/img_url"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="15dp"
                         app:srcCompat="@drawable/ic_web_black_24dp" />
                 </LinearLayout>
             </LinearLayout>
@@ -351,95 +350,88 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.2"
+        android:layout_weight="0.15"
         android:background="#00ffffff"
         android:orientation="horizontal">
 
+        //한국 문화
+
         <LinearLayout
             android:id="@+id/map_footer_tv_kculture"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#00ffffff"
+            android:gravity="center"
             android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_surround_sound_24"
                 android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_marginLeft="20dp"
-                ></ImageView>
+                android:src="@drawable/ic_baseline_surround_sound_24"></ImageView>
 
             <TextView
-
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
                 android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
                 android:text="한국 문화"
-                android:layout_marginLeft="-10dp"
                 android:textColor="@color/basic_text"
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
+        //다문화센터
+
         <LinearLayout
             android:id="@+id/map_footer_tv_welefare"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#00ffffff"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:src="@drawable/ic_baseline_domain_24">
+                android:src="@drawable/ic_baseline_domain_24" />
 
-            </ImageView>
             <TextView
-
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
                 android:text="다문화 센터"
                 android:textColor="@color/basic_text"
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
+        //응급센터
+
         <LinearLayout
             android:id="@+id/map_footer_tv_emergency"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginRight="20dp"
             android:background="#00ffffff"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:src="@drawable/ic_baseline_local_hospital_24"
-                android:layout_weight="1"
-                android:layout_marginLeft="13dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_height="wrap_content">
+                android:src="@drawable/ic_baseline_local_hospital_24" />
 
-            </ImageView>
             <TextView
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-
                 android:layout_gravity="center"
-
+                android:layout_marginLeft="10dp"
                 android:text="응급센터"
                 android:textColor="@color/basic_text"
                 android:textSize="18sp"

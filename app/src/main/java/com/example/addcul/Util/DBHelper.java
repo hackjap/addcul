@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final int VERSION = 89;
+    public static final int VERSION = 105;
 
     public DBHelper(Context context) {
         super(context, "addculDB", null, VERSION);
@@ -43,12 +43,12 @@ public class DBHelper extends SQLiteOpenHelper {
                 "tag text," +
                 "photo text);";
         db.execSQL(shopSQL);
-        db.execSQL("insert into shopWomen(name, tag, photo)values ('지그재그','#구글 앱  #통합 쇼핑앱', 'img_shop_zigzag')");
-        db.execSQL("insert into shopWomen(name, tag, photo)values ('마이더스비','#1+1  #베이직 의류', 'img_shop_midasb')");
-        db.execSQL("insert into shopWomen(name, tag, photo)values ('러브패리스','#고급적 #중저가  #오피스룩', 'img_shop_loveparis')");
-        db.execSQL("insert into shopWomen(name, tag, photo)values ('저스트원','#청바지  #배기진', 'img_shop_justone')");
-        db.execSQL("insert into shopWomen(name, tag, photo)values ('모코블링','#독특한 스타일  #호불호', 'img_shop_mocobling')");
-        db.execSQL("insert into shopWomen(name, tag, photo)values ('피핀','#데일리룩 #키에 따른 바지 사이즈', 'img_shop_pippin')");
+        db.execSQL("insert into shopWomen(name, tag, photo)values ('지그재그','#구글 앱\n#통합 쇼핑앱', 'img_shop_zigzag')");
+        db.execSQL("insert into shopWomen(name, tag, photo)values ('마이더스비','#1+1\n#베이직 의류', 'img_shop_midasb')");
+        db.execSQL("insert into shopWomen(name, tag, photo)values ('러브패리스','#고급적의류가 중저가\n#오피스룩', 'img_shop_loveparis')");
+        db.execSQL("insert into shopWomen(name, tag, photo)values ('저스트원','#청바지\n#배기진', 'img_shop_justone')");
+        db.execSQL("insert into shopWomen(name, tag, photo)values ('모코블링','#독특한 스타일\n#호불호', 'img_shop_mocobling')");
+        db.execSQL("insert into shopWomen(name, tag, photo)values ('피핀','#데일리룩\n#키에 따른 바지 사이즈', 'img_shop_pippin')");
 
         String shopSQL2 = "create table shopMen(" +
                 "_id integer primary key autoincrement," +
@@ -56,12 +56,12 @@ public class DBHelper extends SQLiteOpenHelper {
                 "tag text," +
                 "photo text);";
         db.execSQL(shopSQL2);
-        db.execSQL("insert into shopMen(name, tag, photo)values ('무신사','#종합 쇼핑몰  #무료 배송', 'img_shop_musinsa')");
-        db.execSQL("insert into shopMen(name, tag, photo)values ('조군샵','#데일리룩 추천  #셔츠 맛집', 'img_shop_jogunshop')");
-        db.execSQL("insert into shopMen(name, tag, photo)values ('바이더알','#자체제작  #셀렉트샵', 'img_shop_byther')");
-        db.execSQL("insert into shopMen(name, tag, photo)values ('모던이프','#아우터  #1+1', 'img_shop_modernif')");
-        db.execSQL("insert into shopMen(name, tag, photo)values ('슈퍼스타아이','#1+1+1  #코디 세트', 'img_shop_superstari')");
-        db.execSQL("insert into shopMen(name, tag, photo)values ('락커룸','#신상 맛집  #저렴한 가격', 'img_shop_locker')");
+        db.execSQL("insert into shopMen(name, tag, photo)values ('무신사','#종합 쇼핑몰\n#무료 배송', 'img_shop_musinsa')");
+        db.execSQL("insert into shopMen(name, tag, photo)values ('조군샵','#데일리룩 추천\n#셔츠 맛집', 'img_shop_jogunshop')");
+        db.execSQL("insert into shopMen(name, tag, photo)values ('바이더알','#자체제작\n#셀렉트샵', 'img_shop_byther')");
+        db.execSQL("insert into shopMen(name, tag, photo)values ('모던이프','#아우터\n#1+1', 'img_shop_modernif')");
+        db.execSQL("insert into shopMen(name, tag, photo)values ('슈퍼스타아이','#1+1+1\n#코디 세트', 'img_shop_superstari')");
+        db.execSQL("insert into shopMen(name, tag, photo)values ('락커룸','#신상 맛집\n#저렴한 가격', 'img_shop_locker')");
 
         String shopSQL3 = "create table shopApp(" +
                 "_id integer primary key autoincrement," +
@@ -69,11 +69,11 @@ public class DBHelper extends SQLiteOpenHelper {
                 "tag text," +
                 "photo text);";
         db.execSQL(shopSQL3);
-        db.execSQL("insert into shopApp(name, tag, photo)values ('다나와','#가격, 성능비교  #최저가판매', 'img_shop_danawa')");
-        db.execSQL("insert into shopApp(name, tag, photo)values ('삼성전자','#믿고 쓰는 삼성  #케어플러스', 'img_shop_samsung')");
-        db.execSQL("insert into shopApp(name, tag, photo)values ('LG전자','#케어솔루션  #LG 가전제품은 최고', 'img_shop_lg')");
-        db.execSQL("insert into shopApp(name, tag, photo)values ('하이마트','#2시간 퀵배송  #종합 쇼핑몰', 'img_shop_himart')");
-        db.execSQL("insert into shopApp(name, tag, photo)values ('전자랜드','#매일 새로운 이벤트  #생활일착 컨텐츠', 'img_shop_junjaland')");
+        db.execSQL("insert into shopApp(name, tag, photo)values ('다나와','#가격, 성능비교\n#최저가판매', 'img_shop_danawa')");
+        db.execSQL("insert into shopApp(name, tag, photo)values ('삼성전자','#믿고 쓰는 삼성\n#케어플러스', 'img_shop_samsung')");
+        db.execSQL("insert into shopApp(name, tag, photo)values ('LG전자','#케어솔루션\n#LG 가전제품은 최고', 'img_shop_lg')");
+        db.execSQL("insert into shopApp(name, tag, photo)values ('하이마트','#2시간 퀵배송\n#종합 쇼핑몰', 'img_shop_himart')");
+        db.execSQL("insert into shopApp(name, tag, photo)values ('전자랜드','#매일 새로운 이벤트\n#생활일착 컨텐츠', 'img_shop_junjaland')");
 
         String shopSQL4 = "create table shopMake(" +
                 "_id integer primary key autoincrement," +
@@ -81,11 +81,11 @@ public class DBHelper extends SQLiteOpenHelper {
                 "tag text," +
                 "photo text);";
         db.execSQL(shopSQL4);
-        db.execSQL("insert into shopMake(name, tag, photo)values ('미샤','#전품목 1+1  #조기품절 주의', 'img_shop_misha')");
-        db.execSQL("insert into shopMake(name, tag, photo)values ('토니모리','#푸짐한 사은품  #수분크림으로 유명', 'img_shop_tonymori')");
-        db.execSQL("insert into shopMake(name, tag, photo)values ('데페이스샵','#선크림 유명  #선크림 전품목 1+1 ', 'img_shop_thefaceshop')");
-        db.execSQL("insert into shopMake(name, tag, photo)values ('이니스프리','#필 마스크 맛집  #여름쿠션 맛집', 'img_shop_innisfree')");
-        db.execSQL("insert into shopMake(name, tag, photo)values ('에뛰드','#매일 신상품 출시  #셀렉샵', 'img_shop_etude')");
+        db.execSQL("insert into shopMake(name, tag, photo)values ('미샤','#전품목 1+1\n#조기품절 주의', 'img_shop_misha')");
+        db.execSQL("insert into shopMake(name, tag, photo)values ('토니모리','#푸짐한 사은품\n#수분크림으로 유명', 'img_shop_tonymori')");
+        db.execSQL("insert into shopMake(name, tag, photo)values ('데페이스샵','#선크림 유명\n#선크림 전품목 1+1 ', 'img_shop_thefaceshop')");
+        db.execSQL("insert into shopMake(name, tag, photo)values ('이니스프리','#필 마스크 맛집\n#여름쿠션 맛집', 'img_shop_innisfree')");
+        db.execSQL("insert into shopMake(name, tag, photo)values ('에뛰드','#매일 신상품 출시\n#셀렉샵', 'img_shop_etude')");
 
         String shopSQL5 = "create table shopFood(" +
                 "_id integer primary key autoincrement," +
@@ -93,11 +93,11 @@ public class DBHelper extends SQLiteOpenHelper {
                 "tag text," +
                 "photo text);";
         db.execSQL(shopSQL5);
-        db.execSQL("insert into shopFood(name, tag, photo)values ('노브랜드','#초저가  #가격대비 최상 품질', 'img_shop_nobrand')");
-        db.execSQL("insert into shopFood(name, tag, photo)values ('홈플러스24','#품목별 깔끔한 안내  #빠른 배송', 'img_shop_homeplus')");
-        db.execSQL("insert into shopFood(name, tag, photo)values ('쿠팡','#로켓 배송  #떠오르는 기업', 'img_shop_coupang')");
-        db.execSQL("insert into shopFood(name, tag, photo)values ('마켓컬리','#첫 구매시 무료배송  #신규회원 인기상품 100원', 'img_shop_marketkurly')");
-        db.execSQL("insert into shopFood(name, tag, photo)values ('푸짐','#깔끔한 페이지 디자인  #도심 속 직배송', 'img_shop_foodzim')");
+        db.execSQL("insert into shopFood(name, tag, photo)values ('노브랜드','#초저가\n#가격대비 최상 품질', 'img_shop_nobrand')");
+        db.execSQL("insert into shopFood(name, tag, photo)values ('홈플러스24','#품목별 깔끔한 안내\n#빠른 배송', 'img_shop_homeplus')");
+        db.execSQL("insert into shopFood(name, tag, photo)values ('쿠팡','#로켓 배송\n#떠오르는 기업', 'img_shop_coupang')");
+        db.execSQL("insert into shopFood(name, tag, photo)values ('마켓컬리','#첫 구매시 무료배송\n#신규회원 인기상품 100원', 'img_shop_marketkurly')");
+        db.execSQL("insert into shopFood(name, tag, photo)values ('푸짐','#깔끔한 페이지 디자인\n#도심 속 직배송', 'img_shop_foodzim')");
 
         String shopSQL6 = "create table shopFurni(" +
                 "_id integer primary key autoincrement," +
@@ -105,11 +105,11 @@ public class DBHelper extends SQLiteOpenHelper {
                 "tag text," +
                 "photo text);";
         db.execSQL(shopSQL6);
-        db.execSQL("insert into shopFurni(name, tag, photo)values ('이케아','#더 낮은 새로운 가격  #가구 쇼핑몰의 대명사', 'img_shop_ikea')");
-        db.execSQL("insert into shopFurni(name, tag, photo)values ('오늘의집','#베스트 상품 최대 80% 할인  #방꾸미기', 'img_shop_todayhouse')");
-        db.execSQL("insert into shopFurni(name, tag, photo)values ('다이소','#싼 가격  #좋은 품질', 'img_shop_daiso')");
-        db.execSQL("insert into shopFurni(name, tag, photo)values ('모던하우스','#신규가입 10%할인  #셀럽이 제안하는 핫 가구', 'img_shop_modernhouse')");
-        db.execSQL("insert into shopFurni(name, tag, photo)values ('까사미아','#모던한 디자인  #하이퀄리티', 'img_shop_casamia')");
+        db.execSQL("insert into shopFurni(name, tag, photo)values ('이케아','#더 낮은 새로운 가격\n#가구 쇼핑몰의 대명사', 'img_shop_ikea')");
+        db.execSQL("insert into shopFurni(name, tag, photo)values ('오늘의집','#베스트 상품 최대 80% 할인\n#방꾸미기', 'img_shop_todayhouse')");
+        db.execSQL("insert into shopFurni(name, tag, photo)values ('다이소','#싼 가격\n#좋은 품질', 'img_shop_daiso')");
+        db.execSQL("insert into shopFurni(name, tag, photo)values ('모던하우스','#신규가입 10%할인\n#셀럽이 제안하는 핫 가구', 'img_shop_modernhouse')");
+        db.execSQL("insert into shopFurni(name, tag, photo)values ('까사미아','#모던한 디자인\n#하이퀄리티', 'img_shop_casamia')");
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -158,16 +158,16 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (newVersion == VERSION) {
-//            db.execSQL("drop table newWord");
-//            db.execSQL("drop table shopWomen");
-//            db.execSQL("drop table shopMen");
-//            db.execSQL("drop table shopApp");
-//            db.execSQL("drop table shopMake");
-//            db.execSQL("drop table shopFood");
-//            db.execSQL("drop table shopFurni");
-//            db.execSQL("drop table life");
-//            db.execSQL("drop table problem");
-//            db.execSQL("drop table travel");
+            db.execSQL("drop table newWord");
+            db.execSQL("drop table shopWomen");
+            db.execSQL("drop table shopMen");
+            db.execSQL("drop table shopApp");
+            db.execSQL("drop table shopMake");
+            db.execSQL("drop table shopFood");
+            db.execSQL("drop table shopFurni");
+            db.execSQL("drop table life");
+            db.execSQL("drop table problem");
+            db.execSQL("drop table travel");
             onCreate(db);
         }
     }

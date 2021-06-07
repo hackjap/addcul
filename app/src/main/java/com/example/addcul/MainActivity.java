@@ -104,18 +104,18 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
                 });
         requestQueue.add(stringRequest);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setDisplayShowHomeEnabled(true);
-
-        View actionbarView = getLayoutInflater().inflate(R.layout.actionbar, null);
-        actionbarView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(MainActivity.class);
-
-            }
-        });
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.setDisplayHomeAsUpEnabled(true);
+//        actionBar.setDisplayShowHomeEnabled(true);
+//
+//        View actionbarView = getLayoutInflater().inflate(R.layout.actionbar, null);
+//        actionbarView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(MainActivity.class);
+//
+//            }
+//        });
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser(); // 파이어베이스 유저 초기화
 

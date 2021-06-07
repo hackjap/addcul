@@ -1,7 +1,6 @@
 <resources>
-
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <!-- 타이틀바 숨기기
         <item name="windowNoTitle">true</item>
@@ -11,10 +10,8 @@
 <!--        &lt;!&ndash;투명 액션바&ndash;&gt;-->
 <!--        <item name="colorPrimary">#00000000</item>-->
 <!--        <item name="windowActionBarOverlay">true</item>-->
-
         <item name="colorPrimaryDark">@color/ultimate_gray</item>
         <item name="colorAccent">@color/basic_text</item>
-        <item name="android:fontFamily">@font/app_main_font</item>
+        <item name="android:fontFamily">@font/bmju</item>
     </style>
-
 </resources>

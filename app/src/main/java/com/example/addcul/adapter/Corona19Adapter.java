@@ -32,11 +32,11 @@ public class Corona19Adapter extends RecyclerView.Adapter<Corona19Adapter.Corona
     public void onBindViewHolder(@NonNull Corona19ViewHolder holder, int position) {
 
             int result = Integer.parseInt(list.get(position).getConf())-Integer.parseInt(list.get(position+1).getConf());
-            holder.date.setText("▲ "+result);
+            holder.date.setText(""+result);
             holder.conf.setText(list.get(position).getConf());
             holder.release.setText(list.get(position).getRelease());
             holder.death.setText(list.get(position).getDeath());
-            holder.exam.setText(list.get(position).getExam());
+//            holder.exam.setText(list.get(position).getExam());
     }
 
     @Override
@@ -52,7 +52,7 @@ public class Corona19Adapter extends RecyclerView.Adapter<Corona19Adapter.Corona
             conf = itemView.findViewById(R.id.corona_confirmed);
             release = itemView.findViewById(R.id.corona_release);
             death = itemView.findViewById(R.id.corona_death);
-            exam = itemView.findViewById(R.id.corona_exam);
+//            exam = itemView.findViewById(R.id.corona_exam);
         }
     }
 }
