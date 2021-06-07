@@ -87,12 +87,12 @@ public class PostMyLogAdapter extends RecyclerView.Adapter<PostMyLogAdapter.View
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
         View view = viewHolder.view;
         TextView titleTextView = view.findViewById(R.id.mylog_tv_title); // 게시글 제목 텍스트뷰
-        TextView contentsTextView = view.findViewById(R.id.mylog_tv_contents);
+//        TextView contentsTextView = view.findViewById(R.id.mylog_tv_contents);
         TextView createdTextView = view.findViewById(R.id.mylog_tv_created);   // 게시글 날짜 텍스트뷰
         String uid = firebaseUser.getUid();
 
         titleTextView.setText(mDataset.get(position).getTitle());
-        contentsTextView.setText(mDataset.get(position).getContents());
+//        contentsTextView.setText(mDataset.get(position).getContents());
         createdTextView.setText(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(mDataset.get(position).getCreatedAt()));
 
     }

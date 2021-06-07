@@ -19,9 +19,6 @@ public class IntroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
-
         IntroTread introTread = new IntroTread(handler);
         introTread.start();
     }

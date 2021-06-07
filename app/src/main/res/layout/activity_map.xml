@@ -378,7 +378,7 @@
                 android:layout_marginLeft="10dp"
                 android:text="한국 문화"
                 android:textColor="@color/basic_text"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -406,7 +406,7 @@
                 android:layout_marginLeft="10dp"
                 android:text="다문화 센터"
                 android:textColor="@color/basic_text"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -434,7 +434,7 @@
                 android:layout_marginLeft="10dp"
                 android:text="응급센터"
                 android:textColor="@color/basic_text"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>

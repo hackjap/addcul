@@ -1,88 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp">
         <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/transrationicon" />
-
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/translate" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"
             android:gravity="center_vertical"
-            android:lineSpacingExtra="5dp"
-            android:text="한국어로 번역이 필요한 문구를 텍스트로 입력하면 \n번역이 가능합니다. " />
+            android:layout_margin="10dp"
+            android:textSize="16dp"
+            android:text="애드컬이 한국어 번역을 도와줄게요!\n왼쪽 상자에 번역하고 싶은 글을 써봐요" />
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/et_source"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@drawable/transrationtextform"
-        android:hint="번역할 내용을 입력하세요.\n(Enter content to translate.)"
-        android:lineSpacingExtra="5dp"
-        android:padding="15dp" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_centerVertical="true"
-        android:background="@drawable/transrationtextform"
-        android:gravity="center_vertical"
-        android:padding="15dp"
-        android:text="번역 결과 (translation result)"
-        android:textSize="17sp" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/et_source"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@drawable/style_translate_fill"
+                android:gravity="center"
+                android:hint="번역할 내용을 입력하세요."
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@drawable/style_translate_fill"
+                android:gravity="center"
+                android:text="번역 결과"
+                android:textSize="15dp" />
+        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
-
-        <!--<Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:enabled="false"
-            android:text="음성인식" />-->
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
-            android:text="번역실행"
-            android:textColor="@color/white" />
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:background="@drawable/style_qna_round"
+            android:text="번역"
+            android:textSize="12dp"
+            android:textColor="@color/basic_text" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="bottom">
+        android:gravity="bottom"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <include layout="@layout/footer"></include>
         </LinearLayout>
     </LinearLayout>
