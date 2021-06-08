@@ -141,6 +141,7 @@ public class MapActivity extends BasicActivity implements AutoPermissionsListene
 
         // global - footer 바인딩
         // 하단메뉴
+        findViewById(R.id.img_search).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_home).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_translate).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_map).setOnClickListener(onFooterlistner);

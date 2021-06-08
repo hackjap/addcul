@@ -3,7 +3,6 @@ package com.example.addcul.adapter;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -64,6 +63,8 @@ public class RealChatAdapter extends RecyclerView.Adapter<RealChatAdapter.ViewHo
         TextView titleTextView;
         TextView contentsTextView;
         TextView createdTextView;
+        TextView contentsTextViewMy;
+        TextView createdTextViewMy;
 
         public ViewHolder(View v) {
             super(v);
@@ -72,6 +73,9 @@ public class RealChatAdapter extends RecyclerView.Adapter<RealChatAdapter.ViewHo
             titleTextView = view.findViewById(R.id.tv_realchat_name); // 게시글 제목 텍스트뷰
             contentsTextView = view.findViewById(R.id.tv_realchat_text);
             createdTextView =view.findViewById(R.id.tv_realchat_created);   // 게시글 날짜 텍스트뷰
+
+            contentsTextViewMy = view.findViewById(R.id.tv_mychat_text);
+            createdTextViewMy = view.findViewById(R.id.tv_mychat_created);
 
             Log.e("XXviewHolder","ViewHolder");
         }
@@ -86,8 +90,10 @@ public class RealChatAdapter extends RecyclerView.Adapter<RealChatAdapter.ViewHo
 
         viewHolder.titleTextView.setText(cDateset.get(position).getPublisher());
         viewHolder.contentsTextView.setText(cDateset.get(position).getText());
-        viewHolder.createdTextView.setText(new SimpleDateFormat("MM-dd hh:mm:ss", Locale.getDefault()).format(cDateset.get(position).getCreated()));
+        viewHolder.createdTextView.setText(new SimpleDateFormat("a hh:mm", Locale.getDefault()).format(cDateset.get(position).getCreated()));
 
+        viewHolder.contentsTextViewMy.setText(cDateset.get(position).getText());
+        viewHolder.createdTextViewMy.setText(new SimpleDateFormat("a hh:mm", Locale.getDefault()).format(cDateset.get(position).getCreated()));
         showMyChat(position,viewHolder,view);
 
 
@@ -109,13 +115,21 @@ public class RealChatAdapter extends RecyclerView.Adapter<RealChatAdapter.ViewHo
             String chatID = cDateset.get(position).getId();  // 채팅 작성자 이름 ㅁ
             Log.e("ShowMyChat : ", userID + " : " + position + " " + chatID);
 
+
+        LinearLayout contentsLayout = (LinearLayout) view.findViewById(R.id.realchat_contentsLayout);
+        LinearLayout contentsLayoutMy = (LinearLayout) view.findViewById(R.id.realchat_contentsLayout_my);
+
             if (userID.equals(chatID)) {      // 로그인한 사용자 명과  채팅작성자가 같다면
-                viewHolder.titleTextView.setVisibility(View.GONE);
-                viewHolder.chatBack.setBackgroundResource(R.drawable.style_mychat_talk);
-                LinearLayout contentsLayout = (LinearLayout) view.findViewById(R.id.realchat_contentsLayout);
-                LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) contentsLayout.getLayoutParams();
-                params.gravity = Gravity.RIGHT;
-                contentsLayout.setLayoutParams(params);
+//                viewHolder.titleTextView.setVisibility(View.GONE);
+//                viewHolder.chatBack.setBackgroundResource(R.drawable.style_mychat_talk);
+//                LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) contentsLayout.getLayoutParams();
+//                params.gravity = Gravity.RIGHT;
+//                contentsLayout.setLayoutParams(params);
+
+                 contentsLayoutMy.setVisibility(View.VISIBLE);
+            }
+            else{
+                contentsLayout.setVisibility(View.VISIBLE);
             }
         }
 

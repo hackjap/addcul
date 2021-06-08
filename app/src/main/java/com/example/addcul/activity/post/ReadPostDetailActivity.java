@@ -47,7 +47,7 @@ public class ReadPostDetailActivity extends BasicActivity {
     ArrayList<PostDetailInfo> postDetailInfos;
     ArrayList<PostInfo>postList;
     ArrayList<MemberInfo> memberList;
-    RecyclerView.Adapter postDetailAdapter;
+    PostDetailAdapter postDetailAdapter;
     Util util;
 
     //ArrayList<String>testArray;
@@ -55,7 +55,7 @@ public class ReadPostDetailActivity extends BasicActivity {
     int position;
     TextView postTitle,postDetail, postConents, postName, postUpdated;
     ImageView sendBtn;
-    String actID;
+    String actID = "";
 
 
     @Override
@@ -93,7 +93,20 @@ public class ReadPostDetailActivity extends BasicActivity {
             myInfoText.setText("내정보");
         }
 
+        // MainAdapter로 부터 act별칭과 포지션 값 받아옴
+        // 전달받은 인텐드 값 가져오기
+        Intent postIntent = getIntent();
+        if (postIntent != null) {
+            position = postIntent.getIntExtra("position", 0);
+            this.actID = postIntent.getStringExtra("actID");
+            Log.e("CXXACT :",actID);
+        } else {
+            position = -1;
+        }
 
+        Log.e("CXXPOSITION",position+"");
+        // run
+        postDetailUpdate(); // 게시판 상세 업데이트 (게시판, 댓글)
 
 
         // recyclerView
@@ -104,22 +117,6 @@ public class ReadPostDetailActivity extends BasicActivity {
         postDetailAdapter = new PostDetailAdapter(ReadPostDetailActivity.this,postDetailInfos,memberList,actID);
         ((PostDetailAdapter)postDetailAdapter).setOnPostListener(onPostListener);
         recyclerView.setAdapter(postDetailAdapter);
-
-
-        // MainAdapter로 부터 act별칭과 포지션 값 받아옴
-        // 전달받은 인텐드 값 가져오기
-        Intent postIntent = getIntent();
-        if (postIntent != null) {
-            position = postIntent.getIntExtra("position", 0);
-            actID = postIntent.getStringExtra("actID");
-        } else {
-            position = -1;
-        }
-
-        Log.e("CXXPOSITION",position+"");
-        // run
-        postDetailUpdate(); // 게시판 상세 업데이트 (게시판, 댓글)
-
 
 
         sendBtn.setOnClickListener(new View.OnClickListener() {
@@ -290,7 +287,13 @@ public class ReadPostDetailActivity extends BasicActivity {
                                 publisher = postList.get(position).getPublisher();
                                 postUpdated.setText(updated);
 
-                                getUserName();
+                                if(actID.equals("secret")){
+                                    postName.setText("익명");
+                                }
+                                else{
+                                    getUserName();
+                                }
+
                                 comentUpdate(postList);
                                 Log.e("CXX! :",postList.get(0).getId());
 

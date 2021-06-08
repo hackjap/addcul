@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -147,7 +146,7 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
             @Override
             public void onTouch(View v, int position) {
                 if(position == 0){
-                    Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.naver.com"));
+                    Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("https://www.liveinkorea.kr/portal/KOR/board/mlbs/boardView.do?menuSeq=282&boardSeq=2&conSeq=403547"));
                     startActivity(intent);
                 }
             }

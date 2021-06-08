@@ -82,7 +82,6 @@ public class TranslationActivity extends BasicActivity {
             }
         });
 
-
         //음성인식 실행버튼 이벤트
         //이건 나중에...
     }

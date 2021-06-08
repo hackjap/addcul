@@ -401,6 +401,7 @@
             </LinearLayout>
 
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
@@ -408,6 +409,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/faq_tv1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -418,7 +420,7 @@
                     android:padding="10dp">
 
                     <TextView
-                        android:id="@+id/faq_tv1"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -458,6 +460,7 @@
 
 
                 <LinearLayout
+                    android:id="@+id/faq_tv2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -468,7 +471,7 @@
                     android:padding="10dp">
 
                     <TextView
-                        android:id="@+id/faq_tv2"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

@@ -14,12 +14,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.addcul.DTO.MemberInfo;
 import com.example.addcul.DTO.PostInfo;
+import com.example.addcul.MainActivity;
 import com.example.addcul.R;
 import com.example.addcul.Util.Util;
 import com.example.addcul.activity.config.BasicActivity;
-import com.example.addcul.MainActivity;
 import com.example.addcul.adapter.PostMyLogAdapter;
+import com.example.addcul.listener.OnPostListener;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -55,7 +58,7 @@ public class MyInfoActivity extends BasicActivity {
     // 댓글기록
     RecyclerView recyclerViewFree,recyclerViewSos,recyclerViewSecret;
     PostMyLogAdapter postMyLogAdapter;
-
+    String actID ="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +94,8 @@ public class MyInfoActivity extends BasicActivity {
         findViewById(R.id.img_translate).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_map).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_my_info).setOnClickListener(onFooterlistner);
+        findViewById(R.id.img_search).setOnClickListener(onFooterlistner);
+
 
         myInfoProfile = findViewById(R.id.img_myInfo_profile);
         myInfoNickname = findViewById(R.id.tv_myinfo_nickname);
@@ -140,11 +145,14 @@ public class MyInfoActivity extends BasicActivity {
 
     }
 
+
+
     private void setRecyclerView(RecyclerView recyclerView){
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(MyInfoActivity.this));
         postMyLogAdapter = new PostMyLogAdapter(this, myPostList, memberInfos);
         // ((PostDetailAdapter)postDetailAdapter).setOnPostListener(onPostListener);
+        ((PostMyLogAdapter)postMyLogAdapter).setOnPostListener(onPostListener);
         recyclerView.setAdapter(postMyLogAdapter);
 
     }
@@ -202,6 +210,7 @@ public class MyInfoActivity extends BasicActivity {
 
     private void getPostData(final RecyclerView recyclerView, final String actID) {   // post(게시판) 객체를 가져와 상세페이지를 띄어주는 함수
         if (firebaseUser != null) {
+            this.actID =actID;
             CollectionReference collectionReference = firebaseFirestore.collection("posts_" + actID);
             Log.e("CXXPOSTACT", "posts_" + actID);
             collectionReference
@@ -225,13 +234,13 @@ public class MyInfoActivity extends BasicActivity {
                                 // 게시판 로그 활동만 가져오기
                                 String uid = firebaseUser.getUid();
                                 myPostList.clear();
-                                Log.e("CXXLOG", postList.size()+"");
+                                Log.e("CXXLOG", postList.size() + "");
                                 for (int i = 0; i < postList.size(); i++) {
                                     if (uid.equals(postList.get(i).getPublisher())) {
                                         myPostList.add(postList.get(i));
                                     }
                                 }
-                                Log.e("CXXLOG", myPostList.size()+"");
+                                Log.e("CXXLOG", myPostList.size() + "");
 
 
 //                                postMyLogAdapter.notifyDataSetChanged();
@@ -249,6 +258,47 @@ public class MyInfoActivity extends BasicActivity {
                     });
         }
     }
+
+    OnPostListener onPostListener = new OnPostListener() {
+        @Override
+        public void onDelete(int position) {
+            final String id = postList.get(position).getId();
+            firebaseFirestore.collection("posts_" + actID).document(id)
+                    .delete()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+
+                            util.showToast("게시글을 삭제하였습니다.");
+                            Log.e("포스트 게시물 삭제 : ", "posts_" + actID);
+                            switch (actID){
+                                case "free":
+                                    getPostData(recyclerViewFree,actID);
+                                    break;
+                                case "sos":
+                                    getPostData(recyclerViewSos,actID);
+                                    break;
+                                case "secret":
+                                    getPostData(recyclerViewSecret,actID);
+                                    break;
+                            }
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            util.showToast("게시글을 삭제하지 못하였습니다.");
+                        }
+                    });
+
+
+        }
+
+        @Override
+        public void onModify(int position) {
+
+        }
+    };
 
     private void memberUpdate() {
         if (firebaseUser != null) {

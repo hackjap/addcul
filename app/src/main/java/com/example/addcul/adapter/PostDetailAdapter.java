@@ -103,8 +103,14 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Vi
         Log.e("CXXADAPTER",uid);
         Log.e("CXXADAPTER",data);
 
+        Log.e("CXXACT!!!",actID);
 
-        getUserName(uid,viewHolder);
+        if(actID.equals("secret"))
+            nameTextView.setText("익명");
+        else{
+            getUserName(uid, viewHolder);
+        }
+
 
         contentsTextView.setText(postDetailInfos.get(position).getContents());
         createdTextView.setText(data);
@@ -169,11 +175,8 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Vi
                                     document.getData().get("name").toString()));
                             // postName.setText(memberInfos.get(0).getName());
                                 TextView nameTextView = viewHolder.view.findViewById(R.id.post_detail_tv_name); // 게시글 제목 텍스트뷰
-
-                                    nameTextView.setText(memberInfos.get(0).getName());
-
-
-                                Log.e("CXX",memberInfos.get(0).getName());
+                                Log.e("CXXACT2222",actID);
+                                nameTextView.setText(memberInfos.get(0).getName());
                         }
                     }
 
