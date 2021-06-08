@@ -9,13 +9,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
+        android:layout_height="wrap_content"
+        android:layout_weight="20"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="10dp">
 
@@ -89,54 +89,53 @@
                 android:layout_marginRight="10dp"/>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:layout_margin="10dp">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/post_detail_recyclerView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                 </androidx.recyclerview.widget.RecyclerView>
             </LinearLayout>
         </LinearLayout>
+    </LinearLayout><!--    하단메뉴-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom">
 
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="bottom">
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/style_edit_border"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+            <EditText
+                android:id="@+id/post_detail_et_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@drawable/style_edit_border"
-                android:orientation="horizontal">
+                android:layout_weight="1"
+                android:background="@null"
+                android:ems="10"
+                android:hint="댓글 입력"
+                android:inputType="textPersonName"
+                android:textSize="16dp" />
 
-                <EditText
-                    android:id="@+id/post_detail_et_comment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:ems="10"
-                    android:hint="댓글 입력"
-                    android:inputType="textPersonName"
-                    android:textSize="16dp" />
-
-                <ImageView
-                    android:id="@+id/post_detail_btn_comment_submit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    app:srcCompat="@drawable/ic_send_black_24dp" />
-            </LinearLayout>
-
+            <ImageView
+                android:id="@+id/post_detail_btn_comment_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:srcCompat="@drawable/ic_send_black_24dp" />
         </LinearLayout>
-    </LinearLayout><!--    하단메뉴-->
+
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

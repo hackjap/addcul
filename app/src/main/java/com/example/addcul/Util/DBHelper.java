@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final int VERSION = 105;
+    public static final int VERSION = 107;
 
     public DBHelper(Context context) {
         super(context, "addculDB", null, VERSION);
