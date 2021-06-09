@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="3dp">
+    android:padding="1dp">
     <item
         android:bottom="1dp"
         android:left="1dp"
@@ -10,10 +10,10 @@
 
             <solid android:color="@color/illuminating_yellow"/>
             <corners
-                android:bottomLeftRadius="25dp"
-                android:bottomRightRadius="25dp"
-                android:topLeftRadius="25dp"
-                android:topRightRadius="25dp" />
+                android:bottomLeftRadius="10dp"
+                android:bottomRightRadius="10dp"
+                android:topLeftRadius="10dp"
+                android:topRightRadius="10dp" />
         </shape>
     </item>
 </layer-list>
