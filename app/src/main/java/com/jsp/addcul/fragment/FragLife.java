@@ -19,6 +19,7 @@ import com.jsp.addcul.R;
 import com.jsp.addcul.activity.TmpActivity;
 import com.jsp.addcul.activity.kculture.BaeminActivity;
 import com.jsp.addcul.activity.kculture.KakaoActivity;
+import com.jsp.addcul.activity.kculture.SubwayActivity;
 import com.jsp.addcul.activity.kculture.YoutubeActivity;
 import com.jsp.addcul.adapter.LifeAdapter;
 import com.jsp.addcul.activity.kculture.NaverActivity;
@@ -82,7 +83,7 @@ public class FragLife extends Fragment {
                     startActivity(intent);
                 }
                 else if(postion ==2){
-                    Intent intent = new Intent(getContext(), YoutubeActivity.class);
+                    Intent intent = new Intent(getContext(), SubwayActivity.class);
                     startActivity(intent);
                 }
                 else if(postion ==3){

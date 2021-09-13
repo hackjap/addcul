@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.kculture.KakaoActivity">
+    tools:context=".activity.kculture.NaverActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,15 +17,15 @@
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:padding="10dp"
-            android:text="이번 시간에는 카카오톡 가입하는 방법에 대해 알아보겠습니다."
+            android:text="이번 시간에는 지하철 1회용 교통카드 사용법을 안내해드리겠습니다"
             android:textSize="15dp" />
         <ImageView
-            android:id="@+id/kakao0"
+            android:id="@+id/subway0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/kakao0" />
+            app:srcCompat="@drawable/subway0" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="5dp"
@@ -37,11 +37,10 @@
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:padding="10dp"
-            android:text="1.카카오톡 어플 설치전 카카오 공식 사이트로 이동하여 카카오톡 계정을 만들어야 합니다. 가입 방법은 두 가지가 있으며 이번 시간엔 이메일로 가입하는 방법을 알아보겠습니다.
-                노란색 체크박스를 클릭해줍니다. ."
+            android:text="1.먼저 지하철 입구 옆에 있는 1회용 교통카드 기계로 갑니다. 교통카드를 사용하는 경우에 여기서도 충천이 가능합니다."
             android:textSize="15dp" />
         <ImageView
-            android:id="@+id/kakao1"
+            android:id="@+id/subway1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -49,7 +48,7 @@
             android:adjustViewBounds="true"
             app:layout_aspectRatio="100%"
             app:layout_widthPercent="100%"
-            app:srcCompat="@drawable/kakao1" />
+            app:srcCompat="@drawable/subway1" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="5dp"
@@ -60,11 +59,10 @@
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:padding="10dp"
-            android:text="2.이메일로 가입하기 위해선 필수 부분을 꼭 선택해줘야 합니다. 다 체크한 후 하단에 동의 버튼을 눌러줍니다.
-"
+            android:text="2.다음은 1회용 교통카드를 구입해야합니다. ‘목적지를 선택해 최종 도착지 까지의 요금을 계산.기본운임 전용으로 일회용 교통카드 발급‘ 중 택해서 요금을 지불하면 됩니다. 카드 보증금은 500원이며 목적지에 도착하면 해당 역의 기계로 가서 돌려받으시면 됩니다."
             android:textSize="15dp" />
         <ImageView
-            android:id="@+id/kakao2"
+            android:id="@+id/subway2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -72,7 +70,7 @@
             android:adjustViewBounds="true"
             app:layout_aspectRatio="100%"
             app:layout_widthPercent="100%"
-            app:srcCompat="@drawable/kakao2" />
+            app:srcCompat="@drawable/subway2" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="5dp"
@@ -84,10 +82,10 @@
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:padding="10dp"
-            android:text="3.빈칸에 카카오 계정으로 사용할 이메일, 비밀번호, 닉네임을 적어줍니다. 카카오 계정 이메일을 적은 후 본인 확인을 위해 인증메일 발송 버튼을 눌러줍니다. 빈칸을 모두 채운 후 하단의 다음 버튼을 클릭합니다."
+            android:text="3.기본운임 전용으로 일회용 교통카드 발급’ 하고 게이트를 나가기전 요금 정산을 해야한다. 빨간색 표시된 곳에 카드를 올려놓으면 자동으로 추가 요금을 정산해줍니다."
             android:textSize="15dp" />
         <ImageView
-            android:id="@+id/kakao3"
+            android:id="@+id/subway3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -95,7 +93,7 @@
             android:adjustViewBounds="true"
             app:layout_aspectRatio="100%"
             app:layout_widthPercent="100%"
-            app:srcCompat="@drawable/kakao3" />
+            app:srcCompat="@drawable/subway3" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="5dp"
@@ -107,10 +105,10 @@
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:padding="10dp"
-            android:text="4.본인이 적은 카카오 계정 이메일 주소로 들어가면 8자리의 인증번호가 온 것을 확인할 수 있다. 인증번호를 복사한 후 빈칸에 붙여넣고 인증번호 확인 버튼을 클릭한다."
+            android:text="4.아래와 같이 추가 요금이 자동으로 정산된 모습을 확인할 수 있습니다."
             android:textSize="15dp" />
         <ImageView
-            android:id="@+id/kakao4"
+            android:id="@+id/subway4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -118,7 +116,7 @@
             android:adjustViewBounds="true"
             app:layout_aspectRatio="100%"
             app:layout_widthPercent="100%"
-            app:srcCompat="@drawable/kakao4" />
+            app:srcCompat="@drawable/subway4" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="5dp"
@@ -130,10 +128,10 @@
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:padding="10dp"
-            android:text="5.카카오 계정 메일 옆에 체크 표시가 뜨면 인증이 완료된 것이고 인증까지 완료하면 이렇게 카카오톡 계정이 생성된다. 시작하기 버튼을 누르면 그때부터 카카오에서 제공하는 모든 서비스들을 이용할 수 있다."
+            android:text="5.동전 투입 후 교통카드가 아래와 같이 충전이 되며 그 다음 1회용 교통카드를 찍고 나오면 됩니다."
             android:textSize="15dp" />
         <ImageView
-            android:id="@+id/kakao5"
+            android:id="@+id/subway5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -141,8 +139,29 @@
             android:adjustViewBounds="true"
             app:layout_aspectRatio="100%"
             app:layout_widthPercent="100%"
-            app:srcCompat="@drawable/kakao5" />
+            app:srcCompat="@drawable/subway5" />
 
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="6. 교통카드를 찍고 나온 후에 1번 동그라미에 카드를 투입하면 2번 동그라미로 보증금 500원이 나옵니다."
+            android:textSize="15dp" />
+        <ImageView
+            android:id="@+id/subway6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            app:layout_aspectRatio="100%"
+            app:layout_widthPercent="100%"
+            app:srcCompat="@drawable/subway6" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#99000000" />
     </LinearLayout>
 </ScrollView>

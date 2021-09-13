@@ -46,6 +46,8 @@
         <activity android:name=".activity.problem.BasiclifeActivity" />
         <activity android:name=".activity.kculture.KakaoActivity" />
         <activity android:name=".activity.kculture.BaeminActivity" />
+        <activity android:name=".activity.kculture.SubwayActivity" />
+
         <activity
             android:name=".activity.account.SignUpActivity"
             android:windowSoftInputMode="adjustPan" />
