@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.kculture.NaverActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="이번 시간에는 배달의 민족 어플을 이용한 배달음식 주문법을 알아보겠습니다.
+"
+            android:textSize="15dp" />
+        <ImageView
+            android:id="@+id/img_naver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/bm1" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#99000000" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="1.먼저 핸드폰에 배달의 민족 앱을 깔고 앱을 클릭해줍니다."
+            android:textSize="15dp" />
+        <ImageView
+            android:id="@+id/imageView14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            app:layout_aspectRatio="100%"
+            app:layout_widthPercent="100%"
+            app:srcCompat="@drawable/bm2" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#99000000" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="2. 여러가지 기능이 많지만 배달을 시킬 것이므로 배달을 클릭해줍니다."
+            android:textSize="15dp" />
+        <ImageView
+            android:id="@+id/bm3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            app:layout_aspectRatio="100%"
+            app:layout_widthPercent="100%"
+            app:srcCompat="@drawable/bm3" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#99000000"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="3. 배달의 민족에서는 다양한 음식을 카테고리별로 구분하고 있습니다.오늘은 ‘엽기떡볶이’ 메뉴를 주문할 것이므로 분식을 클릭합니다."
+            android:textSize="15dp" />
+        <ImageView
+            android:id="@+id/bm4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            app:layout_aspectRatio="100%"
+            app:layout_widthPercent="100%"
+            app:srcCompat="@drawable/bm4" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#99000000" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="-4. 분식 클릭 후 현재 위치에서 가장 가까운 ’엽기떡볶이’ 매장을 클릭합니다. 최소 주문 금액, 배달 팁, 예상 배달 시간 정보를 확인할 수 있습니다."
+            android:textSize="15dp" />
+        <ImageView
+            android:id="@+id/bm5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            app:layout_aspectRatio="100%"
+            app:layout_widthPercent="100%"
+            app:srcCompat="@drawable/bm5" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#99000000" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="5. 해당 매장을 클릭하면 매장에서 조리가 가능한 메뉴들을 볼 수 있습니다. 이번 시간엔 ‘엽기로제떡볶이’를 주문해보겠습니다."
+            android:textSize="15dp" />
+        <ImageView
+            android:id="@+id/bm6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            app:layout_aspectRatio="100%"
+            app:layout_widthPercent="100%"
+            app:srcCompat="@drawable/bm6" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="6. 메뉴를 클릭하면 여러 추가 메뉴들을 클릭할 수 있습니다.선택을 안해도 되며 이번 예시에선 ‘당면’을 추가해보겠습니다."
+            android:textSize="15dp" />
+        <ImageView
+            android:id="@+id/bm7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            app:layout_aspectRatio="100%"
+            app:layout_widthPercent="100%"
+            app:srcCompat="@drawable/bm7" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#99000000" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="7.추가 메뉴까지 고르면 밑에 하늘색 장바구니에 시킨 메뉴 수만큼 숫자가 표시됩니다."
+            android:textSize="15dp" />
+        <ImageView
+            android:id="@+id/bm8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            app:layout_aspectRatio="100%"
+            app:layout_widthPercent="100%"
+            app:srcCompat="@drawable/bm5" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#99000000" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="8.아까 하늘색 장바구니를 클릭하면 주문 내역이 나오고, 내역 확인 후 ‘배달 주문하기’를 클릭합니다."
+            android:textSize="15dp" />
+        <ImageView
+            android:id="@+id/bm9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            app:layout_aspectRatio="100%"
+            app:layout_widthPercent="100%"
+            app:srcCompat="@drawable/bm9" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#99000000" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="9.최종적으로 결재를 하면 주문하는 방법은 끝납니다. 배민은 여러 결재수단이 있으며 ‘신용/체크카드’, ‘카카오페이’, ’네이버페이’ 등 다양한 결재 방법 중 편하신 방법을 골라 결재하시면 됩니다."
+            android:textSize="15dp" />
+        <ImageView
+            android:id="@+id/bm10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            app:layout_aspectRatio="100%"
+            app:layout_widthPercent="100%"
+            app:srcCompat="@drawable/bm10" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#99000000" />
+    </LinearLayout>
+</ScrollView>

@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.jsp.addcul.Util.DBHelper;
 import com.jsp.addcul.DTO.LifeInfo;
 import com.jsp.addcul.R;
+import com.jsp.addcul.activity.TmpActivity;
+import com.jsp.addcul.activity.kculture.BaeminActivity;
 import com.jsp.addcul.activity.kculture.KakaoActivity;
 import com.jsp.addcul.activity.kculture.YoutubeActivity;
 import com.jsp.addcul.adapter.LifeAdapter;
@@ -80,10 +82,11 @@ public class FragLife extends Fragment {
                     startActivity(intent);
                 }
                 else if(postion ==2){
-
+                    Intent intent = new Intent(getContext(), YoutubeActivity.class);
+                    startActivity(intent);
                 }
                 else if(postion ==3){
-                    Intent intent = new Intent(getContext(), YoutubeActivity.class);
+                    Intent intent = new Intent(getContext(), BaeminActivity.class);
                     startActivity(intent);
                 }
 

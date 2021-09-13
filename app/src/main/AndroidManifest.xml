@@ -2,14 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jsp.addcul">
 
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,69 +10,70 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
-        <activity android:name="com.jsp.addcul.activity.chat.IndexActivitiy"></activity>
-        <activity android:name="com.jsp.addcul.activity.post.ReadPostDetailActivity"
-            >
-        </activity>
-        <activity android:name="com.jsp.addcul.activity.account.MyInfoActivity">
-
-        </activity>
-        <activity android:name="com.jsp.addcul.activity.config.SlideActivity">
-        </activity>
-        <activity android:name="com.jsp.addcul.activity.googlemap.MapActivity">
-        </activity>
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyByp1zP0yyRPCkETcxppcybaf-_1bgtUtE" />
-
-        <activity android:name="com.jsp.addcul.activity.googlemap.GoogleMapActivitiy">
-        </activity>
-        <activity android:name="com.jsp.addcul.activity.kculture.YoutubeActivity">
-        </activity>
-
-        <activity android:name="com.jsp.addcul.activity.kculture.NaverActivity" />
-        <activity android:name="com.jsp.addcul.activity.config.BasicActivity" />
-        <activity android:name="com.jsp.addcul.activity.post.ReadPostActivity" />
-        <activity android:name="com.jsp.addcul.activity.account.LoginActivity" />
-        <activity android:name="com.jsp.addcul.activity.translate.TranslationActivity" />
-        <activity android:name="com.jsp.addcul.activity.problem.PregnancybirthActivity" />
-        <activity android:name="com.jsp.addcul.activity.problem.ProblemActivity" />
-        <activity android:name="com.jsp.addcul.activity.kculture.KcultureActivity" />
-        <activity android:name="com.jsp.addcul.activity.post.WritePostSosActivity" />
-        <activity android:name="com.jsp.addcul.activity.post.WritePostSecretActivity" />
-        <activity android:name="com.jsp.addcul.activity.kculture.ExperienceActivity03_1" />
-        <activity android:name="com.jsp.addcul.activity.kculture.ExperienceActivity03_2" />
-        <activity android:name="com.jsp.addcul.activity.kculture.ExperienceActivity03_3" />
-        <activity android:name="com.jsp.addcul.activity.kculture.ExperienceActivity03_4" />
-        <activity android:name="com.jsp.addcul.activity.kculture.ExperienceActivity03_5" />
-        <activity android:name="com.jsp.addcul.activity.kculture.ExperienceActivity03_6" />
-        <activity android:name="com.jsp.addcul.activity.problem.EmployActivity" />
-        <activity android:name="com.jsp.addcul.activity.problem.BasiclifeActivity" />
-        <activity android:name="com.jsp.addcul.activity.kculture.KakaoActivity" />
-        <activity
-            android:name="com.jsp.addcul.activity.account.SignUpActivity"
-            android:windowSoftInputMode="adjustPan" />
-        <activity android:name="com.jsp.addcul.activity.account.PasswordResetActivity" />
-        <activity android:name="com.jsp.addcul.activity.post.WritePostActivity">
-        </activity>
-        <activity
-            android:name="com.jsp.addcul.activity.chat.ReadChatActivity"
-            android:windowSoftInputMode="adjustPan">
-        </activity>
-        <activity android:name="com.jsp.addcul.activity.chat.WriteChatActivity">
-
-        </activity>
-        <activity android:name="com.jsp.addcul.MainActivity">
-
-        </activity>
-        <activity android:name="com.jsp.addcul.activity.config.IntroActivity">
+        <activity android:name=".activity.TmpActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.chat.IndexActivitiy" />
+        <activity android:name=".activity.post.ReadPostDetailActivity"></activity>
+        <activity android:name=".activity.account.MyInfoActivity"></activity>
+        <activity android:name=".activity.config.SlideActivity"></activity>
+        <activity android:name=".activity.googlemap.MapActivity"></activity>
+
+        <activity android:name=".activity.googlemap.GoogleMapActivitiy"></activity>
+
+        <activity android:name=".activity.kculture.YoutubeActivity"></activity>
+        <activity android:name=".activity.kculture.NaverActivity" />
+        <activity android:name=".activity.config.BasicActivity" />
+        <activity android:name=".activity.post.ReadPostActivity" />
+        <activity android:name=".activity.account.LoginActivity" />
+        <activity android:name=".activity.translate.TranslationActivity" />
+        <activity android:name=".activity.problem.PregnancybirthActivity" />
+        <activity android:name=".activity.problem.ProblemActivity" />
+        <activity android:name=".activity.kculture.KcultureActivity" />
+        <activity android:name=".activity.post.WritePostSosActivity" />
+        <activity android:name=".activity.post.WritePostSecretActivity" />
+        <activity android:name=".activity.kculture.ExperienceActivity03_1" />
+        <activity android:name=".activity.kculture.ExperienceActivity03_2" />
+        <activity android:name=".activity.kculture.ExperienceActivity03_3" />
+        <activity android:name=".activity.kculture.ExperienceActivity03_4" />
+        <activity android:name=".activity.kculture.ExperienceActivity03_5" />
+        <activity android:name=".activity.kculture.ExperienceActivity03_6" />
+        <activity android:name=".activity.problem.EmployActivity" />
+        <activity android:name=".activity.problem.BasiclifeActivity" />
+        <activity android:name=".activity.kculture.KakaoActivity" />
+        <activity android:name=".activity.kculture.BaeminActivity" />
+        <activity
+            android:name=".activity.account.SignUpActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".activity.account.PasswordResetActivity" />
+        <activity android:name=".activity.post.WritePostActivity"></activity>
+        <activity
+            android:name=".activity.chat.ReadChatActivity"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity android:name=".activity.chat.WriteChatActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".activity.config.IntroActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyByp1zP0yyRPCkETcxppcybaf-_1bgtUtE" />
     </application>
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
 
 </manifest>

@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.jsp.addcul.MainActivity;
 import com.jsp.addcul.R;
 import com.jsp.addcul.Util.Util;
+import com.jsp.addcul.activity.TmpActivity;
 import com.jsp.addcul.activity.account.LoginActivity;
 import com.jsp.addcul.activity.account.MyInfoActivity;
 import com.jsp.addcul.activity.googlemap.MapActivity;
@@ -51,7 +52,8 @@ public class BasicActivity extends AppCompatActivity {
                     startActivity(MapActivity.class);
                     break;
                 case R.id.img_search:
-                    Toast.makeText(getApplicationContext(),"곧 기능을 출시할 예정이에요.",Toast.LENGTH_LONG).show();
+//                    Toast.makeText(getApplicationContext(),"곧 기능을 출시할 예정이에요.",Toast.LENGTH_LONG).show();
+                    startActivity(TmpActivity.class);
                     break;
                 case R.id.img_translate:
                     startActivity(TranslationActivity.class);
