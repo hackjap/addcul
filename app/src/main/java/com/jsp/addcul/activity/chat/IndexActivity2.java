@@ -51,7 +51,7 @@ public class IndexActivity2 extends AppCompatActivity {
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
     private FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-    private DatabaseReference conditionRef = databaseReference.child("message");
+    private DatabaseReference conditionRef = databaseReference.child("message2");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
