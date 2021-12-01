@@ -26,6 +26,7 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.jsp.addcul.DTO.Corona19;
 import com.jsp.addcul.Util.Util;
+import com.jsp.addcul.activity.chat.ChatBastion;
 import com.jsp.addcul.activity.chat.IndexActivity;
 import com.jsp.addcul.activity.chat.IndexActivity2;
 import com.jsp.addcul.activity.chat.IndexActivity3;
@@ -96,7 +97,7 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        processData(response);
+//                        processData(response);
                     }
                 },
                 new Response.ErrorListener() {
@@ -255,7 +256,7 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
                     break;
                 // 언어교환
                 case R.id.img_lang_change:
-                    startActivity(IndexActivity3.class);
+                    startActivity(ChatBastion.class);
                     break;
                 case R.id.tv_lang_change:
                     startActivity(IndexActivity4.class);

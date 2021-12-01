@@ -16,6 +16,7 @@
         <activity android:name=".activity.chat.IndexActivity3" />
         <activity android:name=".activity.chat.IndexActivity4" />
         <activity android:name=".activity.chat.IndexActivity5" />
+        <activity android:name=".activity.chat.ChatBastion" />
 
         <activity android:name=".activity.post.ReadPostDetailActivity"></activity>
         <activity android:name=".activity.account.MyInfoActivity"></activity>
