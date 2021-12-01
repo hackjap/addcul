@@ -4,9 +4,12 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,13 +26,16 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 
 public class TranslationActivity extends BasicActivity {
 
     Button btTranslate;
     EditText etSource;
-    TextView tvResult;
+    TextView tvResult, result;
+    Spinner spinner;
 
+    String[] items = {"중국어", "베트남어", "일본어"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +44,9 @@ public class TranslationActivity extends BasicActivity {
 
         etSource = (EditText) findViewById(R.id.et_source);
         tvResult = (TextView) findViewById(R.id.textView);
+        result=(TextView) findViewById(R.id.result);
         btTranslate = (Button) findViewById(R.id.button2);
+        spinner = (Spinner) findViewById(R.id.trans_id);
 
         // footer 바인딩
         // 하단메뉴
@@ -47,9 +55,25 @@ public class TranslationActivity extends BasicActivity {
         findViewById(R.id.img_map).setOnClickListener(onFooterlistner);
         findViewById(R.id.img_my_info).setOnClickListener(onFooterlistner);
 
+
         ImageView ivTran = findViewById(R.id.img_translate);
         TextView tvTran = findViewById(R.id.tv_translate);
         ivTran.setImageResource(R.drawable.ic_translate_yellow_24dp);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, items);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                result.setText(items[position]);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                result.setText("선택: ");
+            }
+        });
 
 
         if (firebaseUser == null) { // 로그인 상태가 아닐때
@@ -69,11 +93,11 @@ public class TranslationActivity extends BasicActivity {
             public void onClick(View view) {
 
                 //소스에 입력된 내용이 있는지 체크하고 넘어가자.
-                if(etSource.getText().toString().length() == 0) {
+                if (etSource.getText().toString().length() == 0) {
                     Toast.makeText(TranslationActivity.this, "번역할 내용을 입력하세요.", Toast.LENGTH_SHORT).show();
                     etSource.requestFocus();
                     return;
-                }else{
+                } else {
                     //실행버튼을 클릭하면 AsyncTask를 이용 요청하고 결과를 반환받아서 화면에 표시하도록 해보자.
                     NaverTranslateTask asyncTask = new NaverTranslateTask();
                     String sText = etSource.getText().toString();
@@ -94,8 +118,8 @@ public class TranslationActivity extends BasicActivity {
         String clientId = "d_ZAKMHlxNP9t1SSQ5RX";//애플리케이션 클라이언트 아이디값";
         String clientSecret = "L_y_INPySQ";//애플리케이션 클라이언트 시크릿값";
         //언어선택도 나중에 사용자가 선택할 수 있게 옵션 처리해 주면 된다.
-        String sourceLang = "en";
-        String targetLang = "ko";
+        String sourceLang = "ko";
+        String targetLang = "vi";
 
         @Override
         protected void onPreExecute() {
@@ -115,12 +139,12 @@ public class TranslationActivity extends BasicActivity {
                 String text = URLEncoder.encode(sourceText, "UTF-8");
                 String apiURL = "https://openapi.naver.com/v1/papago/n2mt";
                 URL url = new URL(apiURL);
-                HttpURLConnection con = (HttpURLConnection)url.openConnection();
+                HttpURLConnection con = (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("POST");
                 con.setRequestProperty("X-Naver-Client-Id", clientId);
                 con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
                 // post request
-                String postParams = "source="+sourceLang+"&target="+targetLang+"&text=" + text;
+                String postParams = "source=" + sourceLang + "&target=" + targetLang + "&text=" + text;
                 con.setDoOutput(true);
                 DataOutputStream wr = new DataOutputStream(con.getOutputStream());
                 wr.writeBytes(postParams);
@@ -128,7 +152,7 @@ public class TranslationActivity extends BasicActivity {
                 wr.close();
                 int responseCode = con.getResponseCode();
                 BufferedReader br;
-                if(responseCode==200) { // 정상 호출
+                if (responseCode == 200) { // 정상 호출
                     br = new BufferedReader(new InputStreamReader(con.getInputStream()));
                 } else {  // 에러 발생
                     br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
@@ -171,7 +195,6 @@ public class TranslationActivity extends BasicActivity {
             //번역결과를 텍스트뷰에 넣는다.
             tvResult.setText(items.getTranslatedText());
         }
-
 
 
         //자바용 그릇

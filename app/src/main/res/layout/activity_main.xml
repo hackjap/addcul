@@ -530,12 +530,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="BOA Team from Myonggi College"
+                        android:text="BOA Team from Myongji College"
                         android:textSize="10dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="장성필 | 최준배 | 윤병준 | 이유비"
+                        android:text="장성필 | 최준배 | 윤병준"
                         android:textSize="10dp"/>
                 </LinearLayout>
             </LinearLayout>

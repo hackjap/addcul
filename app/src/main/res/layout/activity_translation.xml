@@ -41,13 +41,20 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp">
 
-        <TextView
+        <Spinner
+            android:id="@+id/trans_id"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="end"
-            android:text="English"
-            android:textSize="18dp" />
+            android:textSize="18dp"/>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="end"-->
+<!--            android:text="English"-->
+<!--            android:textSize="18dp" />-->
 
         <ImageView
             android:layout_width="wrap_content"
@@ -57,6 +64,7 @@
             android:src="@drawable/ic_compare_arrows_black_24dp" />
 
         <TextView
+            android:textColor="@color/basic_text"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -103,7 +111,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_gravity="center"
-        android:padding="5dp"
+        android:padding="9dp"
         android:background="@drawable/style_shop_border">
 
         <ImageView
@@ -121,7 +129,12 @@
             android:textColor="@color/basic_text"
             android:textSize="14dp" />
     </LinearLayout>
-
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="선택값"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

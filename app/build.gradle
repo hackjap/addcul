@@ -77,4 +77,7 @@ dependencies {
 
     // 원형이미지
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //motion scene
+    implementation 'com.android.support.constraint:constraint-layout:2.0.4'
 }

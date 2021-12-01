@@ -15,6 +15,7 @@ public class IntroTread extends Thread{
 
 
     public void run(){
+
         Message msg = new Message();
 
         try{
