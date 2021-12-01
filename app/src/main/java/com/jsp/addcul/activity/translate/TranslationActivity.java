@@ -48,7 +48,6 @@ public class TranslationActivity extends BasicActivity {
 
         etSource = (EditText) findViewById(R.id.et_source);
         tvResult = (TextView) findViewById(R.id.textView);
-        result=(TextView) findViewById(R.id.result);
         btTranslate = (Button) findViewById(R.id.button2);
         spinner = (Spinner) findViewById(R.id.trans_id);
 
