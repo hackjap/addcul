@@ -32,10 +32,14 @@ public class TranslationActivity extends BasicActivity {
 
     Button btTranslate;
     EditText etSource;
-    TextView tvResult, result;
+    TextView tvResult;
     Spinner spinner;
 
-    String[] items = {"중국어", "베트남어", "일본어"};
+    String sourceLang = "ko";
+    String targetLang = "ru";
+
+    String[] items = {"인도네시아어","베트남어","태국어","영어","일본어", "중국어"};
+    String[] langs= {"id", "vi", "th", "en", "ja", "zh-cn"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +48,6 @@ public class TranslationActivity extends BasicActivity {
 
         etSource = (EditText) findViewById(R.id.et_source);
         tvResult = (TextView) findViewById(R.id.textView);
-        result=(TextView) findViewById(R.id.result);
         btTranslate = (Button) findViewById(R.id.button2);
         spinner = (Spinner) findViewById(R.id.trans_id);
 
@@ -66,12 +69,12 @@ public class TranslationActivity extends BasicActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                result.setText(items[position]);
+                targetLang = langs[position];
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                result.setText("선택: ");
+                tvResult.setText("다시 선택해주세요!");
             }
         });
 
@@ -118,8 +121,7 @@ public class TranslationActivity extends BasicActivity {
         String clientId = "d_ZAKMHlxNP9t1SSQ5RX";//애플리케이션 클라이언트 아이디값";
         String clientSecret = "L_y_INPySQ";//애플리케이션 클라이언트 시크릿값";
         //언어선택도 나중에 사용자가 선택할 수 있게 옵션 처리해 주면 된다.
-        String sourceLang = "ko";
-        String targetLang = "vi";
+
 
         @Override
         protected void onPreExecute() {
