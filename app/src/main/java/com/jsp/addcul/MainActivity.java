@@ -28,6 +28,8 @@ import com.jsp.addcul.DTO.Corona19;
 import com.jsp.addcul.Util.Util;
 import com.jsp.addcul.activity.chat.IndexActivity;
 import com.jsp.addcul.activity.chat.IndexActivity2;
+import com.jsp.addcul.activity.chat.IndexActivity3;
+import com.jsp.addcul.activity.chat.IndexActivity4;
 import com.jsp.addcul.activity.config.BasicActivity;
 import com.jsp.addcul.activity.kculture.KcultureActivity;
 import com.jsp.addcul.activity.kculture.YoutubeActivity;
@@ -94,7 +96,7 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-//                        processData(response);
+                        processData(response);
                     }
                 },
                 new Response.ErrorListener() {
@@ -253,10 +255,10 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
                     break;
                 // 언어교환
                 case R.id.img_lang_change:
-                    startActivity(IndexActivity.class);
+                    startActivity(IndexActivity3.class);
                     break;
                 case R.id.tv_lang_change:
-                    startActivity(IndexActivity2.class);
+                    startActivity(IndexActivity4.class);
                     break;
                 // 한국문화
                 case R.id.img_kor_info:

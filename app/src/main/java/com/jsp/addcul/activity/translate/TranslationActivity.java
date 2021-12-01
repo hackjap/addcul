@@ -119,7 +119,7 @@ public class TranslationActivity extends BasicActivity {
         String clientSecret = "L_y_INPySQ";//애플리케이션 클라이언트 시크릿값";
         //언어선택도 나중에 사용자가 선택할 수 있게 옵션 처리해 주면 된다.
         String sourceLang = "ko";
-        String targetLang = "vi";
+        String targetLang = "ja";
 
         @Override
         protected void onPreExecute() {
@@ -194,6 +194,7 @@ public class TranslationActivity extends BasicActivity {
             //Log.d("result", items.getTranslatedText());
             //번역결과를 텍스트뷰에 넣는다.
             tvResult.setText(items.getTranslatedText());
+            Log.e("ja : " , items.getTranslatedText().toString());
         }
 
 
