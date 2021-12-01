@@ -48,6 +48,7 @@ public class TranslationActivity extends BasicActivity {
 
         etSource = (EditText) findViewById(R.id.et_source);
         tvResult = (TextView) findViewById(R.id.textView);
+        result=(TextView) findViewById(R.id.result);
         btTranslate = (Button) findViewById(R.id.button2);
         spinner = (Spinner) findViewById(R.id.trans_id);
 
@@ -121,7 +122,8 @@ public class TranslationActivity extends BasicActivity {
         String clientId = "d_ZAKMHlxNP9t1SSQ5RX";//애플리케이션 클라이언트 아이디값";
         String clientSecret = "L_y_INPySQ";//애플리케이션 클라이언트 시크릿값";
         //언어선택도 나중에 사용자가 선택할 수 있게 옵션 처리해 주면 된다.
-
+        String sourceLang = "ko";
+        String targetLang = "vi";
 
         @Override
         protected void onPreExecute() {
@@ -196,6 +198,7 @@ public class TranslationActivity extends BasicActivity {
             //Log.d("result", items.getTranslatedText());
             //번역결과를 텍스트뷰에 넣는다.
             tvResult.setText(items.getTranslatedText());
+            Log.e("ja : " , items.getTranslatedText().toString());
         }
 
 

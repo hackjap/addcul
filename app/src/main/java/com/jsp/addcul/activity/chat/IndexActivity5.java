@@ -37,7 +37,7 @@ import com.jsp.addcul.adapter.RealChatAdapter;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class IndexActivity2 extends AppCompatActivity {
+public class IndexActivity5 extends AppCompatActivity {
 
 
     RecyclerView recyclerView;
@@ -51,7 +51,7 @@ public class IndexActivity2 extends AppCompatActivity {
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
     private FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-    private DatabaseReference conditionRef = databaseReference.child("chinese");
+    private DatabaseReference conditionRef = databaseReference.child("everything");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,8 +87,8 @@ public class IndexActivity2 extends AppCompatActivity {
             //chatUpdate();
 
 
-            adapter = new RealChatAdapter(IndexActivity2.this,chatInfos,memberInfos);
-            recyclerView.setLayoutManager(new LinearLayoutManager(IndexActivity2.this));
+            adapter = new RealChatAdapter(IndexActivity5.this,chatInfos,memberInfos);
+            recyclerView.setLayoutManager(new LinearLayoutManager(IndexActivity5.this));
             recyclerView.setAdapter(adapter);
             recyclerView.scrollToPosition(adapter.getItemCount()-1);
 
@@ -103,8 +103,8 @@ public class IndexActivity2 extends AppCompatActivity {
 
                     chatInfos.add(new ChatInfo(chatData.getUserName(),chatData.getMessage(),new Date(),chatData.getUid()));
                     // adapter.notifyDataSetChanged();
-                    adapter = new RealChatAdapter(IndexActivity2.this,chatInfos,memberInfos);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(IndexActivity2.this));
+                    adapter = new RealChatAdapter(IndexActivity5.this,chatInfos,memberInfos);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(IndexActivity5.this));
                     recyclerView.setAdapter(adapter);
                     recyclerView.scrollToPosition(adapter.getItemCount()-1);
                 }
