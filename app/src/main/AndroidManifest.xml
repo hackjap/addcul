@@ -10,14 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.TmpActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".activity.chat.IndexActivitiy" />
+        <activity android:name=".activity.TmpActivity"></activity>
+        <activity android:name=".activity.chat.IndexActivity" />
         <activity android:name=".activity.post.ReadPostDetailActivity"></activity>
         <activity android:name=".activity.account.MyInfoActivity"></activity>
         <activity android:name=".activity.config.SlideActivity"></activity>

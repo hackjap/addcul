@@ -26,7 +26,8 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.jsp.addcul.DTO.Corona19;
 import com.jsp.addcul.Util.Util;
-import com.jsp.addcul.activity.chat.IndexActivitiy;
+import com.jsp.addcul.activity.chat.IndexActivity;
+import com.jsp.addcul.activity.chat.IndexActivity2;
 import com.jsp.addcul.activity.config.BasicActivity;
 import com.jsp.addcul.activity.kculture.KcultureActivity;
 import com.jsp.addcul.activity.kculture.YoutubeActivity;
@@ -252,10 +253,10 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
                     break;
                 // 언어교환
                 case R.id.img_lang_change:
-                    startActivity(IndexActivitiy.class);
+                    startActivity(IndexActivity.class);
                     break;
                 case R.id.tv_lang_change:
-                    //startActivity()
+                    startActivity(IndexActivity2.class);
                     break;
                 // 한국문화
                 case R.id.img_kor_info:
@@ -271,7 +272,7 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
                     //startActivity()
                     break;
                 case R.id.tv_notice:
-                    startActivity(IndexActivitiy.class);
+                    startActivity(IndexActivity.class);
                     break;
 
                 case R.id.sliderContainer: {

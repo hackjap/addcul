@@ -37,7 +37,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class IndexActivitiy extends AppCompatActivity {
+public class IndexActivity extends AppCompatActivity {
 
 
     RecyclerView recyclerView;
@@ -87,8 +87,8 @@ public class IndexActivitiy extends AppCompatActivity {
             //chatUpdate();
 
 
-                    adapter = new RealChatAdapter(IndexActivitiy.this,chatInfos,memberInfos);
-            recyclerView.setLayoutManager(new LinearLayoutManager(IndexActivitiy.this));
+                    adapter = new RealChatAdapter(IndexActivity.this,chatInfos,memberInfos);
+            recyclerView.setLayoutManager(new LinearLayoutManager(IndexActivity.this));
             recyclerView.setAdapter(adapter);
             recyclerView.scrollToPosition(adapter.getItemCount()-1);
 
@@ -103,8 +103,8 @@ public class IndexActivitiy extends AppCompatActivity {
 
                     chatInfos.add(new ChatInfo(chatData.getUserName(),chatData.getMessage(),new Date(),chatData.getUid()));
                     // adapter.notifyDataSetChanged();
-                    adapter = new RealChatAdapter(IndexActivitiy.this,chatInfos,memberInfos);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(IndexActivitiy.this));
+                    adapter = new RealChatAdapter(IndexActivity.this,chatInfos,memberInfos);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(IndexActivity.this));
                     recyclerView.setAdapter(adapter);
                     recyclerView.scrollToPosition(adapter.getItemCount()-1);
                 }

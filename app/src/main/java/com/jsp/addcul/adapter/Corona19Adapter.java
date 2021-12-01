@@ -31,12 +31,20 @@ public class Corona19Adapter extends RecyclerView.Adapter<Corona19Adapter.Corona
     @Override
     public void onBindViewHolder(@NonNull Corona19ViewHolder holder, int position) {
 
-            int result = Integer.parseInt(list.get(position).getConf())-Integer.parseInt(list.get(position+1).getConf());
-            holder.date.setText(""+result);
-            holder.conf.setText(list.get(position).getConf());
-            holder.release.setText(list.get(position).getRelease());
-            holder.death.setText(list.get(position).getDeath());
+        // 기존 API 변경으로 인해 수정이필요
+//            int result = Integer.parseInt(list.get(position).getConf())-Integer.parseInt(list.get(position+1).getConf());
+//            holder.date.setText(""+result);
+//            holder.conf.setText(list.get(position).getConf());
+//            holder.release.setText(list.get(position).getRelease());
+//            holder.death.setText(list.get(position).getDeath());
 //            holder.exam.setText(list.get(position).getExam());
+
+        // 시연용 코로나 확진자 셋팅
+        holder.date.setText(""+5000);
+        holder.conf.setText("" + 4000);
+        holder.release.setText("" +2000);
+        holder.death.setText("" + 2000);
+
     }
 
     @Override
