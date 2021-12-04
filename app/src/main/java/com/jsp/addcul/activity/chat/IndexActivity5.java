@@ -51,7 +51,7 @@ public class IndexActivity5 extends AppCompatActivity {
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
     private FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-    private DatabaseReference conditionRef = databaseReference.child("everything");
+    private DatabaseReference conditionRef = databaseReference.child("en");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -44,6 +44,7 @@
                     android:gravity="center_horizontal">
                     <!--한국어-->
                     <LinearLayout
+                        android:id="@+id/chat_kr"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="25dp"
@@ -64,6 +65,7 @@
                     </LinearLayout>
                     <!--태국어-->
                     <LinearLayout
+                        android:id="@+id/chat_tai"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="25dp"
@@ -84,6 +86,7 @@
                     </LinearLayout>
                     <!--인도네시아어-->
                     <LinearLayout
+                        android:id="@+id/chat_in"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="25dp"
@@ -104,6 +107,7 @@
                     </LinearLayout>
                     <!--베트남어-->
                     <LinearLayout
+                        android:id="@+id/chat_vat"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="25dp"
@@ -124,6 +128,7 @@
                     </LinearLayout>
                     <!--영어-->
                     <LinearLayout
+                        android:id="@+id/chat_en"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="25dp"
@@ -144,6 +149,7 @@
                     </LinearLayout>
                     <!--기타-->
                     <LinearLayout
+                        android:id="@+id/chat_etc"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="25dp"
