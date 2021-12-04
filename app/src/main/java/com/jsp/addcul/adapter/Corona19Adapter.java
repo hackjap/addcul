@@ -40,10 +40,10 @@ public class Corona19Adapter extends RecyclerView.Adapter<Corona19Adapter.Corona
 //            holder.exam.setText(list.get(position).getExam());
 
         // 시연용 코로나 확진자 셋팅
-        holder.date.setText(""+5000);
-        holder.conf.setText("" + 4000);
-        holder.release.setText("" +2000);
-        holder.death.setText("" + 2000);
+        holder.date.setText(""+5352);
+        holder.conf.setText("467,907");
+        holder.release.setText("83.7%");
+        holder.death.setText("3,739");
 
     }
 

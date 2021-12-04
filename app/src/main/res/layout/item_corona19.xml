@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="총 격리 해제"
+            android:text="백신접종현황"
             android:textColor="#016A96"
             android:textSize="14dp" />
         <TextView
