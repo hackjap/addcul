@@ -56,7 +56,7 @@ public class IndexActivity4 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_index_activitiy);
+        setContentView(R.layout.activity_index_activitiy4);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView_chat);
         editText = (EditText) findViewById(R.id.et_chat_text);

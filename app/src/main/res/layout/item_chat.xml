@@ -39,9 +39,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
-                    android:textColor="#0A0A0A"
-                    android:textSize="13sp"
-                    tools:text="장성필" />
+                    android:textColor="@color/basic_yellow"
+                    android:textSize="14sp"
+                    android:text="장성필" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
