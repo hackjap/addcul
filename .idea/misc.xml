@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/style_border.xml" value="0.2796875" />
+        <entry key="app/src/main/res/layout/activity_basiclife.xml" value="0.2635416666666667" />
+        <entry key="app/src/main/res/layout/activity_basiclife2.xml" value="0.2635416666666667" />
         <entry key="app/src/main/res/layout/activity_chatbastion.xml" value="0.182518115942029" />
         <entry key="app/src/main/res/layout/activity_index_activitiy.xml" value="0.18206521739130435" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18206521739130435" />
@@ -11,8 +13,24 @@
         <entry key="app/src/main/res/layout/activity_pregnancybirth2.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_tmp.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_translation.xml" value="0.18206521739130435" />
-        <entry key="app/src/main/res/layout/custom_item.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/custom_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_chat.xml" value="0.2635416666666667" />
         <entry key="app/src/main/res/layout/item_corona19.xml" value="0.18206521739130435" />
+        <entry key="app/src/main/res/layout/item_detail_post.xml" value="0.2635416666666667" />
+        <entry key="app/src/main/res/layout/item_food.xml" value="0.2635416666666667" />
+        <entry key="app/src/main/res/layout/item_map.xml" value="0.2635416666666667" />
+        <entry key="app/src/main/res/layout/item_music.xml" value="0.2635416666666667" />
+        <entry key="app/src/main/res/layout/item_my_chat.xml" value="0.2635416666666667" />
+        <entry key="app/src/main/res/layout/item_mylog.xml" value="0.2635416666666667" />
+        <entry key="app/src/main/res/layout/item_new_word.xml" value="0.2635416666666667" />
+        <entry key="app/src/main/res/layout/item_notice.xml" value="0.2635416666666667" />
+        <entry key="app/src/main/res/layout/item_post.xml" value="0.2635416666666667" />
+        <entry key="app/src/main/res/layout/item_realchat.xml" value="0.2635416666666667" />
+        <entry key="app/src/main/res/layout/item_shop.xml" value="0.2635416666666667" />
+        <entry key="app/src/main/res/layout/item_slider.xml" value="0.2635416666666667" />
+        <entry key="app/src/main/res/layout/item_tmp.xml" value="0.2635416666666667" />
+        <entry key="app/src/main/res/layout/item_travel.xml" value="0.2635416666666667" />
+        <entry key="app/src/main/res/layout/item_wel.xml" value="0.2635416666666667" />
       </map>
     </option>
   </component>
@@ -30,7 +48,7 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

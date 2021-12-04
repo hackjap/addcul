@@ -362,7 +362,7 @@
                 </ScrollView>
             </LinearLayout>
 
-
+            <!-- tab2           -->
             <LinearLayout
                 android:id="@+id/tab2"
                 android:layout_width="match_parent"
@@ -393,10 +393,11 @@
                             android:orientation="vertical"
                             android:padding="10dp"
                             android:layout_margin="5dp"
+
                             android:background="@drawable/style_chat_talk">
                             <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="150dp"
                                 android:src="@drawable/emer2_1"
                                 android:layout_marginTop="5dp"
                                 />
@@ -405,7 +406,6 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
                                 android:textStyle="bold"
-                                android:layout_marginTop="10dp"
                                 android:textSize="17dp"
                                 android:text="[1] 건강보험제도 개요"
                                 android:textColor="@color/yeonori"
@@ -427,108 +427,6 @@
                             android:padding="10dp"
                             android:layout_margin="5dp"
                             android:background="@drawable/style_chat_talk">
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:src="@drawable/emer2"
-                                android:layout_marginTop="5dp"
-                                />
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:textStyle="bold"
-                                android:layout_marginTop="10dp"
-                                android:textSize="17dp"
-                                android:text="[2] 이 빠졌을 때"
-                                android:textColor="@color/yeonori"
-                                />
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginRight="10dp"
-                                android:lineSpacingExtra="5dp"
-                                android:text="이가 빠진 자리에 조심스럽게 다시 끼우고 치과로 간다. 만약 이를 제자리에 넣을 수 없는 상황이라면 환자의 입 속이나 미지근한 우유 속에 담아서 옮긴다. 빠진 치아를 너무 깨끗하게 씻는 것은 좋지 않다."/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="10dp"
-                            android:layout_margin="5dp"
-                            android:background="@drawable/style_chat_talk">
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:src="@drawable/emer3"
-                                android:layout_marginTop="5dp"
-                                />
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:textStyle="bold"
-                                android:layout_marginTop="10dp"
-                                android:textSize="17dp"
-                                android:text="[3] 코피가 날 때 "
-                                android:textColor="@color/yeonori"
-                                />
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginRight="10dp"
-                                android:lineSpacingExtra="5dp"
-                                android:text="우선 머리를 앞으로 숙여 숨을 쉬면서 코뼈 밑 부분을 잡는다. 이때 말을 하거나 침을 삼키거나 기침을 해서는 안 된다. 10분 정도 지난 뒤에도 피가 멈추지 않으면 곧바로 병원으로 가야 한다. 코피가 멎은 후에도 한동안 머리를 앞으로 굽히고 미지근한 물로 코와 입 주위를 닦으며 물리적 자극을 피하는 것이 좋다"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="10dp"
-                            android:layout_margin="5dp"
-                            android:background="@drawable/style_chat_talk">
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:src="@drawable/emer4"
-                                android:layout_marginTop="5dp"
-                                />
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:textStyle="bold"
-                                android:layout_marginTop="10dp"
-                                android:textSize="17dp"
-                                android:text="[4] 화상을 입었을 때 "
-                                android:textColor="@color/yeonori"
-                                />
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginRight="10dp"
-                                android:lineSpacingExtra="5dp"
-                                android:text="화상이 심하고 상처 부위가 넓은 경우 전문치료가 필요하다. 일단 소독 거즈로 감싼 후 호흡 상태를 관찰하면서 신속하게 병원으로 옮겨야 한다. 심하지 않을 때는 상처 부위의 옷을 가위로 자르고, 흐르는 찬물로 최소한 20분 이상 열을 식히는 것이 좋다. 상처 부위는 절대 문지르면 안 되며, 물집도 터뜨리지 말아야 한다. 상처가 심할 때는 연고만으로는 충분하지 않다. 상처 부위를 심장보다 높게 하면 통증을 줄일 수 있다"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="10dp"
-                            android:layout_margin="5dp"
-                            android:background="@drawable/style_chat_talk">
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:src="@drawable/emer"
-                                android:layout_marginTop="5dp"
-                                />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -537,7 +435,7 @@
                                 android:textStyle="bold"
                                 android:layout_marginTop="10dp"
                                 android:textSize="17dp"
-                                android:text="[5] 감전되었을 때"
+                                android:text="[2] 건강보험 가입대상 외국"
                                 android:textColor="@color/yeonori"
                                 />
                             <TextView
@@ -547,39 +445,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginRight="10dp"
                                 android:lineSpacingExtra="5dp"
-                                android:text="즉시 전원을 끈다. 전원을 끌 수 없는 곳이라면 전기가 통하지 않는 옷차림을 갖추고, 전기가 통하지 않는 물건을 이용해 감전을 일으킨 물건을 환자에게서 떼어낸다. 구조 후엔 환자에게 의식이 있는지 살피고, 의식이 없으면 호흡과 맥박을 확인한다. 호흡이 멎었을 때는 인공호흡을, 맥박이 멎었다면 인공호흡과 함께 심장 마사지를 해준다. 감전은 몸의 내부에 화상을 입힐 수 있으므로 환자에게 의식이 있더라도 즉시 응급실로 옮겨 의사의 치료를 받아야 한다."/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="10dp"
-                            android:layout_margin="5dp"
-                            android:background="@drawable/style_chat_talk">
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:src="@drawable/emer6"
-                                android:layout_marginTop="5dp"
-                                />
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:textStyle="bold"
-                                android:layout_marginTop="10dp"
-                                android:textSize="17dp"
-                                android:text="[6] 일사병·열사병 "
-                                android:textColor="@color/yeonori"
-                                />
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginRight="10dp"
-                                android:lineSpacingExtra="5dp"
-                                android:text="일사병은 머리나 목 부분에 직사광선을 받아 생기는 병이고, 열사병은 체내의 열을 체외로 내보내지 못할 때 생기는 병이다. 이런 경우에는 환자를 서늘하고 그늘진 곳으로 옮기는 것이 중요하다. 우선 옷을 벗기고, 젖은 수건이나 시트로 환자를 덮은 다음 부채나 선풍기로 바람을 쏘여 주면서 병원으로 신속히 옮긴다."/>
+                                android:text="
+외국인등록을 한 자로서 건강보험 적용 사업장에 근무하는 자와 공무원·교직원으로 임용 또는 채용된 자는 직장가입자가 된다. 외국인등록을 한 자로서 직장가입자와 피부양자를 제외한 국민건강보험법 시행규칙 별표9에 해당하는 외국인은 6개월 이상 국내체류 시 지역가입자가 된다.(결혼이민, 유학 체류자격은 입국 즉시)
+다만, 외국의 법령이나 외국의 보험 또는 사용자와의 계약에 따라 건강보험에 준하는 다른 의료보장을 받는 경우, 본인의 신청에 따라 건강보험 가입의무를 면제받을 수 있다."/>
                         </LinearLayout>
 
 
@@ -590,12 +458,6 @@
                             android:padding="10dp"
                             android:layout_margin="5dp"
                             android:background="@drawable/style_chat_talk">
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:src="@drawable/emer7"
-                                android:layout_marginTop="5dp"
-                                />
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -603,7 +465,7 @@
                                 android:textStyle="bold"
                                 android:layout_marginTop="10dp"
                                 android:textSize="17dp"
-                                android:text="[7] 질식"
+                                android:text="[3] 가입방"
                                 android:textColor="@color/yeonori"
                                 />
                             <TextView
@@ -613,9 +475,42 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginRight="10dp"
                                 android:lineSpacingExtra="5dp"
-                                android:text="질식하면 갑자기 숨쉬기가 힘들어진다. 또 머리가 뒤로 젖혀지고 눈 주위가 튀어나오며 심하면 얼굴색이 파랗게 된다. 이럴 때는 환자를 공기가 맑은 곳으로 이동시켜야 한다. 의식이 없더라도 호흡이 유지되고 있으면 엎드린 자세로 서서히 회복시키는 것이 좋다. 만일 호흡이 없거나 호흡이 심하게 곤란한 상황이라면 즉시 인공호흡을 하고, 회복의 기미가 없으면 병원으로 신속히 옮긴다."/>
-                        </LinearLayout>
+                                android:text="(1)직장에 다니는 배우자가 건강보험에 가입되어 있는 경우
+배우자의 건강보험에 피부양자*로 등록이 가능하며, 피부양자 확인에 필요한 서류를 국민건강보험공단에 제출하여야 한다
+- 필요한 서류 : 피부양자 자격취득신고서, 외국인등록증 사본, 가족관계증명서(외국의 가족관계 서류는 해당국의 외교부(또는 아포스티유) 확인을 받은 서류(한글번역본 포함)
+"/>
 
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="10dp"
+                                android:lineSpacingExtra="5dp"
+                                android:text="(2)외국인이 직장에 다니는 경우
+- 외국인이 건강보험적용 사업장에 근무하면 건강보험에 가입이 되며, 이 경우 회사가 국민건강 보험공단에 외국인 등록증 사본과 필요한 서류를 제출하면 된다.
+"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="10dp"
+                                android:lineSpacingExtra="5dp"
+                                android:text="(3)한국인 배우자와 외국인이 모두 직장에 다니지 않는 경우
+- 2019.7.16.부터 직장가입자 및 피부양자를 제외한 국민건강보험법 시행규칙 별표9에 해당하는 외국인은 6개월이상 국내 거주 시 건강보험에 당연 가입된다.(결혼이민, 유학 체류자격은 입국 즉시) 외국인이 서울, 인천, 경기 일부 지역에 거주하는 경우, 자격취득 및 세대합가, 보험료 납부 등은 아래의 외국인민원센터를 방문해야 한다.
+"/>
+
+                            <ImageView
+                                android:layout_width="400dp"
+                                android:layout_height="200dp"
+                                android:src="@drawable/emer2_2"
+                                android:layout_marginTop="5dp"
+
+                                />
+
+                        </LinearLayout>
 
 
                         <LinearLayout
@@ -625,12 +520,7 @@
                             android:padding="10dp"
                             android:layout_margin="5dp"
                             android:background="@drawable/style_chat_talk">
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:src="@drawable/emer8"
-                                android:layout_marginTop="5dp"
-                                />
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -638,7 +528,7 @@
                                 android:textStyle="bold"
                                 android:layout_marginTop="10dp"
                                 android:textSize="17dp"
-                                android:text="[8] 뼈가 부러졌을 때 "
+                                android:text="[4] 보험료 납부 "
                                 android:textColor="@color/yeonori"
                                 />
                             <TextView
@@ -648,11 +538,23 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginRight="10dp"
                                 android:lineSpacingExtra="5dp"
-                                android:text="골절 부위가 변형됐거나 뼈가 피부를 뚫고 나온 경우에는 상처 부위를 소독하고 고정시킨 다음 구조요원을 부른다. 상처 부위는 절대 움직이지 말아야 하고, 담요나 베개를 이용해서 심장보다 높여주는 것이 좋다. 단순히 삔 경우에는 다친 부위를 탄력붕대로 넓게 감싸고 움직임을 줄이면 부은 것이 가라앉는다. 통증을 줄이는 데는 얼음찜질이 효과적이다."/>
+                                android:text="(1)직장가입자
+• 보험료 납부 : 매월 가입자에게 지급되는 월급에서 미리 공제하여 사용자가 납부한다.
+- 직장가입자의 경우 회사에서 받는 보수에 대한 보수월액보험료(사용자와 근로자 본인 50%씩 부담)는 매월 가입자에게 지급되는 월급에서 미리 공제하여 사용자가 납부하며, 연간 종합소득(3,400만원 초과)에 대한 소득월액보험료는 개인이 납부한다."/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="10dp"
+                                android:lineSpacingExtra="5dp"
+                                android:text="(2)지역가입자
+• 보험료 납부
+- 외국인인 경우 해당 월의 보험료를 그 직전 월 25일까지 납부하며(단,자격의 소급취득으로 발생되는 보험료는 최초보험료에 합산부과), 소득·재산에 따라 산정한 보험료가 평균보험료 미만일 경우 전년도 11월 전체가입자 평균보험료를 부과하는데, ’21년도 보험료는 131,790원이다.
+- 체류자격이 F-5, F-6인 국내 영주 외국인은 내국인과 동일한 보험료 부과기준으로 다음달 10일까지 납부한다."/>
+
                         </LinearLayout>
-
-
-
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -661,12 +563,8 @@
                             android:padding="10dp"
                             android:layout_margin="5dp"
                             android:background="@drawable/style_chat_talk">
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:src="@drawable/emer9"
-                                android:layout_marginTop="5dp"
-                                />
+
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -674,7 +572,7 @@
                                 android:textStyle="bold"
                                 android:layout_marginTop="10dp"
                                 android:textSize="17dp"
-                                android:text="[9] 가락이 잘렸을 때"
+                                android:text="[5] 상담기관 또는 문의처"
                                 android:textColor="@color/yeonori"
                                 />
                             <TextView
@@ -684,9 +582,8 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginRight="10dp"
                                 android:lineSpacingExtra="5dp"
-                                android:text="잘린 손가락은 다시 접합할 수 있으므로 사고 직후 적절히 응급조치를 하는 것이 중요하다. 우선 상처부위를 눌러 피를 멎게 하고 손을 심장보다 높이 든다. 잘린 손가락은 거즈로 잘 싸서 얼음이 담긴 비닐봉지에 넣어 병원으로 신속히 운반해야 한다. 잘린 부위에는 함부로 손을 대면 안 된다."/>
+                                android:text="건강보험 보험료, 자격요건, 혜택 등에 대한 자세한 정보는 국민건강보험공단 홈페이지를 이용하거나, 대표전화(☎1577-1000) 또는 외국어(영어, 중국어, 베트남어)상담전화(☎033-811-2000)를 통해 안내 받을 수 있다."/>
                         </LinearLayout>
-
 
                         <TextView
                             android:layout_width="match_parent"
@@ -703,6 +600,425 @@
                 </ScrollView>
             </LinearLayout>
 
+            <!-- tab3          -->
+            <LinearLayout
+                android:id="@+id/tab3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="의료급여제도"
+                            android:textColor="@color/orange"
+                            android:textSize="18sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="10dp"
+                            android:layout_margin="5dp"
+
+                            android:background="@drawable/style_chat_talk">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:textStyle="bold"
+                                android:textSize="17dp"
+                                android:text="[1] 적용대상"
+                                android:textColor="@color/yeonori"
+                                />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="10dp"
+                                android:lineSpacingExtra="5dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="의료급여제도는 경제적으로 생활이 곤란하여 의료비용을 지불하기 어려운 국민을 대상으로 국가가 대신하여 의료비용을 지불하는 제도이다. 원칙적으로 외국인은 의료급여 대상이 되지 않으나, 예외적으로 국민기초생활보장법령이 정하는 바에 따라 외국인도 의료급여 수급자가 될 수 있다. 의료급여 대상자가 질병·부상·출산 등으로 인하여 병,의원 등에서 진료를 받았을 경우 국가에서 그 의료비를 병,의원에 지급하게 된다."/>
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="10dp"
+                                android:lineSpacingExtra="5dp"
+                                android:text="국민기초생활보장법에서 정하는 의료급여 수급권자(외국인 포함)이면 누구나 의료급여제도 혜택을 받을 수 있다."/>
+
+                            <ImageView
+                                android:layout_marginLeft="30dp"
+                                android:layout_width="300dp"
+                                android:layout_height="100dp"
+                                android:src="@drawable/emer3_1"
+                                android:layout_marginTop="5dp"
+                                />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="10dp"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/style_chat_talk">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="10dp"
+                                android:textSize="17dp"
+                                android:text="[2] 본인부담"
+                                android:textColor="@color/yeonori"
+                                />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="10dp"
+                                android:lineSpacingExtra="5dp"
+                                android:text="의료급여 대상자도 의료비용의 일부를 본인이 내야 한다.  "/>
+                            <ImageView
+                                android:layout_marginLeft="30dp"
+                                android:layout_width="300dp"
+                                android:layout_height="100dp"
+                                android:src="@drawable/emer3_2"
+                                android:layout_marginTop="5dp"
+                                />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="10dp"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/style_chat_talk">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="10dp"
+                                android:textSize="17dp"
+                                android:text="[3] 의료급여절차"
+                                android:textColor="@color/yeonori"
+                                />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="10dp"
+                                android:lineSpacingExtra="5dp"
+                                android:text="의료급여 수급자는 1차의료급여기관에 수선 의료급여를 신처아여야 하며, 2차의료기관, 3차의료급여기관 순서로 이용할 수 있다(예외 있음)."/>
+
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="10dp"
+                                android:lineSpacingExtra="5dp"
+                                android:text="(2)외국인이 직장에 다니는 경우
+- 외국인이 건강보험적용 사업장에 근무하면 건강보험에 가입이 되며, 이 경우 회사가 국민건강 보험공단에 외국인 등록증 사본과 필요한 서류를 제출하면 된다.
+"/>
+
+                            <ImageView
+                                android:layout_width="360dp"
+                                android:layout_height="100dp"
+                                android:src="@drawable/emer3_3"
+                                android:layout_marginTop="5dp"
+
+                                />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/ultimate_gray"
+                            android:inputType="textMultiLine"
+                            android:lineSpacingExtra="5dp"
+                            android:padding="10dp"
+                            android:text="이 내용은 2021년 10월 기준으로 작성된 자료이므로, 일부 내용은 참고하시는 시점의 내용과 상이할 수 있음을 알려드립니다." />
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+
+
+            <!-- tab4          -->
+            <LinearLayout
+                android:id="@+id/tab4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="진료 분아별 병원 구분"
+                            android:textColor="@color/orange"
+                            android:textSize="18sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="10dp"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/style_chat_talk">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:textStyle="bold"
+                                android:textSize="17dp"
+                                android:text="[1] 의료기관유형"
+                                android:textColor="@color/yeonori"
+                                />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="10dp"
+                                android:lineSpacingExtra="5dp"
+                                android:text="의료기관은 규모와 이용 순서, 서비스 내용 및 범위에 따라 구분된다. 감기나 소화기 장애 등 병이 심각하지 않은 경우 의원에 가서 치료받고, 병이 낫지 않거나 세밀한 검사를 필요로 하는 경우 병원이나 종합병원, 상급종합병원에 가서 치료받는다."/>
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:src="@drawable/emer4_1"
+                                />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="10dp"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/style_chat_talk">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="10dp"
+                                android:textSize="17dp"
+                                android:text="[2] 진료분야와 진료 과목"
+                                android:textColor="@color/yeonori"
+                                />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:lineSpacingExtra="5dp"
+                                android:text="병원 또는 의원"/>
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="500dp"
+                                android:src="@drawable/emer4_2"
+                                />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:lineSpacingExtra="5dp"
+                                android:text="한방병원 또는 한의원"/>
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="100dp"
+                                android:src="@drawable/emer4_3"
+                                />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="10dp"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/style_chat_talk">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="10dp"
+                                android:textSize="17dp"
+                                android:text="[3] 의료기관 이용 절차"
+                                android:textColor="@color/yeonori"
+                                />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="10dp"
+                                android:lineSpacingExtra="5dp"
+                                android:text="(1) 1단계 의료기관 이용절차"/>
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="300dp"
+                                android:src="@drawable/emer4_4"
+                                android:layout_marginTop="5dp"
+                                />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="10dp"
+                                android:lineSpacingExtra="5dp"
+                                android:text="(2) 2단계 의료기관 이용 시 다른 점"/>
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="300dp"
+                                android:src="@drawable/emer4_5"
+                                android:layout_marginTop="5dp"
+                                />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="10dp"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/style_chat_talk">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="10dp"
+                                android:textSize="17dp"
+                                android:text="[4] 응급상황 대처"
+                                android:textColor="@color/yeonori"
+                                />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="10dp"
+                                android:lineSpacingExtra="5dp"
+                                android:text="- 평상 시 약국에서 감기약, 소화제, 진통제 등을 구입해서 집에 두는 것이 좋다.
+- 응급전화 ☎119에 전화를 하면, 구급차가 오고 가까운 병원 응급실로 안내된다. 응급실에서 기본적인 처치를 받은 후 수술이나 검사를 위해 입원"/>
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="100dp"
+                                android:src="@drawable/emer4_6"
+                                android:layout_marginTop="5dp"
+                                />
+
+                        </LinearLayout>
+              <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="10dp"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/style_chat_talk">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="10dp"
+                                android:textSize="17dp"
+                                android:text="[5] 약국, 의약품 등"
+                                android:textColor="@color/yeonori"
+                                />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="10dp"
+                                android:lineSpacingExtra="5dp"
+                                android:text="의약품은 병원에서 의사의 진료 후 처방전을 받아야만 약국에서 구입할 수 있는 전문의약품이 있으며, 처방전이 없어도 약국에서 바로 구입할 수 있는 일반의약품이 있다. 일반의약품은 감기약, 소화제, 해열제, 진통제, 상처에 바르는 각종 연고제, 설사 관련 지사제 등으로 그 종류가 다양하다.
+또한 의약품이 아닌 살충제, 생리대, 건강보조음료, 콘돔 등은 일반 편의점과 같은 소매점에서도 구입할 수 있으며, 가벼운 증상에 스스로 판단하여 시급히 사용하도록 최소한으로 해열 진통제, 감기약, 소화제, 파스 중 13개 제품은 24시간 편의점에서도 구매할 수 있다."/>
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="300dp"
+                                android:src="@drawable/emer4_7"
+                                android:layout_marginTop="5dp"
+                                />
+              </LinearLayout>
+
+
+                        <!-- footer-->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/ultimate_gray"
+                            android:inputType="textMultiLine"
+                            android:lineSpacingExtra="5dp"
+                            android:padding="10dp"
+                            android:text="이 내용은 2021년 10월 기준으로 작성된 자료이므로, 일부 내용은 참고하시는 시점의 내용과 상이할 수 있음을 알려드립니다." />
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
 
 
 

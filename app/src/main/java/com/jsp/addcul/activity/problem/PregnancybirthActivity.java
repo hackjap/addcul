@@ -19,7 +19,7 @@ public class PregnancybirthActivity extends TabActivity { //TabActivity를 exten
         TabHost tabHost = getTabHost();
 
         //tab1에 Kim이라는 태그를 붙여줌
-        TabHost.TabSpec tab1 = tabHost.newTabSpec("Group1").setIndicator("응급상황 대처법");
+        TabHost.TabSpec tab1 = tabHost.newTabSpec("Group1").setIndicator("응급상황대처법");
         tab1.setContent(R.id.tab1);
         tabHost.addTab(tab1);//레이아웃과 연결
 
