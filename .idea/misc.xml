@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/style_border.xml" value="0.2796875" />
         <entry key="app/src/main/res/layout/activity_chatbastion.xml" value="0.182518115942029" />
         <entry key="app/src/main/res/layout/activity_index_activitiy.xml" value="0.18206521739130435" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18206521739130435" />
+        <entry key="app/src/main/res/layout/activity_pregnancybirth.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_pregnancybirth2.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_tmp.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_translation.xml" value="0.18206521739130435" />
         <entry key="app/src/main/res/layout/custom_item.xml" value="0.1" />

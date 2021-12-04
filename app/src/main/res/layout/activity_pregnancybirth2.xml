@@ -1,0 +1,2412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="match_parent"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content" >
+        </TabWidget>
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+
+            <LinearLayout
+                android:id="@+id/tab1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="적용대상"
+                            android:textColor="@color/orange"
+                            android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="임신을 준비하는 예비부부에게 필요한 검사"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="임신부 및 태아의 건강을 위해 임신 전 검사 및 예방접종이 필요하다" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="190dp"
+                            android:src="@drawable/pregnancybirth1_1"
+                            android:layout_marginTop="5dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="* MMR: 홍역·유행성이하선염·풍진 혼합백신 ** 과거에 접종받았더라도 풍진에 대한 항체검사 결과 양성이 아니라면 1회 더 접종해야 하며, 총 접종횟수는 3회를 넘지 않음" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/ultimate_gray"
+                            android:inputType="textMultiLine"
+                            android:lineSpacingExtra="5dp"
+                            android:padding="10dp"
+                            android:text="선천성지카증후군 출생 전 임신부가 지카바이러스에 노출되어 태아 감염 전파를 통해 소두증 등 심각한 뇌 기형 같은 신경학적 결손을 유발 동남아시아 등 지카바이러스 발생국에서 입국한 사람(남·여 모두)은 금욕하거나 콘돔을 사용하여 6개월간 임신을 연기" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="임산부가 받아야 할 검사"
+                            android:textColor="@color/orange"
+                            android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="임산부의 건강관리를 위해서 실시하는 일반적인 검사항목은 다음과 같다. 이외에도 임산부나 태아의 건강상태에 따라 한층 더 정밀한 검사를 받을 수 있다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="임산부가 받아야 하는 일반적인 검사항목과 검사 내용"
+                            android:textColor="@color/yeonori"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="건강한 아기 출산을 위해 주의할 점"
+                            android:textColor="@color/orange"
+                            android:textSize="18sp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="215dp"
+                            android:layout_marginTop="5dp"
+                            android:src="@drawable/pregnancybirth1_2" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 건강한 엄마에게서 건강한 아기가 태어난다.임신을 계획하고 있다면 엄마가 건강해야 한다. 만약 이미 질병이 있다면 의사와 상의해서치료를 받는다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 약물은 함부로 먹지 않는다.임신 중에는 가능한 약물 복용을 피해야 한다. 약물은 태아에게 심각한 영향을 미칠 수 있다. 특히 임신 초기는 태아의 손, 발, 심장, 중추신경계 등이 발달하는 시기이다. 따라서 매우 주의해야 한다. 당뇨나 고혈압 같은 만성 질환이나 감염으로 인한 장기간의 고열 등 그냥 내버려두면 임신부와 태아에게 심각한 영향을 미칠 수 있는 경우는 의사와 상의하여 약물 복용을 포함한 적절한 치료가 반드시 필요하다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 술이나 담배는 절대 금지한다. 술은 강력한 기형유발 물질로 태아 알코올증후군을 유발할 수 있다. 임신 중에는 절대 음주를 하지 않는다. 담배는 태아 성장을 방해하여 저체중출생아를 발생시킨다. 그러므로 임신전에 담배를 끊는 것이 좋다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 충분한 칼로리와 단백질, 무기질, 비타민을 충분히 섭취하도록 한다. 일상적인 식사만 제대로 한다면, 영양제를 따로 복용할 필요는 없다. 영양 섭취에 이상이 없으면 임신 초기 4개월간은 월 1kg, 후반기 6개월은 월 2kg 정도로 총 13kg 정도 증가한다.다만, 철분은 임신 5개월째부터 별도로 보충을 해주어야 한다. 철분제는 공복에 먹는 것이 흡수를 증가시킨다. 가임기 여성은 신경관 결손의 예방을 위해 매일 일정량의 엽산을 섭취해야 한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 임신 중 생리적으로 장운동이 감소하여 변이 딱딱해지고 커진 자궁에 의해 장이 압박되어 변비가 잘 생긴다. 신선한 과일,채소의 섭취로 변의 양을 증가시키고 충분한 물의 섭취, 규칙적 운동이 변비를 예방하는 데 도움을 준다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 무리한 활동은 자제한다.임신한 여성이라고 운동을 제한할 필요는 없다. 일상생활은 계속하면서 가벼운 운동을 규칙적으로 하는 것이 좋다. 그러나 새로운 운동의 시작이나 운동을 강화하는 것은 주의한다. 무리한 중노동이나 높은 곳을 오르는 위험한 작업은 피해야 한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 임신 마지막 4주 전까지는 임신 중 성교를 제한할 필요는 없다. 유산이나 조산의 위험이 있는 경우는 피하거나 콘돔을 사용한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 인플루엔자백신은 임신 주수에 상관없이 접종이 가능하다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 임신부는 장기간 앉아서 여행을 할 경우 적어도 한 시간마다 하지를 규칙적으로 움직여 정맥순환을 촉진시켜 주어야 한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 임신 시에 부종은 하대정맥 또는 골반내 정맥이 눌려서 하지에 잘 발생한다. 다리를 높이 들어주면 도움이 되나 임신성고혈압에서도 잘 나타나므로 임신 후반기 부종이 있으면 반드시 혈압을 확인한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 임신 중 질 분비물이 증가한다. 이는 증가된 여성호르몬의 영향으로 자궁목샘에서 점액의 생산이 증가되기 때문이며 병적인 것은 아니다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 정기적으로 진찰을 받는다. 의사의 지시에 따라 정기적으로 진찰을 받는다. 임신기간 동안 의료기관을 이용한 산전관리를 통해서 엄마나 아기가 가지고 있는 위험요인들을 미리 발견하고 예방할 수 있다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/ultimate_gray"
+                            android:inputType="textMultiLine"
+                            android:lineSpacingExtra="5dp"
+                            android:padding="10dp"
+                            android:text="* 한국의 태교
+한국에서는 임신 중 어머니의 마음과 몸가짐이 태아에게 정서적·심리적·신체적으로 영향을 미친다고 생각해 왔다. 건강하고 좋은 자손을 얻기 위하여 임산부가 모든 일에 대해서 조심하고, 나쁜 생각이나 거친 행동을 삼가며, 편안한 마음으로 말이나 행동을 하려는 전통이 있는데 이를 태교라고 한다. 따라서 음식과 행동을 조심하는 것은 물론, 생각하는 것까지 일일이 금지되는 것이 많다. 한국인 식구들이 태교를 위해 충고할 때, 개인 사생활을 침해하는 것으로 생각이 들거나 스트레스를 느낄 수도 있다. 그러나 이는 문화적인 차이로 인한 것일 수 있으니 대화를 통해 갈등을 해소하는 것이 필요하다. 배우자도 태교에 적극 참여하여 행복한 임신과 출산이 이루어지도록 도와주는 것이 좋다." />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="임산부를 위한 보건소 서비스"
+                            android:textColor="@color/orange"
+                            android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="모든 임산부는(결혼이민자 포함) 임신을 하면 보건소에서 무료로 건강관리를 받을 수 있다. 특히 고위험 임산부*는 반드시 보건소나 의료기관의 관리가 필요하다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/ultimate_gray"
+                            android:inputType="textMultiLine"
+                            android:lineSpacingExtra="5dp"
+                            android:padding="10dp"
+                            android:text="* 고위험 임산부
+어리거나 나이가 많은 임산부(20세 미만 및 35세 이상), 조기진통, 분만관련 출혈, 중증 임신중독증 등 임신질환이 있는 경우, 미숙아 및 선천성이상아를 낳은 적이 있는 임산부를 말하며 특별히 관리가 필요하다." />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="무료 산전검사"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="임산부는 보건소에서 임신 조기진단 검사, 소변검사(당뇨, 단백질검사), 혈액검사(혈색소, 적혈구검사, 백혈구검사, 혈청매독검사, 간염검사, 혈액형검사)를 받을 수 있다. 임산부 산전검사는 보건소에 등록하기만 하면 지원을 받는다(보건소마다 검사항목이 다를 수 있음)"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="출산 준비교실 등 교육 실시"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 모유수유교실, 임산부체조교실, 출산준비교실, 아기마사지교실 등을 운영한다.
+- 임신·태교·분만 관련 서적 및 CD, 비디오 등을 대여해 주는 지역도 있다. 지방자치단체 자체적으로 수행하며, 지역에 따라 지원 내용 상이"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="철분제 지원"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="임신 16주 이상 보건소에 등록한 임산부에게 철분제를 지원한다. "/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="엽산제 지원"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="보건소에 등록한 임산부에게 임신일로부터 3개월까지 엽산제를 지원한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="고위험 임산부 의료 지원"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="임신 20주 이후에 조기진통, 분만관련 출혈, 중증 임신중독증, 양막의 조기파열, 태반조기박리로 진단받고 입원치료를 받은 고위험임산부에게 건강보험이 적용되지 않는 의료비에 대해 300만원 한도 내에서 지원하는 사업이다. "/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 지원대상 : 임신 20주 이후에 5대 고위험 임신질환(조기진통, 분만관련 출혈, 중증 임신중독증, 양막의 조기파열, 태반조기박리)으로 진단받고 입원치료 받은 기준 중위소득 180% 이하 가구 구성원인 자"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 지원내용 : 입원환자가 부담한 비급여 본인부담금(상급병실료 차액, 환자특식 제외)의 90%(300만원 한도 내)"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 신청절차 : 보건소 또는 산부인과 병의원에 비치된 고위험 임산부 의료비 지원사업 지원신청서를 작성하여 구비서류를 갖추어 주소지 관할 보건소에 제출"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 구비서류 : 의사진단서 1부(질병명 및 질병코드 포함), 입퇴원진료확인서 및 진료비 영수증 각 1부(입원횟수별로 별도 제출), 출생보고서 또는 출생증명서 1부, 주민등록등본 1부, 건강보험증 사본 및 건강보험료 본인부담금납부고지서, 의료비 지원금 입금계좌 통장사본 1부(지원대상자 명의) 등"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="영양플러스 사업"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="영양적 위험요인이 있는 임산부 및 영유아의 영양문제를 해소하고 스스로 식생활을 관리할 수 있는 능력을 배양하여 건강증진을 도모하고자 영양교육과 필요한 보충식품을 지원하는 사업이다."/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="280dp"
+                            android:src="@drawable/pregnancybirth1_3"
+                            android:layout_marginTop="5dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="출산"
+                            android:textColor="@color/orange"
+                            android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="출산은 산부인과를 이용한다. 보건소에서 산전관리를 받았던 임산부라도 출산은 일반 병·의원에서 해야 한다. 출산 전 준비는 차근차근 해놓아야 출산 시 당황하지 않게 된다. 아기를 낳는 방법에는 여러 가지가 있으나 대표적인 것으로 자연분만과 제왕절개가 있다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="자연분만"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="-약물이나 기계의 힘을 빌리지 않고, 자연적인 진통이 일어나 질(산도)을 통해 아기를 분만하는 방법을 말한다. 분만을 쉽게 하기 위해 회음부를 절개한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 오랜 시간 경과해도 출산이 진행되지 않는 경우는 진통촉진제를 사용하기도 한다. 처음 아기를 낳는 경우는 10시간 이상, 둘째아이 이상인 경우는 5시간 정도 걸린다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 출산과정에서 통증이 심하지만 일단 아기를 낳게 되면, 통증이 사라지는 가장 좋은 분만방법이다. 또한 입원 기간도 2박 3일 정도로 짧으며 비용 역시 저렴하다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="제왕절개"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 자연분만이 어려울 때는 제왕절개 분만을 해야 한다. 고령출산, 골반이 좁거나 태아가 거꾸로 있는 경우 등, 분만 시 위험한 사태가 생길 수 있는 경우에는 이 방법을 이용한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 제왕절개는 수술을 하는 것으로써 여러 가지 합병증을 유발할 수 있다. 따라서 부득이한 경우를 제외하고는 자연분만을 하는 것이 바람직하다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 제왕절개 분만을 했을 때는 일주일 정도 입원해야 하기 때문에 비용이 많이 든다."/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="출산 전후휴가 및 육아휴직"
+                            android:textColor="@color/orange"
+                            android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="근로자가 임신한 경우, 아이를 출산하기 전이나 후에 출산전후 휴가를 받는다.또한 만 8세 이하 또는 초등학교 2학년 이하 자녀를 양육하기 위해 육아휴직(육아기 근로시간 단축) 제도를 이용할 수도 있다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="출산 전후휴가"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:lineSpacingExtra="5dp"
+                        android:text="- 적용대상
+근로기준법상 1인 이상 근로자를 사용하는 사업장에 종사하는 여성근로자는 근로계약의 형태(정규직, 비정규직 등)와 관계없이 누구든지 청구하여 사용할 수 있다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 출산 전후휴가 기간
+- 아기의 분만이 정상적으로 진행된다면, 출산일을 전후하여 90일간 휴가를 받는다.
+출산 전후휴가 기간은 출산 후에 반드시 45일 이상 되어야 한다.
+1.근로자가 유산·사산의 경험이 있는 경우
+2.근로자 연령이 만 40세 이상인 경우
+3.근로자가 유산·사산의 위험이 있다는 의료기관의 진단서를 제출한 경우에는 출산 전에 사용할 수 있는 44일의 휴가를 임신 초기에 미리 사용할 수 있음
+- 출산 전후휴가는 해당 사업장에 근무 중인 근로자에게 부여하는 제도이므로 휴가기간 중 근로계약이 만료되는 경우에는 계약만료 시점에서 출산 전후휴가도 종료된다.
+※ 2014년 7월 1일 이후 한 번에 둘 이상의 아이(쌍둥이 등)를 출산하는 경우에는 120일의 출산 전후휴가를 받는다. 이때 출산 후의 기간은 60일 이상이 되어야 한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 출산 전후휴가급여
+- 출산 전후휴가 기간 동안 출산 전후휴가 급여가 지급된다.
+- 대기업의 경우 60일분은 회사에서 통상임금의 100%를 지급하고, 나머지 30일분은 고용보험에서 지급한다.(월 1,600,000원 한도)
+- 우선지원대상기업(중소기업)의 경우, 90일간의 휴가 급여를 고용보험에서 지급하고(월 1,600,000원 한도) 최초 60일분은 회사에서 통상임금과 출산 전후휴가 급여의 차액만큼을 지급한다.
+※ 2014년 7월 1일 이후 한 번에 둘 이상의 아이(쌍둥이 등)를 출산하는 경우에는 대기업의 경우 75일분은 회사에서 통상 임금의 100%를 지급하고, 나머지 45일분은 고용보험에서 지급한다.(월 1,600,000원 한도) 중소기업의 경우 120일에 대해 고용보험에서 출산 전후휴가 급여를 지급한다.(월 1,600,000원 한도)"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="출산 전후휴가급여 신청방법
+- 출산 전후휴가급여를 지급받고자 하는 근로자는 사업주로부터 출산 전후휴가확인서를 발급받아 출산 전후휴가급여신청서와 함께 신청인의 거주지 또는 사업장 소재지를 관할하는고용센터에 제출하면 된다.
+- 필요한서류
+1.회사에서 받는 서류 : 출산 전후휴가확인서, 임금대장, 근로계약서 사본 등 임금을 확인할 수 있는 서류
+2.고용노동부 홈페이지나 고용센터에서 받는 서류 : 출산전후휴가급여신청서"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="유산·사산휴가"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="·적용대상
+- 출산 전후휴가급여를 지급받고자 하는 근로자는 사업주로부터 출산 전후휴가확인서를 발급받아 출산 전후휴가급여신청서와 함께 신청인의 거주지 또는 사업장 소재지를 관할하는고용센터에 제출하면 된다.
+- 근로기준법상 1인 이상 근로자를 사용하는 사업장에 종사하는 여성근로자는 근로계약의 형태(정규직, 비정규직 등)와 관계없이 누구든지 청구하여 사용할 수 있다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="· 유산·사산 휴가 기간"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="120dp"
+                            android:src="@drawable/pregnancybirth1_4"
+                            android:layout_marginTop="5dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="· 유산·사산휴가 급여
+- 유산ㆍ사산휴가시 급여는 출산전후휴가와 동일한 기준에 의해 지급된다.
+- 대기업은 휴가기간 중 최초 60일은 회사에서, 60일을 초과하는 30일은 고용보험에서 지급한다(월 1,600,000원 한도).
+- 우선지원대상기업은 휴가기간 90일 모두 고용보험에서 급여를 지급한다(월 1,600,000원 한도)"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="· 유산·사산휴가 급여 신청방법
+유산·사산휴가를 지급받고자 하는 근로자는 사업주로부터 유산·사산휴가 확인서를 발급받아 유산·사산휴가 급여 신청서와 유산·사산한 사실을 알 수 있는 의료기관의 진단서를 신청인의 거주지 또는 사업장 소재지를 관할하는 고용센터에 제출하면 된다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="육아휴직"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="만 8세 이하 또는 초등학교 2학년 이하의 자녀가 있는 근로자는 자녀 양육을 위해 1년 동안 휴직을 할 수 있다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="· 적용대상
+- 육아휴직은 한 직장에서 1년 이상 계속 근무하고, 만 8세 이하 또는 초등학교 2학년 이하의 자녀가 있는 남녀근로자가 신청할 수 있다.
+- 남녀근로자가 육아문제로 인해 퇴직하는 것을 방지하고 직장과 가정을 조화롭게 양립할 수 있도록 근로자 신분을 유지하면서 휴직할 수 있는 육아휴직이 보장된다.
+· 육아휴직 기간
+- 육아휴직 기간은 최대 1년까지 보장된다.
+
+· 육아휴직 급여
+- 육아휴직 기간은 무급이지만, 이로 인하여 생계의 위협을 받지 않고 영유아를 양육할 수 있도록 고용보험에서 육아휴직급여*를 지급하고 있다.
+* 첫 3개월 : 월 통상임금의 80%(상한 1,500,000원, 하한 700,000원), 이후 9개월 : 월 통상임금의 40%(상한 1,000,000원, 하한 500,000원)
+※ 엄마가 육아휴직을 사용한 후에 같은 자녀에 대해 아빠가 육아휴직을 사용하면 아빠의 첫 3개월 육아휴직급여로 통상임금의 100%(상한* : 첫째 자녀 1,500,000원, 둘째 이상 자녀 2,000,000원) 지급(엄마, 아빠의 순서가 바뀌어도 같음, 아빠 육아휴직 보너스제)
+* 2018년 7월부터는 모든 자녀 대상으로 상한액이 2,000,000원으로 인상됨
+-육아휴직급여와는 별도로 사업주에게도 육아휴직 등 부여 장려금(월300,000원(우선지원대상 기업만 해당)) 및 출산육아기 대체인력 지원금(월 600,000원(대규모기업은 월300,000원))이 지원된다.
+※우선지원대상기업에서 육아휴직자 최초 발생하였을 때 육아휴직 부여 장려금 10만원 추가 지원(1호 인센티브)
+· 육아휴직 급여 신청방법
+- 휴직을 하기 30일 전에 사업주에게 육아휴직 신청서를 제출한다.
+- 육아휴직 급여를 지급받고자 하는 근로자는 사업주로부터 육아휴직 확인서를 발급받아 육아휴직급여 신청서와 함께 신청인의 거주지 또는 사업장 소재지를 관할하는 고용센터에 제출하면 된다.
+- 필요한 서류
+1.회사에서 받는 서류 : 육아휴직 확인서, 임금대장, 근로계약서 사본 등 임금을 확인할 수있는 서류
+2.고용노동부 홈페이지나 고용센터에서 받는 서류 : 육아휴직급여 신청서"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="육아기 근로시간 단축"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="만 8세 이하 또는 초등학교 2학년 이하의 자녀가 있는 근로자는 자녀 양육을 위해 근무시간을 15~30시간으로 줄여서 근무하는 육아기 근로시간 단축을 할 수 있다"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="·적용대상
+- 육아기 근로시간 단축은 한 직장에서 1년 이상 계속 근무하고, 만 8세 이하의 초등학교 2학년 이하의 자녀가 있는 남녀근로자가 신청할 수 있다.
+- 육아기 근로시간 단축 제도는 일도 하면서 육아도 할 수 있어 근로자의 경력 단절 방지와 업무숙련도 저하 방지, 고용 연속성 보장 등이 가능하다.
+·사용기간
+- 육아기 근로시간 단축 기간은 최대 1년까지 보장된다. 단, 육아휴직 기간과 합산하여 1년이므로 육아휴직을 1년 모두 사용한 근로자는 사용이 불가하다.
+·육아기 근로시간 단축 급여
+- 육아기 근로시간 단축 기간에 근로한 시간에 대해서는 사업주로부터 임금을 지급받고, 단축된 근로시간에 대해서는 고용보험에서 육아기 근로시간 단축 급여 통상임금의 80%(상한 1,500,000원)를 지급받을 수 있다.
+- 육아휴직과 마찬가지로 육아기 근로시간 단축을 부여한 사업주에게 육아휴직 등 부여 장려금(월 200,000원(대규모기업은 월100,000원)) 및 출산육아기 대체인력 지원금 (월 600,000원(대규모 기업 월 300,000원))이 지원된다.
+·육아기 근로시간 단축 급여 신청방법
+- 육아기 근로시간 단축을 하기 30일 전에, 사업주에게 육아기 근로시간 단축을 신청한다.
+- 육아기 근로시간 단축 급여를 지급받고자 하는 근로자는 사업주로부터 육아기 근로시간 단축 확인서를 발급받아 육아기 근로시간 단축 급여 신청서와 함께 신청인의 거주지 또는 사업장 소재지를 관할하는 고용센터에 제출하면 된다.
+·필요한 서류
+1.회사에서 받는 서류 : 육아기 근로시간 단축 확인서, 임금대장, 근로계약서 사본 등 임금을 확인할 수 있는 서류
+2.고용노동부 홈페이지나 고용센터에서 받는 서류 : 육아기 근로시간 단축 급여 신청서
+※ 근로자가 임신한 경우, 아이를 출산하기 전이나 후에 출산 전후 휴가를 받는다. 또한 만 8세 이하 또는 초등학교 2학년 이하 자녀를 양육하기 위해 육아휴직(육아기 근로시간 단축) 제도를 이용할 수도 있다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/ultimate_gray"
+                            android:inputType="textMultiLine"
+                            android:lineSpacingExtra="5dp"
+                            android:padding="10dp"
+                            android:text="이 내용은 2018년 4월 기준으로 작성된 자료이므로, 일부 내용은 참고하시는 시점의 내용과 상이할 수 있음을 알려드립니다." />
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tab2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="영유아기는 신체발육이 왕성하고 엄마로부터 받은 면역력이 저하되어 질병에 걸리기 쉬운 시기이다. 이 시기에는 보건소를 통해 영유아 건강관리 및 필수 예방접종을 무료로 받을 수 있다"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="아이의 발단단계"
+                            android:textColor="@color/orange"
+                            android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="체중"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="출생 시 3kg, 6개월에 2배(6kg), 1년에 3배(9kg)"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="신장"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="출생 시 약 50cm, 1년에 1.5배(75cm)"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="신체발달"
+                            android:textColor="@color/yeonori"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="120dp"
+                            android:src="@drawable/pregnancybirth2_1"
+                            android:layout_marginTop="5dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/ultimate_gray"
+                            android:inputType="textMultiLine"
+                            android:lineSpacingExtra="5dp"
+                            android:padding="10dp"
+                            android:text="* 육아갈등
+아이를 양육하는 과정에서 집안 어른들의 육아방식과 달라 갈등이 발생할 수 있다. 이런 갈등은 한국의 가정에서 시부모와 젊은 부부 간에 흔히 발생한다. 따라서 시부모님과 대화를 통하여 풀수 있도록 한다.
+- 육아갈등의 예
+음식이나 우유는 아이가 원하는 시간에 먹인다. ↔ 시간에 맞춰 먹인다.
+통통해야 좋으니 많이 먹여야 한다. ↔ 적정량을 먹인다.
+보채면 업어준다. ↔ 자꾸 업어주면 버릇이 나빠진다.
+찬 우유를 먹어야 장이 튼튼해진다. ↔ 너무 찬 음식은 장을 자극한다." />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="예방접종"
+                            android:textColor="@color/orange"
+                            android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="예방접종이란 전염성 질환을 예방하기 위하여, 전염성 질환 예방 주사제를 아기에게 투여하는 것을 말한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="예방접종 전 주의사항"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 접종은 오전에 시행한다. 그래야만 문제가 생겨도 병원에 다시 가기가 쉽다.
+- 육아수첩을 꼭 가지고 간다. 접종 후에는 어떤 예방접종을 했는지 기록을 해야 한다.
+- 열이 없는 것을 확인한다.
+- 미리 목욕시킨 다음, 깨끗한 옷을 입혀 데려간다.
+- 아기의 건강상태를 잘 알고 있는 부모가 직접 데려간다. "/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="예방접종 후 주의사항"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 접종 부위를 5분 이상 문질러 주어 예방약이 골고루 퍼지게 한다.
+- 접종한 날은 목욕을 시키지 않는다.
+- 접종 부위는 청결하게 한다.
+- 접종 후 3시간 정도는 아기의 상태를 잘 살펴본다.
+- 접종 후 열이 나거나 경련을 하면 바로 의사에게 보여 줘야 한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="어린이 국가예방접종 지원"
+                            android:textColor="@color/orange"
+                            android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="어린이 국가예방접종 지원사업"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="만 12세 이하 어린이 대상 예방접종으로 예방 가능한 감염병 예방을 위해 국가예방접종 비용을 지원한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="·지원대상
+- 대상: 만 12세 이하 어린이
+- 무료 접종기관: 전국 보건소 및 지정의료기관
+- 주민등록번호 또는 외국인등록번호(면제자 포함)가 있는 경우 보건소나 가까운 지정의료기관에서 무료로 접종이 가능하다. 우리나라에 3개월 이상 체류하는 외국인 중 외국인등록을 하지 않은 외국인은 본인(또는 보호자)을 확인할 수 있는 증빙서류(여권 등)를 가지고 보건소를 방문하여 예방접종을 위한 임시 관리번호를 부여받은 경우 보건소에서 무료접종이 가능하다.
+지정의료기관은 인터넷 예방접종도우미(nip.cdc.go.kr) → 우리아이예방접종관리 → 의료기관 찾기에서 확인 가능"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="· 어린이 표준예방접종 일정(출생~15개월)"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="400dp"
+                            android:src="@drawable/pregnancybirth2_2"
+                            android:layout_marginTop="5dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="· 어린이 표준예방접종 일정(18개월~만12세)"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="410dp"
+                            android:src="@drawable/pregnancybirth2_3"
+                            android:layout_marginTop="5dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="* DTaP, IPV, Hib 백신은 예방접종일정에 따라 DTaP-IPV 혼합백신 또는 DTaP-IPV/Hib 혼합백신으로 접종가능
+일부 백신의 경우 권장접종일정보다 접종시기가 지연된 경우 의사와 상의한 후 지연된 일정에 따라 접종"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="· 기타 예방접종 서비스
+- 예방접종내역 조회
+예방접종 도우미 홈페이지 및 모바일 앱에서 예방접종내역을 조회할 수 있다.
+
+- 다음 예방접종 사전 안내
+다음 예방접종을 잊지 않도록 휴대전화 문자 수신을 동의할 경우 자녀의 다음 예방접종 일정에 따라 예방접종 사전알림 문자서비스를 제공받을 수 있으며, 권장시기보다 접종이 지연된 경우에도 지연접종을 알려주는 문자서비스를 받을 수 있다.
+
+- 무료 예방접종증명서 발급
+예방접종도우미 홈페이지에서 예방접종증명서 발급을 신청할 경우 민원 24를 통해 온라인 무료 예방접종증명서를 출력할 수 있다.
+
+기타 예방접종과 관련한 다양한 정보를 인터넷 예방접종도우미(nip.cdc.go.kr)에서 이용 가능"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="B형간염 주산기감염 예방사업"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="B형간염 양성 산모로부터 출생한 신생아에게 면역글로불린 및 B형간염 예방접종, 항원·항체 검사 실시에 대한 비용 전액을 지원하여 B형간염 주산기감염을 예방하기 위한 사업이다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="· 지원대상 및 사업 참여 방법
+- 지원대상: B형간염 표면항원(HBsAg) 또는 e항원(HBeAg) 양성 산모로부터 출생한 영유아
+- 분만 전 분만기관에 산모의 B형간염 검사결과지를 제출하고 사업에 대해 안내 받은 후, 개인정보제공동의서 제출 시 무료 지원 가능"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="· 접종 및 검사일정
+- (출생 직후(12시간 이내)) 면역글로불린 및 B형간염 1차 예방접종
+- (생후 1, 6개월) B형간염 2, 3차 예방접종
+- (생후 9~15개월) B형간염 항원·항체 1차 정량검사
+※ 항원·항체 1차 검사결과에 따라 재접종 및 재검사 필요(전액 지원)
+
+※ 출생 시 체중 2kg 미만인 동시에 37주 미만에 출생한 미숙아는 총 4회 접종(0, 1, 2, 6개월)"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/ultimate_gray"
+                            android:inputType="textMultiLine"
+                            android:lineSpacingExtra="5dp"
+                            android:padding="10dp"
+                            android:text="이 내용은 2018년 4월 기준으로 작성된 자료이므로, 일부 내용은 참고하시는 시점의 내용과 상이할 수 있음을 알려드립니다." />
+                    </LinearLayout>
+                </ScrollView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tab3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="보육 및 유아교육"
+                            android:textColor="@color/orange"
+                            android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="초등학교 입학 전 아이들은 어린이집 또는 유치원에서 보육이나 교육을 받을 수 있다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="● 어린이집"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 어린이집은 만 0세부터 만 5세까지의 아이들을 보육하고, 교육시키는 시설로 영유아보육법 제10조(어린이집의 종류)에 근거해 보건복지부에서 지정한 시설이다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 보육시간은 평일 07:30~19:30분까지를 기본으로 한다. 기관에 따라 시간 연장보육, 24시간 보육지원을 하기도 한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 어린이집은 영유아가 건강하고 안전하며 바르게 생활하는데 필요한 내용과 신체, 사회, 언어, 인지, 정서 등 발달을 위한 내용으로 교육한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 월간 보육료는 보육시간 및 아이의 연령, 보육시설의 종류에 따라 다르다. 만 0~2세(다문화가족아동 포함)까지 연령별 정부지원 단가는 250,000~441,000원, 만 3~5세(다문화가족 아동 포함)는 누리공통과정으로 월 220,000원, 만 12세 이하 미취학 장애아에게는 449,000원을 지원한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="● 유치원"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 유치원은 만 3~5세 유아들이 다니는 유아학교이다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 교육과정 및 방과후 과정은 보통 09:00~17:00까지 운영된다. 유치원 여건에 따라 맞벌이 부모의 자녀를 위하여 07:00~22:00까지 시간을 연장하여 돌봄서비스를 제공하기도 한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 유치원은 심신의 건강과 조화로운 발달을 도와 민주시민의 기초를 형성하는 데 중점을 두고, 신체운동·건강, 의사소통, 사회관계, 예술경험, 자연탐구 등 5개 영역으로 구성된 교육과정으로 교육한다. 주로 체험 및 활동(주제) 중심의 통합교육을 통하여 전인발달을 돕는 교육활동이 이루어진다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 월간 유아학비는 만 3~5세 유아에 대해 국·공립유치원 월 60,000원, 사립유치원 월220,000원을 지원한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/ultimate_gray"
+                            android:inputType="textMultiLine"
+                            android:lineSpacingExtra="5dp"
+                            android:padding="10dp"
+                            android:text="* 다문화 유치원
+다문화 유치원으로 지정된 유치원에서는 누리과정을 통해 다문화유아를 위한 언어 및 기초학습 등 맞춤형 교육을 지원하고, 모든 유아와 학부모를 대상으로 다문화 이해교육 프로그램을 운영한다. 전국 131개 유치원이 다문화 유치원으 로 지정되어 있으며, 시·도 교육 청 또는 다문화교육포털(www.nime.or.kr)을 통해 거주지역의 다문화 유치원을 확인할 수 있다." />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="보육료·유아학비·가정양육수당 지원"
+                            android:textColor="@color/orange"
+                            android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="초등학교에 입학하기 전 영유아(만 0~5세 이하)는 어린이집(만 0~5세)이나 유치원(만 3~5세)을 이용할 수 있고, 국가는 각 연령에 맞는 보육료 또는 유아학비를 무상으로 지원한다. 어린이집 및 유치원을 이용하지 않는 아동에 대해서는 부모의 양육비용 부담 경감을 위한 가정 양육수당을 지원한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="● 보육료 지원"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="보육시설(어린이집)은 0세부터 만 5세 이하 아이들을 돌봐주는 기관이다. 자녀들이 보육시설에 다니는 경우, 정부는 보육료를 지원해 주고 있다.
+’16.7월부터 ‘맞춤형 보육’ 시행에 따라 지원기준, 금액 등이 변경될 수 있음"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="지원대상"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="
+어린이집을 이용하는 초등학교 입학 전 만 0~5세 아이가 다음의 사항에 해당되면 보육료 지원 혜택을 받는다.
+
+- 영유아가구의 소득재산 수준과 무관하게 만 0~2세(다문화가족 아동 포함)까지 연령별 정부지원 단가는 250,000~441,000원, 만 3~5세(다문화가족 아동 포함)는 누리공통과정으로 월220,000원, 만 12세 이하 미취학 장애아에게는 449,000원을 지원한다.
+※‘16.7월부터 ’맞춤형 보육‘ 시행으로, 만 0~2세는 보육필요에 따라 종일반(07:30~19:30, 12시간)과 맞춤반(09:00~15:00, 6시간) 등 보육서비스 지원(다문화가족은 종일반 이용 가능)
+
+"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="165dp"
+                            android:src="@drawable/pregnancybirth3_1"
+                            android:layout_marginTop="5dp"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 장애인복지카드(등록증)를 소지한 만 5세 이하 장애아동인 경우 가구의 소득수준과 관계없이 보육료를 지원하고 있으며, 예외적으로 「장애인 등에 대한 특수교육법」 제15조에 따라 특수교육대상자로 선정된 만 3~5세 아동이 특수교육대상자로 진단・평가 결과 통지서를 제출한 경우에도 지원 가능하다. 또한, 장애인복지카드 또는 특수교육 대상자 진단 평가 결과 통지서를 미소지한 만 5세 이하 영유아도 장애소견이 있는 의사진단서를 제출할 경우 지원한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="신청방법"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 보호자(부모 및 기타 보호자)는 주소지 관할 읍·면사무소 또는 동 주민센터를 방문하여 신청하거나 복지로(www.bokjiro.go.kr), 아이사랑 모바일앱(안드로이드마켓 등 다운)을 통해 온라인으로 신청 가능함. 단, 장애아보육료 지원을 받기 원하는 비등록 장애아동인 경우는 방문신청만 가능(온라인신청 불가)"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="300dp"
+                            android:src="@drawable/pregnancybirth3_2"
+                            android:layout_marginTop="5dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="제출서류"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="사회보장급여(사회서비스 이용권) 신청(변경) 신청서, 종일형 사유 확인서 및 자격 기준 증빙서류(종일형 자격 신청 시), 아이행복카드 발급 신청 및 개인신용정보의 조회·제공·이용 동의서 "/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/ultimate_gray"
+                            android:inputType="textMultiLine"
+                            android:lineSpacingExtra="5dp"
+                            android:padding="10dp"
+                            android:text="보육료 지원 대상자로 선정되면 아이행복카드가 발급되며, 어린이집을 이용할 때, 매월 아이행복카드로 보육료를 결제하면 된다(부모가 부담하는 비용 이외에 정부에서 지원하는 비용도 아이행복카드로 함께 결제)" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="● 유아학비 지원"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="지원대상"
+                            android:textColor="@color/yeonori"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="125dp"
+                            android:src="@drawable/pregnancybirth3_3"
+                            android:layout_marginTop="5dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="※ 대한민국 국적을 가지지 않은 유아의 경우 유아학비 지원 제외(난민은 예외적으로 인정)"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="지원금액"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="유아학비"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="160dp"
+                            android:src="@drawable/pregnancybirth3_4"
+                            android:layout_marginTop="5dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 방과후 과정비"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="78dp"
+                            android:src="@drawable/pregnancybirth3_5"
+                            android:layout_marginTop="5dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="지원 절차 및 방법"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 신청 : 보호자가 유아의 주소지 읍·면·동 주민센터를 방문하여 신청하거나 온라인을 통한 직접 신청도 가능(www.bokjiro.go.kr)"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 자격결정 : 대상자의 출생 연월일 확인"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="지원 : 지원대상가구는 지원금액을 차감한 잔액을 유치원에 납부
+※ 전자카드(아이행복카드)를 통한 대상자 인증 및 지원금액 확인·신청"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="● 가정양육수당 지원"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="지원대상"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="어린이집·유치원·종일제아이돌봄서비스를 이용하지 않는 취학전 84개월 미만 아동"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="지원금액"
+                            android:textColor="@color/yeonori"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="130dp"
+                            android:src="@drawable/pregnancybirth3_6"
+                            android:layout_marginTop="5dp"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="160dp"
+                            android:src="@drawable/pregnancybirth3_7"
+                            android:layout_marginTop="5dp"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="118dp"
+                            android:src="@drawable/pregnancybirth3_8"
+                            android:layout_marginTop="5dp"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 양육 수당 : 12개월 미만(월 200,000원), 12~24개월 미만(월 150,000원), 24개월 이상~84개월 미만(월 100,000원)"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 장애아동 양육수당：36개월 미만(월 200,000원), 36개월~84개월 미만(월 100,000원)"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 농어촌 양육수당：12개월 미만(월 200,000원), 12~24개월 미만(월 177,000원), 24~36개월 미만(월 156,000원), 36~48개월 미만(월 129,000원), 48~84개월 미만(월 100,000원)"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="수당 지급일"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 매월 25일(토·공휴일인 경우에는 그 전일에 지급)"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="수당 지급 방식"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 현금지급(아동 또는 부모 등의 명의 계좌입금)
+※ 영유아보육사업의 가구원(보장단위)에 포함되는 부모 등에 한함"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 수당은 수급자 계좌에 시장·군수·구청장이 계좌적정성 확인 후 입금 조치"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="출생아 소급지원"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 아동 출생 후 60일(출생일 포함) 이내에 양육수당을 신청하는 경우에는 출생일로 소급하여 양육수당을 지원"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 지급방법 : 최초 수당 지급월에 소급분을 함께 지원"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="거주지 변경시의 수당지급"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 전입일이 15일 이내인 경우(15일까지)：신 거주지의 시장·군수·구청장이 지급"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 전입일이 16일 이후인 경우(16일부터)：구 거주지의 시장·군수·구청장이 지급"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="양육수당은 지원대상으로 결정된 경우 신청일이 속하는 달부터 아동의 취학전 연령의 12월까지 지급하되, 일할 계산하지 않고 해당 월 수당 전액을 지급한다"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 지원기간 산출식：대상아동의 출생년+6년의 12월까지 지원"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="선정기준"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 소득수준 무관하게 전(全)계층 지원. 단, 장애아동은 등록장애인일 경우, 농어촌 양육수당은 농어촌 지원자격에 적합할 경우에 한해 지원"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="55dp"
+                            android:src="@drawable/pregnancybirth3_9"
+                            android:layout_marginTop="5dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="신청"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="보호자가 영유아의 주소지 읍·면·동 주민센터를 방문하여 신청 또는 온라인 신청(www.bokjiro.go.kr 또는 모바일앱 ‘복지로’) "/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="● 아이돌봄지원사업"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="부모의 맞벌이 등으로 양육공백이 발생한 가정의 만 12세 이하 아동을 대상으로 아이돌보미가 찾아가는 돌봄 서비스를 제공하여 부모의 양육부담을 경감하고 시설보육의 사각지대를 보완하고자 하는 정부 정책사업이다.가족 구성원의 삶의 질 향상을 위해 개별 가정의 특성 및 아동발달을 고려하여 아동의 집에서 돌봄 서비스를 제공하여 아동의 안전을 보호한다. 출장이나 야근 등으로 일시적인 돌봄이 필요할 경우, 아동의 질병으로 인하여 보육시설 이용이 어려운 경우 등 돌봄 서비스 제공을 통해 부모의 일·가정 양립을 돕는다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="사업대상"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="대한민국 국적을 가진 만 3개월 이상 만 12세 이하의 아동"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="수행기관"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="전국 아이돌봄 서비스 제공기관 222개소"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="주요내용"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="시간제·종합형 돌봄 서비스 : 만 3개월 이상~만 12세 이하 영아를 대상으로 임시보육, 놀이활동, 학교 및 학원의 등·하원 서비스 제공
+※ 종합형 돌봄 서비스는 가사 포함"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="영아 종일제·보육교사형 돌봄서비스"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="만 3개월 이상~만 36개월 이하 영아를 대상으로 종일 돌봄 서비스를 제공"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="질병 감염 아동 특별 지원 서비스"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="만 3개월 이상~만 12세 아동을 대상으로 보육시설, 유치원, 학교 등 시설 이용 아동이 전염성·유행성 질병으로 인해 시설 이용이 불가능한 경우 아동을 가정에서 보호할 수 있도록 병원 이용 동행 및 돌봄 서비스를 특별 지원"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="기관파견 돌봄 서비스"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="만 3개월 이상~만 12세 아동을 대상으로 사회복지시설, 학교, 유치원, 보육 시설 등에서 기관장의 신청으로 아이돌보미 선생님이 보조인력으로 활동"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="서비스 신청방법·절차"
+                            android:textColor="@color/yeonori"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="590dp"
+                            android:src="@drawable/pregnancybirth3_10"
+                            android:layout_marginTop="5dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/ultimate_gray"
+                            android:inputType="textMultiLine"
+                            android:lineSpacingExtra="5dp"
+                            android:padding="10dp"
+                            android:text="이 내용은 2018년 4월 기준으로 작성된 자료이므로, 일부 내용은 참고하시는 시점의 내용과 상이할 수 있음을 알려드립니다." />
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tab4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="보육 및 유아교육"
+                            android:textColor="@color/orange"
+                            android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="초등학교 입학 전 아이들은 어린이집 또는 유치원에서 보육이나 교육을 받을 수 있다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="● 어린이집"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 어린이집은 만 0세부터 만 5세까지의 아이들을 보육하고, 교육시키는 시설로 영유아보육법 제10조(어린이집의 종류)에 근거해 보건복지부에서 지정한 시설이다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 보육시간은 평일 07:30~19:30분까지를 기본으로 한다. 기관에 따라 시간 연장보육, 24시간 보육지원을 하기도 한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 어린이집은 영유아가 건강하고 안전하며 바르게 생활하는데 필요한 내용과 신체, 사회, 언어, 인지, 정서 등 발달을 위한 내용으로 교육한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 월간 보육료는 보육시간 및 아이의 연령, 보육시설의 종류에 따라 다르다. 만 0~2세(다문화가족아동 포함)까지 연령별 정부지원 단가는 250,000~441,000원, 만 3~5세(다문화가족 아동 포함)는 누리공통과정으로 월 220,000원, 만 12세 이하 미취학 장애아에게는 449,000원을 지원한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="● 유치원"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 유치원은 만 3~5세 유아들이 다니는 유아학교이다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 교육과정 및 방과후 과정은 보통 09:00~17:00까지 운영된다. 유치원 여건에 따라 맞벌이 부모의 자녀를 위하여 07:00~22:00까지 시간을 연장하여 돌봄서비스를 제공하기도 한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 유치원은 심신의 건강과 조화로운 발달을 도와 민주시민의 기초를 형성하는 데 중점을 두고, 신체운동·건강, 의사소통, 사회관계, 예술경험, 자연탐구 등 5개 영역으로 구성된 교육과정으로 교육한다. 주로 체험 및 활동(주제) 중심의 통합교육을 통하여 전인발달을 돕는 교육활동이 이루어진다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 월간 유아학비는 만 3~5세 유아에 대해 국·공립유치원 월 60,000원, 사립유치원 월220,000원을 지원한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/ultimate_gray"
+                            android:inputType="textMultiLine"
+                            android:lineSpacingExtra="5dp"
+                            android:padding="10dp"
+                            android:text="* 다문화 유치원
+다문화 유치원으로 지정된 유치원에서는 누리과정을 통해 다문화유아를 위한 언어 및 기초학습 등 맞춤형 교육을 지원하고, 모든 유아와 학부모를 대상으로 다문화 이해교육 프로그램을 운영한다. 전국 131개 유치원이 다문화 유치원으 로 지정되어 있으며, 시·도 교육 청 또는 다문화교육포털(www.nime.or.kr)을 통해 거주지역의 다문화 유치원을 확인할 수 있다." />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="보육료·유아학비·가정양육수당 지원"
+                            android:textColor="@color/orange"
+                            android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="초등학교에 입학하기 전 영유아(만 0~5세 이하)는 어린이집(만 0~5세)이나 유치원(만 3~5세)을 이용할 수 있고, 국가는 각 연령에 맞는 보육료 또는 유아학비를 무상으로 지원한다. 어린이집 및 유치원을 이용하지 않는 아동에 대해서는 부모의 양육비용 부담 경감을 위한 가정 양육수당을 지원한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="● 보육료 지원"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="보육시설(어린이집)은 0세부터 만 5세 이하 아이들을 돌봐주는 기관이다. 자녀들이 보육시설에 다니는 경우, 정부는 보육료를 지원해 주고 있다.
+’16.7월부터 ‘맞춤형 보육’ 시행에 따라 지원기준, 금액 등이 변경될 수 있음"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="지원대상"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="
+어린이집을 이용하는 초등학교 입학 전 만 0~5세 아이가 다음의 사항에 해당되면 보육료 지원 혜택을 받는다.
+
+- 영유아가구의 소득재산 수준과 무관하게 만 0~2세(다문화가족 아동 포함)까지 연령별 정부지원 단가는 250,000~441,000원, 만 3~5세(다문화가족 아동 포함)는 누리공통과정으로 월220,000원, 만 12세 이하 미취학 장애아에게는 449,000원을 지원한다.
+※‘16.7월부터 ’맞춤형 보육‘ 시행으로, 만 0~2세는 보육필요에 따라 종일반(07:30~19:30, 12시간)과 맞춤반(09:00~15:00, 6시간) 등 보육서비스 지원(다문화가족은 종일반 이용 가능)
+
+"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="165dp"
+                            android:src="@drawable/pregnancybirth3_1"
+                            android:layout_marginTop="5dp"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 장애인복지카드(등록증)를 소지한 만 5세 이하 장애아동인 경우 가구의 소득수준과 관계없이 보육료를 지원하고 있으며, 예외적으로 「장애인 등에 대한 특수교육법」 제15조에 따라 특수교육대상자로 선정된 만 3~5세 아동이 특수교육대상자로 진단・평가 결과 통지서를 제출한 경우에도 지원 가능하다. 또한, 장애인복지카드 또는 특수교육 대상자 진단 평가 결과 통지서를 미소지한 만 5세 이하 영유아도 장애소견이 있는 의사진단서를 제출할 경우 지원한다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="신청방법"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 보호자(부모 및 기타 보호자)는 주소지 관할 읍·면사무소 또는 동 주민센터를 방문하여 신청하거나 복지로(www.bokjiro.go.kr), 아이사랑 모바일앱(안드로이드마켓 등 다운)을 통해 온라인으로 신청 가능함. 단, 장애아보육료 지원을 받기 원하는 비등록 장애아동인 경우는 방문신청만 가능(온라인신청 불가)"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="300dp"
+                            android:src="@drawable/pregnancybirth3_2"
+                            android:layout_marginTop="5dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="제출서류"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="사회보장급여(사회서비스 이용권) 신청(변경) 신청서, 종일형 사유 확인서 및 자격 기준 증빙서류(종일형 자격 신청 시), 아이행복카드 발급 신청 및 개인신용정보의 조회·제공·이용 동의서 "/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/ultimate_gray"
+                            android:inputType="textMultiLine"
+                            android:lineSpacingExtra="5dp"
+                            android:padding="10dp"
+                            android:text="보육료 지원 대상자로 선정되면 아이행복카드가 발급되며, 어린이집을 이용할 때, 매월 아이행복카드로 보육료를 결제하면 된다(부모가 부담하는 비용 이외에 정부에서 지원하는 비용도 아이행복카드로 함께 결제)" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="● 유아학비 지원"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="지원대상"
+                            android:textColor="@color/yeonori"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="125dp"
+                            android:src="@drawable/pregnancybirth3_3"
+                            android:layout_marginTop="5dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="※ 대한민국 국적을 가지지 않은 유아의 경우 유아학비 지원 제외(난민은 예외적으로 인정)"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="지원금액"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="유아학비"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="160dp"
+                            android:src="@drawable/pregnancybirth3_4"
+                            android:layout_marginTop="5dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 방과후 과정비"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="78dp"
+                            android:src="@drawable/pregnancybirth3_5"
+                            android:layout_marginTop="5dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="지원 절차 및 방법"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 신청 : 보호자가 유아의 주소지 읍·면·동 주민센터를 방문하여 신청하거나 온라인을 통한 직접 신청도 가능(www.bokjiro.go.kr)"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 자격결정 : 대상자의 출생 연월일 확인"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="지원 : 지원대상가구는 지원금액을 차감한 잔액을 유치원에 납부
+※ 전자카드(아이행복카드)를 통한 대상자 인증 및 지원금액 확인·신청"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="● 가정양육수당 지원"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="지원대상"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="어린이집·유치원·종일제아이돌봄서비스를 이용하지 않는 취학전 84개월 미만 아동"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="지원금액"
+                            android:textColor="@color/yeonori"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="130dp"
+                            android:src="@drawable/pregnancybirth3_6"
+                            android:layout_marginTop="5dp"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="160dp"
+                            android:src="@drawable/pregnancybirth3_7"
+                            android:layout_marginTop="5dp"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="118dp"
+                            android:src="@drawable/pregnancybirth3_8"
+                            android:layout_marginTop="5dp"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 양육 수당 : 12개월 미만(월 200,000원), 12~24개월 미만(월 150,000원), 24개월 이상~84개월 미만(월 100,000원)"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 장애아동 양육수당：36개월 미만(월 200,000원), 36개월~84개월 미만(월 100,000원)"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 농어촌 양육수당：12개월 미만(월 200,000원), 12~24개월 미만(월 177,000원), 24~36개월 미만(월 156,000원), 36~48개월 미만(월 129,000원), 48~84개월 미만(월 100,000원)"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="수당 지급일"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 매월 25일(토·공휴일인 경우에는 그 전일에 지급)"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="수당 지급 방식"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 현금지급(아동 또는 부모 등의 명의 계좌입금)
+※ 영유아보육사업의 가구원(보장단위)에 포함되는 부모 등에 한함"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 수당은 수급자 계좌에 시장·군수·구청장이 계좌적정성 확인 후 입금 조치"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="출생아 소급지원"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 아동 출생 후 60일(출생일 포함) 이내에 양육수당을 신청하는 경우에는 출생일로 소급하여 양육수당을 지원"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 지급방법 : 최초 수당 지급월에 소급분을 함께 지원"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="거주지 변경시의 수당지급"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 전입일이 15일 이내인 경우(15일까지)：신 거주지의 시장·군수·구청장이 지급"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 전입일이 16일 이후인 경우(16일부터)：구 거주지의 시장·군수·구청장이 지급"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="양육수당은 지원대상으로 결정된 경우 신청일이 속하는 달부터 아동의 취학전 연령의 12월까지 지급하되, 일할 계산하지 않고 해당 월 수당 전액을 지급한다"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 지원기간 산출식：대상아동의 출생년+6년의 12월까지 지원"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="선정기준"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="- 소득수준 무관하게 전(全)계층 지원. 단, 장애아동은 등록장애인일 경우, 농어촌 양육수당은 농어촌 지원자격에 적합할 경우에 한해 지원"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="55dp"
+                            android:src="@drawable/pregnancybirth3_9"
+                            android:layout_marginTop="5dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="신청"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="보호자가 영유아의 주소지 읍·면·동 주민센터를 방문하여 신청 또는 온라인 신청(www.bokjiro.go.kr 또는 모바일앱 ‘복지로’) "/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="● 아이돌봄지원사업"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="부모의 맞벌이 등으로 양육공백이 발생한 가정의 만 12세 이하 아동을 대상으로 아이돌보미가 찾아가는 돌봄 서비스를 제공하여 부모의 양육부담을 경감하고 시설보육의 사각지대를 보완하고자 하는 정부 정책사업이다.가족 구성원의 삶의 질 향상을 위해 개별 가정의 특성 및 아동발달을 고려하여 아동의 집에서 돌봄 서비스를 제공하여 아동의 안전을 보호한다. 출장이나 야근 등으로 일시적인 돌봄이 필요할 경우, 아동의 질병으로 인하여 보육시설 이용이 어려운 경우 등 돌봄 서비스 제공을 통해 부모의 일·가정 양립을 돕는다."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="사업대상"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="대한민국 국적을 가진 만 3개월 이상 만 12세 이하의 아동"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="수행기관"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="전국 아이돌봄 서비스 제공기관 222개소"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="주요내용"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="시간제·종합형 돌봄 서비스 : 만 3개월 이상~만 12세 이하 영아를 대상으로 임시보육, 놀이활동, 학교 및 학원의 등·하원 서비스 제공
+※ 종합형 돌봄 서비스는 가사 포함"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="영아 종일제·보육교사형 돌봄서비스"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="만 3개월 이상~만 36개월 이하 영아를 대상으로 종일 돌봄 서비스를 제공"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="질병 감염 아동 특별 지원 서비스"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="만 3개월 이상~만 12세 아동을 대상으로 보육시설, 유치원, 학교 등 시설 이용 아동이 전염성·유행성 질병으로 인해 시설 이용이 불가능한 경우 아동을 가정에서 보호할 수 있도록 병원 이용 동행 및 돌봄 서비스를 특별 지원"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="기관파견 돌봄 서비스"
+                            android:textColor="@color/yeonori"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="만 3개월 이상~만 12세 아동을 대상으로 사회복지시설, 학교, 유치원, 보육 시설 등에서 기관장의 신청으로 아이돌보미 선생님이 보조인력으로 활동"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="서비스 신청방법·절차"
+                            android:textColor="@color/yeonori"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="590dp"
+                            android:src="@drawable/pregnancybirth3_10"
+                            android:layout_marginTop="5dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/ultimate_gray"
+                            android:inputType="textMultiLine"
+                            android:lineSpacingExtra="5dp"
+                            android:padding="10dp"
+                            android:text="이 내용은 2018년 4월 기준으로 작성된 자료이므로, 일부 내용은 참고하시는 시점의 내용과 상이할 수 있음을 알려드립니다." />
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+
+
+
+
+
+
+        </FrameLayout>
+    </LinearLayout>
+
+</TabHost>

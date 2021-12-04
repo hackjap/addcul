@@ -97,7 +97,7 @@ public class MainActivity extends BasicActivity implements GoogleApiClient.OnCon
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-//                        processData(response);
+                        processData(response);
                     }
                 },
                 new Response.ErrorListener() {

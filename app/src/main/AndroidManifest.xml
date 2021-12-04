@@ -31,7 +31,9 @@
         <activity android:name=".activity.post.ReadPostActivity" />
         <activity android:name=".activity.account.LoginActivity" />
         <activity android:name=".activity.translate.TranslationActivity" />
-        <activity android:name=".activity.problem.PregnancybirthActivity" />
+        <activity android:name=".activity.problem.PregnancybirthActivity" >
+
+        </activity>
         <activity android:name=".activity.problem.ProblemActivity" />
         <activity android:name=".activity.kculture.KcultureActivity" />
         <activity android:name=".activity.post.WritePostSosActivity" />
@@ -47,7 +49,7 @@
         <activity android:name=".activity.kculture.KakaoActivity" />
         <activity android:name=".activity.kculture.BaeminActivity" />
         <activity android:name=".activity.kculture.SubwayActivity" />
-
+ 안녕하세요
         <activity
             android:name=".activity.account.SignUpActivity"
             android:windowSoftInputMode="adjustPan" />
@@ -57,13 +59,15 @@
             android:name=".activity.chat.ReadChatActivity"
             android:windowSoftInputMode="adjustPan"></activity>
         <activity android:name=".activity.chat.WriteChatActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".activity.config.IntroActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".activity.config.IntroActivity">
+
         </activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
