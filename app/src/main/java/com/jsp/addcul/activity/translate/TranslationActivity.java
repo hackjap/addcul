@@ -63,8 +63,8 @@ public class TranslationActivity extends BasicActivity {
         TextView tvTran = findViewById(R.id.tv_translate);
         ivTran.setImageResource(R.drawable.ic_translate_yellow_24dp);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, items);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.item_translate, items);
+        adapter.setDropDownViewResource(R.layout.item_translate);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

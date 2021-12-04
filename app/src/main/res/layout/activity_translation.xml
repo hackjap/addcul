@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_margin="25dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
@@ -38,7 +38,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="10dp"
         android:gravity="center">
 
@@ -71,20 +71,19 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@drawable/style_shop_border_y">
+                android:background="@drawable/style_chat_fill">
 
                 <Spinner
                     android:id="@+id/trans_id"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/blue_outline"
-                    android:spinnerMode="dialog"
-                    android:textColor="@color/basic_text" />
+                    android:layout_height="30dp"
+                    android:spinnerMode="dropdown"
+                    android:textColor="@color/basic_text"/>
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_arrow_drop_down_black_24dp" />
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/ic_arrow_drop_down_black_24dp" />-->
             </LinearLayout>
         </LinearLayout>
 
@@ -92,10 +91,10 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
         android:orientation="vertical"
-
         android:padding="10dp">
 
         <EditText
@@ -110,8 +109,9 @@
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
         android:orientation="vertical"
         android:padding="10dp">
 
