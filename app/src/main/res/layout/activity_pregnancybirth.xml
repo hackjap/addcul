@@ -14,8 +14,8 @@
             android:id="@android:id/tabs"
             android:layout_width="match_parent"
             android:gravity="center_horizontal"
-            android:layout_height="wrap_content" >
-        </TabWidget>
+            android:layout_height="wrap_content"/>
+
 
         <FrameLayout
             android:id="@android:id/tabcontent"
@@ -44,8 +44,10 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:text="응급상황 대처법"
-                            android:textColor="@color/orange"
-                            android:textSize="18sp" />
+                            android:layout_margin="10dp"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textColor="@color/orange" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -333,7 +335,7 @@
                                 android:textStyle="bold"
                                 android:layout_marginTop="10dp"
                                 android:textSize="17dp"
-                                android:text="[9] 가락이 잘렸을 때"
+                                android:text="[9] 손가락이 잘렸을 때"
                                 android:textColor="@color/yeonori"
                                 />
                             <TextView
@@ -350,13 +352,12 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginRight="10dp"
-                            android:background="@color/ultimate_gray"
+                            android:layout_margin="20dp"
                             android:inputType="textMultiLine"
                             android:lineSpacingExtra="5dp"
                             android:padding="10dp"
+                            android:textSize="12dp"
+                            android:textColor="@color/basic_gray"
                             android:text="이 내용은 2021년 10월 기준으로 작성된 자료이므로, 일부 내용은 참고하시는 시점의 내용과 상이할 수 있음을 알려드립니다." />
                     </LinearLayout>
                 </ScrollView>
@@ -385,7 +386,9 @@
                             android:layout_marginTop="10dp"
                             android:text="건강보험"
                             android:textColor="@color/orange"
-                            android:textSize="18sp" />
+                            android:textSize="20sp"
+                            android:gravity="center"
+                            android:layout_margin="10dp"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -588,13 +591,12 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginRight="10dp"
-                            android:background="@color/ultimate_gray"
+                            android:layout_margin="20dp"
                             android:inputType="textMultiLine"
                             android:lineSpacingExtra="5dp"
                             android:padding="10dp"
+                            android:textSize="12dp"
+                            android:textColor="@color/basic_gray"
                             android:text="이 내용은 2021년 10월 기준으로 작성된 자료이므로, 일부 내용은 참고하시는 시점의 내용과 상이할 수 있음을 알려드립니다." />
                     </LinearLayout>
                 </ScrollView>
@@ -623,7 +625,9 @@
                             android:layout_marginTop="10dp"
                             android:text="의료급여제도"
                             android:textColor="@color/orange"
-                            android:textSize="18sp" />
+                            android:textSize="20sp"
+                            android:gravity="center"
+                            android:layout_margin="10dp"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -762,13 +766,12 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginRight="10dp"
-                            android:background="@color/ultimate_gray"
+                            android:layout_margin="20dp"
                             android:inputType="textMultiLine"
                             android:lineSpacingExtra="5dp"
                             android:padding="10dp"
+                            android:textSize="12dp"
+                            android:textColor="@color/basic_gray"
                             android:text="이 내용은 2021년 10월 기준으로 작성된 자료이므로, 일부 내용은 참고하시는 시점의 내용과 상이할 수 있음을 알려드립니다." />
                     </LinearLayout>
                 </ScrollView>
@@ -798,7 +801,9 @@
                             android:layout_marginTop="10dp"
                             android:text="진료 분아별 병원 구분"
                             android:textColor="@color/orange"
-                            android:textSize="18sp" />
+                            android:textSize="20sp"
+                            android:layout_margin="10dp"
+                            android:gravity="center"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -1008,13 +1013,12 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginRight="10dp"
-                            android:background="@color/ultimate_gray"
+                            android:layout_margin="20dp"
                             android:inputType="textMultiLine"
                             android:lineSpacingExtra="5dp"
                             android:padding="10dp"
+                            android:textSize="12dp"
+                            android:textColor="@color/basic_gray"
                             android:text="이 내용은 2021년 10월 기준으로 작성된 자료이므로, 일부 내용은 참고하시는 시점의 내용과 상이할 수 있음을 알려드립니다." />
                     </LinearLayout>
                 </ScrollView>
