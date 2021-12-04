@@ -2,6 +2,7 @@ package com.jsp.addcul.activity.config;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -52,8 +53,9 @@ public class BasicActivity extends AppCompatActivity {
                     startActivity(MapActivity.class);
                     break;
                 case R.id.img_search:
-//                    Toast.makeText(getApplicationContext(),"곧 기능을 출시할 예정이에요.",Toast.LENGTH_LONG).show();
-                    startActivity(TmpActivity.class);
+                    Toast.makeText(getApplicationContext(),"구글 검색페이지로 이동합니다.",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
+                    startActivity(intent);
                     break;
                 case R.id.img_translate:
                     startActivity(TranslationActivity.class);

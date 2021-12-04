@@ -87,7 +87,7 @@ public class IndexActivity extends AppCompatActivity {
             //chatUpdate();
 
 
-                    adapter = new RealChatAdapter(IndexActivity.this,chatInfos,memberInfos);
+            adapter = new RealChatAdapter(IndexActivity.this,chatInfos,memberInfos);
             recyclerView.setLayoutManager(new LinearLayoutManager(IndexActivity.this));
             recyclerView.setAdapter(adapter);
             recyclerView.scrollToPosition(adapter.getItemCount()-1);

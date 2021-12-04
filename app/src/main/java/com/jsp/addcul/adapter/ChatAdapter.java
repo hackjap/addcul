@@ -164,6 +164,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         }
 
         NameTextView.setText(publisher);
+        NameTextView.setTextColor(0x535353);
         TextTextView.setText(mDataset.get(position).getText());
         createdTextView.setText(new SimpleDateFormat("hh:mm:ss a", Locale.getDefault()).format(mDataset.get(position).getCreated()));
 
