@@ -2,6 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jsp.addcul">
 
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,30 +18,32 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.TmpActivity"></activity>
+        <activity android:name=".activity.ChatList">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.TmpActivity" />
         <activity android:name=".activity.chat.IndexActivity" />
         <activity android:name=".activity.chat.IndexActivity2" />
         <activity android:name=".activity.chat.IndexActivity3" />
         <activity android:name=".activity.chat.IndexActivity4" />
         <activity android:name=".activity.chat.IndexActivity5" />
         <activity android:name=".activity.chat.ChatBastion" />
-
-        <activity android:name=".activity.post.ReadPostDetailActivity"></activity>
-        <activity android:name=".activity.account.MyInfoActivity"></activity>
-        <activity android:name=".activity.config.SlideActivity"></activity>
-        <activity android:name=".activity.googlemap.MapActivity"></activity>
-
-        <activity android:name=".activity.googlemap.GoogleMapActivitiy"></activity>
-
-        <activity android:name=".activity.kculture.YoutubeActivity"></activity>
+        <activity android:name=".activity.post.ReadPostDetailActivity" />
+        <activity android:name=".activity.account.MyInfoActivity" />
+        <activity android:name=".activity.config.SlideActivity" />
+        <activity android:name=".activity.googlemap.MapActivity" />
+        <activity android:name=".activity.googlemap.GoogleMapActivitiy" />
+        <activity android:name=".activity.kculture.YoutubeActivity" />
         <activity android:name=".activity.kculture.NaverActivity" />
         <activity android:name=".activity.config.BasicActivity" />
         <activity android:name=".activity.post.ReadPostActivity" />
         <activity android:name=".activity.account.LoginActivity" />
         <activity android:name=".activity.translate.TranslationActivity" />
-        <activity android:name=".activity.problem.PregnancybirthActivity" >
-
-        </activity>
+        <activity android:name=".activity.problem.PregnancybirthActivity"></activity>
         <activity android:name=".activity.problem.ProblemActivity" />
         <activity android:name=".activity.kculture.KcultureActivity" />
         <activity android:name=".activity.post.WritePostSosActivity" />
@@ -49,16 +59,15 @@
         <activity android:name=".activity.kculture.KakaoActivity" />
         <activity android:name=".activity.kculture.BaeminActivity" />
         <activity android:name=".activity.kculture.SubwayActivity" />
- 안녕하세요
         <activity
             android:name=".activity.account.SignUpActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".activity.account.PasswordResetActivity" />
-        <activity android:name=".activity.post.WritePostActivity"></activity>
+        <activity android:name=".activity.post.WritePostActivity" />
         <activity
             android:name=".activity.chat.ReadChatActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
-        <activity android:name=".activity.chat.WriteChatActivity"></activity>
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".activity.chat.WriteChatActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -66,20 +75,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.config.IntroActivity">
+        <activity android:name=".activity.config.IntroActivity"></activity>
 
-        </activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyByp1zP0yyRPCkETcxppcybaf-_1bgtUtE" />
     </application>
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-
-    <uses-permission android:name="android.permission.CAMERA" />
 
 </manifest>
